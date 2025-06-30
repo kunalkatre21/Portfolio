@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title should be specific to the case study -->
+    <title>Case Study: Eka.Care Co-WIN Vaccine Booking | [Your Name]</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div>
+
+    <!-- The Nav is consistent across pages -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">[Your Initials/Logo]</a>
+        <div class="nav-links">
+             <a href="index.html#act1">Foundation</a>
+            <a href="index.html#act2">Builder</a>
+            <a href="index.html#act3">Strategist</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="case-study">
+            <header class="case-study__header">
+                <a href="index.html" class="case-study__back-link">← Back to Narrative</a>
+                <h1 class="case-study__title">Designing for a Nation in Crisis: The Co-WIN Vaccine Booking Feature</h1>
+                <p class="case-study__subtitle">How we tackled a high-panic, high-scale problem by prioritizing clarity and pre-empting user anxiety.</p>
+                <div class="case-study__meta">
+                    <span><strong>Company:</strong> Eka.Care (formerly Orbi Health)</span>
+                    <span><strong>Role:</strong> Lead Product Designer</span>
+                    <span><strong>Timeline:</strong> 2021</span>
+                </div>
+            </header>
+
+            <div class="case-study__content">
+                <section>
+                    <h2>The Problem: Chaos and Anxiety</h2>
+                    <p>In 2021, India's COVID-19 vaccine rollout was chaotic. The government's Co-WIN portal was overwhelmed. Users faced a high-anxiety, low-information environment, desperately searching for slots for their families. Our challenge was to create a vastly superior, reassuring, and reliable booking experience within our consumer app.</p>
+                </section>
+                
+                <!-- You can add images here -->
+                <figure class="case-study__image">
+                    <img src="placeholder-image.png" alt="A screenshot of the final UI">
+                    <figcaption>The final booking confirmation screen, designed to maximize clarity.</figcaption>
+                </figure>
+                
+                <section>
+                    <h2>My Role & Process</h2>
+                    <p>As the lead designer, I was responsible for the entire end-to-end user experience, from concept to launch. I worked directly with engineering to define specs, as we had no dedicated PM. My process was built around a single principle: **fight panic with clarity**.</p>
+                    <ul>
+                        <li>**Problem Framing:** Identifying user anxiety points: "Are there slots?", "Did my booking go through?", "What do I need to bring?".</li>
+                        <li>**Logic Mapping:** Charting out the complex states: Dose 1 vs Dose 2, vaccine type (Covishield/Covaxin), paid vs free, and the specific time gap rules between doses.</li>
+                        <li>**Iterative Design:** Creating high-fidelity mockups in Figma that explicitly addressed every potential question on the screen itself.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Key Design Decisions & Challenges</h2>
+                    <h3>1. The "Pre-emptive" Confirmation Screen</h3>
+                    <p>The booking confirmation wasn't just a success message. It was a contract of reassurance. I meticulously designed it to include explicit instructions to prevent anxiety: "Arrive 15 minutes prior," "Bring your Passport," and clearly stating "Dose 1 of Covishield" to leave no room for doubt.</p>
+                    
+                    <h3>2. The "Register for Alert" System & A Technical Reality Check</h3>
+                    <p>We designed a notification system for when slots opened in a user's district. However, this revealed a critical design-to-engineering gap: all alerts fired at midnight when the Co-WIN system updated, crashing our servers. It was a powerful lesson in understanding the full lifecycle of a feature, beyond the UI. We had to work with engineering to build a staggered notification delivery system.</p>
+                </section>
+
+                <section>
+                    <h2>The Impact</h2>
+                    <p>The feature was a massive success, helping millions of Indians secure vaccine slots during a critical time. It drove a huge surge in app downloads and established Eka.Care as a key player in the digital health space. Most importantly, it proved that thoughtful, empathetic design can make a tangible difference in people's lives, especially in moments of crisis.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
