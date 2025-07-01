@@ -193,6 +193,125 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
 }
 
 /* [NEW] CV Page Styles */
+/* --- [NEW] CV Page Refinements --- */
+
+/* Clearer Link Affordance (HIG: Clarity) */
+.cv-contact a, .cv-download-link {
+    text-decoration: none; /* Keep existing style for these */
+    color: var(--color-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+.cv-contact a:hover, .cv-download-link:hover {
+    color: var(--color-accent);
+}
+
+.cv-entry ul a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color var(--transition-speed) ease;
+}
+
+.cv-entry ul a:hover {
+    color: var(--color-accent);
+}
+
+/* Entry Header with Logo (HIG: Hierarchy & Deference) */
+.cv-entry__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cv-entry__logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    flex-shrink: 0;
+    /* The grayscale filter makes logos defer to the text content */
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+/* Adjust h3 position since it's now inside a div */
+.cv-entry .cv-entry__header h3 {
+    margin-right: 0;
+    margin-bottom: 2px;
+}
+
+.cv-entry ul {
+    /* Indent the list to align with the text, not the logo */
+    padding-left: calc(40px + var(--spacing-md) + var(--spacing-sm));
+}
+
+/* Responsive adjustment for the new structure */
+@media (max-width: 768px) {
+    .cv-entry ul {
+        padding-left: var(--spacing-lg);
+    }
+}
+.cv-contact a {
+    display: block;
+    text-decoration: underline; /* Underline by default for clear affordance */
+    text-underline-offset: 4px; /* Nicer spacing for the underline */
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    transition: all var(--transition-speed) ease;
+}
+
+.cv-contact a:hover {
+    text-decoration: none; /* Remove underline on hover */
+    color: var(--color-accent); /* Change to accent color */
+}
+
+.cv-entry { margin-bottom: var(--spacing-xl); } /* Increased spacing between entries */
+
+.cv-entry__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+/* .cv-entry__logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: var(--spacing-sm);
+    background-color: var(--color-border); /* Placeholder background */
+    flex-shrink: 0;
+} */
+
+.cv-entry h3 {
+    font-size: 1.2rem;
+    margin: 0; /* Remove default margins */
+}
+
+.cv-entry__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.cv-entry__meta strong {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.cv-entry ul {
+    margin-top: 0;
+    padding-left: var(--spacing-lg);
+}
+
+.cv-entry li {
+    margin-bottom: var(--spacing-sm);
+    color: #5a5e78;
+}
+
 .cv-page {
     padding: var(--spacing-xl) 0;
     background-color: var(--color-surface);
@@ -210,15 +329,9 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
 }
 .cv-tagline { font-size: 1.25rem; color: var(--color-text-muted); }
 .cv-contact { text-align: right; }
-.cv-contact a { display: block; text-decoration: none; color: var(--color-primary); margin-bottom: 4px; }
 .cv-download-btn { margin: var(--spacing-lg) auto; display: block; width: fit-content; }
 .cv-section { margin-top: var(--spacing-xl); }
 .cv-section h2 { font-family: var(--font-family-serif); border-bottom: 1px solid var(--color-border); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg); }
-.cv-entry { margin-bottom: var(--spacing-lg); }
-.cv-entry h3 { font-size: 1.2rem; display: inline-block; margin-right: var(--spacing-sm); }
-.cv-entry span { color: var(--color-text-muted); }
-.cv-entry ul { margin-top: var(--spacing-sm); padding-left: var(--spacing-lg); }
-.cv-entry li { margin-bottom: var(--spacing-sm); color: #5a5e78; }
 .cv-skills-grid div { display: grid; grid-template-columns: 120px 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-sm); }
 .cv-skills-grid strong { font-weight: 600; }
 .cv-skills-grid span { color: var(--color-text-muted); }
