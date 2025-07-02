@@ -18,6 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => el.classList.add('is-visible'));
     }
 
+    // --- Intersection Observer for Chart Animation ---
+    const chart = document.querySelector('.impact-chart-container');
+
+    if (chart) { // Only run if the chart exists on the page
+        const chartObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add the 'is-visible' class to trigger CSS animations
+                    entry.target.classList.add('is-visible');
+
+                    // Set the final height of the bars
+                    const beforeBar = entry.target.querySelector('.bar--before .bar-inner');
+                    const afterBar = entry.target.querySelector('.bar--after .bar-inner');
+
+                    beforeBar.style.height = '62%';
+                    afterBar.style.height = '75%';
+
+                    // Stop observing once the animation is triggered
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the chart is visible
+
+        chartObserver.observe(chart);
+    }
+
     // --- [NEW] Case Study TOC Active State Logic ---
     const tocLinks = document.querySelectorAll('.case-study__toc-links a');
     const sections = document.querySelectorAll('.case-study__content section[id]');

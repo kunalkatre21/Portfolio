@@ -442,3 +442,162 @@ body {
     
     /* ... other existing responsive styles ... */
 }
+
+/* --- [NEW] Funnel Chart --- */
+.funnel-chart-container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+.funnel-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+.funnel-title h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+.funnel-title p {
+    color: var(--color-text-muted);
+    margin: 0;
+}
+.funnel-stage {
+    margin-bottom: var(--spacing-sm);
+}
+.funnel-stage span {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+.funnel-bar {
+    height: 40px;
+    line-height: 40px;
+    color: var(--color-background);
+    padding-left: var(--spacing-md);
+    font-weight: 700;
+    border-radius: 4px;
+}
+.funnel-bar--full {
+    width: 100%;
+    background-color: var(--color-primary);
+}
+.funnel-bar--partial {
+    width: 62%;
+    background-color: var(--color-text-muted);
+}
+.funnel-dropoff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-accent);
+    margin: var(--spacing-md) 0;
+}
+.funnel-dropoff span {
+    font-weight: 600;
+}
+/* --- [NEW] Interactive Impact Chart --- */
+.impact-chart-container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.chart-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.chart-title h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.chart-title p {
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.chart-area {
+    position: relative; /* For positioning the annotation */
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Aligns bars to the bottom */
+    height: 250px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--spacing-md);
+}
+
+.chart-bar {
+    width: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar-inner {
+    width: 50px;
+    border-radius: 4px 4px 0 0;
+    /* This is the animation magic! */
+    height: 0; /* Start at 0 height */
+    transition: height 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bar--before .bar-inner { background-color: var(--color-text-muted); }
+.bar--after .bar-inner { background-color: var(--color-primary); }
+
+.bar-value {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    /* Animation for the text */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out 0.8s, transform 0.5s ease-out 0.8s; /* Delayed transition */
+}
+
+.bar-label {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+/* Annotation Styling */
+.chart-annotation {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    /* Animation for the annotation */
+    opacity: 0;
+    transition: opacity 0.5s ease-out 1.2s; /* Delayed even more */
+}
+.chart-annotation svg {
+    color: var(--color-accent);
+}
+.chart-annotation span {
+    font-weight: 600;
+    color: var(--color-accent);
+    background: var(--color-background);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+
+/* --- Animation Trigger Class --- */
+/* This class will be added by JavaScript when the chart is visible */
+.impact-chart-container.is-visible .bar-value,
+.impact-chart-container.is-visible .chart-annotation {
+    opacity: 1;
+    transform: translateY(0);
+}

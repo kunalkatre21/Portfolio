@@ -31,12 +31,12 @@
         <main class="case-study">
             <header class="case-study__header">
                 <a href="index.html" class="case-study__back-link">← Back to Narrative</a>
-                <h1 class="case-study__title">From Confusion to Conversion: How I Lifted Feature Success by 30%</h1>
+                <h1 class="case-study__title">From Confusion to Conversion: How I Lifted Feature Success by 21%</h1>
                 <p class="case-study__subtitle">A deep dive into how I used guerilla research and a key interaction pivot to diagnose a failing feature funnel, rebuilding it to drive user trust and measurable business impact.</p>
                 <div class="case-study__meta">
                     <span><strong>Role:</strong> Lead Product Designer</span>
                     <span><strong>Company:</strong> Eka.Care</span>
-                    <span><strong>Outcome:</strong> +30% Conversion for First-Time Users</span>
+                    <span><strong>Outcome:</strong> +21% Relative Conversion Improvement for First-Time Users</span>
                     <span><strong>Skills:</strong> User Research, Funnel Analysis, Interaction Design, Prototyping</span>
                 </div>
             </header>
@@ -45,11 +45,27 @@
                 <div class="case-study__content">
                     <section id="setup">
                         <h2>1. The Setup: A Failing Strategic Asset</h2>
-                        <p>The Heart Rate Monitor (BPM) was a key pillar of our user acquisition strategy, designed to be a free, high-value "wow" moment to differentiate Eka.Care and drive initial app downloads. Its success was directly tied to our top-of-funnel growth targets. However, the data told a different story. It was a leaking bucket. Our analytics showed a massive drop-off, with overall conversion for the feature struggling at around 64%. For the crucial <strong>first-time user cohort, the numbers were even worse</strong>, sometimes dipping below 60%.</p>
-                        <p>The business problem was clear: a key strategic asset was underperforming and creating a poor first impression. My task was not just to fix a UI, but to diagnose and reverse a business failure.</p>
-                        <figure class="case-study__image">
-                            <img src="path/to/annotated-funnel-before.png" alt="Analytics funnel chart with a red arrow pointing to a 42% drop-off in the BPM feature.">
-                            <figcaption>Fig. 1 - The Leak: The initial funnel analysis revealed a catastrophic 42% drop-off between users landing on the feature and successfully starting a measurement.</figcaption>
+                        <p>The Heart Rate Monitor (BPM) was a key pillar of our user acquisition strategy, designed to be a free, high-value "wow" moment to differentiate Eka.Care and drive initial app downloads. Its success was directly tied to our top-of-funnel growth targets. However, the data told a different story. It was a leaking bucket.</p>
+                        <p>My initial analysis of our analytics revealed a major problem. For the crucial <strong>first-time user cohort, the conversion rate was hovering around a stagnant 62%</strong>. A key strategic asset was underperforming and creating a poor first impression for tens of thousands of new users. My task was not just to fix a UI, but to diagnose and reverse a business failure.</p>
+                        <!-- FIG 1: THE LEAK - FUNNEL ANALYSIS -->
+                        <figure class="case-study__image funnel-chart-container">
+                            <div class="funnel-title">
+                                <h3>The Leaking Funnel: Initial Analysis</h3>
+                                <p>First-Time User Cohort, Nov-Dec 2022</p>
+                            </div>
+                            <div class="funnel-stage">
+                                <span>Landed on Feature</span>
+                                <div class="funnel-bar funnel-bar--full">100%</div>
+                            </div>
+                            <div class="funnel-dropoff">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                                <span>-38% Drop-off</span>
+                            </div>
+                            <div class="funnel-stage">
+                                <span>Successful Measurement</span>
+                                <div class="funnel-bar funnel-bar--partial">62%</div>
+                            </div>
+                            <figcaption>Fig. 1 - The initial analysis revealed a catastrophic ~38% drop-off, with a baseline conversion of only 62% for new users.</figcaption>
                         </figure>
                     </section>
     
@@ -63,7 +79,7 @@
                         <h3>Mapping the Failure Points</h3>
                         <p>To synthesize these qualitative findings and present a clear case to stakeholders, I created a user journey map. This artifact became the centerpiece of our investigation, allowing the entire team to visualize exactly where the experience was breaking down.</p>
                         <figure class="case-study__image">
-                            <img src="path/to/annotated-journey-map.png" alt="A user journey map annotated with user quotes and pain points highlighted in red during the 'Setup & Trust' phase.">
+                            <img src="/assets/hr/journey-map.png" alt="A user journey map annotated with user quotes and pain points highlighted in red during the 'Setup & Trust' phase.">
                             <figcaption>Fig. 2 - The journey map became our team's shared understanding of the problem. Annotating it with direct user quotes and pain points clearly highlighted the 'Setup & Trust' phase as the primary point of failure.</figcaption>
                         </figure>
     
@@ -84,7 +100,7 @@
                         <h3>Architecting the New Experience</h3>
                         <p>The solution was a complete overhaul, focusing on clarity, trust, and designing for the entire experience—not just the happy path.</p>
                         <figure class="case-study__image">
-                            <img src="path/to/before-and-after-ui.png" alt="A side-by-side comparison of the old UI with its flaws annotated, and the new UI with its solutions highlighted.">
+                            <img src="/assets/hr/fig3-before-after.png" alt="A side-by-side comparison of the old UI with its flaws annotated, and the new UI with its solutions highlighted.">
                             <figcaption>Fig. 3 - Before & After: The new design replaced ambiguous illustrations with a clear video demo and introduced live feedback to build trust.</figcaption>
                         </figure>
     
@@ -98,17 +114,40 @@
     
                     <section id="payoff">
                         <h2>4. The Payoff: Measurable Turnaround and Validated Hypotheses</h2>
-                        <p>The redesigned flow was rolled out, and we monitored the results closely. A key concern was that adding a video might increase load times, so we set "Time to Interactive" as a counter-metric. By optimizing the video asset, we ensured there was no significant regression, confirming our fix didn't introduce a new problem.</p>
+                        <p>The redesigned flow was rolled out on December 9th. We monitored the results closely, setting "Time to Interactive" as a counter-metric to ensure the new video onboarding didn't slow down the experience. By optimizing the video asset, we ensured there was no significant regression, confirming our fix didn't introduce a new problem.</p>
                         <p>The results were a clear validation of our research-led strategy.</p>
     
                         <h3>The Impact in Numbers:</h3>
                         <ul>
-                            <li>The conversion rate for the critical <strong>First-Time User cohort increased from a baseline of ~58% to a consistent 74.5%</strong>, a relative improvement of nearly <strong>30%</strong>. This directly validated our hypothesis that the instructional medium was the core problem.</li>
+                            <li>The conversion rate for the critical <strong>First-Time User cohort saw a sustained increase from a baseline of ~62% to over 75%</strong>, a relative improvement of more than <strong>21%</strong>. This directly validated our hypothesis that the instructional medium was the core problem.</li>
                             <li>The success rate for users who re-attempted after a failure <strong>increased by 23%</strong>, proving that redesigning the error state from a dead-end to an encouraging loop was a critical, high-leverage change.</li>
                         </ul>
-                        <figure class="case-study__image">
-                            <img src="path/to/retention-chart.png" alt="A cohort retention chart showing improved user retention for cohorts that experienced the new design.">
-                            <figcaption>Fig. 4 - The improved first-time experience translated directly into better long-term user retention, a key goal for the feature.</figcaption>
+                        <!-- FIG 4: THE FIX - RETENTION CHART -->
+                        <figure class="case-study__image impact-chart-container">
+                            <div class="chart-title">
+                                <h3>Validating the Hypothesis: A 21% Conversion Lift</h3>
+                                <p>First-Time User Cohort</p>
+                            </div>
+                            <div class="chart-area">
+                                <!-- Bar for "Before" -->
+                                <div class="chart-bar bar--before">
+                                    <div class="bar-value">62%</div>
+                                    <div class="bar-inner"></div>
+                                    <div class="bar-label">Before Redesign</div>
+                                </div>
+                                <!-- Bar for "After" -->
+                                <div class="chart-bar bar--after">
+                                    <div class="bar-value">75%</div>
+                                    <div class="bar-inner"></div>
+                                    <div class="bar-label">After Redesign</div>
+                                </div>
+                                <!-- The Annotation -->
+                                <div class="chart-annotation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                                    <span>+21% Relative Improvement</span>
+                                </div>
+                            </div>
+                            <figcaption>Fig. 4 - Post-launch data showed a sustained conversion lift from ~62% to over 75%, validating our research-led design strategy.</figcaption>
                         </figure>
                     </section>
     
