@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Co-WIN Platform | [Your Name]</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <!-- <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div> -->
+
+    <!-- The Nav is consistent across pages -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">KK</a>
+        <div class="nav-links">
+            <a href="index.html#journey">The Journey</a>
+            <a href="cv.html">Résumé</a>
+            <a href="index.html#contact">Contact</a> <!-- Changed to link to footer on index -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="case-study">
+            <header class="case-study__header">
+                <a href="index.html" class="case-study__back-link">← Back to Narrative</a>
+                <h1 class="case-study__title">Designing for a Nation in Crisis: The Co-WIN Booking Platform</h1>
+                <p class="case-study__subtitle">Leading the transformation of API chaos and public panic into a clear, trustworthy experience that facilitated over 2 crore vaccine certificate downloads and drove 7-8k daily app installs.</p>
+                <div class="case-study__meta">
+                    <span><strong>Role:</strong> Lead Product Designer</span>
+                    <span><strong>Company:</strong> Eka.Care</span>
+                    <span><strong>Outcome:</strong> 2 Crore+ Downloads, #1 on Google Play Store</span>
+                    <span><strong>Skills:</strong> Crisis-Driven UX, Rapid Prototyping, Cross-Functional Leadership</span>
+                </div>
+            </header>
+            
+            <!-- --- [NEW] LAYOUT WRAPPER --- -->
+            <div class="case-study-layout">
+                <div class="case-study__content">
+                    <section id="setup">
+                        <h2>The Challenge: Imposing Clarity on Chaos</h2>
+                        <p><strong>The Business Problem:</strong> In 2021, at the peak of India's COVID-19 crisis, Eka.Care made a strategic decision to integrate the government's Co-WIN APIs. The executive team's mandate was extreme: deliver a public-facing solution in a matter of days to capture a massive, anxious user base. There was zero room for error or iterative cycles.</p>
+                        <p><strong>The User Problem:</strong> The user's reality was one of extreme panic. The official government portal was overwhelmed, reliable information was scarce, and public trust was at an absolute low. They didn't need a clever UI; they needed an unambiguous, reliable lifeline to a vaccine.</p>
+                        
+                        <h3>Deconstructing the Chaos</h3>
+                        <p>My first responsibility as the lead designer was to bridge the high-level business goal with the on-the-ground technical reality. I took ownership of deconstructing the Co-WIN API's "chaos" into specific design challenges the team could tackle head-on:</p>
+                        <ul>
+                            <li><strong>Inconsistent Data:</strong> The API would return a hospital's name but not its address, requiring components that could gracefully handle missing information without appearing broken.</li>
+                            <li><strong>Vague Error States:</strong> A booking failure could mean "slot taken" or "API server down." We had to design a single, reassuring message for all backend failures that wouldn't cause more panic.</li>
+                            <li><strong>Undocumented Dependencies:</strong> The Dose 2 booking flow had hidden dependencies on Dose 1 data, which required my close collaboration with engineering to map and solve for in the UI.</li>
+                        </ul>
+                        <p>I translated these technical realities into a clear set of user flows and tangible design artifacts. This served as our single source of truth, aligning the entire team and de-risking the project to meet our aggressive timeline.</p>
+                    </section>
+    
+                    <section id="diagnosis">
+                        <h2>The Core Insight: In a Crisis, Clarity is the Ultimate Feature</h2>
+                        <p>My analysis led to a critical hypothesis: standard design wisdom of "less is more" was dangerously wrong for this context. For a user in a state of panic, ambiguity is the enemy. Every unanswered question increases anxiety and erodes trust.</p>
+                        <figure class="case-study__image">
+                            <img src="path/to/placeholder-anxiety-map.png" alt="A diagram of the User Anxiety Journey Map, showing user pain points at each step of the vaccine booking process.">
+                            <figcaption><strong>Artifact 1: The User Anxiety Journey Map.</strong> I created this map framing user actions around their core anxieties: "Is this site legitimate?", "What if the slot is gone when I click?". This artifact shifted our team's entire mindset. Conversations in planning changed from "How do we build this feature?" to "<strong>How does this feature pre-emptively solve for user anxiety?</strong>"</figcaption>
+                        </figure>
+                    </section>
+    
+                    <section id="pivot">
+                        <h2>From Insight to Action: Design Pillars of Trust</h2>
+                        
+                        <h3>1. A Contrarian Bet: Why Showing 'Nothing' Built Trust</h3>
+                        <p>One of my most crucial—and initially debated—decisions was to display nearby hospitals even when they had zero available slots. I successfully argued that in a low-trust environment, proving our system was <em>comprehensive</em> was more important than adhering to conventional 'clean' UX. Seeing a familiar but unavailable hospital reassured users our app was working correctly, not broken. This decision was a clear demonstration of prioritizing user psychological safety over UI tidiness and was pivotal in building long-term trust.</p>
+    
+                        <h3>2. Pragmatism Under Pressure: A Key Trade-Off</h3>
+                        <p>To deliver at speed, we made a crucial trade-off in close collaboration with product and engineering. Instead of building a complex, resource-intensive real-time slot counter, we opted for a simpler "Last updated X minutes ago" timestamp. This was the most pragmatic way to provide the necessary level of trust to the user without jeopardizing our aggressive launch timeline.</p>
+                        
+                        <h3>3. The Final Handshake: Designing the Confirmation as a Contract</h3>
+                        <p>Finally, the confirmation screen was designed to be the ultimate source of truth. It contained the hospital's full address, a list of required documents, and pre-arrival instructions. We treated this screen as a contract with the user, designed to eliminate any day-of-appointment anxiety and ensure a successful vaccination.</p>
+    
+                        <figure class="case-study__image">
+                            <img src="path/to/placeholder-ui-collage.png" alt="A collage showing the wireframe vs. final UI, and the detailed confirmation screen.">
+                            <figcaption>A collage showing the initial wireframe, the final polished UI, and the detailed confirmation screen designed as a contract of trust.</figcaption>
+                        </figure>
+                    </section>
+    
+                    <section id="payoff">
+                        <h2>The Impact: Market Dominance and a Foundation of Trust</h2>
+                        <figure class="case-study__image">
+                            <img src="path/to/placeholder-analytics-dashboard.png" alt="A screenshot of an analytics dashboard showing a massive spike in app installs and a #1 ranking in the app store.">
+                            <figcaption>Key metrics dashboard showing the surge in app installs and #1 ranking after launch.</figcaption>
+                        </figure>
+                        
+                        <h3>Quantifiable Impact:</h3>
+                        <ul>
+                            <li>Achieved <strong>#1 ranking</strong> in the Health & Fitness category on the Google Play Store.</li>
+                            <li>Facilitated over <strong>2 Crore (20 million)</strong> vaccine certificate downloads.</li>
+                            <li>Drove a sustained <strong>7,000-8,000 new app installations daily</strong> at its peak.</li>
+                            <li>Became the top-ranking non-government entity for the "Co-WIN" search term on Google.</li>
+                        </ul>
+    
+                        <h3>Leadership Reflection:</h3>
+                        <ol>
+                            <li><strong>On Leading Through Influence:</strong> This project solidified my ability to drive strategy and align cross-functional teams using design artifacts as the central point of truth. My role evolved from executing a brief to proactively shaping the plan itself.</li>
+                            <li><strong>On Designing for Risk:</strong> I learned to design for mission-critical systems where the cost of failure is immense. We treated every design choice—from wording to error messages—as a risk-mitigation strategy to protect both the user and the company's credibility.</li>
+                        </ol>
+                        
+                        <h3>Legacy & Future Vision:</h3>
+                        <p>The success of this feature became the bedrock of Eka.Care's credibility. To capitalize on this momentum, I developed and presented a <strong>V2 product roadmap</strong> that outlined how we could evolve this crisis-response feature into a comprehensive family health management hub. This strategic vision turned a temporary solution into a long-term, foundational asset for the company.</p>
+                    </section>
+                </div>
+                <!-- --- [MOVED & RENAMED] STICKY SIDEBAR TOC --- -->
+                <aside class="case-study__toc-sidebar">
+                    <nav aria-label="Case study sections">
+                        <h3>On this page</h3>
+                        <div class="case-study__toc-links">
+                            <a href="#setup">1. The Setup</a>
+                            <a href="#diagnosis">2. The Diagnosis</a>
+                            <a href="#pivot">3. The Pivot</a>
+                            <a href="#payoff">4. The Payoff</a>
+                            <a href="#reflection">5. Reflection</a>
+                        </div>
+                    </nav>
+                </aside>
+                <!-- --- END SIDEBAR TOC --- -->
+                
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

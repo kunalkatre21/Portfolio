@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title updated for the new case study -->
+    <title>Case Study: Heart Rate Monitor Turnaround | [Your Name]</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="gradient-bg"></div>
+    <!-- <div class="cursor-dot"></div>
+    <div class="cursor-circle"></div> -->
+
+    <!-- The Nav is consistent across pages -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">KK</a>
+        <div class="nav-links">
+            <a href="index.html#journey">The Journey</a>
+            <a href="cv.html">Résumé</a>
+            <a href="index.html#contact">Contact</a> <!-- Changed to link to footer on index -->
+        </div>
+    </nav>
+    <div class="container">
+        <main class="case-study">
+            <header class="case-study__header">
+                <a href="index.html" class="case-study__back-link">← Back to Narrative</a>
+                <h1 class="case-study__title">From Confusion to Conversion: How I Lifted Feature Success by 30%</h1>
+                <p class="case-study__subtitle">A deep dive into how I used guerilla research and a key interaction pivot to diagnose a failing feature funnel, rebuilding it to drive user trust and measurable business impact.</p>
+                <div class="case-study__meta">
+                    <span><strong>Role:</strong> Lead Product Designer</span>
+                    <span><strong>Company:</strong> Eka.Care</span>
+                    <span><strong>Outcome:</strong> +30% Conversion for First-Time Users</span>
+                    <span><strong>Skills:</strong> User Research, Funnel Analysis, Interaction Design, Prototyping</span>
+                </div>
+            </header>
+
+            <div class="case-study-layout">
+                <div class="case-study__content">
+                    <section id="setup">
+                        <h2>1. The Setup: A Failing Strategic Asset</h2>
+                        <p>The Heart Rate Monitor (BPM) was a key pillar of our user acquisition strategy, designed to be a free, high-value "wow" moment to differentiate Eka.Care and drive initial app downloads. Its success was directly tied to our top-of-funnel growth targets. However, the data told a different story. It was a leaking bucket. Our analytics showed a massive drop-off, with overall conversion for the feature struggling at around 64%. For the crucial <strong>first-time user cohort, the numbers were even worse</strong>, sometimes dipping below 60%.</p>
+                        <p>The business problem was clear: a key strategic asset was underperforming and creating a poor first impression. My task was not just to fix a UI, but to diagnose and reverse a business failure.</p>
+                        <figure class="case-study__image">
+                            <img src="path/to/annotated-funnel-before.png" alt="Analytics funnel chart with a red arrow pointing to a 42% drop-off in the BPM feature.">
+                            <figcaption>Fig. 1 - The Leak: The initial funnel analysis revealed a catastrophic 42% drop-off between users landing on the feature and successfully starting a measurement.</figcaption>
+                        </figure>
+                    </section>
+    
+                    <section id="diagnosis">
+                        <h2>2. The Diagnosis: Leading a Cross-Functional Investigation</h2>
+                        <p>I brought my initial hypothesis—that the issue was a fundamental crisis of trust and clarity—to my partners in Product and Engineering. We agreed that before investing development time, we needed to validate the root cause. I took the lead on a multi-pronged diagnostic process.</p>
+                        
+                        <h3>Guerilla Research & User Observations</h3>
+                        <p>I initiated and led guerilla research sessions with 8+ users, deliberately selecting a mix of personas, from tech-savvy software engineers to less tech-literate security guards. Observing users interact with the app provided immediate, unfiltered, and damning evidence. The core of the problem wasn't a minor usability issue; users were fundamentally confused.</p>
+    
+                        <h3>Mapping the Failure Points</h3>
+                        <p>To synthesize these qualitative findings and present a clear case to stakeholders, I created a user journey map. This artifact became the centerpiece of our investigation, allowing the entire team to visualize exactly where the experience was breaking down.</p>
+                        <figure class="case-study__image">
+                            <img src="path/to/annotated-journey-map.png" alt="A user journey map annotated with user quotes and pain points highlighted in red during the 'Setup & Trust' phase.">
+                            <figcaption>Fig. 2 - The journey map became our team's shared understanding of the problem. Annotating it with direct user quotes and pain points clearly highlighted the 'Setup & Trust' phase as the primary point of failure.</figcaption>
+                        </figure>
+    
+                        <h3>The "Aha!" Moment: Synthesizing the Insights</h3>
+                        <p>The combined research provided three critical insights that I shared with the team:</p>
+                        <ol>
+                            <li><strong>Instructional Failure:</strong> Static illustrations were ineffective. Users couldn't connect the abstract drawing to their physical phone.</li>
+                            <li><strong>Feedback Void:</strong> The system gave poor feedback, causing users to break the measurement process by flipping their phone over to check finger placement.</li>
+                            <li><strong>The Trust Deficit:</strong> A lack of clarity led to a lack of trust. Users perceived the feature as a gimmick and abandoned it at the first sign of friction.</li>
+                        </ol>
+                    </section>
+    
+                    <section id="pivot">
+                        <h2>3. The Pivot: From Better Illustrations to a Better Medium</h2>
+                        <p>Armed with clear evidence, I prototyped several solutions. Our initial explorations into clearer static illustrations proved to be only a marginal improvement in testing. This led me to the key strategic pivot: the problem wasn't the <em>content</em> of the instruction, but the <em>medium</em> itself.</p>
+                        <p>I created a simple video prototype and presented my findings and the new direction to the broader team. By showing session recordings of users failing with the old UI alongside the clarity of the video concept, <strong>I secured buy-in for the additional effort required to implement a video-based onboarding.</strong></p>
+    
+                        <h3>Architecting the New Experience</h3>
+                        <p>The solution was a complete overhaul, focusing on clarity, trust, and designing for the entire experience—not just the happy path.</p>
+                        <figure class="case-study__image">
+                            <img src="path/to/before-and-after-ui.png" alt="A side-by-side comparison of the old UI with its flaws annotated, and the new UI with its solutions highlighted.">
+                            <figcaption>Fig. 3 - Before & After: The new design replaced ambiguous illustrations with a clear video demo and introduced live feedback to build trust.</figcaption>
+                        </figure>
+    
+                        <p>Key improvements included:</p>
+                        <ul>
+                            <li><strong>Video Onboarding:</strong> A short, looping video showing a real hand performing the action, which proved unambiguous in testing.</li>
+                            <li><strong>Multi-Sensory Feedback (PPG Graph & Haptics):</strong> To solve the feedback void, I collaborated with engineering on a two-pronged solution. We introduced a live PPG graph so users could see the measurement in real-time. Critically, we also added a subtle, rhythmic haptic pulse that mimicked a heartbeat, allowing users to feel that the measurement was active without needing to look at the screen. This combination of visual and physical feedback was pivotal in building user trust.</li>
+                            <li><strong>Designing for Failure & Constraints:</strong> The original feature was built quickly to meet a deadline, resulting in significant design debt. We addressed this by redesigning error states to be empathetic and instructional. To ship quickly, we made a pragmatic trade-off to use a static list of "Fun Facts" during the measurement, logging a dynamic version as a V2 improvement.</li>
+                        </ul>
+                    </section>
+    
+                    <section id="payoff">
+                        <h2>4. The Payoff: Measurable Turnaround and Validated Hypotheses</h2>
+                        <p>The redesigned flow was rolled out, and we monitored the results closely. A key concern was that adding a video might increase load times, so we set "Time to Interactive" as a counter-metric. By optimizing the video asset, we ensured there was no significant regression, confirming our fix didn't introduce a new problem.</p>
+                        <p>The results were a clear validation of our research-led strategy.</p>
+    
+                        <h3>The Impact in Numbers:</h3>
+                        <ul>
+                            <li>The conversion rate for the critical <strong>First-Time User cohort increased from a baseline of ~58% to a consistent 74.5%</strong>, a relative improvement of nearly <strong>30%</strong>. This directly validated our hypothesis that the instructional medium was the core problem.</li>
+                            <li>The success rate for users who re-attempted after a failure <strong>increased by 23%</strong>, proving that redesigning the error state from a dead-end to an encouraging loop was a critical, high-leverage change.</li>
+                        </ul>
+                        <figure class="case-study__image">
+                            <img src="path/to/retention-chart.png" alt="A cohort retention chart showing improved user retention for cohorts that experienced the new design.">
+                            <figcaption>Fig. 4 - The improved first-time experience translated directly into better long-term user retention, a key goal for the feature.</figcaption>
+                        </figure>
+                    </section>
+    
+                    <section id="reflection">
+                        <h2>5. Reflection & What's Next</h2>
+                        <p>This project was a defining moment in my growth as a product designer. It taught me the importance of leading with data, validating with qualitative insights, and framing design decisions in the context of business objectives.</p>
+                        
+                        <h3>Organizational Impact</h3>
+                        <p>Beyond my personal growth, this project had a lasting impact on our team's process. The success of using guerilla research to quickly diagnose and solve a major business problem built more trust in the design process, leading to design being brought into strategic conversations earlier. The video onboarding component we created also became a new pattern in our design system, later adopted for two other complex features.</p>
+    
+                        <h3>Future Opportunities</h3>
+                        <p>Fixing the initial conversion was Phase 1. This success unlocked Phase 2: focusing on long-term retention. My follow-up proposal detailed a <strong>'Streaks & Insights' feature</strong>, giving users a compelling reason to measure their heart rate regularly. Furthermore, a key insight from our research was the user desire to share results with family or doctors. This highlighted a major opportunity to connect our BPM feature to our 'Family Health' and 'Telemedicine' platform pillars, creating a pipeline for future high-value work.</p>
+                    </section>
+                </div>
+                <!-- --- [MOVED & RENAMED] STICKY SIDEBAR TOC --- -->
+                <aside class="case-study__toc-sidebar">
+                    <nav aria-label="Case study sections">
+                        <h3>On this page</h3>
+                        <div class="case-study__toc-links">
+                            <a href="#setup">1. The Setup</a>
+                            <a href="#diagnosis">2. The Diagnosis</a>
+                            <a href="#pivot">3. The Pivot</a>
+                            <a href="#payoff">4. The Payoff</a>
+                            <a href="#reflection">5. Reflection</a>
+                        </div>
+                    </nav>
+                </aside>
+                <!-- --- END SIDEBAR TOC --- -->
+
+                
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

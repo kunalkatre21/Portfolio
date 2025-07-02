@@ -15,6 +15,7 @@
     --font-size-base: 17px; /* Slightly larger for readability on textured bg */
 
     /* Spacing & Other */
+    --spacing-sm: 8px; /* --- ADDED for finer control --- */
     --spacing-md: 16px;
     --spacing-lg: 32px;
     --spacing-xl: 64px;
@@ -32,7 +33,7 @@ body {
     font-family: var(--font-family-sans);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
-    cursor: none;
+    /* --- REMOVED --- cursor: none; */
     overflow-x: hidden; /* Prevent horizontal scroll from gradient */
 }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg); }
@@ -45,8 +46,9 @@ body {
     background: linear-gradient(220deg, #b8c0d5, #d6d3ce, #c4a99d);
     background-size: 200% 200%;
     animation: gradient-flow 25s ease infinite;
-    opacity: 0.4;
-    filter: blur(80px);
+    /* --- CHANGED --- Enhanced effect */
+    opacity: 0.55;
+    filter: blur(70px);
 }
 @keyframes gradient-flow {
     0% { background-position: 0% 50%; }
@@ -54,14 +56,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* --- Smooth Custom Cursor --- */
-.cursor-dot, .cursor-circle { /* Style remains similar, JS is the key */
-    pointer-events: none; position: fixed; border-radius: 50%;
-    z-index: 9999; opacity: 0; will-change: transform;
-}
-.cursor-dot { width: 8px; height: 8px; background-color: var(--color-primary); }
-.cursor-circle { width: 40px; height: 40px; border: 1px solid var(--color-primary); }
-body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
+/* --- REMOVED --- Custom Cursor section deleted */
 
 /* --- Navigation --- */
 .main-nav {
@@ -77,7 +72,17 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
     z-index: 100;
     border-bottom: 1px solid var(--color-border);
 }
-.nav-logo { font-family: var(--font-family-serif); font-weight: 700; font-size: 1.5rem; text-decoration: none; color: var(--color-text); }
+/* --- CHANGED --- Logo styling added */
+.nav-logo {
+    font-family: var(--font-family-serif);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--color-text);
+    letter-spacing: -1px;
+    transition: color var(--transition-speed) ease;
+}
+.nav-logo:hover { color: var(--color-primary); }
 .nav-links a { color: var(--color-text-muted); text-decoration: none; margin-left: var(--spacing-lg); font-weight: 500; transition: color var(--transition-speed) ease; }
 .nav-links a:hover { color: var(--color-primary); }
 
@@ -93,7 +98,7 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
 .btn--secondary { background-color: transparent; color: var(--color-text); border-color: var(--color-border); }
 .btn--secondary:hover { background-color: var(--color-surface); }
 
-/* [NEW] Value Prop Section */
+/* --- CHANGED --- Value Prop Section with Icons */
 .value-prop {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -102,6 +107,12 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
     text-align: center;
     border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
+}
+.value-prop__icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--spacing-md);
+    color: var(--color-primary);
 }
 .value-prop__item h3 {
     font-family: var(--font-family-serif);
@@ -192,157 +203,75 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
-/* [NEW] CV Page Styles */
-/* --- [NEW] CV Page Refinements --- */
-
-/* Clearer Link Affordance (HIG: Clarity) */
-.cv-contact a, .cv-download-link {
-    text-decoration: none; /* Keep existing style for these */
-    color: var(--color-primary);
-    transition: color var(--transition-speed) ease;
-}
-
-.cv-contact a:hover, .cv-download-link:hover {
-    color: var(--color-accent);
-}
-
-.cv-entry ul a {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: color var(--transition-speed) ease;
-}
-
-.cv-entry ul a:hover {
-    color: var(--color-accent);
-}
-
-/* Entry Header with Logo (HIG: Hierarchy & Deference) */
-.cv-entry__header {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-sm);
-}
-
-.cv-entry__logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    border-radius: var(--border-radius);
-    flex-shrink: 0;
-    /* The grayscale filter makes logos defer to the text content */
-    filter: grayscale(100%);
-    opacity: 0.6;
-}
-
-/* Adjust h3 position since it's now inside a div */
-.cv-entry .cv-entry__header h3 {
-    margin-right: 0;
-    margin-bottom: 2px;
-}
-
-.cv-entry ul {
-    /* Indent the list to align with the text, not the logo */
-    padding-left: calc(40px + var(--spacing-md) + var(--spacing-sm));
-}
-
-/* Responsive adjustment for the new structure */
-@media (max-width: 768px) {
-    .cv-entry ul {
-        padding-left: var(--spacing-lg);
-    }
-}
-.cv-contact a {
-    display: block;
-    text-decoration: underline; /* Underline by default for clear affordance */
-    text-underline-offset: 4px; /* Nicer spacing for the underline */
-    color: var(--color-primary);
-    margin-bottom: 4px;
-    transition: all var(--transition-speed) ease;
-}
-
-.cv-contact a:hover {
-    text-decoration: none; /* Remove underline on hover */
-    color: var(--color-accent); /* Change to accent color */
-}
-
-.cv-entry { margin-bottom: var(--spacing-xl); } /* Increased spacing between entries */
-
-.cv-entry__header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 4px;
-}
-
-/* .cv-entry__logo {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    margin-right: var(--spacing-sm);
-    background-color: var(--color-border); /* Placeholder background */
-    flex-shrink: 0;
-} */
-
-.cv-entry h3 {
-    font-size: 1.2rem;
-    margin: 0; /* Remove default margins */
-}
-
-.cv-entry__meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--color-text-muted);
-    font-size: 0.95rem;
-}
-
-.cv-entry__meta strong {
-    font-weight: 600;
-    color: var(--color-text);
-}
-
-.cv-entry ul {
-    margin-top: 0;
-    padding-left: var(--spacing-lg);
-}
-
-.cv-entry li {
-    margin-bottom: var(--spacing-sm);
-    color: #5a5e78;
-}
-
+/* --- [CLEANED UP] CV Page Styles --- */
 .cv-page {
-    padding: var(--spacing-xl) 0;
     background-color: var(--color-surface);
     padding: var(--spacing-xl);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     margin: var(--spacing-xl) 0;
 }
+
 .cv-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding-bottom: var(--spacing-lg);
     border-bottom: 2px solid var(--color-text);
+    margin-bottom: var(--spacing-xl);
 }
+.cv-header h1 { font-family: var(--font-family-serif); font-size: 2.5rem; margin-bottom: 4px; }
 .cv-tagline { font-size: 1.25rem; color: var(--color-text-muted); }
 .cv-contact { text-align: right; }
-.cv-download-btn { margin: var(--spacing-lg) auto; display: block; width: fit-content; }
-.cv-section { margin-top: var(--spacing-xl); }
+.cv-contact a {
+    display: flex; /* Changed for alignment */
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-speed) ease;
+}
+.cv-contact a:hover { color: var(--color-accent); }
+.cv-contact a svg { flex-shrink: 0; }
+.cv-section { margin-bottom: var(--spacing-xl); } /* Use margin-bottom for consistency */
 .cv-section h2 { font-family: var(--font-family-serif); border-bottom: 1px solid var(--color-border); padding-bottom: var(--spacing-sm); margin-bottom: var(--spacing-lg); }
+.cv-entry { margin-bottom: var(--spacing-xl); }
+.cv-entry__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+.cv-entry__logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    flex-shrink: 0;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+.cv-entry__header h3 { font-size: 1.2rem; margin: 0; }
+.cv-entry__meta { color: var(--color-text-muted); font-size: 0.95rem; }
+.cv-entry__meta strong { font-weight: 600; color: var(--color-text); }
+.cv-entry ul {
+    padding-left: calc(40px + var(--spacing-md) + var(--spacing-sm));
+    list-style-type: disc; /* Ensure list styles are visible */
+}
+.cv-entry li { margin-bottom: var(--spacing-sm); color: #5a5e78; }
+.cv-entry ul a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color var(--transition-speed) ease;
+}
+.cv-entry ul a:hover { color: var(--color-accent); }
+
 .cv-skills-grid div { display: grid; grid-template-columns: 120px 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-sm); }
 .cv-skills-grid strong { font-weight: 600; }
 .cv-skills-grid span { color: var(--color-text-muted); }
 
-/* ... (Responsive Styles) ... */
-@media (max-width: 768px) {
-    /* ... existing responsive styles ... */
-    .cv-header { flex-direction: column; gap: var(--spacing-lg); }
-    .cv-contact { text-align: left; }
-    .cv-skills-grid div { grid-template-columns: 1fr; }
-}
 
 /* --- Philosophy Section --- */
 .philosophy, .footer { padding: var(--spacing-xl) 0; }
@@ -373,41 +302,143 @@ body:hover .cursor-dot, body:hover .cursor-circle { opacity: 1; }
 .case-study__content section { margin-bottom: var(--spacing-xl); }
 .case-study__content h2 { font-family: var(--font-family-serif); font-size: 1.8rem; margin-bottom: var(--spacing-md); }
 .case-study__content p, .case-study__content li { font-size: 1.1rem; color: var(--color-text); margin-bottom: var(--spacing-md); }
-.case-study__content ul { list-style-position: inside; padding-left: var(--spacing-md); }
+.case-study__content ul { list-style-position: outside; padding-left: var(--spacing-lg); } /* Changed list position for better alignment */
+.case-study__content ol { list-style-position: outside; padding-left: var(--spacing-lg); }
 .case-study__image { margin: var(--spacing-xl) 0; }
 .case-study__image img { max-width: 100%; border-radius: var(--border-radius); border: 1px solid var(--color-border); }
 .case-study__image figcaption { text-align: center; font-size: 0.9rem; color: var(--color-text-muted); margin-top: var(--spacing-sm); }
 
-/* --- CV Download Link Style --- */
-.cv-download-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 500;
-}
-
-.cv-download-link svg {
-    transition: transform 0.2s ease-in-out;
-}
-
-.cv-download-link:hover svg {
-    transform: translateY(2px);
-}
-
-.cv-header h1 { font-family: var(--font-family-serif); font-size: 2rem; }
-
-/* Remove the old centered button style */
-.cv-download-btn {
-    display: none; /* Or you can delete the class entirely */
-}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
-    body { cursor: auto; }
-    .cursor-dot, .cursor-circle { display: none; }
     .act { grid-template-columns: 1fr; }
     .act__sticky-title { position: static; text-align: center; margin-bottom: var(--spacing-lg); }
-    .main-nav { flex-direction: column; }
-    .nav-links { margin-top: var(--spacing-md); }
+    .main-nav { flex-direction: column; gap: var(--spacing-md); }
+    .nav-links { margin-top: var(--spacing-sm); } /* Reduced margin */
+    .nav-links a { margin: 0 var(--spacing-sm); } /* Spacing for horizontal links */
     .case-study__meta { flex-direction: column; gap: var(--spacing-sm); align-items: center; }
+
+    /* CV Responsive */
+    .cv-header { flex-direction: column; gap: var(--spacing-lg); }
+    .cv-contact { text-align: left; }
+    .cv-skills-grid div { grid-template-columns: 1fr; }
+    .cv-entry ul { padding-left: var(--spacing-lg); }
+}
+
+/* --- [REMOVED] Old .case-study__toc styles are no longer needed. --- */
+
+/* --- [NEW] Sticky Case Study Layout & Sidebar TOC --- */
+.case-study-layout {
+    display: grid;
+    /* Main content takes up flexible space, sidebar is fixed width */
+    grid-template-columns: 1fr 260px; 
+    gap: var(--spacing-xl);
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* On desktop, the content is the first column */
+.case-study__content {
+    grid-column: 1 / 2;
+    /* Remove the centered margin, grid handles it now */
+    max-width: 100%; 
+    margin: 0;
+}
+
+/* The sidebar is the second column */
+.case-study__toc-sidebar {
+    grid-column: 2 / 3;
+    position: sticky;
+    top: 120px; /* Stick below the main nav bar */
+    height: auto;
+}
+
+.case-study__toc-sidebar h3 {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-md); /* Indent slightly */
+}
+
+.case-study__toc-sidebar .case-study__toc-links {
+    display: flex;
+    flex-direction: column; /* Vertical list */
+    gap: var(--spacing-sm);
+}
+
+.case-study__toc-sidebar .case-study__toc-links a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-text-muted); /* Muted by default */
+    padding: 10px var(--spacing-md);
+    border-radius: var(--border-radius);
+    transition: all 150ms ease-in-out;
+    border-left: 3px solid transparent; /* Indicator line */
+}
+
+.case-study__toc-sidebar .case-study__toc-links a:hover {
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* Active state is much clearer now */
+.case-study__toc-sidebar .case-study__toc-links a.is-active {
+    color: var(--color-primary);
+    font-weight: 600;
+    background-color: rgba(61, 90, 128, 0.08); /* Faint highlight */
+    border-left: 3px solid var(--color-primary);
+}
+
+/* ... existing styles ... */
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) { /* Breakpoint for tablets and smaller */
+    /* Collapse the grid into a single column */
+    .case-study-layout {
+        display: block;
+    }
+
+    /* Make the sidebar a static block at the top */
+    .case-study__toc-sidebar {
+        position: static;
+        width: 100%;
+        margin-bottom: var(--spacing-xl);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+    }
+    
+    .case-study__toc-sidebar h3 {
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    /* On mobile, links are horizontal pills again */
+    .case-study__toc-sidebar .case-study__toc-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .case-study__toc-sidebar .case-study__toc-links a {
+         border-left: none; /* Remove side border */
+    }
+
+    .case-study__toc-sidebar .case-study__toc-links a.is-active {
+        background-color: var(--color-primary);
+        color: var(--color-background);
+        border-color: var(--color-primary);
+    }
+
+    .case-study__content {
+       /* Reset margin for single column layout */
+       max-width: 720px;
+       margin: 0 auto;
+    }
+    
+    /* ... other existing responsive styles ... */
 }

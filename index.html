@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Design Narrative | [Your Name]</title>
+    <title>Design Narrative | Kunal Katre</title>
     
     <meta name="description" content="The career narrative of a product designer, evolving from Foundation to Builder to Platform Strategist.">
-    <meta name="author" content="[Your Name]">
+    <meta name="author" content="Kunal Katre">
 
     <!-- Fonts: Noto Serif for headers, Inter for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +19,11 @@
     <!-- Interactive background element -->
     <div class="gradient-bg"></div>
 
-    <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div>
+    <!-- --- REMOVED --- Cursor divs deleted -->
 
+    <!-- --- CHANGED --- Standardized Navigation -->
     <nav class="main-nav">
-        <a href="index.html" class="nav-logo">[Your Initials/Logo]</a>
+        <a href="index.html" class="nav-logo">KK</a>
         <div class="nav-links">
             <a href="#journey">The Journey</a>
             <a href="cv.html">Résumé</a>
@@ -33,7 +33,7 @@
 
     <div class="container">
         <header class="hero">
-            <div class="reveal-on-scroll">
+            <div> <!-- Removed reveal-on-scroll from here to let it animate immediately -->
                 <h1 class="hero__title">
                     <span>From Features to Foundations.</span>
                     <span>From Products to Platforms.</span>
@@ -48,19 +48,26 @@
             </div>
         </header>
 
+        <!-- --- CHANGED --- Added Icons -->
         <section class="value-prop">
-            <div class="value-prop__item reveal-on-scroll">
-                <div class="value-prop__icon"> <!-- Placeholder for an icon --> </div>
+            <div class="value-prop__item">
+                 <div class="value-prop__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11.55C12 10.13 13.24 9 14.75 9h0c1.51 0 2.75 1.13 2.75 2.55v0c0 1.42-1.24 2.55-2.75 2.55h-1.5c-1.51 0-2.75-1.13-2.75-2.55Z"></path><path d="M12 11.55h-1.5c-1.51 0-2.75-1.13-2.75-2.55v0c0-1.42 1.24-2.55 2.75-2.55h0c1.51 0 2.75 1.13 2.75 2.55v0"></path><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                 </div>
                 <h3>I Architect Systems</h3>
                 <p>Beyond screens, I design scalable systems, processes, and platforms that empower teams and drive long-term business strategy.</p>
             </div>
-            <div class="value-prop__item reveal-on-scroll">
-                 <div class="value-prop__icon"></div>
+            <div class="value-prop__item">
+                 <div class="value-prop__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.73 18.27l-5.46-5.46a7 7 0 1 0-1 1l5.46 5.46a.71.71 0 1 0 1-1Z"></path><path d="M12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z"></path></svg>
+                 </div>
                 <h3>I Create Clarity</h3>
                 <p>My core skill is turning ambiguous goals and chaotic environments into clear, actionable, and well-framed problems that teams can rally behind.</p>
             </div>
-            <div class="value-prop__item reveal-on-scroll">
-                 <div class="value-prop__icon"></div>
+            <div class="value-prop__item">
+                 <div class="value-prop__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9.5l.94-3.11L16 5.44l-3.11-.94L12 1.39l-.94 3.11L8 5.44l3.11.94z"></path><path d="M3 21.5l1.9-6.32L11.22 17l-6.32 1.9L3 21.5z"></path><path d="M12.5 11.5L17 2.78l4.22 8.72L12.5 11.5z"></path></svg>
+                 </div>
                 <h3>I Drive Impact</h3>
                 <p>I connect user needs to business outcomes, focusing on measurable results, cross-functional leadership, and pragmatic, data-informed decisions.</p>
             </div>
@@ -74,7 +81,7 @@
                     <h2 class="act__name">The Foundation</h2>
                 </div>
                 <div class="act__content">
-                    <a href="case-study-flipkart.html" class="project-card-link reveal-on-scroll">
+                    <a href="case-study-flipkart.html" class="project-card-link">
                         <article class="project-card">
                             <h3 class="project-card__title">Seller Platform & Internal Tools</h3>
                             <span class="project-card__company">at Flipkart</span>
@@ -99,7 +106,7 @@
                     <h2 class="act__name">The Builder</h2>
                 </div>
                 <div class="act__content">
-                    <a href="case-study-crio.html" class="project-card-link reveal-on-scroll">
+                    <a href="case-study-crio.html" class="project-card-link">
                             <article class="project-card">
                             <h3 class="project-card__title">Instructor Workspace 0-to-1</h3>
                             <span class="project-card__company">at Crio.Do</span>
@@ -114,7 +121,7 @@
                             <span class="project-card__cta">See the Build →</span>
                         </article>
                     </a>
-                        <a href="case-study-eka-cowin.html" class="project-card-link reveal-on-scroll">
+                    <a href="case-study-cowin.html" class="project-card-link">
                         <article class="project-card">
                             <h3 class="project-card__title">Co-WIN Vaccine Booking</h3>
                             <span class="project-card__company">at Eka.Care</span>
@@ -129,6 +136,22 @@
                             <span class="project-card__cta">Unpack the Strategy →</span>
                         </article>
                     </a>
+                    <!-- --- ADDED --- New Project Card for Heart Rate Monitor -->
+                    <a href="case-study-heart-rate.html" class="project-card-link">
+                        <article class="project-card">
+                            <h3 class="project-card__title">Heart Rate Monitor Turnaround</h3>
+                            <span class="project-card__company">at Eka.Care</span>
+                            <p class="project-card__description">
+                                Diagnosed a failing feature funnel with guerilla research and led a design pivot that lifted first-time user conversion by over 30%.
+                            </p>
+                            <div class="project-card__tags">
+                                <span>Funnel Analysis</span>
+                                <span>Interaction Design</span>
+                                <span>Data-Driven UX</span>
+                            </div>
+                            <span class="project-card__cta">See the Turnaround →</span>
+                        </article>
+                    </a>
                 </div>
             </section>
             
@@ -139,7 +162,7 @@
                     <h2 class="act__name">The Platform Strategist</h2>
                 </div>
                 <div class="act__content">
-                        <a href="case-study-eka-sdk.html" class="project-card-link reveal-on-scroll">
+                        <a href="case-study-eka-sdk.html" class="project-card-link">
                         <article class="project-card project-card--highlight">
                             <h3 class="project-card__title">Product "SDK-ization" & Theming</h3>
                             <span class="project-card__company">at Eka.Care</span>
@@ -159,21 +182,21 @@
         </main>
 
         <section class="philosophy">
-             <h2 class="section-title reveal-on-scroll">Guiding Principles</h2>
+             <h2 class="section-title">Guiding Principles</h2>
              <div class="philosophy-grid">
-                <div class="philosophy-card reveal-on-scroll">
+                <div class="philosophy-card">
                     <h3>Clarity is the Challenge</h3>
                     <p>For me, a "design challenge" isn't a difficult UI. It's ambiguity. My core skill is turning vague directives and chaotic environments into clear, actionable, and well-framed problems.</p>
                 </div>
-                <div class="philosophy-card reveal-on-scroll">
+                <div class="philosophy-card">
                     <h3>Systems over Symptoms</h3>
                     <p>I solve problems at the highest possible level of abstraction. I'd rather build a robust theming "contract" that prevents future issues than fix a single component's color.</p>
                 </div>
-                 <div class="philosophy-card reveal-on-scroll">
+                 <div class="philosophy-card">
                     <h3>Native Components First</h3>
                     <p>After seeing custom components fail, my philosophy is firm: leverage high-quality native libraries first. Only build custom when there's no alternative. This raises quality and developer velocity.</p>
                 </div>
-                 <div class="philosophy-card reveal-on-scroll">
+                 <div class="philosophy-card">
                     <h3>Pragmatism over Ego</h3>
                     <p>The product's success is more important than my ideas being "right." I believe in shipping, measuring, and adapting. I'm especially resilient in environments where things are constantly rebuilt or ignored.</p>
                 </div>
@@ -181,7 +204,7 @@
         </section>
 
         <footer id="contact" class="footer">
-            <div class="reveal-on-scroll">
+            <div>
                 <h2 class="footer__title">Let's build something enduring.</h2>
                 <a href="mailto:kunalkatre1995@gmail.com" class="footer__email">kunalkatre1995@gmail.com</a>
                 <div class="footer__links">
