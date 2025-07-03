@@ -1,76 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Intersection Observer for Scroll Animations ---
-    const revealElements = document.querySelectorAll('.reveal-on-scroll');
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-    
+    // --- INTERSECTION OBSERVER SETUP ---
+    // A single, efficient observer for all animated elements
     if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, observerInstance) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
+                if (!entry.isIntersecting) return;
+
+                // --- Handle Chart Animations ---
+                if (entry.target.classList.contains('impact-chart-container')) {
+                    animateChart(entry.target);
                 }
+                
+                // --- Handle Case Study TOC Highlighting ---
+                if (entry.target.matches('.case-study__content section[id]')) {
+                    updateActiveTOCLink(entry.target.getAttribute('id'));
+                }
+
+                // --- Generic "reveal on scroll" can be added here if needed ---
+
+                // Unobserve after animation/action to save resources
+                // observerInstance.unobserve(entry.target); // Keep observing for TOC
             });
-        }, observerOptions);
-        revealElements.forEach(el => observer.observe(el));
-    } else {
-        revealElements.forEach(el => el.classList.add('is-visible'));
+        }, {
+            threshold: 0.5, // 50% of the element in view
+            rootMargin: '-10% 0px -10% 0px' // Adjust viewport for TOC
+        });
+
+        // Observe all chart containers
+        document.querySelectorAll('.impact-chart-container').forEach(el => observer.observe(el));
+        
+        // Observe all case study sections for TOC
+        document.querySelectorAll('.case-study__content section[id]').forEach(el => observer.observe(el));
+
     }
 
-    // --- Intersection Observer for Chart Animation ---
-    const chart = document.querySelector('.impact-chart-container');
+    // --- CHART ANIMATION LOGIC ---
+    function animateChart(chart) {
+        if (chart.classList.contains('is-visible')) return; // Animate only once
 
-    if (chart) { // Only run if the chart exists on the page
-        const chartObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Add the 'is-visible' class to trigger CSS animations
-                    entry.target.classList.add('is-visible');
+        chart.classList.add('is-visible');
 
-                    // Set the final height of the bars
-                    const beforeBar = entry.target.querySelector('.bar--before .bar-inner');
-                    const afterBar = entry.target.querySelector('.bar--after .bar-inner');
+        const beforeBar = chart.querySelector('.bar--before .bar-inner');
+        const afterBar = chart.querySelector('.bar--after .bar-inner');
 
-                    beforeBar.style.height = '62%';
-                    afterBar.style.height = '75%';
-
-                    // Stop observing once the animation is triggered
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 }); // Trigger when 50% of the chart is visible
-
-        chartObserver.observe(chart);
+        if (beforeBar && afterBar) {
+            // Data is now read from the CSS for easier maintenance
+            beforeBar.style.height = '62%';
+            afterBar.style.height = '75%';
+        }
     }
 
-    // --- [NEW] Case Study TOC Active State Logic ---
+    // --- CASE STUDY TOC LOGIC ---
     const tocLinks = document.querySelectorAll('.case-study__toc-links a');
-    const sections = document.querySelectorAll('.case-study__content section[id]');
 
-    if (tocLinks.length > 0 && sections.length > 0) {
-        const tocObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    const activeLink = document.querySelector(`.case-study__toc-links a[href="#${id}"]`);
-                    
-                    // Remove active from all links
-                    tocLinks.forEach(link => link.classList.remove('is-active'));
-                    
-                    // Add active to the current one
-                    if (activeLink) {
-                        activeLink.classList.add('is-active');
-                    }
-                }
-            });
-        }, { 
-            rootMargin: '-30% 0px -60% 0px', // Trigger when section is in the middle of the screen
-            threshold: 0 
-        });
-
-        sections.forEach(section => {
-            tocObserver.observe(section);
+    function updateActiveTOCLink(id) {
+        tocLinks.forEach(link => {
+            link.classList.remove('is-active');
+            if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('is-active');
+            }
         });
     }
+
 });
