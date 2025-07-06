@@ -4,48 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Résumé | Kunal Katre</title>
-    <!-- ... (fonts and CSS link) ... -->
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- ... (gradient, cursor, nav) ... -->
+    <div class="gradient-bg"></div>
+
+    <!-- [UPDATED] Navigation bar is now consistent -->
+    <nav class="main-nav">
+        <a href="index.html" class="nav-logo">Kunal Katre</a>
+        <div class="nav-links">
+            <div class="nav-dropdown">
+                <a href="index.html#journey" class="nav-link-item">The Journey</a>
+                <div class="dropdown-content">
+                    <a href="index.html#act1">Act I: The Foundation</a>
+                    <a href="index.html#act2">Act II: The Builder</a>
+                    <a href="index.html#act3">Act III: The Platform Strategist</a>
+                </div>
+            </div>
+            <a href="index.html#process" class="nav-link-item">Design Process</a>
+            <a href="cv.html" class="nav-link-item">Résumé</a>
+            <a href="index.html#contact" class="nav-link-item">About & Contact</a>
+        </div>
+    </nav>
+
     <div class="container">
         <main class="cv-page">
             <header class="cv-header">
-                <div>
-                    <h1>Kunal Katre</h1>
-                    <p class="cv-tagline">Product Designer</p>
-                </div>
+                <div><h1>Kunal Katre</h1><p class="cv-tagline">Founding Product Designer & Systems Architect</p></div>
                 <div class="cv-contact">
-                    <a href="mailto:kunalkatre1995@gmail.com" class="cv-contact-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>kunalkatre1995@gmail.com</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/kunal-katre-98a945a2/" target="_blank" class="cv-contact-link">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="index.html" target="_blank" class="cv-contact-link">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg>
-                        <span>Portfolio</span>
-                    </a>
+                    <a href="mailto:kunalkatre1995@gmail.com" class="cv-contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg><span>kunalkatre1995@gmail.com</span></a>
+                    <a href="https://www.linkedin.com/in/kunal-katre-98a945a2/" target="_blank" class="cv-contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg><span>LinkedIn</span></a>
+                    <a href="index.html" target="_blank" class="cv-contact-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.72"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.72-1.72"></path></svg><span>Portfolio</span></a>
                 </div>
             </header>
-        
             <section class="cv-section">
                 <h2>Profile</h2>
                 <p>A product design expert with a proven track record of evolving from feature execution to platform strategy. I specialize in turning ambiguous business goals into clear, scalable design systems and leading the creation of complex, integrated digital products from zero-to-one in high-pressure environments.</p>
             </section>
-        
             <section class="cv-section">
                 <h2>Experience</h2>
                 <div class="cv-entry">
                     <div class="cv-entry__header">
                         <img src="https://logo.clearbit.com/eka.care" alt="Eka.Care logo" class="cv-entry__logo">
-                        <div>
-                            <h3>Eka.Care</h3>
-                            <div class="cv-entry__meta"><strong>Founding Product Designer</strong> / Jan 2021 – Present</div>
-                        </div>
+                        <div><h3>Eka.Care</h3><div class="cv-entry__meta"><strong>Founding Product Designer</strong> / Jan 2021 – Present</div></div>
                     </div>
                     <ul>
                         <li>Architected the end-to-end user experience for an integrated patient health platform, encompassing smart medical records, vital tracking, symptom assessment, and lab result analysis.</li>
@@ -57,10 +61,7 @@
                 <div class="cv-entry">
                     <div class="cv-entry__header">
                         <img src="https://logo.clearbit.com/crio.do" alt="Crio.Do logo" class="cv-entry__logo">
-                        <div>
-                            <h3>Crio.Do</h3>
-                            <div class="cv-entry__meta"><strong>Founding Product Designer</strong> / Nov 2019 – Jan 2021</div>
-                        </div>
+                        <div><h3>Crio.Do</h3><div class="cv-entry__meta"><strong>Founding Product Designer</strong> / Nov 2019 – Jan 2021</div></div>
                     </div>
                     <ul>
                         <li>As the first product designer, established the initial design system and owned the end-to-end user experience for the core learning platform.</li>
@@ -68,14 +69,11 @@
                         <li>Spearheaded key engagement features, including a gamified badging system, to improve student motivation and course completion rates.</li>
                     </ul>
                 </div>
-                    <div class="cv-entry">
-                        <div class="cv-entry__header">
-                            <img src="https://logo.clearbit.com/flipkart.com" alt="Flipkart logo" class="cv-entry__logo">
-                            <div>
-                                <h3>Flipkart</h3>
-                                <div class="cv-entry__meta"><strong>Product Designer</strong> / Aug 2017 – Nov 2019</div>
-                            </div>
-                        </div>
+                <div class="cv-entry">
+                    <div class="cv-entry__header">
+                        <img src="https://logo.clearbit.com/flipkart.com" alt="Flipkart logo" class="cv-entry__logo">
+                        <div><h3>Flipkart</h3><div class="cv-entry__meta"><strong>Product Designer</strong> / Aug 2017 – Nov 2019</div></div>
+                    </div>
                     <ul>
                         <li>Redesigned the core seller listing platform, creating a high-density UI and bulk-editing capabilities to significantly improve efficiency for power-sellers managing 100,000+ SKUs.</li>
                         <li>Delivered the end-to-end UX for a data-driven promotions tool, providing sellers with predictive growth analytics and personalized listing recommendations.</li>
@@ -83,7 +81,6 @@
                     </ul>
                 </div>
             </section>
-            
             <section class="cv-section">
                 <h2>Skills & Expertise</h2>
                 <div class="cv-skills-grid">
@@ -93,21 +90,16 @@
                     <div><strong>Technical</strong><span>HTML/CSS (Proficient), Design Token Architecture, CI/CD Process Advocacy, FHIR Standards</span></div>
                 </div>
             </section>
-        
             <section class="cv-section">
                 <h2>Education</h2>
                 <div class="cv-entry">
                     <div class="cv-entry__header">
                         <img src="https://logo.clearbit.com/iitg.ac.in" alt="IIT Guwahati logo" class="cv-entry__logo">
-                        <div>
-                            <h3>Indian Institute of Technology (IIT), Guwahati</h3>
-                            <div class="cv-entry__meta"><strong>Bachelor of Design (B.Des) with Minor in Mechanical Engineering</strong>  / Graduated 2017</div>
-                        </div>
+                        <div><h3>Indian Institute of Technology (IIT), Guwahati</h3><div class="cv-entry__meta"><strong>Bachelor of Design (B.Des) with Minor in Mechanical Engineering</strong>  / 2013 – 2017</div></div>
                     </div>
                 </div>
             </section>
         </main>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

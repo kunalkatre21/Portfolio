@@ -3,202 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Co-WIN Platform | [Your Name]</title>
+    <title>Case Study: Co-WIN Platform | Kunal Katre</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="gradient-bg"></div>
-    <!-- <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div> -->
 
-    <!-- The Nav is consistent across pages -->
+    <!-- [UPDATED] Navigation bar is now consistent -->
     <nav class="main-nav">
-        <a href="index.html" class="nav-logo">KK</a>
+        <a href="index.html" class="nav-logo">Kunal Katre</a>
         <div class="nav-links">
-            <a href="index.html#journey">The Journey</a>
-            <a href="cv.html">Résumé</a>
-            <a href="index.html#contact">Contact</a> <!-- Changed to link to footer on index -->
+            <div class="nav-dropdown">
+                <a href="index.html#journey" class="nav-link-item">The Journey</a>
+                <div class="dropdown-content">
+                    <a href="index.html#act1">Act I: The Foundation</a>
+                    <a href="index.html#act2">Act II: The Builder</a>
+                    <a href="index.html#act3">Act III: The Platform Strategist</a>
+                </div>
+            </div>
+            <a href="index.html#process" class="nav-link-item">Design Process</a>
+            <a href="cv.html" class="nav-link-item">Résumé</a>
+            <a href="index.html#contact" class="nav-link-item">About & Contact</a>
         </div>
     </nav>
 
     <div class="container">
         <main class="case-study">
             <header class="case-study__header">
-                <a href="index.html" class="case-study__back-link">← Back to Narrative</a>
-                <h1 class="case-study__title">Designing for a Nation in Crisis: The Co-WIN Booking Platform</h1>
-                <p class="case-study__subtitle">Leading the transformation of API chaos and public panic into a clear, trustworthy experience that facilitated over 2 crore vaccine certificate downloads and drove 7-8k daily app installs.</p>
+                <a href="index.html#act2" class="case-study__back-link">← Back to Journey</a>
+                <h1>Designing for a Nation in Crisis: The Co-WIN Booking Platform</h1>
+                <p class="case-study__subtitle">How I used rapid research and principle-led design to transform API chaos into a clear, trustworthy experience that facilitated millions of vaccinations.</p>
                 <div class="case-study__meta">
-                    <span><strong>Role:</strong> Lead Product Designer</span>
-                    <span><strong>Company:</strong> Eka.Care</span>
-                    <span><strong>Outcome:</strong> 2 Crore+ Downloads, #1 on Google Play Store</span>
-                    <span><strong>Skills:</strong> Crisis-Driven UX, Rapid Prototyping, Cross-Functional Leadership</span>
+                    <span><strong>Role:</strong> Lead Designer</span>
+                    <span><strong>Outcome:</strong> #1 on Google Play, 2 Crore+ Downloads</span>
+                    <span><strong>Skills:</strong> Crisis-Driven UX, Rapid Prototyping, Systems Thinking</span>
                 </div>
             </header>
             
-            <!-- --- [NEW] LAYOUT WRAPPER --- -->
             <div class="case-study-layout">
                 <div class="case-study__content">
-                    <section id="setup">
-                        <h2>The Challenge: Imposing Clarity on Chaos</h2>
-                        <p><strong>The Business Problem:</strong> In 2021, at the peak of India's COVID-19 crisis, Eka.Care made a strategic decision to integrate the government's Co-WIN APIs. The executive team's mandate was extreme: deliver a public-facing solution in a matter of days to capture a massive, anxious user base. There was zero room for error or iterative cycles.</p>
-                        <p><strong>The User Problem:</strong> The user's reality was one of extreme panic. The official government portal was overwhelmed, reliable information was scarce, and public trust was at an absolute low. They didn't need a clever UI; they needed an unambiguous, reliable lifeline to a vaccine.</p>
-                        
-                        <h3>Deconstructing the Chaos</h3>
-                        <p>My first responsibility as the lead designer was to bridge the high-level business goal with the on-the-ground technical reality. I took ownership of deconstructing the Co-WIN API's "chaos" into specific design challenges the team could tackle head-on:</p>
-                        <ul>
-                            <li><strong>Inconsistent Data:</strong> The API would return a hospital's name but not its address, requiring components that could gracefully handle missing information without appearing broken.</li>
-                            <li><strong>Vague Error States:</strong> A booking failure could mean "slot taken" or "API server down." We had to design a single, reassuring message for all backend failures that wouldn't cause more panic.</li>
-                            <li><strong>Undocumented Dependencies:</strong> The Dose 2 booking flow had hidden dependencies on Dose 1 data, which required my close collaboration with engineering to map and solve for in the UI.</li>
-                        </ul>
-                        <p>I translated these technical realities into a clear set of user flows and tangible design artifacts. This served as our single source of truth, aligning the entire team and de-risking the project to meet our aggressive timeline.</p>
+                    <section id="discovery">
+                        <h2 class="act-title">1. Discovery & Definition</h2>
+                        <h3>Imposing Clarity on Chaos</h3>
+                        <p>In 2021, at the peak of India's COVID-19 crisis, Eka.Care integrated the government's Co-WIN APIs. The mandate was extreme: deliver a public-facing solution in days. The user's reality was one of panic and low trust due to overwhelmed government portals.</p>
+                        <figure class="case-study__image" style="max-width: 300px; margin: var(--spacing-xl) auto;">
+                            <img src="assets/cowin/cowin-logo.png" alt="Official Co-WIN Logo">
+                        </figure>
+                        <p>My role as lead designer was to deconstruct the API's technical chaos and the public's anxiety into a clear, actionable design plan. There was zero room for error.</p>
+                        <h4>Rapid Research in a High-Stakes Environment</h4>
+                        <p>With no time for formal studies, I conducted rapid secondary research and heuristic evaluations. I analyzed existing third-party solutions and the official government portal, noting points of friction and user confusion. This scrappy-but-essential research was framed into a set of core user stories that captured the user's high-anxiety mindset.</p>
+                        <div class="highlight-box">
+                            <h4>Key User Stories</h4>
+                            <ul>
+                                <li><strong>As a panicked parent, I want to</strong> find a slot for my family quickly, <strong>so that I</strong> can feel we are safe.</li>
+                                <li><strong>As a concerned citizen, I want to</strong> know if the information is up-to-date, <strong>so that I</strong> don't waste my time or hope on a ghost slot.</li>
+                                <li><strong>As a first-time user, I want to</strong> see proof this app is legitimate and comprehensive, <strong>so that I</strong> can trust it with my personal data.</li>
+                            </ul>
+                        </div>
                     </section>
     
-                    <section id="diagnosis">
-                        <h2>The Core Insight: In a Crisis, Clarity is the Ultimate Feature</h2>
-                        <p>My analysis led to a critical hypothesis: standard design wisdom of "less is more" was dangerously wrong for this context. For a user in a state of panic, ambiguity is the enemy. Every unanswered question increases anxiety and erodes trust.</p>
+                    <section id="design">
+                        <h2 class="act-title">2. Design & Development</h2>
+                        <!-- [UPDATED] Replaced Pillars of Trust with duplicated story cards -->
+                        <h3>Pillars of Trust: A Principle-Led Strategy</h3>
+                        <p>This rapid research led to one core insight: <strong>In a crisis, clarity is the ultimate feature.</strong> Every design decision had to actively fight ambiguity and reduce anxiety. I established three design pillars to guide our execution, each derived directly from our user stories:</p>
+                        <div class="highlight-box" style="margin-top: var(--spacing-lg);">
+                            <h4>Pillar 1: Provide Radical Transparency</h4>
+                            <p><strong>Addresses:</strong> "I want to see proof this app is legitimate and comprehensive."</p>
+                            <p><strong>Action:</strong> Show everything from the API, even centers with zero slots. This proves the system is comprehensive, not broken or hiding information, building foundational trust.</p>
+                        </div>
+                        <div class="highlight-box" style="margin-top: var(--spacing-lg);">
+                            <h4>Pillar 2: Manage Expectations Honestly</h4>
+                             <p><strong>Addresses:</strong> "I want to know if the information is up-to-date."</p>
+                            <p><strong>Action:</strong> Use clear, honest timestamps ("Last updated 5 mins ago") instead of promising a "real-time" view we couldn't technically deliver. This prevents the frustration of chasing ghost slots.</p>
+                        </div>
+                        <div class="highlight-box" style="margin-top: var(--spacing-lg);">
+                            <h4>Pillar 3: Design for the "Last Mile"</h4>
+                             <p><strong>Addresses:</strong> "I want to find a slot... so that I can feel we are safe."</p>
+                            <p><strong>Action:</strong> Ensure the final confirmation screen is a "contract of trust," containing every piece of information needed for a successful, anxiety-free appointment, leaving no room for doubt.</p>
+                        </div>
+
+                        <h4>Iteration 1: The Confirmation Contract</h4>
+                        <p>The final confirmation screen was designed to be the ultimate source of truth, providing all necessary details to eliminate day-of-appointment anxiety.</p>
                         <figure class="case-study__image">
-                            <img src="assets/cowin/fig2-failure-map.png" alt="A diagram of the User Anxiety Journey Map, showing user pain points at each step of the vaccine booking process.">
-                            <figcaption><strong>Artifact 1: The User Anxiety Journey Map.</strong> I created this map framing user actions around their core anxieties: "Is this site legitimate?", "What if the slot is gone when I click?". This artifact shifted our team's entire mindset. Conversations in planning changed from "How do we build this feature?" to "<strong>How does this feature pre-emptively solve for user anxiety?</strong>"</figcaption>
+                            <img src="assets/cowin/confirmation-ticket.png" alt="Final confirmation screen for a vaccination appointment" loading="lazy">
+                            <figcaption>Fig. 1 - The final "contract of trust" containing all details a user would need, directly addressing user stories about uncertainty.</figcaption>
                         </figure>
                     </section>
     
-                    <section id="pivot">
-                        <h2>From Insight to Action: Design Pillars of Trust</h2>
-                        
-                        <h3>1. A Contrarian Bet: Why Showing 'Nothing' Built Trust</h3>
-                        <p>One of my most crucial—and initially debated—decisions was to display nearby hospitals even when they had zero available slots. I successfully argued that in a low-trust environment, proving our system was <em>comprehensive</em> was more important than adhering to conventional 'clean' UX. Seeing a familiar but unavailable hospital reassured users our app was working correctly, not broken. This decision was a clear demonstration of prioritizing user psychological safety over UI tidiness and was pivotal in building long-term trust.</p>
-    
-                        <h3>2. Pragmatism Under Pressure: A Key Trade-Off</h3>
-                        <p>To deliver at speed, we made a crucial trade-off in close collaboration with product and engineering. Instead of building a complex, resource-intensive real-time slot counter, we opted for a simpler "Last updated X minutes ago" timestamp. This was the most pragmatic way to provide the necessary level of trust to the user without jeopardizing our aggressive launch timeline.</p>
-                        
-                        <h3>3. The Final Handshake: Designing the Confirmation as a Contract</h3>
-                        <p>Finally, the confirmation screen was designed to be the ultimate source of truth. It contained the hospital's full address, a list of required documents, and pre-arrival instructions. We treated this screen as a contract with the user, designed to eliminate any day-of-appointment anxiety and ensure a successful vaccination.</p>
-    
-                        <figure class="case-study__image pillars-of-trust">
-                            <div class="pillar">
-                                <div class="pillar__title">Pillar 1: Radical Transparency</div>
-                                <div class="pillar__image">
-                                    <!-- Placeholder for your screen. Replace with a real <img> tag -->
-                                    <div class="img-placeholder" style="--aspect-ratio: 9/19;"></div>
-                                    <div class="pillar__annotation" style="top: 35%; left: 10%;">
-                                        <div class="annotation-dot"></div>
-                                        <div class="annotation-line"></div>
-                                        <div class="annotation-text">Showing '0 slots' proved our system was comprehensive, not broken.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="pillar">
-                                <div class="pillar__title">Pillar 2: Pragmatic Honesty</div>
-                                <div class="pillar__image">
-                                    <div class="img-placeholder" style="--aspect-ratio: 9/19;"></div>
-                                    <div class="pillar__annotation" style="top: 15%; right: 10%;">
-                                        <div class="annotation-dot"></div>
-                                        <div class="annotation-line" style="width: 50px;"></div>
-                                        <div class="annotation-text">A simple 'last updated' timestamp managed expectations without risking our launch.</div>
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="pillar">
-                                <div class="pillar__title">Pillar 3: The Contract of Trust</div>
-                                <div class="pillar__image">
-                                    <div class="img-placeholder" style="--aspect-ratio: 9/19;"></div>
-                                     <div class="pillar__annotation" style="top: 40%; left: 5%;">
-                                        <div class="annotation-dot"></div>
-                                        <div class="annotation-line"></div>
-                                        <div class="annotation-text">The confirmation screen contained all needed info, eliminating day-of anxiety.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <figcaption>Fig. 2 - Our solution was a series of deliberate, trust-building design decisions that transformed a chaotic process into a reliable experience.</figcaption>
-                        </figure>
-                    </section>
-    
-                    <section id="payoff">
-                        <h2>The Impact: Market Dominance and a Foundation of Trust</h2>
-                        <!-- METRICS DASHBOARD COMPONENT -->
-                        <figure class="metrics-dashboard">
+                    <section id="impact">
+                        <h2 class="act-title">3. Delivery & Impact</h2>
+                        <h3>Market Dominance Through Trust</h3>
+                        <p>Our principle-led approach was a monumental success. By focusing relentlessly on user anxiety, we built the most trusted and widely-used vaccination booking tool in the country after the official portal.</p>
+                        <div class="metrics-dashboard">
                             <div class="metrics-grid">
-                                <!-- Metric 1: Organic Installs -->
-                                <div class="metric-card">
-                                    <h5>Organic App Installs</h5>
-                                    <p class="metric-value">7-8K</p>
-                                    <p class="metric-label">Daily installs at peak</p>
-                                </div>
-
-                                <!-- Metric 2: SEO Dominance -->
-                                <div class="metric-card">
-                                    <h5>SEO Position (Avg)</h5>
-                                    <p class="metric-value">
-                                        <span class="metric-change--before">11</span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                                        <span>7.2</span>
-                                    </p>
-                                    <p class="metric-label">CTR doubled to 3.8%</p>
-                                </div>
-
-                                <!-- Metric 3: Peak Volume -->
-                                <div class="metric-card">
-                                    <h5>Peak Throughput</h5>
-                                    <p class="metric-value">1.4L+</p>
-                                    <p class="metric-label">Certificate downloads per day</p>
-                                </div>
-
-                                <!-- Metric 4: Funnel Conversion -->
-                                <div class="metric-card">
-                                    <h5>Funnel Conversion</h5>
-                                    <p class="metric-value">~58%</p>
-                                    <p class="metric-label">MWeb certificate download</p>
-                                </div>
+                                <div class="metric-card"><h5>App Store Rank</h5><p class="metric-value metric-value--large">#1</p><p class="metric-label">in Health & Fitness</p></div>
+                                <div class="metric-card"><h5>Peak Throughput</h5><p class="metric-value metric-value--large">1.4L+</p><p class="metric-label">Certificates / Day</p></div>
+                                <div class="metric-card"><h5>Organic Installs</h5><p class="metric-value metric-value--large">~8K</p><p class="metric-label">Daily at peak</p></div>
+                                <div class="metric-card"><h5>Total Downloads</h5><p class="metric-value metric-value--large">2 Cr+</p><p class="metric-label">Vaccine Certificates</p></div>
                             </div>
-                            <figcaption>
-                                A snapshot of the key performance indicators post-launch, demonstrating the feature's immediate and massive impact. The focus on a clear, anxiety-reducing user flow transformed the platform into a primary national resource.
-                            </figcaption>
-                        </figure>
-                        
-                        <h3>Quantifiable Impact:</h3>
-                        <ul>
-                            <li>Achieved <strong>#1 ranking</strong> in the Health & Fitness category on the Google Play Store.</li>
-                            <li>Facilitated over <strong>2 Crore (20 million)</strong> vaccine certificate downloads.</li>
-                            <li>Drove a sustained <strong>7,000-8,000 new app installations daily</strong> at its peak.</li>
-                            <li>Became the top-ranking non-government entity for the "Co-WIN" search term on Google.</li>
-                        </ul>
-    
-                        <h3>Leadership Reflection:</h3>
-                        <ol>
-                            <li><strong>On Leading Through Influence:</strong> This project solidified my ability to drive strategy and align cross-functional teams using design artifacts as the central point of truth. My role evolved from executing a brief to proactively shaping the plan itself.</li>
-                            <li><strong>On Designing for Risk:</strong> I learned to design for mission-critical systems where the cost of failure is immense. We treated every design choice—from wording to error messages—as a risk-mitigation strategy to protect both the user and the company's credibility.</li>
-                        </ol>
-                        
-                        <h3>Legacy & Future Vision:</h3>
-                        <p>The success of this feature became the bedrock of Eka.Care's credibility. To capitalize on this momentum, I developed and presented a <strong>V2 product roadmap</strong> that outlined how we could evolve this crisis-response feature into a comprehensive family health management hub. This strategic vision turned a temporary solution into a long-term, foundational asset for the company.</p>
+                            <figcaption>The feature's focus on a clear, anxiety-reducing flow transformed the platform into a primary national resource.</figcaption>
+                        </div>
+                        <h4>Leadership Reflection</h4>
+                        <p>This project was a trial by fire in crisis-driven UX. It solidified my ability to lead through influence, using design artifacts to align teams and de-risk projects under immense pressure. The success became the bedrock of Eka.Care's credibility and the foundation for our future health management platform.</p>
+                    </section>
+
+                    <section class="next-case-study">
+                        <h3>Next Case Study</h3>
+                        <a href="case-study-heart-rate.html" class="project-card-link">
+                            <article class="project-card project-card--next">
+                                <div class="project-card__thumbnail"><img src="assets/thumb-hr.png" alt="Thumbnail for Heart Rate Monitor case study"></div>
+                                <div class="card-content-wrapper">
+                                     <h4 class="project-card__title">Architecting an Engagement Engine</h4>
+                                    <p class="project-card__description">See how I transformed a failing feature into a core driver of user retention and business value.</p>
+                                    <span class="project-card__cta">Explore the Heart Rate Project →</span>
+                                </div>
+                            </article>
+                        </a>
                     </section>
                 </div>
-                <!-- --- [MOVED & RENAMED] STICKY SIDEBAR TOC --- -->
-                <aside class="case-study__toc-sidebar">
+                
+                <aside class="case-study-toc-sidebar">
                     <nav aria-label="Case study sections">
-                        <h3>On this page</h3>
-                        <div class="case-study__toc-links">
-                            <a href="#setup">1. The Setup</a>
-                            <a href="#diagnosis">2. The Diagnosis</a>
-                            <a href="#pivot">3. The Pivot</a>
-                            <a href="#payoff">4. The Payoff</a>
-                            <a href="#reflection">5. Reflection</a>
+                        <h4>On this page</h4>
+                        <div class="toc-links-wrapper">
+                            <a href="#discovery" class="is-active">1. Discovery & Definition</a>
+                            <a href="#design">2. Design & Development</a>
+                            <a href="#impact">3. Delivery & Impact</a>
                         </div>
                     </nav>
                 </aside>
-                <!-- --- END SIDEBAR TOC --- -->
-                
             </div>
         </main>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>

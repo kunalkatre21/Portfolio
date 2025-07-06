@@ -3,54 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Study: Eka.Care SDK & Design System | [Your Name]</title>
-    <!-- ... (fonts and CSS link) ... -->
+    <title>Case Study: Eka.Care SDK & Design System | Kunal Katre</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <div class="gradient-bg"></div>
-    <!-- <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div> -->
-
+    
+    <!-- [UPDATED] Navigation bar is now consistent -->
     <nav class="main-nav">
-        <a href="index.html" class="nav-logo">KK</a>
+        <a href="index.html" class="nav-logo">Kunal Katre</a>
         <div class="nav-links">
-            <a href="index.html#journey">The Journey</a>
-            <a href="cv.html">Résumé</a>
-            <a href="index.html#contact">Contact</a> <!-- Changed to link to footer on index -->
+            <div class="nav-dropdown">
+                <a href="index.html#journey" class="nav-link-item">The Journey</a>
+                <div class="dropdown-content">
+                    <a href="index.html#act1">Act I: The Foundation</a>
+                    <a href="index.html#act2">Act II: The Builder</a>
+                    <a href="index.html#act3">Act III: The Platform Strategist</a>
+                </div>
+            </div>
+            <a href="index.html#process" class="nav-link-item">Design Process</a>
+            <a href="cv.html" class="nav-link-item">Résumé</a>
+            <a href="index.html#contact" class="nav-link-item">About & Contact</a>
         </div>
     </nav>
     
-    <!-- ... (gradient, cursor, nav) ... -->
     <div class="container">
         <main class="case-study">
             <header class="case-study__header">
-                <a href="index.html#act3" class="case-study__back-link">← Back to Narrative</a>
-                <h1 class="case-study__title">From Monolith to Modular: Architecting a Health-Tech Platform</h1>
+                <a href="index.html#act3" class="case-study__back-link">← Back to Journey</a>
+                <h1>From Monolith to Modular: Architecting a Health-Tech Platform</h1>
                 <p class="case-study__subtitle">How I led the "SDK-ization" of a consumer app, creating a themeable design system that unlocked a new B2B2C revenue stream for Eka.Care.</p>
-                <div class="case-study__meta-grid">
-                    <div><span>Role</span><strong>Lead Designer, Systems Architect</strong></div>
-                    <div><span>Company</span><strong>Eka.Care</strong></div>
-                    <div><span>Outcome</span><strong>Enabled partnerships with Samsung & Medanta</strong></div>
-                    <div><span>Skills</span><strong>Systems Thinking, Platform Strategy, Design Systems, Cross-Functional Leadership</strong></div>
+                <div class="case-study__meta">
+                    <span><strong>Role:</strong> Lead Designer, Systems Architect</span>
+                    <span><strong>Outcome:</strong> Enabled partnerships with Samsung & Medanta</span>
+                    <span><strong>Skills:</strong> Systems Thinking, Platform Strategy, Cross-Functional Leadership</span>
                 </div>
             </header>
             
             <div class="case-study-layout">
                 <div class="case-study__content">
                     <section id="setup">
-                        <h2>The Challenge: A Scaling Crisis</h2>
+                        <h2 class="act-title">1. The Setup</h2>
+                        <h3>The Challenge: A Scaling Crisis</h3>
                         <p>Eka.Care's consumer app was successful, but our growth was capped. Leadership's vision was to become the "OS for Health" by selling our technology to large enterprises (hospitals like Medanta) and partners (device makers like Samsung). The problem? Our app was a monolith. We couldn't just "sell" it. We needed to deconstruct our product into modular, self-contained, and brand-able "LEGO blocks" (SDKs).</p>
                     </section>
                     
                     <figure class="case-study__image">
-                        <div class="img-placeholder" style="--aspect-ratio: 16/9;"></div>
-                        <figcaption>Expected Image: A diagram showing a monolithic app architecture transforming into a collection of modular SDKs (e.g., Records SDK, Booking SDK, EMR SDK).</figcaption>
+                        <img src="assets/sdk/sdk-architecture.png" alt="A diagram showing a monolithic app architecture transforming into a collection of modular SDKs" loading="lazy">
+                        <figcaption>Fig. 1 - Our goal: Transform a monolithic app into a collection of modular SDKs that could be independently integrated by partners.</figcaption>
                     </figure>
                     
                     <section id="diagnosis">
-                        <h2>My Approach: Architecting the "Design Contract"</h2>
+                        <h2 class="act-title">2. The Diagnosis</h2>
+                        <h3>My Approach: Architecting the "Design Contract"</h3>
                         <p>As the design lead and de-facto Design System Manager, my role went far beyond Figma. I had to create a system that was both flexible for clients and robust enough to not break. I operated as a bridge between the CEO's vision and engineering reality.</p>
                         <ol>
                             <li><strong>Clarifying Ambiguity:</strong> I built tangible prototypes of what a "themeable SDK" could look like. This forced concrete discussions and moved the team from vague ideas to a defined project with clear goals.</li>
@@ -59,22 +67,24 @@
                         </ol>
                     </section>
             
-                    <section class="highlight-box" style="background-color: #faf8f3;">
-                        <h3>Key Decision: The Semantic Theming Contract</h3>
+                    <div class="highlight-box">
+                        <h4>Key Decision: The Semantic Theming Contract</h4>
                         <p>Instead of giving clients an entire color palette to manage (which would lead to chaos), I designed a system where they only had to provide a few semantic color tokens: `primary`, `on-primary`, `surface`, `error`, etc. Our system would then programmatically generate the full 50-shade palette, ensuring accessible contrast ratios and brand integrity. This limited, yet powerful, contract was the key to scalability.</p>
                         <figure class="case-study__image">
-                                <div class="img-placeholder" style="--aspect-ratio: 4/3;"></div>
-                                <figcaption>Expected Image: A Figma screenshot showing the simple input palette on the left, and the auto-generated full color system on the right.</figcaption>
+                            <img src="assets/sdk/theming-contract.png" alt="A Figma screenshot showing the simple input palette on the left, and the auto-generated full color system on the right." loading="lazy">
+                            <figcaption>Fig. 2 - The contract: Clients provide a few key colors, our system generates the rest, ensuring consistency.</figcaption>
                         </figure>
-                    </section>
+                    </div>
                     
                     <section id="pivot">
+                        <h2 class="act-title">3. The Pivot</h2>
                         <h3>Cross-Functional Leadership: Designing the Workflow</h3>
                         <p>A system is useless if it's not adopted. I identified a major friction point: the development team was ignoring the system and rebuilding components because it was easier. I didn't just complain; I proposed a solution. I worked with engineering leads to champion the use of CI/CD pipelines to automatically build and distribute our theme files (`colors.xml`, etc.) directly to client projects. This made it easier to *use* the system than to ignore it, shifting my role from pure designer to process architect.</p>
                     </section>
             
                     <section id="payoff">
-                        <h2>The Impact: Unlocking a New Business</h2>
+                        <h2 class="act-title">4. The Payoff</h2>
+                        <h3>The Impact: Unlocking a New Business</h3>
                         <ul>
                             <li><strong>Business Enablement:</strong> This systemic work was the foundational requirement that enabled the company to pivot to a B2B2C model, directly leading to major partnerships with clients like Medanta and Samsung.</li>
                             <li><strong>Developer Efficiency:</strong> The "native components first" philosophy and automated delivery pipeline dramatically increased developer velocity and reduced UI bugs and inconsistencies.</li>
@@ -83,16 +93,17 @@
                     </section>
             
                     <section id="reflection">
-                        <h2>Final Reflection</h2>
+                        <h2 class="act-title">5. Reflection</h2>
+                        <h3>Final Reflection</h3>
                         <p>This project cemented my evolution from a feature designer to a platform strategist. My biggest learning was that for a system to succeed, its social and technical adoption strategy is just as important as the design of its components. You have to design the workflow, not just the pixels.</p>
                     </section>
                 </div>
-                <!-- --- [MOVED & RENAMED] STICKY SIDEBAR TOC --- -->
-                <aside class="case-study__toc-sidebar">
+
+                <aside class="case-study-toc-sidebar">
                     <nav aria-label="Case study sections">
-                        <h3>On this page</h3>
-                        <div class="case-study__toc-links">
-                            <a href="#setup">1. The Setup</a>
+                        <h4>On this page</h4>
+                        <div class="toc-links-wrapper">
+                            <a href="#setup" class="is-active">1. The Setup</a>
                             <a href="#diagnosis">2. The Diagnosis</a>
                             <a href="#pivot">3. The Pivot</a>
                             <a href="#payoff">4. The Payoff</a>
@@ -100,9 +111,6 @@
                         </div>
                     </nav>
                 </aside>
-                <!-- --- END SIDEBAR TOC --- -->
-
-                
             </div>
         </main>
     </div>

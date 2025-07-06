@@ -1,0 +1,567 @@
+This is a fantastic line of thinking. You are correctly focusing on the *why* behind each design decision, which is the hallmark of a lead designer. Showing the evolution of an idea, including the imperfect early-stage sketches, is incredibly powerful. It demonstrates a rigorous, thoughtful process, not just a single "perfect" final design.
+
+Let's structure this "Onboarding" section to tell that rich story. We will replace the existing, simpler "Iterations: Onboarding" section with this more detailed breakdown.
+
+### Code Implementation
+
+This is a complete replacement for **Section 4.1**. You can delete the existing `<h3...` and `<div class="iteration-explorer">...</div>` for "4.1 Iterations: Onboarding" and replace it with the entire block of code below. No new CSS is needed; we'll leverage your existing styles.
+
+#### Replace the "4.1 Iterations: Onboarding" section in `case-study-heart-rate.html` with this:
+
+```html
+                    <h3>4.1 Iterations: Onboarding & First Measurement</h3>
+                    <p>To solve our primary goal of 'First-Try' Success, the onboarding journey needed a complete overhaul. My strategy involved two key interventions: a captivating upfront video and a foolproof "ready-to-measure" screen.</p>
+                    
+                    <h4 class="subsection-title">Intervention 1: Crafting the Onboarding Video</h4>
+                    <p>Our research showed static illustrations failed because they couldn't convey the dynamic action of measurement. A video was the clear solution to *show*, not just *tell*. I storyboarded two distinct narrative approaches to find the most effective message.</p>
+
+                    <div class="iteration-explorer">
+                        <div class="explorer-visuals">
+                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/storyboard-1.png" alt="Storyboard concept 1 showing a human-centric story."></div>
+                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/storyboard-2.png" alt="Storyboard concept 2 showing an app-focused story."></div>
+                        </div>
+                        <div class="explorer-content">
+                            <h5>Video Storyboard Concepts</h5>
+                            <div class="explorer-controls">
+                                <button class="is-active" data-iteration="1">Story 1: The Human Connection</button>
+                                <button data-iteration="2">Story 2: The Technical Demo</button>
+                            </div>
+                            <div class="explorer-rationale">
+                                <div class="rationale-text is-active" data-iteration="1">
+                                    <p><strong>Concept:</strong> Start with a person feeling their own pulse, then connect that feeling to the app measurement.</p>
+                                    <p><strong>Pros:</strong> Emotionally relatable, grounds the feature in a familiar human action.</p>
+                                    <p><strong>Cons:</strong> Didn't clearly show the *how* of using the phone. Could create confusion about feeling a pulse vs. the app's camera technology.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="2">
+                                    <p><strong>Concept:</strong> Focus entirely on the phone and app UI, showing the finger placement and measurement process.</p>
+                                    <p><strong>Pros:</strong> Very clear, direct instructions. No ambiguity about the process.</p>
+                                    <p><strong>Cons:</strong> A bit dry and technical. Lacked the "wow" factor and emotional hook.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Decision:</strong> We merged the best of both. The final video starts with an emotional hook ("Monitor Your Heart Rate for a Healthy Life") and then transitions into a clear, concise technical demo, including social proof ("5M+ readings") to build instant trust.</p>
+                    </div>
+
+                    <figure class="case-study__image">
+                        <video src="assets/hr/introductory video.mp4" autoplay loop muted playsinline controls style="max-width: 350px; margin: 0 auto; display: block; border-radius: 24px;"></video>
+                        <figcaption>Fig. 4 - The final onboarding video, combining an emotional hook with clear instructions.</figcaption>
+                    </figure>
+
+                    <h4 class="subsection-title">Intervention 2: The "Ready to Measure" Screen</h4>
+                    <p>After the video, the user lands on the measurement screen. This moment is critical. The design must guide their finger to the right place without causing confusion. I explored two distinct layouts for this screen.</p>
+
+                    <div class="iteration-explorer">
+                        <div class="explorer-visuals">
+                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/ready-screen-concept-1.png" alt="Concept 1: Fullscreen camera view with instructions accessible on scroll."></div>
+                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/ready-screen-concept-2.png" alt="Concept 2: A focused, circular camera view with a static visual guide below."></div>
+                        </div>
+                        <div class="explorer-content">
+                            <h5>"Ready to Measure" Screen Concepts</h5>
+                            <div class="explorer-controls">
+                                <button class="is-active" data-iteration="1">Layout A: Fullscreen View</button>
+                                <button data-iteration="2">Layout B: Focused View</button>
+                            </div>
+                            <div class="explorer-rationale">
+                                <div class="rationale-text is-active" data-iteration="1">
+                                    <p><strong>Concept:</strong> A full-screen camera view with instructions hidden below, accessible by scrolling up.</p>
+                                    <p><strong>Pros:</strong> Maximizes the camera's capture area, which could be technically beneficial for the algorithm.</p>
+                                    <p><strong>Cons:</strong> Hides critical instructions. Relies on the user to discover the scroll interaction, increasing cognitive load at a crucial moment.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="2">
+                                    <p><strong>Concept:</strong> A smaller, circular camera view that acts as a "target," with a persistent visual guide showing correct finger placement.</p>
+                                    <p><strong>Pros:</strong> The circular shape mimics a camera lens, providing a strong affordance. It creates a clear focal point and keeps instructions visible at all times.</p>
+                                    <p><strong>Decision:</strong> We chose Layout B. The benefit of reducing cognitive load and providing a clear target far outweighed the slightly smaller camera view. It prioritizes user certainty over technical convenience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+```
+
+*Note: For this code to work, you will need to name your asset files as follows and place them in the `/assets/hr/` directory:*
+*   `storyboard-1.png` (your first sketch)
+*   `storyboard-2.png` (your second sketch)
+*   `ready-screen-concept-1.png` (the screenshot with the upward-scrolling arrows)
+*   `ready-screen-concept-2.png` (the screenshot with the circular view and phone image)
+
+This new section tells a much richer story. It shows you didn't just create one solution; you explored multiple paths, analyzed the trade-offs of each, and made a strategic decision based on user psychology and your design goals. This is exactly what a hiring manager for a lead role is looking for.
+
+
+
+
+
+<!-- <h3>4.1 Iteration: Onboarding</h3>
+                    <p>To ensure 'First-Try' Success, we had to create an onboarding experience that was universally understandable.</p>
+                    
+                    <div class="iteration-explorer">
+                        <div class="explorer-visuals">
+                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/v1-screen-onboarding.png" alt="Iteration 1: Static Illustrations"></div>
+                            <div class="iteration-image" data-iteration="2
+                                <video src="assets/hr/instruction video-1.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                            <div class="iteration-image" data-iteration="3">
+                                <video src="assets/hr/introductory video.mp4" autoplay loop muted playsinline></video>
+                            </div>
+                        </div>
+                        <div class="explorer-content">
+                            <h5>Onboarding Iterations</h5>
+                            <div class="explorer-controls">
+                                <button class="is-active" data-iteration="1">V1: Static Art</button>
+                                <button data-iteration="2">V2: First Video Concept</button>
+                                <button data-iteration="3">V3: Final Design</button>
+                            </div>
+                            <div class="explorer-rationale">
+                                <div class="rationale-text is-active" data-iteration="1">
+                                    <p><strong>Concept:</strong> The original static illustrations.</p>
+                                    <p><strong>Learnings:</strong> Failed completely. Users couldn't map the abstract drawing to their physical phone, leading to the "phone flip" behavior.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="2">
+                                    <p><strong>Concept:</strong> A simple looping video showing finger placement.</p>
+                                    <p><strong>Learnings:</strong> Better, but still lacked trust and real-time guidance. Users still got stuck if their phone model was different.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="3">
+                                    <p><strong>Concept:</strong> A high-quality, multi-modal instructional video.</p>
+                                    <ul>
+                                        <li><strong>Social Proof:</strong> Added a "5M+ readings" counter to build instant credibility.</li>
+                                        <li><strong>Live Error States:</strong> Showed visual feedback for "finger on wrong camera."</li>
+                                        <li><strong>Passive Learning:</strong> Autoplayed on a loop so users could learn without needing to tap.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <h3>4.1 Iterations: Onboarding & First Measurement</h3>
+                        <p>To solve our primary goal of 'First-Try' Success, the onboarding journey needed a complete overhaul. My strategy involved two key interventions: a captivating upfront video and a foolproof "ready-to-measure" screen.</p>
+                        
+                        <h4 class="subsection-title">Intervention 1: Crafting the Onboarding Video</h4>
+                        <p>Our research showed static illustrations failed because they couldn't convey the dynamic action of measurement. A video was the clear solution to *show*, not just *tell*. I storyboarded two distinct narrative approaches to find the most effective message.</p>
+    
+                        <div class="iteration-explorer">
+                            <div class="explorer-visuals">
+                                <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/storyboard-1.png" alt="Storyboard concept 1 showing a human-centric story."></div>
+                                <div class="iteration-image" data-iteration="2"><img src="assets/hr/storyboard-2.png" alt="Storyboard concept 2 showing an app-focused story."></div>
+                            </div>
+                            <div class="explorer-content">
+                                <h5>Video Storyboard Concepts</h5>
+                                <div class="explorer-controls">
+                                    <button class="is-active" data-iteration="1">Story 1: The Human Connection</button>
+                                    <button data-iteration="2">Story 2: The Technical Demo</button>
+                                </div>
+                                <div class="explorer-rationale">
+                                    <div class="rationale-text is-active" data-iteration="1">
+                                        <p><strong>Concept:</strong> Start with a person feeling their own pulse, then connect that feeling to the app measurement.</p>
+                                        <p><strong>Pros:</strong> Emotionally relatable, grounds the feature in a familiar human action.</p>
+                                        <p><strong>Cons:</strong> Didn't clearly show the *how* of using the phone. Could create confusion about feeling a pulse vs. the app's camera technology.</p>
+                                    </div>
+                                    <div class="rationale-text" data-iteration="2">
+                                        <p><strong>Concept:</strong> Focus entirely on the phone and app UI, showing the finger placement and measurement process.</p>
+                                        <p><strong>Pros:</strong> Very clear, direct instructions. No ambiguity about the process.</p>
+                                        <p><strong>Cons:</strong> A bit dry and technical. Lacked the "wow" factor and emotional hook.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Decision:</strong> We merged the best of both. The final video starts with an emotional hook ("Monitor Your Heart Rate for a Healthy Life") and then transitions into a clear, concise technical demo, including social proof ("5M+ readings") to build instant trust.</p>
+                        </div>
+    
+                        <figure class="case-study__image">
+                            <video src="assets/hr/introductory video.mp4" autoplay loop muted playsinline controls style="max-width: 350px; margin: 0 auto; display: block; border-radius: 24px;"></video>
+                            <figcaption>Fig. 4 - The final onboarding video, combining an emotional hook with clear instructions.</figcaption>
+                        </figure>
+    
+                        <h4 class="subsection-title">Intervention 2: The "Ready to Measure" Screen</h4>
+                        <p>After the video, the user lands on the measurement screen. This moment is critical. The design must guide their finger to the right place without causing confusion. I explored two distinct layouts for this screen.</p>
+    
+                        <div class="iteration-explorer">
+                            <div class="explorer-visuals">
+                                <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/ready-screen-concept-1.png" alt="Concept 1: Fullscreen camera view with instructions accessible on scroll."></div>
+                                <div class="iteration-image" data-iteration="2"><img src="assets/hr/ready-screen-concept-2.png" alt="Concept 2: A focused, circular camera view with a static visual guide below."></div>
+                            </div>
+                            <div class="explorer-content">
+                                <h5>"Ready to Measure" Screen Concepts</h5>
+                                <div class="explorer-controls">
+                                    <button class="is-active" data-iteration="1">Layout A: Fullscreen View</button>
+                                    <button data-iteration="2">Layout B: Focused View</button>
+                                </div>
+                                <div class="explorer-rationale">
+                                    <div class="rationale-text is-active" data-iteration="1">
+                                        <p><strong>Concept:</strong> A full-screen camera view with instructions hidden below, accessible by scrolling up.</p>
+                                        <p><strong>Pros:</strong> Maximizes the camera's capture area, which could be technically beneficial for the algorithm.</p>
+                                        <p><strong>Cons:</strong> Hides critical instructions. Relies on the user to discover the scroll interaction, increasing cognitive load at a crucial moment.</p>
+                                    </div>
+                                    <div class="rationale-text" data-iteration="2">
+                                        <p><strong>Concept:</strong> A smaller, circular camera view that acts as a "target," with a persistent visual guide showing correct finger placement.</p>
+                                        <p><strong>Pros:</strong> The circular shape mimics a camera lens, providing a strong affordance. It creates a clear focal point and keeps instructions visible at all times.</p>
+                                        <p><strong>Decision:</strong> We chose Layout B. The benefit of reducing cognitive load and providing a clear target far outweighed the slightly smaller camera view. It prioritizes user certainty over technical convenience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+This is a fantastic, highly detailed plan. You're thinking exactly like a lead designer—not just showing the final screen, but deconstructing the problem into specific intervention points and demonstrating a rigorous, iterative exploration process for each one. This is how you build a world-class case study.
+
+Let's bring this vision to life. We will create a new, nested interactive component: a set of tabs for each "intervention," with our familiar `iteration-explorer` inside each tab.
+
+### UX Task: Demonstrating Strategic Exploration
+
+By structuring the narrative this way, you're applying a powerful storytelling principle: **Show, Don't Just Tell.** Instead of saying "I thought about the onboarding," you are visually demonstrating your thought process for *each component* of the onboarding. This showcases:
+*   **Problem Decomposition:** You can break a large problem ("onboarding") into smaller, solvable parts ("the 'wow' video," "the pre-measurement screen").
+*   **Rationale-Driven Design:** Every design decision is backed by clear pros and cons, showing you don't just pick what looks prettiest but what works best.
+*   **Creative Exploration:** Displaying the storyboards proves your involvement from the earliest conceptual stages.
+
+---
+
+### Code Implementation
+
+This is a significant update involving HTML, CSS, and JavaScript.
+
+#### 1. Update `case-study-heart-rate.html`
+
+We will replace the entire "Iterations: Onboarding" section with our new, more sophisticated tabbed component.
+
+**FIND this section in your `case-study-heart-rate.html` file and DELETE it:**
+
+```html
+                    <h3>4.1 Iterations: Onboarding</h3>
+                    <p>To ensure 'First-Try' Success, we had to create an onboarding experience that was universally understandable.</p>
+                    
+                    <div class="iteration-explorer">
+                        <!-- THE ENTIRE ITERATION EXPLORER FOR ONBOARDING -->
+                    </div>
+```
+
+**ADD the following NEW code block in its place.** This is the new tabbed structure.
+
+```html
+                    <h3>4.1 Solving for 'First-Try' Success: An Onboarding Deep-Dive</h3>
+                    <p>Fixing the 38% drop-off required a multi-point attack on the onboarding journey. I broke the problem down into distinct intervention points and explored solutions for each.</p>
+
+                    <div class="intervention-container">
+                        <!-- TABS for each intervention point -->
+                        <div class="intervention-tabs">
+                            <button class="intervention-tab is-active" data-tab="1">Intervention: The 'Wow' Moment Video</button>
+                            <button class="intervention-tab" data-tab="2">Intervention: The Pre-Measurement Screen</button>
+                            <button class="intervention-tab" data-tab="3">Intervention: The "Safety Net" Error Handling</button>
+                        </div>
+
+                        <!-- CONTENT for Intervention 1: The 'Wow' Moment Video -->
+                        <div class="intervention-content is-active" data-tab="1">
+                            <h4>Crafting the First Impression</h4>
+                            <p>Our research showed users were both curious and skeptical. I chose a video intervention not just to instruct, but to build excitement and establish credibility from the very first second.</p>
+                            <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/storyboard-1.png" alt="Storyboard concept 1: a technical, focused animation of the heart rate process."></div>
+                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/storyboard-2.png" alt="Storyboard concept 2: a human-centric, emotional video showing a person using the app."></div>
+                                    <div class="iteration-image" data-iteration="3"><video src="assets/hr/introductory video.mp4" autoplay loop muted playsinline></video></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h5>Video Storyboard Concepts</h5>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">Concept A: Tech-Focused</button>
+                                        <button data-iteration="2">Concept B: Human-Centric</button>
+                                        <button data-iteration="3">Final Solution</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Approach:</strong> A direct, technical animation showing the heart, the phone, and the measurement process.</p>
+                                            <p><strong>Pros:</strong> Clearly explained the "how."<br><strong>Cons:</strong> Felt a bit cold and impersonal; didn't build an emotional connection.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Approach:</strong> Show a relatable person feeling happy and healthy while using the app.</p>
+                                            <p><strong>Pros:</strong> Built strong emotional resonance and trust.<br><strong>Cons:</strong> Less effective at explaining the technical process itself.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="3">
+                                            <p><strong>Decision:</strong> We combined the best of both. The final video is fast-paced, human-centric, and crucially includes a "5M+ Readings Recorded" social proof element to instantly build trust and credibility, directly addressing a key user concern.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONTENT for Intervention 2: Pre-Measurement Screen -->
+                        <div class="intervention-content" data-tab="2">
+                            <h4>Bridging Intention and Action</h4>
+                            <p>There is a critical moment between the video and the user placing their finger. The design of this screen needed to guide them seamlessly into the measurement.</p>
+                                <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/pre-measure-concept-1.png" alt="Concept 1: A full-screen camera view with instructions accessible by scrolling up."></div>
+                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/pre-measure-concept-2.png" alt="Concept 2: A circular camera view with a persistent video guide."></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h5>Pre-Measurement Screen Concepts</h5>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">Concept A: Scroll for Help</button>
+                                        <button data-iteration="2">Concept B: Circular View</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Approach:</strong> A full-screen camera view with a "pull-up" drawer for instructions.</p>
+                                            <p><strong>Pros:</strong> Maximized the camera view for easy finger placement.<br><strong>Cons:</strong> Hiding instructions required an extra user action and wasn't discoverable for less tech-savvy users.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Approach:</strong> A circular camera view to act as a "target," with a small, persistent video guide.</p>
+                                            <p><strong>Pros:</strong> The target metaphor felt intuitive. Persistent instructions were always visible.<br><strong>Cons:</strong> The smaller view made it slightly harder to place the finger correctly. Through testing, we found a full-screen view with always-visible text was the most effective compromise (our final design).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CONTENT for Intervention 3: The Safety Net -->
+                        <div class="intervention-content" data-tab="3">
+                                <h4>Providing a "Safety Net"</h4>
+                            <p>The final piece of the onboarding puzzle was creating a safety net for users who still struggled. I designed clear, real-time error messages that didn't just report failure, but actively guided the user to success.</p>
+                            <figure class="case-study__image">
+                                <img src="assets/hr/real-time-error-feedback.png" alt="A screenshot showing real-time error feedback for incorrect finger placement.">
+                                <figcaption>This simple feedback loop—showing both a visual error and instructive text—was critical in preventing users from getting stuck in a failure cycle.</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+```
+*(Note: I've created placeholder names for your new images like `storyboard-1.png`, `pre-measure-concept-1.png`, and `real-time-error-feedback.png`. You'll need to crop/save these from the assets you provided.)*
+
+#### 2. Update `style.css`
+
+Add these new CSS rules to the end of your `style.css` file to style our new tabbed component.
+
+```css
+/* --- Intervention Tab Component --- */
+.intervention-container {
+    margin: var(--spacing-xl) 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: var(--color-surface);
+}
+
+.intervention-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.intervention-tab {
+    all: unset; /* Reset button styles */
+    flex-grow: 1;
+    padding: 12px 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 6px; /* Slightly smaller radius for tabs */
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+    color: var(--color-text-muted);
+}
+
+.intervention-tab:hover {
+    background-color: var(--color-highlight-bg);
+    color: var(--color-primary);
+}
+
+.intervention-tab.is-active {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.intervention-content {
+    display: none;
+    padding: var(--spacing-lg);
+}
+
+.intervention-content.is-active {
+    display: block;
+}
+
+.intervention-content h4 {
+    font-size: 1.5rem;
+    font-family: var(--font-family-serif);
+    margin-top: 0;
+}
+```
+
+#### 3. Update `script.js`
+
+Finally, add this new block of JavaScript to the **end** of your `script.js` file. This will power the interactivity for the new tab component.
+
+```javascript
+    // --- Intervention Tabs Logic ---
+    const interventionContainers = document.querySelectorAll('.intervention-container');
+    interventionContainers.forEach(container => {
+        const tabs = container.querySelector('.intervention-tabs');
+        if (!tabs) return;
+
+        tabs.addEventListener('click', (e) => {
+            const button = e.target.closest('button.intervention-tab');
+            if (!button) return;
+
+            const tabId = button.dataset.tab;
+
+            // Update active state on tabs
+            container.querySelectorAll('.intervention-tab').forEach(t => t.classList.remove('is-active'));
+            button.classList.add('is-active');
+
+            // Update active state on content panels
+            container.querySelectorAll('.intervention-content').forEach(panel => {
+                if (panel.dataset.tab === tabId) {
+                    panel.classList.add('is-active');
+                } else {
+                    panel.classList.remove('is-active');
+                }
+            });
+        });
+    });
+```
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- <h3>4.2 Iterations: Building Trust During Measurement</h3>
+                    <p>To combat the "phone flip" and build trust during the scan, we needed to give users constant, reassuring feedback.</p>
+                    
+                    <div class="iteration-explorer">
+                        <div class="explorer-visuals">
+                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/measure-concept-1.png" alt="Concept 1: Live PPG Graph"></div>
+                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/measure-concept-2.png" alt="Concept 2: Haptic Feedback and Audio Cues"></div>
+                        </div>
+                        <div class="explorer-content">
+                            <h5>Measurement Feedback Concepts</h5>
+                            <div class="explorer-controls">
+                                <button class="is-active" data-iteration="1">Concept: Visual Feedback</button>
+                                <button data-iteration="2">Concept: Sensory Feedback</button>
+                            </div>
+                            <div class="explorer-rationale">
+                                <div class="rationale-text is-active" data-iteration="1">
+                                    <p><strong>Approach:</strong> Introduce a live PPG (photoplethysmography) graph on screen.</p>
+                                    <p><strong>Pros:</strong> Gave a clear, scientific-looking visual that the system was working. Appealed to tech-savvy users.</p>
+                                    <p><strong>Cons:</strong> Still required the user to look at the screen, and could be visually complex for some.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="2">
+                                    <p><strong>Approach:</strong> Add non-visual cues like a rhythmic "lub-dub" haptic pulse and audio confirmations.</p>
+                                    <p><strong>Pros:</strong> Allowed users to *feel* the app working without looking, directly solving the "phone flip" problem. Highly accessible.</p>
+                                    <p><strong>Decision:</strong> We shipped a combination of both—the PPG graph for visual confirmation and haptics as the primary sensory feedback.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h3>4.3 Iterations: Designing an Actionable Result</h3>
+                    <p>To create a habit loop, the result screen needed to evolve from a dead end into an engagement hub.</p>
+                    
+                     <div class="iteration-explorer">
+                        <div class="explorer-visuals">
+                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/result-concept-1.png" alt="Concept 1: Adding Context"></div>
+                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/result-concept-2.png" alt="Concept 2: Driving Retention"></div>
+                        </div>
+                        <div class="explorer-content">
+                            <h5>Result Screen Concepts</h5>
+                            <div class="explorer-controls">
+                                <button class="is-active" data-iteration="1">Approach: Add Context</button>
+                                <button data-iteration="2">Approach: Drive Retention</button>
+                            </div>
+                            <div class="explorer-rationale">
+                                <div class="rationale-text is-active" data-iteration="1">
+                                    <p><strong>Concept:</strong> Add immediate value by contextualizing the number.</p>
+                                    <ul>
+                                        <li><strong>Contextual Tagging:</strong> Allowed users to tag their state (Resting, Exercising) to make data meaningful.</li>
+                                        <li><strong>Clear Ranges:</strong> Replaced a vague "Healthy" label with clear low/healthy/high visual ranges.</li>
+                                        <li><strong>BPM vs BP Education:</strong> Added a small, dismissible card explicitly stating "This is not a blood pressure reading."</li>
+                                    </ul>
+                                </div>
+                                <div class="rationale-text" data-iteration="2">
+                                    <p><strong>Concept:</strong> Turn the result into an engagement hub that encourages repeat use.</p>
+                                     <ul>
+                                        <li><strong>Longitudinal Trends:</strong> Displayed a historical graph to show patterns over time, giving a reason to measure again.</li>
+                                        <li><strong>HRV Education:</strong> Added "Learn More" modals to explain advanced metrics like HRV, catering to power users.</li>
+                                        <li><strong>Actionable CTAs:</strong> Integrated clear next steps ("Check Health Risk") to guide users deeper into the platform.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    Excellent questions. This is where we refine the narrative to be as sharp and impressive as possible. You've correctly identified that we need to be smart about how we represent non-visual concepts like haptics and sound.
+
+Let's restructure the "During Measurement" section to be tighter, more focused, and more strategic.
+
+### Plan of Action:
+
+1.  **Combine Interventions:** Instead of two separate tabs ("Visual" and "Sensory"), we'll create a single, powerful tab called **"Building a Multi-Sensory Trust Loop."** This sounds more strategic and allows us to present all feedback mechanisms as part of one cohesive solution.
+2.  **Structure the Explorer:** Within this single tab, we will use the `iteration-explorer` to show the evolution of the *visual* feedback, as we have clear screens for that.
+3.  **Address Non-Visual Feedback in Text:** We will describe the haptic and auditory explorations in the accompanying text, explaining the rationale and decisions. This is the most effective way to handle non-visual concepts without needing weak visual placeholders.
+
+---
+
+### Revised Text for Section 4.2
+
+Here is the complete, revised text for section 4.2. You can replace the entire `<h3>` block in your HTML. No code changes are needed—this is a pure content swap.
+
+*(Note: The `iteration-explorer` HTML from the previous step can remain, but you will need to update the images and the text inside the `.explorer-rationale` divs to match this new narrative.)*
+
+---
+
+### **4.2 Building a Multi-Sensory Trust Loop During Measurement**
+
+My research clearly showed that the 30-second scan was an "anxiety-inducing black box." To solve the "phone flip" and build user confidence, I designed a multi-sensory feedback system to make the invisible process, visible and tangible.
+
+<br/>
+
+**(Your existing `iteration-container` would go here, but with the following new content inside the explorer):**
+
+#### Inside the `iteration-explorer`:
+
+**Visuals (`.explorer-visuals`):**
+*   **`data-iteration="1"`:** The V1 Measurement Screen (static number, no graph).
+*   **`data-iteration="2"`:** An early concept showing a large, animating heart or a simple progress ring.
+*   **`data-iteration="3"`:** The final solution showing the PPG graph, progress ring, and real-time BPM counter.
+
+**Controls (`.explorer-controls`):**
+*   **Button 1:** `V1: The Black Box`
+*   **Button 2:** `Concept: Simple Progress`
+*   **Button 3:** `Final: The Information-Rich Display`
+
+**Rationale (`.explorer-rationale`):**
+
+*   **Rationale for `data-iteration="1"` (V1: The Black Box):**
+    > **Problem:** The original screen offered zero feedback. Users felt anxious and uncertain if the app was working, leading them to flip their phone to check, which broke the measurement.
+
+*   **Rationale for `data-iteration="2"` (Concept: Simple Progress):**
+    > **Approach:** An early concept was to show a simple progress ring filling up or a large, pulsing heart icon.
+    >
+    > **Pros:** Provided a basic sense of progress.
+    >
+    > **Cons:** This felt superficial. It didn't provide any *real* data, failing to build deep technical trust and still feeling like a potential "gimmick."
+
+*   **Rationale for `data-iteration="3"` (Final: The Information-Rich Display):**
+    > **Decision: We chose to be transparent and information-rich.** The final design integrated three key visual elements:
+    >
+    > *   **Live PPG Graph:** Provided a scientific-looking, real-time waveform to prove the system was actively reading their pulse.
+    > *   **Progress Ring:** Offered a clear, at-a-glance view of how much time was left.
+    > *   **Real-time BPM Counter:** Showed the number updating live, giving instant feedback and a sense of dynamism.
+
+---
+
+#### **Text to Add *Below* the Iteration Explorer:**
+
+This is where we'll discuss the non-visual elements.
+
+---
+
+### **Beyond Visuals: Designing for Other Senses**
+
+Visual feedback was only one part of the solution. To fully solve the "phone flip," I also explored non-visual cues.
+
+*   **Haptic Feedback:** I worked with engineering to implement a rhythmic "lub-dub" haptic pulse that synced with the user's detected heartbeat. This was a game-changer, allowing users to **feel** the app working without looking at the screen. It provided constant, subconscious reassurance.
+
+*   **Auditory Feedback (A Deliberate Omission):** We prototyped adding an audible heartbeat sound. However, in user testing with colleagues, we made a critical discovery: the sound, rather than being reassuring, actually **increased anxiety and anticipation** for some, causing them to hold their breath or tense up, which could affect the reading. Based on this insight, I made the strategic decision to **omit auditory feedback**, prioritizing a calm, focused user experience.
+
+The final shipped solution was a **multi-sensory system:** the visual display built technical trust, while the silent, haptic pulse provided a tangible, calming confirmation. This combination proved incredibly effective, virtually eliminating user uncertainty during the scan.

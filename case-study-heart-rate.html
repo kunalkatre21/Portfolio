@@ -3,185 +3,962 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Title updated for the new case study -->
-    <title>Case Study: Heart Rate Monitor Turnaround | [Your Name]</title>
+    <title>Case Study: Architecting an Engagement Engine | Kunal Katre</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="gradient-bg"></div>
-    <!-- <div class="cursor-dot"></div>
-    <div class="cursor-circle"></div> -->
+<div class="gradient-bg"></div>
 
-    <!-- The Nav is consistent across pages -->
-    <nav class="main-nav">
-        <a href="index.html" class="nav-logo">KK</a>
-        <div class="nav-links">
-            <a href="index.html#journey">The Journey</a>
-            <a href="cv.html">Résumé</a>
-            <a href="index.html#contact">Contact</a> <!-- Changed to link to footer on index -->
-        </div>
-    </nav>
-    <div class="container">
-        <main class="case-study">
-            <header class="case-study__header">
-                <a href="index.html" class="case-study__back-link">← Back to Narrative</a>
-                <h1 class="case-study__title">From Confusion to Conversion: How I Lifted Feature Success by 21%</h1>
-                <p class="case-study__subtitle">A deep dive into how I used guerilla research and a key interaction pivot to diagnose a failing feature funnel, rebuilding it to drive user trust and measurable business impact.</p>
-                <div class="case-study__meta">
-                    <span><strong>Role:</strong> Lead Product Designer</span>
-                    <span><strong>Company:</strong> Eka.Care</span>
-                    <span><strong>Outcome:</strong> +21% Relative Conversion Improvement for First-Time Users</span>
-                    <span><strong>Skills:</strong> User Research, Funnel Analysis, Interaction Design, Prototyping</span>
-                </div>
-            </header>
-
-            <div class="case-study-layout">
-                <div class="case-study__content">
-                    <section id="setup">
-                        <h2>1. The Setup: A Failing Strategic Asset</h2>
-                        <p>The Heart Rate Monitor (BPM) was a key pillar of our user acquisition strategy, designed to be a free, high-value "wow" moment to differentiate Eka.Care and drive initial app downloads. Its success was directly tied to our top-of-funnel growth targets. However, the data told a different story. It was a leaking bucket.</p>
-                        <p>My initial analysis of our analytics revealed a major problem. For the crucial <strong>first-time user cohort, the conversion rate was hovering around a stagnant 62%</strong>. A key strategic asset was underperforming and creating a poor first impression for tens of thousands of new users. My task was not just to fix a UI, but to diagnose and reverse a business failure.</p>
-                        <!-- FIG 1: THE LEAK - FUNNEL ANALYSIS -->
-                        <figure class="case-study__image funnel-chart-container">
-                            <div class="funnel-title">
-                                <h3>The Leaking Funnel: Initial Analysis</h3>
-                                <p>First-Time User Cohort, Nov-Dec 2022</p>
-                            </div>
-                            <div class="funnel-stage">
-                                <span>Landed on Feature</span>
-                                <div class="funnel-bar funnel-bar--full">100%</div>
-                            </div>
-                            <div class="funnel-dropoff">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
-                                <span>-38% Drop-off</span>
-                            </div>
-                            <div class="funnel-stage">
-                                <span>Successful Measurement</span>
-                                <div class="funnel-bar funnel-bar--partial">62%</div>
-                            </div>
-                            <figcaption>Fig. 1 - The initial analysis revealed a catastrophic ~38% drop-off, with a baseline conversion of only 62% for new users.</figcaption>
-                        </figure>
-                    </section>
-    
-                    <section id="diagnosis">
-                        <h2>2. The Diagnosis: Leading a Cross-Functional Investigation</h2>
-                        <p>I brought my initial hypothesis—that the issue was a fundamental crisis of trust and clarity—to my partners in Product and Engineering. We agreed that before investing development time, we needed to validate the root cause. I took the lead on a multi-pronged diagnostic process.</p>
-                        
-                        <h3>Guerilla Research & User Observations</h3>
-                        <p>I initiated and led guerilla research sessions with 8+ users, deliberately selecting a mix of personas, from tech-savvy software engineers to less tech-literate security guards. Observing users interact with the app provided immediate, unfiltered, and damning evidence. The core of the problem wasn't a minor usability issue; users were fundamentally confused.</p>
-    
-                        <h3>Mapping the Failure Points</h3>
-                        <p>To synthesize these qualitative findings and present a clear case to stakeholders, I created a user journey map. This artifact became the centerpiece of our investigation, allowing the entire team to visualize exactly where the experience was breaking down.</p>
-                        <figure class="case-study__image">
-                            <img src="assets/hr/journey-map.png" alt="A user journey map annotated with user quotes and pain points highlighted in red during the 'Setup & Trust' phase.">
-                            <figcaption>Fig. 2 - The journey map became our team's shared understanding of the problem. Annotating it with direct user quotes and pain points clearly highlighted the 'Setup & Trust' phase as the primary point of failure.</figcaption>
-                        </figure>
-    
-                        <h3>The "Aha!" Moment: Synthesizing the Insights</h3>
-                        <p>The combined research provided three critical insights that I shared with the team:</p>
-                        <ol>
-                            <li><strong>Instructional Failure:</strong> Static illustrations were ineffective. Users couldn't connect the abstract drawing to their physical phone.</li>
-                            <li><strong>Feedback Void:</strong> The system gave poor feedback, causing users to break the measurement process by flipping their phone over to check finger placement.</li>
-                            <li><strong>The Trust Deficit:</strong> A lack of clarity led to a lack of trust. Users perceived the feature as a gimmick and abandoned it at the first sign of friction.</li>
-                        </ol>
-                    </section>
-    
-                    <section id="pivot">
-                        <h2>3. The Pivot: From Better Illustrations to a Better Medium</h2>
-                        <p>Armed with clear evidence, I prototyped several solutions. Our initial explorations into clearer static illustrations proved to be only a marginal improvement in testing. This led me to the key strategic pivot: the problem wasn't the <em>content</em> of the instruction, but the <em>medium</em> itself.</p>
-                        <p>I created a simple video prototype and presented my findings and the new direction to the broader team. By showing session recordings of users failing with the old UI alongside the clarity of the video concept, <strong>I secured buy-in for the additional effort required to implement a video-based onboarding.</strong></p>
-    
-                        <h3>Architecting the New Experience</h3>
-                        <p>The solution was a complete overhaul, focusing on clarity, trust, and designing for the entire experience—not just the happy path.</p>
-                        <figure class="case-study__image">
-                            <img src="assets/hr/fig3-before-after.png" alt="A side-by-side comparison of the old UI with its flaws annotated, and the new UI with its solutions highlighted.">
-                            <figcaption>Fig. 3 - Before & After: The new design replaced ambiguous illustrations with a clear video demo and introduced live feedback to build trust.</figcaption>
-                        </figure>
-    
-                        <p>Key improvements included:</p>
-                        <ul>
-                            <li><strong>Video Onboarding:</strong> A short, looping video showing a real hand performing the action, which proved unambiguous in testing.</li>
-                            <li><strong>Multi-Sensory Feedback (PPG Graph & Haptics):</strong> To solve the feedback void, I collaborated with engineering on a two-pronged solution. We introduced a live PPG graph so users could see the measurement in real-time. Critically, we also added a subtle, rhythmic haptic pulse that mimicked a heartbeat, allowing users to feel that the measurement was active without needing to look at the screen. This combination of visual and physical feedback was pivotal in building user trust.</li>
-                            <li><strong>Designing for Failure & Constraints:</strong> The original feature was built quickly to meet a deadline, resulting in significant design debt. We addressed this by redesigning error states to be empathetic and instructional. To ship quickly, we made a pragmatic trade-off to use a static list of "Fun Facts" during the measurement, logging a dynamic version as a V2 improvement.</li>
-                        </ul>
-                    </section>
-    
-                    <section id="payoff">
-                        <h2>4. The Payoff: Measurable Turnaround and Validated Hypotheses</h2>
-                        <p>The redesigned flow was rolled out on December 9th. We monitored the results closely, setting "Time to Interactive" as a counter-metric to ensure the new video onboarding didn't slow down the experience. By optimizing the video asset, we ensured there was no significant regression, confirming our fix didn't introduce a new problem.</p>
-                        <p>The results were a clear validation of our research-led strategy.</p>
-    
-                        <h3>The Impact in Numbers:</h3>
-                        <ul>
-                            <li>The conversion rate for the critical <strong>First-Time User cohort saw a sustained increase from a baseline of ~62% to over 75%</strong>, a relative improvement of more than <strong>21%</strong>. This directly validated our hypothesis that the instructional medium was the core problem.</li>
-                            <li>The success rate for users who re-attempted after a failure <strong>increased by 23%</strong>, proving that redesigning the error state from a dead-end to an encouraging loop was a critical, high-leverage change.</li>
-                        </ul>
-                        <!-- FIG 4: THE FIX - RETENTION CHART -->
-                        <figure class="case-study__image impact-chart-container">
-                            <div class="chart-title">
-                                <h3>Validating the Hypothesis: A 21% Conversion Lift</h3>
-                                <p>First-Time User Cohort</p>
-                            </div>
-                            <div class="chart-area">
-                                <!-- Bar for "Before" -->
-                                <div class="chart-bar bar--before">
-                                    <div class="bar-value">62%</div>
-                                    <div class="bar-inner"></div>
-                                    <div class="bar-label">Before Redesign</div>
-                                </div>
-                                <!-- Bar for "After" -->
-                                <div class="chart-bar bar--after">
-                                    <div class="bar-value">75%</div>
-                                    <div class="bar-inner"></div>
-                                    <div class="bar-label">After Redesign</div>
-                                </div>
-                                <!-- The Annotation -->
-                                <div class="chart-annotation">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-                                    <span>+21% Relative Improvement</span>
-                                </div>
-                            </div>
-                            <figcaption>Fig. 4 - Post-launch data showed a sustained conversion lift from ~62% to over 75%, validating our research-led design strategy.</figcaption>
-                        </figure>
-                    </section>
-    
-                    <section id="reflection">
-                        <h2>5. Reflection & What's Next</h2>
-                        <p>This project was a defining moment in my growth as a product designer. It taught me the importance of leading with data, validating with qualitative insights, and framing design decisions in the context of business objectives.</p>
-                        
-                        <h3>Organizational Impact</h3>
-                        <p>Beyond my personal growth, this project had a lasting impact on our team's process. The success of using guerilla research to quickly diagnose and solve a major business problem built more trust in the design process, leading to design being brought into strategic conversations earlier. The video onboarding component we created also became a new pattern in our design system, later adopted for two other complex features.</p>
-    
-                        <h3>Future Opportunities</h3>
-                        <p>Fixing the initial conversion was Phase 1. This success unlocked Phase 2: focusing on long-term retention. My follow-up proposal detailed a <strong>'Streaks & Insights' feature</strong>, giving users a compelling reason to measure their heart rate regularly. Furthermore, a key insight from our research was the user desire to share results with family or doctors. This highlighted a major opportunity to connect our BPM feature to our 'Family Health' and 'Telemedicine' platform pillars, creating a pipeline for future high-value work.</p>
-                    </section>
-                </div>
-                <!-- --- [MOVED & RENAMED] STICKY SIDEBAR TOC --- -->
-                <aside class="case-study__toc-sidebar">
-                    <nav aria-label="Case study sections">
-                        <h3>On this page</h3>
-                        <div class="case-study__toc-links">
-                            <a href="#setup">1. The Setup</a>
-                            <a href="#diagnosis">2. The Diagnosis</a>
-                            <a href="#pivot">3. The Pivot</a>
-                            <a href="#payoff">4. The Payoff</a>
-                            <a href="#reflection">5. Reflection</a>
-                        </div>
-                    </nav>
-                </aside>
-                <!-- --- END SIDEBAR TOC --- -->
-
-                
+<!-- [UPDATED] Navigation bar is now consistent -->
+<nav class="main-nav">
+    <a href="index.html" class="nav-logo">Kunal Katre</a>
+    <div class="nav-links">
+        <div class="nav-dropdown">
+            <a href="index.html#journey" class="nav-link-item">The Journey</a>
+            <div class="dropdown-content">
+                <a href="index.html#act1">Act I: The Foundation</a>
+                <a href="index.html#act2">Act II: The Builder</a>
+                <a href="index.html#act3">Act III: The Platform Strategist</a>
             </div>
-        </main>
+        </div>
+        <a href="index.html#process" class="nav-link-item">Design Process</a>
+        <a href="cv.html" class="nav-link-item">Résumé</a>
+        <a href="index.html#contact" class="nav-link-item">About & Contact</a>
     </div>
-    
-    <script src="script.js"></script>
+</nav>
+
+<div class="container">
+    <main class="case-study">
+        <header class="case-study__header">
+            <a href="index.html#act2" class="case-study__back-link">← Back to Journey</a>
+            <h1>Architecting an Engagement Engine</h1>
+            <p class="case-study__subtitle">A detailed look at how I led a foundational research initiative to diagnose a failing feature, and then orchestrated a multi-quarter roadmap to transform it from a simple tool into a core driver of user retention and platform value.</p>
+            <div class="case-study__meta">
+                <span><strong>Role:</strong> Lead Product Designer</span>
+                <span><strong>Outcome:</strong> +21% Conversion Lift, New Retention Loops</span>
+                <span><strong>Skills:</strong> Foundational Research, Interaction Design, Product Strategy</span>
+            </div>
+        </header>
+
+        <div class="case-study-layout">
+
+            <div class="case-study__content">
+                                <!-- =================================================================== -->
+                <!-- SECTION 1: BACKGROUND & BUSINESS GOALS -->
+                <!-- =================================================================== -->
+                <section id="setup">
+                    <h2 class="act-title">1. The Setup: A Leaky Funnel & a Crisis of Trust</h2>
+                    <p>In early 2022, the Heart Rate Monitor (BPM) was a strategic bet on organic growth and user engagement. The business objective was two-fold: create a "wow" moment for **first-time users** to drive acquisition, and build a valuable tool that **repeat users** would integrate into their health routines, increasing long-term retention.</p>
+                    <p>However, analytics painted a grim picture. The feature was underperforming dramatically. Our primary business metrics were failing:</p>
+                    <ul>
+                        <li><strong>First-Time User Conversion:</strong> A catastrophic ~38% of users were dropping off before successfully completing their first measurement.</li>
+                        <li><strong>Long-Term Retention:</strong> Churn analysis showed that even users who were successful once rarely came back. The feature wasn't "sticking."</li>
+                    </ul>
+                    <p>As the lead product designer, I was tasked with diagnosing this strategic failure and leading the cross-functional effort to turn it around.</p>
+                </section>
+
+
+                <!-- =================================================================== -->
+                <!-- SECTION 2: DISCOVERY - UNDERSTANDING THE GAP -->
+                <!-- =================================================================== -->
+                <section id="research">
+                    <h2 class="act-title">2. Discovery: Uncovering the 'Why'</h2>
+                    <h3>2.1 Guerilla Research: Hearing the User's Voice</h3>
+                    <p>The data showed *what* was happening, but not *why*. I initiated a quick guerilla research sprint, conducting informal usability tests with a diverse user group. The unfiltered feedback was raw and illuminating. Instead of abstract personas, we were hit with direct, powerful quotes.</p>
+                    
+                    <figure class="case-study__image">
+                        <div class="img-placeholder" style="--aspect-ratio: 16/10;">Placeholder: Image of me conducting user research</div>
+                        <figcaption>Fig. 1 - Conducting informal usability tests to quickly gather qualitative insights.</figcaption>
+                    </figure>
+
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                            <h5>Instruction Mismatch</h5>
+                            <blockquote>"I saw the video, but I still had to ask my son what to do. The words are difficult and I don't know which camera to use."</blockquote>
+                        </div>
+                        <div class="insight-card">
+                             <div class="insight-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
+                            <h5>The "Phone Flip" Behavior</h5>
+                            <blockquote>"I kept flipping my phone over to see if my finger was in the right place. It’s hard to do without looking at the back!"</blockquote>
+                        </div>
+                        <div class="insight-card">
+                             <div class="insight-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                            <h5>Trust & Accuracy Concerns</h5>
+                            <blockquote>"My blood pressure is high, but the app said 'Healthy'. I don't trust the reading if it gets this wrong."</blockquote>
+                        </div>
+                    </div>
+
+                    <h3>2.2 Analyzing the V1 Experience</h3>
+                    <p>These qualitative insights drove me to conduct a formal audit of the V1 experience. I identified five core failures that directly contributed to the drop-off and lack of trust. I presented these findings to stakeholders not as surface-level UI issues, but as deep, systemic flaws in the user experience.</p>
+                    
+                    <div class="iteration-explorer guided-audit-explorer">
+                        <div class="explorer-visuals">
+                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/v1-step-1.png" alt="V1 screen showing static onboarding instructions."></div>
+                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing the measurement in progress."></div>
+                            <div class="iteration-image" data-iteration="3"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing a passive countdown timer."></div>
+                            <div class="iteration-image" data-iteration="4"><img src="assets/hr/v1-error-screen.png" alt="V1 screen showing a vague 'Unable to detect' error message."></div>
+                            <div class="iteration-image" data-iteration="5"><img src="assets/hr/v1-result-screen.png" alt="V1 screen showing the final heart rate result without context."></div>
+                        </div>
+                        <div class="explorer-content">
+                            <div class="explorer-controls">
+                                <button class="is-active" data-iteration="1">1. Ambiguous Onboarding</button>
+                                <button data-iteration="2">2. The "Feedback Void"</button>
+                                <button data-iteration="3">3. Weak In-Progress Feedback</button>
+                                <button data-iteration="4">4. Destructive Error State</button>
+                                <button data-iteration="5">5. "So What?" Result</button>
+                            </div>
+                            <div class="explorer-rationale">
+                                <div class="rationale-text is-active" data-iteration="1">
+                                    <p><strong>Problem:</strong> Static illustrations failed to guide users on where to place their finger, causing immediate failure before the process even began.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="2">
+                                    <p><strong>Problem:</strong> The UI gave zero feedback on signal quality. Users couldn't tell if they were pressing too hard or too soft, leading to anxiety.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="3">
+                                    <p><strong>Problem:</strong> Once the scan started, the UI was a passive countdown. Users had no confirmation that their pulse was being detected correctly, leading to questions like "Is it working?"</p>
+                                </div>
+                                 <div class="rationale-text" data-iteration="4">
+                                    <p><strong>Problem:</strong> The "Unable to detect!" error is a dead end. It blames the user without providing any actionable advice on how to fix the problem.</p>
+                                </div>
+                                <div class="rationale-text" data-iteration="5">
+                                    <p><strong>Problem:</strong> The results screen provided a number but no context or value, making the feature feel like a gimmick. This was the root of the low retention.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>2.3 Synthesizing with a User Journey Map</h3>
+                    <!-- <p>I consolidated all these findings—analytics, guerilla research, and the V1 audit—into a comprehensive User Journey Map. This artifact became our team's North Star, visualizing the user's emotional state moving from 'curiosity' to 'confusion' and 'distrust.' It clearly highlighted the points where our experience was failing.</p>
+                    <figure class="case-study__image">
+                        <img src="assets/hr/journey-map.png" alt="A user journey map showing the new user experience, highlighting pain points and opportunities.">
+                        <figcaption>Fig. 2 - The final User Journey Map, synthesizing all research into a single source of truth for the team.</figcaption>
+                    </figure> -->
+                    <p>I consolidated all these findings into an Emotional Journey Map. This artifact was crucial for stakeholder alignment, as it translated abstract data and user quotes into a clear narrative of declining trust. It pinpointed the exact moments where our experience was failing and where we had the biggest opportunities for intervention.</p>
+                    <figure class="case-study__image">
+                        <img src="assets/hr/FTUX-journey-map.webp" alt="An emotional journey map diagnosing the V1 experience, showing the user's emotional state from Happy to Unhappy, and highlighting pain points and opportunities for intervention at each stage.">
+                        <figcaption>Fig. 2 - This map diagnosed the V1 experience, becoming our shared source of truth.</figcaption>
+                    </figure>
+                    <p>But the problem ran deeper than just first-time users. To understand our retention failure, I also mapped the journey for a returning user. This revealed a completely broken loop that provided no value over time, dooming the feature to be a one-time-use gimmick.</p>
+                    <figure class="case-study__image">
+                        <img src="assets/hr/RTUX-journey-map.webp" alt="An emotional journey map diagnosing the V1 experience, showing the user's emotional state from Happy to Unhappy, and highlighting pain points and opportunities for intervention at each stage.">
+                        <figcaption>Fig. 3 - Diagnosing the V1 Returning User Experience revealed a broken loop with no long-term value.</figcaption>
+                    </figure>
+
+                </section>
+
+                <!-- =================================================================== -->
+                <!-- SECTION 3: DESIGN GOALS -->
+                <!-- =================================================================== -->
+                <section id="goals">
+                    <h2 class="act-title">3. Defining the Design Goals</h2>
+                    <p>With a deep, evidence-backed understanding of the problem, I established three clear, measurable design goals that would guide our entire redesign effort:</p>
+                    <!-- <ol>
+                        <li><strong>Achieve 'First-Try' Success:</strong> Overhaul the onboarding and measurement experience to be foolproof, intuitive, and anxiety-free.</li>
+                        <li><strong>Build Unshakeable Trust:</strong> Provide transparent, real-time feedback and educate users to eliminate confusion between BPM and BP.</li>
+                        <li><strong>Create a Habit Loop:</strong> Transform the results screen from a dead end into an actionable, insightful launchpad that encourages repeat usage.</li>
+                    </ol> -->
+                    <div class="goals-grid">
+                        <div class="goal-card">
+                            <div class="goal-number">1</div>
+                            <h3>Achieve 'First-Try' Success</h3>
+                            <p>Overhaul the onboarding and measurement experience to be foolproof, intuitive, and anxiety-free for all users, regardless of tech-savviness.</p>
+                        </div>
+                         <div class="goal-card">
+                            <div class="goal-number">2</div>
+                            <h3>Build Unshakeable Trust</h3>
+                            <p>Provide transparent, real-time feedback and proactively educate users to eliminate confusion and build confidence in the result.</p>
+                        </div>
+                         <div class="goal-card">
+                            <div class="goal-number">3</div>
+                            <h3>Create a Habit Loop</h3>
+                            <p>Transform the results screen from a dead end into an actionable, insightful launchpad that provides clear value and encourages repeat usage.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =================================================================== -->
+                <!-- SECTION 4: ITERATION & DESIGN -->
+                <!-- =================================================================== -->
+                <section id="design">
+                    <h2 class="act-title">4. Iteration & Design</h2>
+                    <p>To tackle our goals, I mapped specific design interventions to each stage of the user journey. This strategic diagram guided our design exploration.</p>
+
+                    <div class="flowchart-container journey-flowchart">
+                        <div class="mermaid">
+                           graph LR
+                               subgraph "First-Time User Experience (FTUX)"
+                                   A(Start) --> B(Onboarding);
+                                   B -- "Intervention: <br> Video & Social Proof" --> C(Measurement);
+                                   C -- "Intervention: <br> Live Graph & Haptics" --> D[Result];
+                               end
+
+                               subgraph "Retention & Habit Loop"
+                                   D -- "Intervention: <br> Trends & Education" --> E(View Trends);
+                                   E -- "Trigger: <br> Notifications & Widgets" --> C;
+                               end
+
+                               D -.-> F((V1 Churn Path));
+
+                               classDef core fill:#eef2f7,stroke:#3d5a80,stroke-width:2px,color:#3d405b,font-weight:bold;
+                               class A,B,C,D,E core;
+
+                               classDef churn fill:#fef6f5,stroke:#e07a5f,stroke-width:2px,color:#3d405b;
+                               class F churn;
+                        </div>
+                       <figcaption>Fig. 4 - My strategic framework, addressing both the FTUX and building a sustainable retention loop.</figcaption>
+                   </div>
+
+                   <h3>4.1 Solving for 'First-Try' Success: An Onboarding Deep-Dive</h3>
+                   <p>Fixing the 38% drop-off required a multi-point attack on the onboarding journey. I broke the problem down into distinct intervention points and explored solutions for each.</p>
+
+                   <div class="intervention-container">
+                       <!-- TABS for each intervention point -->
+                       <div class="intervention-tabs">
+                           <button class="intervention-tab is-active" data-tab="1">The 'Wow' Moment Video</button>
+                           <button class="intervention-tab" data-tab="2">The Pre-Measurement Screen</button>
+                           <button class="intervention-tab" data-tab="3">The "Safety Net" Error Handling</button>
+                       </div>
+
+                       <!-- CONTENT for Intervention 1: The 'Wow' Moment Video -->
+                       <div class="intervention-content is-active" data-tab="1">
+                           <h4>Crafting the First Impression</h4>
+                           <p>Our research showed users were both curious and skeptical. I chose a video intervention not just to instruct, but to build excitement and establish credibility from the very first second.</p>
+                           <div class="iteration-explorer">
+                               <div class="explorer-visuals">
+                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/storyboard-1.webp" alt="Storyboard concept 1: a technical, focused animation of the heart rate process."></div>
+                                   <div class="iteration-image" data-iteration="2"><img src="assets/hr/storyboard-2.webp" alt="Storyboard concept 2: a human-centric, emotional video showing a person using the app."></div>
+                                   <div class="iteration-image" data-iteration="3"><video src="assets/hr/instruction video-1.mp4" autoplay loop muted playsinline></video></div>
+                               </div>
+                               <div class="explorer-content">
+                                   <h4>Video Storyboard Concepts</h4>
+                                   <div class="explorer-controls">
+                                       <button class="is-active" data-iteration="1">Concept A: Tech-Focused</button>
+                                       <button data-iteration="2">Concept B: Human-Centric</button>
+                                       <button data-iteration="3">Final Solution</button>
+                                   </div>
+                                   <div class="explorer-rationale">
+                                       <div class="rationale-text is-active" data-iteration="1">
+                                           <p><strong>Approach:</strong> A direct, technical animation showing the heart, the phone, and the measurement process.</p>
+                                           <p><strong>Pros:</strong> Clearly explained the "how."<br><strong>Cons:</strong> Felt a bit cold and impersonal; didn't build an emotional connection.</p>
+                                       </div>
+                                       <div class="rationale-text" data-iteration="2">
+                                           <p><strong>Approach:</strong> Show a relatable person feeling happy and healthy while using the app.</p>
+                                           <p><strong>Pros:</strong> Built strong emotional resonance and trust.<br><strong>Cons:</strong> Less effective at explaining the technical process itself.</p>
+                                       </div>
+                                       <div class="rationale-text" data-iteration="3">
+                                           <p><strong>Decision:</strong> We combined the best of both. The final video is fast-paced, human-centric, and crucially includes a "5M+ Readings Recorded" social proof element to instantly build trust and credibility, directly addressing a key user concern.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+
+                       <!-- CONTENT for Intervention 2: Pre-Measurement Screen -->
+                       <div class="intervention-content" data-tab="2">
+                           <h4>Bridging Intention and Action</h4>
+                           <p>There is a critical moment between the video and the user placing their finger. The design of this screen needed to guide them seamlessly into the measurement.</p>
+                            <div class="iteration-explorer">
+                               <div class="explorer-visuals">
+                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/pre-measure-concept-1.webp" alt="Concept 1: A full-screen camera view with instructions accessible by scrolling up."></div>
+                                   <div class="iteration-image" data-iteration="2"><img src="assets/hr/pre-measure-concept-2.webp" alt="Concept 2: A circular camera view with a persistent video guide."></div>
+                                   <div class="iteration-image" data-iteration="3"><img src="assets/hr/pre-measure-final.webp" alt="The final pre-measurement screen design."></div>
+                                </div>
+                               <div class="explorer-content">
+                                   <h4>Pre-Measurement Screen Concepts</h4>
+                                   <div class="explorer-controls">
+                                       <button class="is-active" data-iteration="1">Concept A: Scroll for Help</button>
+                                       <button data-iteration="2">Concept B: Circular View with Upfront Instructions</button>
+                                       <button data-iteration="3">Final Hybrid Solution</button>
+                                   </div>
+                                   <div class="explorer-rationale">
+                                       <div class="rationale-text is-active" data-iteration="1">
+                                           <p><strong>Approach:</strong> A full-screen camera view with a "pull-up" drawer for instructions.</p>
+                                           <p><strong>Pros:</strong> Maximized the camera view for easy finger placement.<br><strong>Cons:</strong> Hiding instructions required an extra user action and wasn't discoverable for less tech-savvy users.</p>
+                                       </div>
+                                       <div class="rationale-text" data-iteration="2">
+                                           <p><strong>Approach:</strong> A circular camera view to act as a "target," with a small, persistent video guide.</p>
+                                           <p><strong>Pros:</strong> The target metaphor felt intuitive. Persistent instructions were always visible.<br><strong>Cons:</strong> The smaller view made it slightly harder to place the finger correctly. Through testing, we found a full-screen view with always-visible text was the most effective compromise (our final design).</p>
+                                       </div>
+                                       <div class="rationale-text" data-iteration="3">
+                                        <p><strong>Decision:</strong> We shipped a hybrid solution. A full-screen camera view for easy finger placement, but with clear, always-visible persistent video guide. This provided the best of both worlds: maximum viewable area and upfront instructions.</p>
+                                        </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- <div class="intervention-content" data-tab="3">
+                        <h4>Providing a "Safety Net" When Things Go Wrong</h4>
+                       <p>Failure is inevitable, but frustration is a design choice. The V1 error state was a dead end. I designed a new system that transformed errors from a point of churn into an opportunity for education and successful re-attempts.</p>
+                       <div class="iteration-explorer">
+                           <div class="explorer-visuals">
+                               <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/error-1.webp" alt="A detailed error message with actionable advice."></div>
+                               <div class="iteration-image" data-iteration="2"><img src="assets/hr/error-2.webp" alt="Specific, contextual error messages with clear instructions."></div>
+                           </div>
+                           <div class="explorer-content">
+                               <h4>Error State Concepts</h4>
+                               <div class="explorer-controls">
+                                   <button class="is-active" data-iteration="1">V1: Generic Failure</button>
+                                   <button data-iteration="2">Final: Contextual Guidance</button>
+                               </div>
+                               <div class="explorer-rationale">
+                                   <div class="rationale-text is-active" data-iteration="1">
+                                       <p><strong>Problem:</strong> The original design showed a single, generic "Could Not Complete" message for every type of failure. The user didn't know *why* it failed or how to fix it, leading to a frustrating loop of repeated, identical failures.</p>
+                                   </div>
+                                   <div class="rationale-text" data-iteration="2">
+                                       <p><strong>Solution:</strong> I worked with engineering to identify the most common failure modes and designed a system of contextual error messages.</p>
+                                       <ul>
+                                           <li><strong>Specificity:</strong> Instead of one message, we now have several (e.g., "Too much motion," "Low-light area," "Finger not placed properly").</li>
+                                           <li><strong>Actionable Advice:</strong> Each message provides a clear, simple instruction to help the user succeed on their next try.</li>
+                                           <li><strong>Empowerment:</strong> This turns a moment of failure into a moment of learning, keeping the user engaged and preserving their trust in the feature.</li>
+                                       </ul>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div> -->
+                        <!-- CONTENT for Intervention 3: The "Safety Net" Error Handling -->
+                        <div class="intervention-content" data-tab="3">
+                            <h4>Designing a Proactive Safety Net</h4>
+                            <p>My analysis showed that V1 handled errors passively—it only told the user *after* they had already failed. I explored a more proactive approach to prevent failure before it happens.</p>
+                            <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/error-handling-passive.webp" alt="Passive error handling: A list of possible reasons shown after failure."></div>
+                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/error-handling-active.webp" alt="Active error handling: A real-time 'Motion Detected' warning appears during measurement."></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h4>Error Handling Approaches</h4>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">Passive Handling</button>
+                                        <button data-iteration="2">Active Handling</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Concept:</strong> After a measurement fails, show a screen listing all possible reasons.</p>
+                                            <p><strong>Pros:</strong> Simple to implement. Better than no information at all.<br><strong>Cons:</strong> This is a "post-mortem" approach. The user still has to guess which of the multiple reasons caused their specific failure. It's unhelpful and places the cognitive load on the user.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Concept:</strong> Provide real-time, contextual feedback *during* the measurement to prevent failure in the first place.</p>
+                                            <p><strong>Pros:</strong> This "active" approach is far more empowering. A subtle "Motion Detected!" banner allows the user to correct their behavior mid-scan, saving them from a full 30-second failure.<br><strong>Decision:</strong> We shipped the Active Handling system. It was a clear win for user experience, turning a moment of potential frustration into a moment of successful guidance.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>   
+                    </div>
+
+                    <h3>4.2 Building Trust During Measurement</h3>
+                    <p>My research clearly showed that the 30-second scan was an "anxiety-inducing black box." To solve the "phone flip" and build user confidence, I designed a multi-sensory feedback system to make the invisible process, visible and tangible.</p>
+                    <div class="intervention-container">
+                        <div class="intervention-tabs">
+                             <button class="intervention-tab is-active" data-tab="1">Live Visual Feedback</button>
+                             <button class="intervention-tab" data-tab="2">Sensory Feedback</button>
+                        </div>
+
+                        <!-- CONTENT for Intervention 1: Live Visual Feedback -->
+                        <div class="intervention-content is-active" data-tab="1">
+                            <h4>Making the Invisible, Visible</h4>
+                            <p>One of the primary sources of distrust was that users couldn't see anything happening. My first exploration focused on providing clear visual proof that the system was working.</p>
+                            <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/measuring-1.png" alt="Concept A for the measurement screen, with a large, central heart rate number and a small progress indicator."></div>
+                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/measuring-2.png" alt="Concept B for the measurement screen, focusing on a large progress circle and smaller heart rate number."></div>
+                                    <div class="iteration-image" data-iteration="3"><img src="assets/hr/measuring-final.png" alt="The final shipped measurement screen design."></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h4>Visual Feedback Concepts</h4>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">Emphasize Heart Rate</button>
+                                        <button data-iteration="2">Emphasize Progress</button>
+                                        <button data-iteration="3">Final Solution</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <!-- <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Approach:</strong> Display a live photoplethysmography (PPG) waveform on screen during the measurement.</p>
+                                            <p><strong>Pros:</strong> Gave a clear, scientific-looking visual that the system was actively "reading" their pulse. This strongly appealed to tech-savvy and skeptical users.</p>
+                                            <p><strong>Cons:</strong> Still required the user to look at the screen, which didn't fully solve the "phone flip" behavior for those trying to self-correct finger placement.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                             <p><strong>Decision:</strong> The PPG graph was a clear winner for building visual trust. We made it a core part of the measurement screen, positioning it as a sign of the feature's technical credibility.</p>
+                                        </div> -->
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Approach:</strong> Make the live BPM reading the hero of the screen. The primary focus is on the user's heart rate number, which updates in real-time.</p>
+                                            <p><strong>Pros:</strong> Gave users the immediate data they wanted.<br><strong>Cons:</strong> In testing, users found the constantly fluctuating number distracting and even anxiety-inducing. They didn't have a clear sense of how far along they were in the process.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Approach:</strong> Make the progress circle the primary visual element, with the BPM number as secondary information.</p>
+                                            <p><strong>Pros:</strong> Clearly communicated how much time was left, which users found calming and reassuring.<br><strong>Cons:</strong> Hiding the live BPM data felt like a step backward from a transparency perspective.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="3">
+                                            <p><strong>Decision: We shipped a balanced, hybrid solution.</strong> It features both the clear progress circle to manage expectations, and the live BPM number for transparency. We also added the live PPG graph at the bottom as a definitive "proof of life" for the system.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONTENT for Intervention 2: Sensory Feedback -->
+                        <div class="intervention-content" data-tab="2">
+                            <h4>Feeling the Heartbeat</h4>
+                            <p>To solve the "phone flip" directly, I explored non-visual cues that would allow users to feel the app working without needing to look at the screen.</p>
+                             <!-- <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/measure-concept-haptic.png" alt="Concept showing a representation of haptic feedback."></div>
+                                     <div class="iteration-image" data-iteration="2"><img src="assets/hr/measure-concept-final.png" alt="The final design combining haptics with visual cues."></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h4>Sensory Feedback Concepts</h4>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">Haptic Pulse</button>
+                                        <button data-iteration="2">Final Solution</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Approach:</strong> Use the phone's vibration motor to generate a subtle "lub-dub" haptic pulse that syncs with the user's detected heartbeat.</p>
+                                            <p><strong>Pros:</strong> This was a game-changer. It allowed users to *feel* the measurement happening, providing constant reassurance without needing to look at the screen. It was highly accessible and intuitive.</p>
+                                            <p><strong>Cons:</strong> The haptic feedback alone, without any visual cue, could feel slightly disconnected for some users.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Decision: We shipped a multi-sensory solution.</strong> The PPG graph provided visual credibility, while the haptic pulse provided constant, non-visual reassurance. This combination proved incredibly effective in testing, virtually eliminating the "phone flip" and dramatically increasing user confidence during the scan.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="highlight-box">
+                                <p><strong>The Final Sensory Solution:</strong> I worked with engineering to implement a subtle, rhythmic "lub-dub" haptic pulse that syncs with the user's detected heartbeat. This allowed users to *feel* the measurement happening, providing constant reassurance without needing to look at the screen. This multi-sensory approach—combining visual proof with physical feedback—was incredibly effective at eliminating the "phone flip" and building user confidence.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>4.3 Designing an Actionable Result</h3>
+                    <p>Fixing the measurement was half the battle. To drive retention and fulfill our second business goal, we had to answer the user's "So what?" question. I redesigned the result screen to transform it from a dead-end data point into a rich, contextual, and actionable health dashboard.</p>
+                    <div class="intervention-container">
+                        <div class="intervention-tabs">
+                             <button class="intervention-tab is-active" data-tab="1">Adding Immediate Context</button>
+                             <button class="intervention-tab" data-tab="2">Driving Long-Term Retention</button>
+                        </div>
+
+                        <!-- CONTENT for Intervention 1: Adding Context -->
+                        <div class="intervention-content is-active" data-tab="1">
+                            <h4>From a Number to an Answer</h4>
+                            <p>The first step was to make the single reading immediately valuable and trustworthy, directly addressing the confusion between BPM and BP that we found in our research.</p>
+                            <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/v1-screen-result.png" alt="The original V1 result screen showing only a number."></div>
+                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/result-concept-context.png" alt="A redesigned result screen showing clear ranges and contextual tagging."></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h4>Contextual Result Concepts</h4>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">V1: The Dead End</button>
+                                        <button data-iteration="2">Final Solution</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Problem:</strong> The original screen showed a number in a vacuum. It answered "what" but not "so what?", creating confusion and distrust, especially for users who mistook it for a Blood Pressure reading.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Solution:</strong> I introduced several layers of context:</p>
+                                            <ul>
+                                                <li><strong>Clear Visual Ranges:</strong> Replaced the vague "Healthy" label with a colored bar showing Low, Healthy, and High zones.</li>
+                                                <li><strong>Contextual Tagging:</strong> Added a prompt for users to tag their state (e.g., Resting, After Exercise), which then provided a more accurate interpretation.</li>
+                                                <li><strong>Proactive Education:</strong> Included a small, explicit disclaimer: "This is a heart rate reading, not a blood pressure measurement."</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONTENT for Intervention 2: Driving Retention -->
+                        <div class="intervention-content" data-tab="2">
+                            <h4>Building the Habit Loop</h4>
+                            <p>To encourage repeat usage, the result screen needed to become a gateway to deeper, longitudinal insights.</p>
+                             <div class="iteration-explorer">
+                                <div class="explorer-visuals">
+                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/result-concept-trends.png" alt="Concept showing a historical trend graph on the result screen."></div>
+                                     <div class="iteration-image" data-iteration="2"><img src="assets/hr/result-final-dashboard.png" alt="The final result screen acting as a full dashboard with trends and actionable CTAs."></div>
+                                </div>
+                                <div class="explorer-content">
+                                    <h4>Retention-Focused Concepts</h4>
+                                    <div class="explorer-controls">
+                                        <button class="is-active" data-iteration="1">Show Trends</button>
+                                        <button data-iteration="2">Final Dashboard</button>
+                                    </div>
+                                    <div class="explorer-rationale">
+                                        <div class="rationale-text is-active" data-iteration="1">
+                                            <p><strong>Approach:</strong> Display a historical graph of past readings directly on the result screen.</p>
+                                            <p><strong>Pros:</strong> Gave users a reason to measure again—to see how their data changes over time. This directly creates a habit loop.</p>
+                                            <p><strong>Cons:</strong> A graph alone is still just data. Our HRV research showed that users wanted interpretation, not just visualization.</p>
+                                        </div>
+                                        <div class="rationale-text" data-iteration="2">
+                                            <p><strong>Decision: The final screen became a true engagement hub.</strong> We shipped a design that included:</p>
+                                             <ul>
+                                                <li><strong>The Trend Graph</strong> as the centerpiece for retention.</li>
+                                                <li><strong>"Learn More" Modals</strong> to educate users on advanced metrics like HRV, addressing findings from our user calls.</li>
+                                                <li><strong>Actionable CTAs</strong> ("Check Health Risk," "Share Report") to guide users deeper into the platform's ecosystem, creating tangible value from their data.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- =================================================================== -->
+                <!-- SECTION 5: IMPACT & LEARNINGS -->
+                <!-- =================================================================== -->
+                <section id="impact">
+                    <h2 class="act-title">5. Impact & Learnings</h2>
+                    <h3>Positioning Eka as a Trustworthy Health Partner</h3>
+                    <p>This initiative was more than a redesign; it was a strategic turnaround. By grounding our decisions in deep user research and data, we transformed a failing feature into a core pillar of the Eka.Care experience, fundamentally changing user perception from a 'gimmick' to a trusted health tool.</p>
+
+                    <div class="metrics-dashboard">
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <h5>FTU Conversion</h5>
+                                <div class="metric-value">+21%</div>
+                                <div class="metric-label">From 62% to over 75%</div>
+                            </div>
+                            <div class="metric-card">
+                                <h5>Power User Retention (W4)</h5>
+                                <div class="metric-value">~80%</div>
+                                <div class="metric-label">For users with 35+ measurements</div>
+                            </div>
+                        </div>
+                        <figcaption>The redesign directly addressed our key business goals, fixing the leaky funnel and dramatically improving retention for our most engaged cohorts.</figcaption>
+                    </div>
+
+                    <h3>Key Learnings</h3>
+                    <ul>
+                        <li><strong>Trust is the Ultimate Metric.</strong> A 'wow' feature that fails is worse than no feature at all. My biggest takeaway was that for health tech, flawless execution and building user trust are more important than novelty. The confusion between BPM and BP was a critical blind spot that our research uncovered.</li>
+                        <li><strong>Design is the Synthesizer.</strong> My role went far beyond pixels. I was responsible for connecting the dots between quantitative analytics, qualitative feedback, and business strategy. Evangelizing the 'why' behind the data and creating artifacts like the journey map were essential for aligning the entire team.</li>
+                        <li><strong>Retention is a System, Not a Screen.</strong> Fixing the UI wasn't enough. Lasting impact came from designing the *entire system* around retention—from contextual results and trends to intelligent notifications and clear educational content.</li>
+                    </ul>
+                </section>
+
+                <section class="next-case-study">
+                    <h3>Next Case Study</h3>
+                    <a href="case-study-cowin.html" class="project-card-link">
+                        <article class="project-card project-card--next">
+                            <div class="project-card__thumbnail"><img src="assets/thumb-cowin.png" alt="Thumbnail for CoWIN case study"></div>
+                            <div class="card-content-wrapper">
+                                 <h4 class="project-card__title">Designing for a Nation in Crisis</h4>
+                                <p class="project-card__description">How I used rapid research to transform API chaos into a clear, trustworthy experience for millions.</p>
+                                <span class="project-card__cta">Explore the Co-WIN Project →</span>
+                            </div>
+                        </article>
+                    </a>
+                </section>
+            </div>
+            
+            <aside class="case-study-toc-sidebar">
+                <nav aria-label="Case study sections">
+                    <h4>On this page</h4>
+                    <div class="toc-links-wrapper">
+                        <a href="#setup" class="is-active">1. The Setup</a>
+                        <a href="#research">2. Discovery & Research</a>
+                        <a href="#goals">3. Design Goals</a>
+                        <a href="#design">4. Iteration & Design</a>
+                        <a href="#impact">5. Impact & Learnings</a>
+                    </div>
+                </nav>
+            </aside>
+        </div>
+    </main>
+</div>
+
+<script src="script.js"></script>
+
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.mjs';
+    mermaid.initialize({ startOnLoad: true });
+</script>
+
+
+<style>
+    /* --- Annotated Image Component --- */
+.annotated-image-container {
+    position: relative;
+    margin: var(--spacing-xl) 0;
+}
+.annotated-image-container img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+.annotated-image-container figcaption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-md); /* Adjusted from sm to md for better spacing */
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.annotation-point {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    z-index: 10;
+}
+
+.annotation-number {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 2px solid var(--color-surface);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform var(--transition-fast) ease;
+}
+.annotation-point:hover .annotation-number {
+    transform: scale(1.1);
+}
+
+.annotation-text {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--color-text);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 240px;
+    box-shadow: 0 5px 20px rgba(61, 64, 91, 0.15);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+.annotation-text strong {
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Positioning for each point */
+#anno-1 { top: 18%; left: 5%; }
+#anno-2 { top: 53%; left: 55%; }
+#anno-3 { top: 38%; left: 3%; }
+#anno-4 { top: 75%; left: 68%; }
+#anno-5 { top: 78%; left: 8%; }
+
+/* Responsive adjustments for the annotated image */
+@media (max-width: 900px) {
+    #anno-1 { top: 15%; left: 1%; }
+    #anno-2 { top: 48%; left: 50%; }
+    #anno-3 { top: 35%; left: 1%; }
+    #anno-4 { top: 72%; left: 60%; }
+    #anno-5 { top: 75%; left: 1%; }
+    .annotation-text { max-width: 200px; font-size: 0.85rem; }
+}
+
+@media (max-width: 768px) {
+    .annotated-image-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    .annotation-point {
+        position: static;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+    }
+    .annotation-text {
+        background: none;
+        backdrop-filter: none;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+    }
+}
+
+/* --- Tweaks for Guided Audit Explorer --- */
+.guided-audit-explorer {
+    margin-top: var(--spacing-lg); /* Add some space above the component */
+    margin-bottom: var(--spacing-xl); /* Ensure space below */
+}
+
+.guided-audit-explorer .explorer-controls {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically for a 'checklist' feel */
+    align-items: stretch; /* Make buttons full width */
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.guided-audit-explorer .explorer-controls button {
+    text-align: left; /* Align text to the left */
+    padding: 12px 16px;
+    border-radius: var(--border-radius); /* Use standard border radius */
+}
+
+.guided-audit-explorer .explorer-rationale {
+    background-color: var(--color-highlight-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    min-height: 150px; /* Ensure a consistent height */
+}
+
+.guided-audit-explorer .explorer-rationale p {
+    font-size: 1.05rem !important; /* Slightly larger text for emphasis */
+    color: var(--color-text) !important;
+}
+
+.guided-audit-explorer .explorer-rationale strong {
+    color: var(--color-accent); /* Use accent color for the 'Problem' label */
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- Case Study Data Visualization & Insights --- */
+.case-study__visual-artifact {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.case-study__visual-artifact figcaption {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+/* --- Funnel Chart Styles --- */
+.funnel-chart {
+    position: relative;
+    padding-bottom: 20px; /* Space for annotation */
+}
+
+.funnel-title {
+    font-family: var(--font-family-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.funnel-step {
+    margin-bottom: var(--spacing-md);
+}
+
+.funnel-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.funnel-label {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.funnel-percentage {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary);
+}
+
+.funnel-bar {
+    height: 28px;
+    background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.funnel-annotation {
+    position: absolute;
+    left: 62%;
+    top: 55px;
+    padding-left: 20px;
+    border-left: 2px dashed var(--color-accent);
+}
+
+.funnel-annotation .annotation-text {
+    background: var(--color-highlight-bg);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+
+.funnel-annotation strong {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.funnel-annotation span {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* --- Guerilla Research Insights Grid --- */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin: var(--spacing-xl) 0;
+}
+
+.insight-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+.insight-icon {
+    display: inline-flex;
+    padding: 12px;
+    border-radius: 50%;
+    background-color: var(--color-highlight-bg);
+    margin-bottom: var(--spacing-md);
+}
+.insight-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--color-primary);
+}
+
+.insight-card h5 {
+    font-family: var(--font-family-serif);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    margin-top: 0;
+}
+
+.insight-card p {
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 1rem !important; /* Override generic p styles */
+    line-height: 1.6;
+}
+
+/* --- Guerilla Research Card Adjustments --- */
+.insight-icon {
+    padding: 16px; /* More padding */
+}
+.insight-icon svg {
+    width: 32px; /* Bigger icon */
+    height: 32px;
+}
+.insight-card blockquote {
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 1rem !important; /* Override generic p styles */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/* --- Design Goals Grid --- */
+.goals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    margin: var(--spacing-xl) 0;
+}
+@media (min-width: 768px) {
+    .goals-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.goal-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.goal-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    font-family: var(--font-family-serif);
+    margin-bottom: var(--spacing-md);
+    flex-shrink: 0;
+}
+.goal-card h3 {
+    font-family: var(--font-family-serif);
+    font-size: 1.25rem;
+    margin: 0 0 var(--spacing-sm) 0;
+}
+.goal-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem !important;
+    line-height: 1.6;
+}
+
+/* --- Flowchart Container Adjustments --- */
+.flowchart-container {
+    padding: var(--spacing-lg); /* More breathing room */
+}
+.flowchart-container .mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Iteration Explorer Video --- */
+.iteration-explorer .explorer-visuals video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+}
+/* --- Journey Flowchart Specific Styling --- */
+.journey-flowchart {
+    background-color: var(--color-surface);
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.journey-flowchart .mermaid svg {
+    width: 100%; /* Ensure it's responsive */
+    height: auto;
+}
+</style>
 </body>
 </html>
