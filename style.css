@@ -813,3 +813,831 @@ body {
     font-family: var(--font-family-serif);
     margin-top: 0;
 }
+
+    /* --- Annotated Image Component --- */
+    .annotated-image-container {
+        position: relative;
+        margin: var(--spacing-xl) 0;
+    }
+    .annotated-image-container img {
+        max-width: 100%;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-border);
+    }
+    .annotated-image-container figcaption {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin-top: var(--spacing-md); /* Adjusted from sm to md for better spacing */
+        max-width: 70ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .annotation-point {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        z-index: 10;
+    }
+    
+    .annotation-number {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: var(--color-accent);
+        color: var(--color-surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+        border: 2px solid var(--color-surface);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        cursor: pointer;
+        transition: transform var(--transition-fast) ease;
+    }
+    .annotation-point:hover .annotation-number {
+        transform: scale(1.1);
+    }
+    
+    .annotation-text {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: var(--color-text);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius);
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 240px;
+        box-shadow: 0 5px 20px rgba(61, 64, 91, 0.15);
+        border: 1px solid rgba(255,255,255,0.5);
+    }
+    .annotation-text strong {
+        color: var(--color-primary);
+        display: block;
+        margin-bottom: 4px;
+    }
+    
+    /* Positioning for each point */
+    #anno-1 { top: 18%; left: 5%; }
+    #anno-2 { top: 53%; left: 55%; }
+    #anno-3 { top: 38%; left: 3%; }
+    #anno-4 { top: 75%; left: 68%; }
+    #anno-5 { top: 78%; left: 8%; }
+    
+    /* Responsive adjustments for the annotated image */
+    @media (max-width: 900px) {
+        #anno-1 { top: 15%; left: 1%; }
+        #anno-2 { top: 48%; left: 50%; }
+        #anno-3 { top: 35%; left: 1%; }
+        #anno-4 { top: 72%; left: 60%; }
+        #anno-5 { top: 75%; left: 1%; }
+        .annotation-text { max-width: 200px; font-size: 0.85rem; }
+    }
+    
+    @media (max-width: 768px) {
+        .annotated-image-container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        .annotation-point {
+            position: static;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+        }
+        .annotation-text {
+            background: none;
+            backdrop-filter: none;
+            box-shadow: none;
+            border: none;
+            padding: 0;
+            max-width: 100%;
+        }
+    }
+    
+    /* --- Tweaks for Guided Audit Explorer --- */
+    .guided-audit-explorer {
+        margin-top: var(--spacing-lg); /* Add some space above the component */
+        margin-bottom: var(--spacing-xl); /* Ensure space below */
+    }
+    
+    .guided-audit-explorer .explorer-controls {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically for a 'checklist' feel */
+        align-items: stretch; /* Make buttons full width */
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .guided-audit-explorer .explorer-controls button {
+        text-align: left; /* Align text to the left */
+        padding: 12px 16px;
+        border-radius: var(--border-radius); /* Use standard border radius */
+    }
+    
+    .guided-audit-explorer .explorer-rationale {
+        background-color: var(--color-highlight-bg);
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-border);
+        min-height: 150px; /* Ensure a consistent height */
+    }
+    
+    .guided-audit-explorer .explorer-rationale p {
+        font-size: 1.05rem !important; /* Slightly larger text for emphasis */
+        color: var(--color-text) !important;
+    }
+    
+    .guided-audit-explorer .explorer-rationale strong {
+        color: var(--color-accent); /* Use accent color for the 'Problem' label */
+        font-family: var(--font-family-sans);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: block;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    /* --- Case Study Data Visualization & Insights --- */
+    .case-study__visual-artifact {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin: var(--spacing-xl) 0;
+    }
+    
+    .case-study__visual-artifact figcaption {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin-top: var(--spacing-md);
+        text-align: center;
+    }
+    
+    /* --- Funnel Chart Styles --- */
+    .funnel-chart {
+        position: relative;
+        padding-bottom: 20px; /* Space for annotation */
+    }
+    
+    .funnel-title {
+        font-family: var(--font-family-serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .funnel-step {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .funnel-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .funnel-label {
+        font-weight: 600;
+        color: var(--color-text);
+    }
+    
+    .funnel-percentage {
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--color-primary);
+    }
+    
+    .funnel-bar {
+        height: 28px;
+        background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+        border-radius: 4px;
+        transition: width 0.5s ease-out;
+    }
+    
+    .funnel-annotation {
+        position: absolute;
+        left: 62%;
+        top: 55px;
+        padding-left: 20px;
+        border-left: 2px dashed var(--color-accent);
+    }
+    
+    .funnel-annotation .annotation-text {
+        background: var(--color-highlight-bg);
+        padding: 8px 12px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-border);
+    }
+    
+    .funnel-annotation strong {
+        display: block;
+        color: var(--color-accent);
+        font-weight: 700;
+    }
+    
+    .funnel-annotation span {
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+    }
+    
+    /* --- Guerilla Research Insights Grid --- */
+    .insights-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+        margin: var(--spacing-xl) 0;
+    }
+    
+    .insight-card {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .insight-icon {
+        display: inline-flex;
+        padding: 12px;
+        border-radius: 50%;
+        background-color: var(--color-highlight-bg);
+        margin-bottom: var(--spacing-md);
+    }
+    .insight-icon svg {
+        width: 28px;
+        height: 28px;
+        color: var(--color-primary);
+    }
+    
+    .insight-card h5 {
+        font-family: var(--font-family-serif);
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-sm);
+        margin-top: 0;
+    }
+    
+    .insight-card p {
+        font-style: italic;
+        color: var(--color-text-muted);
+        font-size: 1rem !important; /* Override generic p styles */
+        line-height: 1.6;
+    }
+    
+    /* --- Guerilla Research Card Adjustments --- */
+    .insight-icon {
+        padding: 16px; /* More padding */
+    }
+    .insight-icon svg {
+        width: 32px; /* Bigger icon */
+        height: 32px;
+    }
+    .insight-card blockquote {
+        font-style: italic;
+        color: var(--color-text-muted);
+        font-size: 1rem !important; /* Override generic p styles */
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    
+    /* --- Design Goals Grid --- */
+    .goals-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+        margin: var(--spacing-xl) 0;
+    }
+    @media (min-width: 768px) {
+        .goals-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    .goal-card {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .goal-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        color: var(--color-surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.25rem;
+        font-family: var(--font-family-serif);
+        margin-bottom: var(--spacing-md);
+        flex-shrink: 0;
+    }
+    .goal-card h3 {
+        font-family: var(--font-family-serif);
+        font-size: 1.25rem;
+        margin: 0 0 var(--spacing-sm) 0;
+    }
+    .goal-card p {
+        color: var(--color-text-muted);
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+    }
+    
+    /* --- Flowchart Container Adjustments --- */
+    .flowchart-container {
+        padding: var(--spacing-lg); /* More breathing room */
+    }
+    .flowchart-container .mermaid svg {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* --- Iteration Explorer Video --- */
+    .iteration-explorer .explorer-visuals video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: var(--border-radius);
+    }
+    /* --- Journey Flowchart Specific Styling --- */
+    .journey-flowchart {
+        background-color: var(--color-surface);
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+    
+    .journey-flowchart .mermaid svg {
+        width: 100%; /* Ensure it's responsive */
+        height: auto;
+    }
+    
+    /* --- Polished Data Visualization Artifacts --- */
+    .case-study__visual-artifact {
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin: var(--spacing-xl) 0;
+    }
+    .case-study__visual-artifact figcaption {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin-top: var(--spacing-lg);
+        text-align: center;
+        max-width: 60ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* --- Funnel Chart Styles --- */
+    .funnel-chart .funnel-title, .retention-chart .retention-title {
+        font-family: var(--font-family-serif);
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+    }
+    .funnel-step { margin-bottom: var(--spacing-md); }
+    .funnel-label-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+    .funnel-label { font-weight: 600; color: var(--color-text); }
+    .funnel-value { font-family: var(--font-family-serif); font-weight: 700; font-size: 1.1rem; }
+    .funnel-bar { height: 32px; border-radius: 4px; }
+    .funnel-bar.v1-bar { background-color: var(--color-text-muted); opacity: 0.7; }
+    .funnel-bar.v2-bar { background: linear-gradient(90deg, var(--color-primary-light) 0%, var(--color-primary) 100%); }
+    
+    /* --- Retention Chart Styles --- */
+    .retention-table { width: 100%; border-collapse: collapse; text-align: center; }
+    .retention-table th, .retention-table td { padding: 12px 16px; font-size: 1.1rem; }
+    .retention-table thead th {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-text-muted);
+        font-weight: 500;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .retention-table td:first-child { text-align: left; font-weight: 600; }
+    .retention-low { color: var(--color-accent); font-weight: 700; }
+    .retention-high { color: #2e8b57; font-weight: 700; }
+    .cohort-v1 td { color: var(--color-text-muted); }
+    .cohort-v2 td { color: var(--color-text); }
+    
+    /* --- Custom Audio Player for Haptic Demo --- */
+    .audio-player-wrapper {
+        margin: var(--spacing-lg) auto;
+        max-width: 450px;
+    }
+    .audio-player {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+        background-color: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-md);
+        box-shadow: 0 4px 15px rgba(61, 64, 91, 0.05);
+    }
+    .play-pause-btn {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: var(--color-primary-light);
+        color: var(--color-primary);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-fast) ease;
+    }
+    .play-pause-btn:hover {
+        background-color: #d1d9e8; /* Slightly darker shade of primary-light */
+    }
+    .play-pause-btn .icon-pause {
+        display: none;
+    }
+    .audio-player.is-playing .icon-play {
+        display: none;
+    }
+    .audio-player.is-playing .icon-pause {
+        display: block;
+    }
+    .audio-info {
+        flex-grow: 1;
+    }
+    .audio-label {
+        font-weight: 600;
+        color: var(--color-text);
+    }
+    .audio-status {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+    }
+    .pulsing-heart-icon {
+        color: var(--color-accent);
+        opacity: 0.5;
+    }
+    .audio-player.is-playing .pulsing-heart-icon {
+        animation: pulse 1s infinite; /* 60bpm = 1 beat per second */
+    }
+    
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.7;
+        }
+        50% {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 0.7;
+        }
+    }
+    
+    /* --- Case Study Hero Section --- */
+    .case-study__hero {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+        align-items: center;
+        padding: var(--spacing-xl) 0;
+        margin-bottom: var(--spacing-xxl);
+    }
+    
+    .hero__text-content h1 {
+        font-family: var(--font-family-serif);
+        font-size: 3rem; /* Larger, more impactful title */
+        margin-top: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero__summary {
+        font-size: 1.25rem;
+        line-height: 1.6;
+        color: var(--color-text-muted);
+        max-width: 45ch;
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .hero__stats {
+        display: flex;
+        gap: var(--spacing-xl);
+        border-top: 1px solid var(--color-border);
+        padding-top: var(--spacing-lg);
+    }
+    
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .stat-value {
+        font-family: var(--font-family-serif);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        line-height: 1.1;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .case-study__intro {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--color-text);
+        border-left: 3px solid var(--color-primary-light);
+        padding-left: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    
+    /* --- Device Mockup for Hero Video --- */
+    .hero__visual-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .device-mockup {
+        position: relative;
+        width: 100%;
+        max-width: 400px; /* Adjust size as needed */
+        aspect-ratio: 9 / 16; /* Common phone aspect ratio */
+        background: #1e1e1e;
+        border-radius: 40px;
+        padding: 12px;
+        box-shadow: 0 30px 60px -20px rgba(61, 64, 91, 0.3), 
+                    0 0 0 1px rgba(0,0,0,0.1);
+    }
+    
+    .device-mockup video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 28px; /* Inner radius */
+        background: #000;
+    }
+    
+    
+    /* --- Responsive Adjustments for Hero --- */
+    @media (max-width: 900px) {
+        .case-study__hero {
+            grid-template-columns: 1fr; /* Stack columns */
+            text-align: center;
+        }
+        
+        .hero__text-content {
+            order: 2; /* Text comes after video on mobile */
+        }
+    
+        .hero__visual-content {
+            order: 1;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .hero__text-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero__summary {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        .hero__stats {
+            justify-content: center;
+            gap: var(--spacing-lg);
+        }
+    }
+    
+    /* --- Hero Client Logo --- */
+    .hero__client-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .hero__client-logo span {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .hero__client-logo img {
+        max-height: 40px; /* Controls the logo's size. Adjust if needed. */
+        width: auto;
+        filter: grayscale(100%) brightness(0.7); /* Optional: Desaturates the logo to fit your site's aesthetic. Remove if you want the original color. */
+        opacity: 0.8;
+    }
+    
+    /* On mobile, when the hero text is centered, this will also center nicely */
+    @media (max-width: 900px) {
+        .hero__client-logo {
+            justify-content: center; /* Center the items within the flex container */
+        }
+    }
+    
+    /* --- Full Screen Showcase Component --- */
+    .full-screen-showcase {
+        margin-top: var(--spacing-xxl);
+        text-align: center;
+    }
+    
+    .full-screen-showcase h4 {
+        font-family: var(--font-family-serif);
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .full-screen-showcase p {
+        max-width: 65ch;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: var(--spacing-lg);
+        color: var(--color-text-muted);
+    }
+    
+    /* Modifier for the scrollable device mockup */
+    .device-mockup--scrollable {
+        max-width: 375px; /* Matches the image width */
+        height: 700px; /* A fixed height to enforce scrolling */
+        margin: 0 auto;
+        padding: 12px;
+    }
+    
+    .device-mockup--scrollable .scrollable-content {
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        border-radius: 28px;
+        position: relative; /* For scroll indicator positioning */
+    }
+    
+    /* Custom scrollbar for a polished look */
+    .device-mockup--scrollable .scrollable-content::-webkit-scrollbar {
+        width: 6px;
+    }
+    .device-mockup--scrollable .scrollable-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .device-mockup--scrollable .scrollable-content::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+    
+    .device-mockup--scrollable .scrollable-content img {
+        width: 100%;
+        height: auto;
+        display: block; /* Removes bottom space under the image */
+    }
+    
+    /* Scroll down indicator */
+    .scroll-indicator {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 1;
+    }
+    
+    .scroll-indicator.is-hidden {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+        pointer-events: none;
+    }
+    
+    .scroll-indicator svg {
+        animation: bounce 2s infinite ease-in-out;
+    }
+    
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-4px); }
+        60% { transform: translateY(-2px); }
+    }
+    
+    /* --- Sticky QR Code CTA (Open by Default) --- */
+    #sticky-qr-cta {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        width: 260px;
+        padding: 24px;
+        background-color: var(--color-surface);
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 25px rgba(61, 64, 91, 0.15);
+        border: 1px solid var(--color-border);
+        text-align: center;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    /* Content Styling */
+    #sticky-qr-cta h4 {
+        margin: 0 0 4px 0;
+        font-family: var(--font-family-serif);
+    }
+    #sticky-qr-cta p {
+        font-size: 0.9rem;
+        color: var(--color-text-muted);
+        margin: 0 auto 16px auto;
+    }
+    #sticky-qr-cta .qr-code-img {
+        width: 160px;
+        border-radius: 8px;
+        background: white;
+        padding: 8px;
+        margin-bottom: 16px;
+    }
+    #sticky-qr-cta .store-badge {
+        height: 40px;
+        width: auto;
+    }
+    
+    /* Close Button Styling (Always Visible) */
+    .sticky-qr__close-btn {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--color-primary);
+        color: var(--color-surface);
+        border: 2px solid var(--color-surface);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        font-size: 1.5rem;
+        line-height: 0.8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    .sticky-qr__close-btn:hover {
+        transform: scale(1.1);
+    }
+    
+    /* This class is added by JS to hide the component */
+    #sticky-qr-cta.is-hidden {
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+    }
+    
+    /* CRITICAL: Hide on mobile devices */
+    @media (max-width: 768px) {
+        #sticky-qr-cta {
+            display: none !important;
+        }
+    }

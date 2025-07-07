@@ -157,4 +157,61 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const playerWrapper = document.getElementById('haptic-audio-player');
+        if (playerWrapper) {
+            const audioEl = document.getElementById('haptic-audio-file');
+            const playBtn = playerWrapper.querySelector('.play-pause-btn');
+            const statusText = playerWrapper.querySelector('.audio-status');
+
+            playBtn.addEventListener('click', () => {
+                const isPlaying = playerWrapper.classList.contains('is-playing');
+                if (isPlaying) {
+                    audioEl.pause();
+                } else {
+                    audioEl.play();
+                }
+            });
+
+            audioEl.addEventListener('play', () => {
+                playerWrapper.classList.add('is-playing');
+                statusText.textContent = 'Playing...';
+                playBtn.setAttribute('aria-label', 'Pause haptic feedback simulation');
+            });
+
+            audioEl.addEventListener('pause', () => {
+                playerWrapper.classList.remove('is-playing');
+                statusText.textContent = 'Paused';
+                playBtn.setAttribute('aria-label', 'Play haptic feedback simulation');
+            });
+
+            audioEl.addEventListener('ended', () => {
+                playerWrapper.classList.remove('is-playing');
+                statusText.textContent = 'Finished. Play again?';
+                 playBtn.setAttribute('aria-label', 'Play haptic feedback simulation');
+            });
+        }
+        const scrollContainer = document.getElementById('result-scroll-container');
+        const scrollIndicator = document.getElementById('result-scroll-indicator');
+
+        if (scrollContainer && scrollIndicator) {
+            scrollContainer.addEventListener('scroll', () => {
+                // Hide the indicator after the user scrolls a little bit
+                if (scrollContainer.scrollTop > 20) {
+                    scrollIndicator.classList.add('is-hidden');
+                }
+            });
+        }
+
+        // Add this inside your existing document.addEventListener('DOMContentLoaded', () => { ... });
+
+        const stickyCta = document.getElementById('sticky-qr-cta');
+        if (stickyCta) {
+            const closeBtn = stickyCta.querySelector('.sticky-qr__close-btn');
+            closeBtn.addEventListener('click', () => {
+                stickyCta.classList.add('is-hidden');
+            });
+        }
+    });
 });
