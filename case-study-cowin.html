@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study: Designing for a Nation in Crisis | Kunal Katre</title>
-    
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
@@ -556,6 +556,7 @@
     </main>
 </div>
 
+<!-- Universal Lightbox for Images and SVGs -->
 <div id="lightbox" class="lightbox">
     <button class="lightbox__close" aria-label="Close zoomed view">×</button>
     <div class="lightbox__content">
@@ -581,9 +582,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- SCRIPT FOR TABS & OTHER INTERACTIONS (from your original script.js) ---
-    const tabContainers = document.querySelectorAll('.intervention-container');
-    tabContainers.forEach(container => {
+    // --- Tab & Explorer Logic (from your existing script) ---
+    document.querySelectorAll('.intervention-container').forEach(container => {
         const tabs = container.querySelectorAll('.intervention-tab');
         const contents = container.querySelectorAll('.intervention-content');
         tabs.forEach(tab => {
@@ -592,34 +592,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 tab.classList.add('is-active');
                 const targetContent = container.querySelector(`.intervention-content[data-tab="${tab.dataset.tab}"]`);
                 contents.forEach(c => c.classList.remove('is-active'));
-                if (targetContent) {
-                    targetContent.classList.add('is-active');
-                }
+                if (targetContent) targetContent.classList.add('is-active');
             });
         });
     });
 
-    const explorerContainers = document.querySelectorAll('.iteration-explorer');
-    explorerContainers.forEach(container => {
+    document.querySelectorAll('.iteration-explorer').forEach(container => {
         const controls = container.querySelectorAll('.explorer-controls button');
-        const images = container.querySelectorAll('.explorer-visuals .iteration-image');
+        images = container.querySelectorAll('.explorer-visuals .iteration-image, .explorer-visuals video');
         const rationales = container.querySelectorAll('.explorer-rationale .rationale-text');
         
         controls.forEach(control => {
             control.addEventListener('click', () => {
                 const iteration = control.dataset.iteration;
-
                 controls.forEach(c => c.classList.remove('is-active'));
                 control.classList.add('is-active');
-
                 images.forEach(img => img.classList.toggle('is-active', img.dataset.iteration === iteration));
                 rationales.forEach(rat => rat.classList.toggle('is-active', rat.dataset.iteration === iteration));
             });
         });
     });
 
-    // --- [NEW] LIGHTBOX SCRIPT ---
+    // --- [NEW] UNIVERSAL LIGHTBOX SCRIPT ---
     const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
     const lightboxContent = lightbox.querySelector('.lightbox__content');
     const closeButton = lightbox.querySelector('.lightbox__close');
     const zoomInButton = document.getElementById('zoom-in');
@@ -627,139 +624,108 @@ document.addEventListener('DOMContentLoaded', () => {
     const zoomResetButton = document.getElementById('zoom-reset');
     
     let currentPanZoom;
+    let imagePanState = {};
     
-    // Function to open the lightbox
     function openLightbox(element) {
-        // Clear previous content
         lightboxContent.innerHTML = '';
         
-        // Clone the element to show in the lightbox
         const contentClone = element.cloneNode(true);
         lightboxContent.appendChild(contentClone);
         
         lightbox.classList.add('is-visible');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
+        document.body.style.overflow = 'hidden';
 
-        // Check if the content is an SVG for panning/zooming
         const svgElement = contentClone.querySelector('svg');
+        const imgElement = contentClone.matches('img') ? contentClone : contentClone.querySelector('img');
+
         if (svgElement) {
+            svgElement.style.cursor = 'grab';
             currentPanZoom = svgPanZoom(svgElement, {
-                zoomEnabled: true,
-                controlIconsEnabled: false,
-                fit: true,
-                center: true,
-                minZoom: 0.5,
-                maxZoom: 10,
-                 onPan: function() {
-                    svgElement.style.cursor = 'grabbing';
-                },
-                 onZoom: function() {
-                    svgElement.style.cursor = 'grab';
-                },
-                beforePan: function() {
-                    svgElement.style.cursor = 'grab';
-                }
+                zoomEnabled: true, controlIconsEnabled: false, fit: true, center: true, minZoom: 0.5, maxZoom: 10,
+                onPan: () => svgElement.style.cursor = 'grabbing',
+                beforePan: () => svgElement.style.cursor = 'grab',
             });
-        } else {
-             // Basic pan/zoom for images
-            const imgElement = contentClone.tagName === 'IMG' ? contentClone : contentClone.querySelector('img');
-            if(imgElement) {
-                let scale = 1, panning = false, pointX = 0, pointY = 0, start = { x: 0, y: 0 };
-
-                function setTransform() {
-                    imgElement.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
-                }
-
-                imgElement.onmousedown = function (e) {
-                    e.preventDefault();
-                    start = { x: e.clientX - pointX, y: e.clientY - pointY };
-                    panning = true;
-                    imgElement.style.cursor = 'grabbing';
-                };
-
-                imgElement.onmouseup = function () {
-                    panning = false;
-                    imgElement.style.cursor = 'grab';
-                };
-
-                imgElement.onmousemove = function (e) {
-                    if (!panning) return;
-                    pointX = (e.clientX - start.x);
-                    pointY = (e.clientY - start.y);
-                    setTransform();
-                };
-                 imgElement.onwheel = function(e) {
-                    e.preventDefault();
-                    let xs = (e.clientX - pointX) / scale,
-                        ys = (e.clientY - pointY) / scale,
-                        delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
-                    
-                    (delta > 0) ? (scale *= 1.2) : (scale /= 1.2);
-                    scale = Math.min(Math.max(0.5, scale), 10);
-
-                    pointX = e.clientX - xs * scale;
-                    pointY = e.clientY - ys * scale;
-                    setTransform();
-                }
-                 // Set up controls for image zoom
-                zoomInButton.onclick = () => { scale *= 1.2; setTransform(); };
-                zoomOutButton.onclick = () => { scale /= 1.2; setTransform(); };
-                zoomResetButton.onclick = () => { scale = 1; pointX = 0; pointY = 0; setTransform(); };
-                imgElement.style.cursor = 'grab';
-            }
-        }
-
-        // Set up controls for SVG zoom
-        if (currentPanZoom) {
             zoomInButton.onclick = () => currentPanZoom.zoomIn();
             zoomOutButton.onclick = () => currentPanZoom.zoomOut();
-            zoomResetButton.onclick = () => currentPanZoom.resetZoom();
+            zoomResetButton.onclick = () => currentPanZoom.reset();
+        } else if (imgElement) {
+            imgElement.style.cursor = 'grab';
+            let scale = 1, panning = false, pointX = 0, pointY = 0, start = { x: 0, y: 0 };
+
+            function setTransform() {
+                imgElement.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+            }
+
+            imagePanState.setTransform = setTransform;
+            imagePanState.scale = (s) => { scale = Math.min(Math.max(0.5, s), 10); setTransform(); };
+            imagePanState.reset = () => { scale = 1; pointX = 0; pointY = 0; setTransform(); };
+
+            imgElement.onmousedown = e => {
+                e.preventDefault();
+                start = { x: e.clientX - pointX, y: e.clientY - pointY };
+                panning = true;
+                imgElement.style.cursor = 'grabbing';
+            };
+
+            imgElement.onmouseup = () => { panning = false; imgElement.style.cursor = 'grab'; };
+            imgElement.onmouseleave = () => { panning = false; imgElement.style.cursor = 'grab'; };
+            imgElement.onmousemove = e => {
+                if (!panning) return;
+                pointX = e.clientX - start.x;
+                pointY = e.clientY - start.y;
+                setTransform();
+            };
+            imgElement.onwheel = e => {
+                e.preventDefault();
+                let xs = (e.clientX - pointX) / scale, ys = (e.clientY - pointY) / scale;
+                let delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+                scale = (delta > 0) ? scale * 1.2 : scale / 1.2;
+                imagePanState.scale(scale);
+                pointX = e.clientX - xs * scale;
+                pointY = e.clientY - ys * scale;
+                setTransform();
+            }
+            
+            zoomInButton.onclick = () => { imagePanState.scale(scale * 1.2); };
+            zoomOutButton.onclick = () => { imagePanState.scale(scale / 1.2); };
+            zoomResetButton.onclick = () => { imagePanState.reset(); };
         }
     }
 
-    // Function to close the lightbox
     function closeLightbox() {
         if (currentPanZoom) {
             currentPanZoom.destroy();
             currentPanZoom = null;
         }
+        imagePanState = {};
         lightbox.classList.remove('is-visible');
         document.body.style.overflow = 'auto';
     }
     
-    // Add click listeners to all zoomable elements
     document.querySelectorAll('.zoomable').forEach(el => {
         el.addEventListener('click', (e) => {
             e.preventDefault();
-            // In explorers, get the container. Otherwise, get the clicked element itself.
             let targetElement = e.target.closest('.explorer-visuals') || e.target.closest('.zoomable');
-            // If we clicked inside an explorer, we want the active image.
              if (targetElement.classList.contains('explorer-visuals')) {
-                targetElement = targetElement.querySelector('.iteration-image.is-active img');
+                targetElement = targetElement.querySelector('.iteration-image.is-active, video.is-active');
+                if (targetElement && targetElement.tagName === 'VIDEO') {
+                    // Don't open lightbox for videos, just play them.
+                    targetElement.play();
+                    return;
+                }
+                targetElement = targetElement.querySelector('img');
+             } else if (targetElement.classList.contains('zoomable') && !targetElement.querySelector('img') && !targetElement.querySelector('svg')) {
+                // This handles cases where the zoomable container is clicked but the image is a child
+                targetElement = targetElement.querySelector('img') || targetElement.querySelector('svg');
              }
-            openLightbox(targetElement);
+            if(targetElement) openLightbox(targetElement);
         });
     });
     
     closeButton.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        // Close if the click is on the dark background, not the content
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === "Escape") closeLightbox(); });
 
-    // Make Mermaid SVGs interactive inside the lightbox after they are rendered
-    setTimeout(() => {
-        document.querySelectorAll('.mermaid').forEach(el => {
-            const svg = el.querySelector('svg');
-            if (svg) {
-                // This makes the main page diagram zoomable IN THE LIGHTBOX
-                // by adding the 'zoomable' class to its parent container.
-                el.parentElement.classList.add('zoomable');
-            }
-        });
-    }, 500); // Delay to ensure Mermaid has rendered
 });
 </script>
 
@@ -769,91 +735,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- [NOTE: Placeholder images are used. Replace with your actual asset paths e.g., assets/cowin/search-v1.png] -->
 
 <style>
-/* --- [NEW] Lightbox CSS --- */
-.zoomable {
-    cursor: zoom-in;
-}
-
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    display: none; /* Hidden by default */
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.lightbox.is-visible {
-    display: flex;
-    opacity: 1;
-}
-
-.lightbox__content {
-    width: 90%;
-    height: 90%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox__content img,
-.lightbox__content .mermaid > svg {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    transition: transform 0.2s ease;
-    cursor: grab;
-}
-
-.lightbox__content .panning {
-    cursor: grabbing;
-}
-
-.lightbox__close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 3rem;
-    cursor: pointer;
-    line-height: 1;
-}
-
-.lightbox__controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.5);
-    border-radius: 8px;
-    padding: 8px;
-    display: flex;
-    gap: 8px;
-}
-
-.lightbox__control {
-    background: #fff;
-    border: 1px solid #ccc;
-    color: #333;
-    font-weight: bold;
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
-    cursor: pointer;
-}
 
 /* --- [NEW] API Docs Component CSS --- */
 .api-docs-container {

@@ -42,24 +42,59 @@ body {
 .container { max-width: 1100px; margin: 0 auto; padding: 0 var(--spacing-lg); }
 
 /* --- Preloader --- */
+/* In style.css */
+
+/* --- Base & Reset --- */
+/* ... existing styles ... */
+
+/* --- Preloader --- */
+/* REMOVE (short version): the .preloader-logo, .kk-logo, .k-path, and keyframes */
+/* The old styles for the preloader and its logo are no longer needed. */
+
+/* ADD: New preloader styles */
 .preloader {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background-color: var(--color-background); display: flex;
     justify-content: center; align-items: center; z-index: 9999;
-    transition: opacity 0.5s ease 0.5s, visibility 0.5s ease 0.5s;
+    transition: opacity 0.5s ease 0.8s, visibility 0.5s ease 0.8s;
 }
 .preloader.loaded { opacity: 0; visibility: hidden; }
-.preloader-logo { width: 100px; }
-.kk-logo { width: 100%; height: auto; }
-.k-path {
-    fill: none; stroke: var(--color-primary); stroke-width: 4;
-    stroke-linecap: round; stroke-linejoin: round;
-    stroke-dasharray: 100; stroke-dashoffset: 100;
-    animation: draw-k 1s ease-in-out forwards;
+
+.preloader-text {
+    text-align: center;
+    color: var(--color-text);
 }
-.kk-logo path:last-child { animation-delay: 0.2s; }
-@keyframes draw-k { to { stroke-dashoffset: 0; } }
-.site-wrapper { opacity: 0; transition: opacity 0.8s ease 1s; }
+
+.preloader-text span {
+    display: block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in-up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.preloader-text span:first-child {
+    font-family: var(--font-family-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    animation-delay: 0.1s;
+}
+
+.preloader-text span:last-child {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    animation-delay: 0.3s;
+}
+
+@keyframes fade-in-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-wrapper { opacity: 0; transition: opacity 0.8s ease 1.5s; } /* Adjusted delay */
 .site-wrapper.visible { opacity: 1; }
 
 /* --- Gradient & Navigation --- */
@@ -1641,3 +1676,166 @@ body {
             display: none !important;
         }
     }
+
+
+    /* --- Print Styles for CV --- */
+@media print {
+    /* Hide all non-essential elements */
+    .main-nav,
+    .footer,
+    .gradient-bg,
+    .preloader {
+        display: none !important;
+    }
+
+    /* Reset body and layout for printing */
+    body {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt; /* Optimize for A4/Letter paper */
+        line-height: 1.4;
+    }
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Make the CV page the only visible content */
+    .cv-page {
+        display: block !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 1.5cm !important; /* Standard print margin */
+        border-radius: 0 !important;
+        background-color: #ffffff !important;
+    }
+    
+    /* Force all text colors to be print-friendly black */
+    .cv-page, .cv-page h1, .cv-page h2, .cv-page h3, .cv-page p, .cv-page li, .cv-page div, .cv-page span {
+        color: #000000 !important;
+    }
+    .cv-page a {
+        text-decoration: none;
+        color: #000000 !important;
+    }
+    /* Show full URL for links in print */
+    .cv-contact a span::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #555 !important;
+    }
+    .cv-contact-link svg {
+        display: none; /* Hide icons in print */
+    }
+
+    /* Tweak CV-specific element styles for print */
+    .cv-header {
+        border-bottom-color: #000000 !important;
+    }
+    .cv-section h2 {
+        border-bottom-color: #cccccc !important;
+        font-size: 14pt;
+    }
+    .cv-entry__logo {
+        filter: grayscale(100%) !important;
+        opacity: 0.8 !important;
+    }
+}
+
+
+/* --- [NEW] Universal Lightbox CSS --- */
+.zoomable {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 15, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.is-visible {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox__content {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox__content img,
+.lightbox__content .mermaid > svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    line-height: 1;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 2001;
+}
+
+.lightbox__controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.5);
+    border-radius: var(--border-radius);
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    z-index: 2001;
+}
+
+.lightbox__control {
+    all: unset;
+    box-sizing: border-box;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: background-color 0.2s;
+}
+.lightbox__control:hover {
+    background-color: #e9e5dc;
+}

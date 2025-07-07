@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Study: Architecting an Engagement Engine | Kunal Katre</title>
-    
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
@@ -123,17 +123,17 @@
                         <div class="insight-card">
                             <div class="insight-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
                             <h5>Instruction Mismatch</h5>
-                            <blockquote>"I saw the video, but I still had to ask my son what to do. The words are difficult and I don't know which camera to use."</blockquote>
+                            <blockquote>"I see the instructions, but I don't understand them. The words are difficult and I don't know which camera to use."</blockquote>
                         </div>
                         <div class="insight-card">
                              <div class="insight-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg></div>
                             <h5>The "Phone Flip" Behavior</h5>
-                            <blockquote>"I kept flipping my phone over to see if my finger was in the right place. It’s hard to do without looking at the back!"</blockquote>
+                            <blockquote>"It’s hard to do without looking at the back!"</blockquote>
                         </div>
                         <div class="insight-card">
                              <div class="insight-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
                             <h5>Trust & Accuracy Concerns</h5>
-                            <blockquote>"My blood pressure is high, but the app said 'Healthy'. I don't trust the reading if it gets this wrong."</blockquote>
+                            <blockquote>"I just came from running, but my heart rate shown is 58. I don't trust the reading."</blockquote>
                         </div>
                     </div>
 
@@ -143,33 +143,32 @@
                     <div class="iteration-explorer guided-audit-explorer">
                         <div class="explorer-visuals">
                             <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/v1-step-1.png" alt="V1 screen showing static onboarding instructions."></div>
-                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing the measurement in progress."></div>
-                            <div class="iteration-image" data-iteration="3"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing a passive countdown timer."></div>
-                            <div class="iteration-image" data-iteration="4"><img src="assets/hr/v1-error-screen.png" alt="V1 screen showing a vague 'Unable to detect' error message."></div>
-                            <div class="iteration-image" data-iteration="5"><img src="assets/hr/v1-result-screen.png" alt="V1 screen showing the final heart rate result without context."></div>
+                            <!-- <div class="iteration-image" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing the measurement in progress."></div> -->
+                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing a passive countdown timer."></div>
+                            <div class="iteration-image" data-iteration="3"><img src="assets/hr/v1-error-screen.png" alt="V1 screen showing a vague 'Unable to detect' error message."></div>
+                            <div class="iteration-image" data-iteration="4"><img src="assets/hr/v1-result-screen.png" alt="V1 screen showing the final heart rate result without context."></div>
                         </div>
                         <div class="explorer-content">
                             <div class="explorer-controls">
                                 <button class="is-active" data-iteration="1">1. Ambiguous Onboarding</button>
-                                <button data-iteration="2">2. The "Feedback Void"</button>
-                                <button data-iteration="3">3. Weak In-Progress Feedback</button>
-                                <button data-iteration="4">4. Destructive Error State</button>
-                                <button data-iteration="5">5. "So What?" Result</button>
+                                <button data-iteration="2">2. Weak In-Progress Feedback</button>
+                                <button data-iteration="3">3. Destructive Error State</button>
+                                <button data-iteration="4">4. "So What?" Result</button>
                             </div>
                             <div class="explorer-rationale">
                                 <div class="rationale-text is-active" data-iteration="1">
                                     <p><strong>Problem:</strong> Static illustrations failed to guide users on where to place their finger, causing immediate failure before the process even began.</p>
                                 </div>
-                                <div class="rationale-text" data-iteration="2">
+                                <!-- <div class="rationale-text" data-iteration="2">
                                     <p><strong>Problem:</strong> The UI gave zero feedback on signal quality. Users couldn't tell if they were pressing too hard or too soft, leading to anxiety.</p>
-                                </div>
-                                <div class="rationale-text" data-iteration="3">
+                                </div> -->
+                                <div class="rationale-text" data-iteration="2">
                                     <p><strong>Problem:</strong> Once the scan started, the UI was a passive countdown. Users had no confirmation that their pulse was being detected correctly, leading to questions like "Is it working?"</p>
                                 </div>
-                                 <div class="rationale-text" data-iteration="4">
+                                 <div class="rationale-text" data-iteration="3">
                                     <p><strong>Problem:</strong> The "Unable to detect!" error is a dead end. It blames the user without providing any actionable advice on how to fix the problem.</p>
                                 </div>
-                                <div class="rationale-text" data-iteration="5">
+                                <div class="rationale-text" data-iteration="4">
                                     <p><strong>Problem:</strong> The results screen provided a number but no context or value, making the feature feel like a gimmick. This was the root of the low retention.</p>
                                 </div>
                             </div>
@@ -703,14 +702,180 @@
                 <img class="store-badge" src="assets/hr/google-play-badge.svg" alt="Get it on Google Play">
             </a>
         </div>
+
+        <!-- Universal Lightbox for Images and SVGs -->
+        <div id="lightbox" class="lightbox">
+            <button class="lightbox__close" aria-label="Close zoomed view">×</button>
+            <div class="lightbox__content">
+                <!-- Zoomable content will be injected here by JS -->
+            </div>
+            <div class="lightbox__controls">
+                <button class="lightbox__control" id="zoom-in" aria-label="Zoom in">+</button>
+                <button class="lightbox__control" id="zoom-out" aria-label="Zoom out">-</button>
+                <button class="lightbox__control" id="zoom-reset" aria-label="Reset zoom">Reset</button>
+            </div>
+        </div>
     </main>
 </div>
 
 <script src="script.js"></script>
 
+<!-- Load Mermaid JS -->
 <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.mjs';
-    mermaid.initialize({ startOnLoad: true });
+    await mermaid.run(); // Use run() to render all elements with class="mermaid"
+</script>
+
+<!-- Load SVG Pan Zoom and Custom Lightbox Script -->
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Tab & Explorer Logic (from your existing script) ---
+    document.querySelectorAll('.intervention-container').forEach(container => {
+        const tabs = container.querySelectorAll('.intervention-tab');
+        const contents = container.querySelectorAll('.intervention-content');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('is-active'));
+                tab.classList.add('is-active');
+                const targetContent = container.querySelector(`.intervention-content[data-tab="${tab.dataset.tab}"]`);
+                contents.forEach(c => c.classList.remove('is-active'));
+                if (targetContent) targetContent.classList.add('is-active');
+            });
+        });
+    });
+
+    document.querySelectorAll('.iteration-explorer').forEach(container => {
+        const controls = container.querySelectorAll('.explorer-controls button');
+        images = container.querySelectorAll('.explorer-visuals .iteration-image, .explorer-visuals video');
+        const rationales = container.querySelectorAll('.explorer-rationale .rationale-text');
+        
+        controls.forEach(control => {
+            control.addEventListener('click', () => {
+                const iteration = control.dataset.iteration;
+                controls.forEach(c => c.classList.remove('is-active'));
+                control.classList.add('is-active');
+                images.forEach(img => img.classList.toggle('is-active', img.dataset.iteration === iteration));
+                rationales.forEach(rat => rat.classList.toggle('is-active', rat.dataset.iteration === iteration));
+            });
+        });
+    });
+
+    // --- [NEW] UNIVERSAL LIGHTBOX SCRIPT ---
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    const lightboxContent = lightbox.querySelector('.lightbox__content');
+    const closeButton = lightbox.querySelector('.lightbox__close');
+    const zoomInButton = document.getElementById('zoom-in');
+    const zoomOutButton = document.getElementById('zoom-out');
+    const zoomResetButton = document.getElementById('zoom-reset');
+    
+    let currentPanZoom;
+    let imagePanState = {};
+    
+    function openLightbox(element) {
+        lightboxContent.innerHTML = '';
+        
+        const contentClone = element.cloneNode(true);
+        lightboxContent.appendChild(contentClone);
+        
+        lightbox.classList.add('is-visible');
+        document.body.style.overflow = 'hidden';
+
+        const svgElement = contentClone.querySelector('svg');
+        const imgElement = contentClone.matches('img') ? contentClone : contentClone.querySelector('img');
+
+        if (svgElement) {
+            svgElement.style.cursor = 'grab';
+            currentPanZoom = svgPanZoom(svgElement, {
+                zoomEnabled: true, controlIconsEnabled: false, fit: true, center: true, minZoom: 0.5, maxZoom: 10,
+                onPan: () => svgElement.style.cursor = 'grabbing',
+                beforePan: () => svgElement.style.cursor = 'grab',
+            });
+            zoomInButton.onclick = () => currentPanZoom.zoomIn();
+            zoomOutButton.onclick = () => currentPanZoom.zoomOut();
+            zoomResetButton.onclick = () => currentPanZoom.reset();
+        } else if (imgElement) {
+            imgElement.style.cursor = 'grab';
+            let scale = 1, panning = false, pointX = 0, pointY = 0, start = { x: 0, y: 0 };
+
+            function setTransform() {
+                imgElement.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+            }
+
+            imagePanState.setTransform = setTransform;
+            imagePanState.scale = (s) => { scale = Math.min(Math.max(0.5, s), 10); setTransform(); };
+            imagePanState.reset = () => { scale = 1; pointX = 0; pointY = 0; setTransform(); };
+
+            imgElement.onmousedown = e => {
+                e.preventDefault();
+                start = { x: e.clientX - pointX, y: e.clientY - pointY };
+                panning = true;
+                imgElement.style.cursor = 'grabbing';
+            };
+
+            imgElement.onmouseup = () => { panning = false; imgElement.style.cursor = 'grab'; };
+            imgElement.onmouseleave = () => { panning = false; imgElement.style.cursor = 'grab'; };
+            imgElement.onmousemove = e => {
+                if (!panning) return;
+                pointX = e.clientX - start.x;
+                pointY = e.clientY - start.y;
+                setTransform();
+            };
+            imgElement.onwheel = e => {
+                e.preventDefault();
+                let xs = (e.clientX - pointX) / scale, ys = (e.clientY - pointY) / scale;
+                let delta = (e.wheelDelta ? e.wheelDelta : -e.deltaY);
+                scale = (delta > 0) ? scale * 1.2 : scale / 1.2;
+                imagePanState.scale(scale);
+                pointX = e.clientX - xs * scale;
+                pointY = e.clientY - ys * scale;
+                setTransform();
+            }
+            
+            zoomInButton.onclick = () => { imagePanState.scale(scale * 1.2); };
+            zoomOutButton.onclick = () => { imagePanState.scale(scale / 1.2); };
+            zoomResetButton.onclick = () => { imagePanState.reset(); };
+        }
+    }
+
+    function closeLightbox() {
+        if (currentPanZoom) {
+            currentPanZoom.destroy();
+            currentPanZoom = null;
+        }
+        imagePanState = {};
+        lightbox.classList.remove('is-visible');
+        document.body.style.overflow = 'auto';
+    }
+    
+    document.querySelectorAll('.zoomable').forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            let targetElement = e.target.closest('.explorer-visuals') || e.target.closest('.zoomable');
+             if (targetElement.classList.contains('explorer-visuals')) {
+                targetElement = targetElement.querySelector('.iteration-image.is-active, video.is-active');
+                if (targetElement && targetElement.tagName === 'VIDEO') {
+                    // Don't open lightbox for videos, just play them.
+                    targetElement.play();
+                    return;
+                }
+                targetElement = targetElement.querySelector('img');
+             } else if (targetElement.classList.contains('zoomable') && !targetElement.querySelector('img') && !targetElement.querySelector('svg')) {
+                // This handles cases where the zoomable container is clicked but the image is a child
+                targetElement = targetElement.querySelector('img') || targetElement.querySelector('svg');
+             }
+            if(targetElement) openLightbox(targetElement);
+        });
+    });
+    
+    closeButton.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === "Escape") closeLightbox(); });
+
+});
 </script>
 
 
