@@ -54,10 +54,10 @@
                         <span class="stat-value">#1</span>
                         <span class="stat-label">on Google Search</span>
                     </div>
-                    <div class="stat-item">
+                    <!-- <div class="stat-item">
                         <span class="stat-value">Lead</span>
                         <span class="stat-label">Product Designer</span>
-                    </div>
+                    </div> -->
                     <div class="stat-item">
                         <span class="stat-value">~2 Months</span>
                         <span class="stat-label">Initial Launch</span>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="hero__visual-content">
-                <div class="device-mockup">
+                <div class="device-mockup" style="width: 375px; height: 812px;">
                     <img src="assets/cowin/cowin-hero-visual.png" alt="Eka Care app showing the Co-WIN certificate download interface" style="width: 100%; height: 100%; object-fit: cover; border-radius: 28px;">
                 </div>
             </div>
@@ -243,7 +243,7 @@
                 <!-- =================================================================== -->
                 <section id="design">
                     <h2 class="act-title">4. Design & Execution</h2>
-                    <p>I used these pillars to design the two most critical user flows: booking a slot and downloading a certificate. The goal was to demonstrate deliberate, principle-led thinking, not just present final screens.</p>
+                    <p>Guided by our three pillars of trust, I designed the two most critical user journeys: booking a slot and downloading a certificate. The execution focused on providing clarity and control at every step, transforming high-anxiety tasks into reassuring experiences. The following sections break down the final flows and the specific design decisions that made them effective.</p>
 
                     <div class="flowchart-container journey-flowchart zoomable">
                         <div class="mermaid">
@@ -287,215 +287,73 @@
                        <figcaption>Fig. 2 - The complete Co-WIN services user flow, mapping all critical paths from a single entry point. (Click to zoom & pan)</figcaption>
                    </div>
 
-                    <h3>4.1 Flow 1: Booking a Vaccination Slot</h3>
-                    <p>The booking flow was designed to move from broad choices to specific actions, giving the user a sense of control and progress even in a chaotic environment.</p>
-                    
-                    <div class="flowchart-container journey-flowchart">
-                        <div class="mermaid">
-                            graph TD
-                            A[Start] --> B(Login with Mobile Number);
-                            B --> C(Enter & Verify OTP);
-                            C --> D[View Beneficiary Dashboard];
-                            D --> E(Select Beneficiary for Vaccination);
-                            E --> F{Search for Center};
-                            F --> G["Search by PIN Code"];
-                            F --> H["Search by District"];
-                            
-                            subgraph "Filtering & Results"
-                                G --> I(Enter PIN & Search);
-                                H --> J(Select State & District & Search);
-                                I --> K[Filter Results];
-                                J --> K;
-                                K --> L(Age: 18+ / 45+);
-                                K --> M(Cost: Free / Paid);
-                                K --> N(Vaccine: Covishield / Covaxin);
-                                L & M & N --> O[View List of Vaccination Centers];
-                                O --> P{"Center Availability"};
-                                P -- "Slots Available" --> Q[Select Date & Time Slot];
-                                P -- "No Slots Available" --> R[Center Shown as 'Booked' or 'N/A'];
-                                R --> F;
-                            end
-                            
-                            subgraph "Confirmation"
-                                Q --> S(Review Appointment Details <br><em>Center, Date, Time, Vaccine</em>);
-                                S --> T(Confirm Booking);
-                                T --> U(Booking Successful!);
-                                U --> V[View/Download Appointment Slip];
-                            end
-                        
-                            classDef default fill:#eef2f7,stroke:#3d405b,stroke-width:2px,color:#3d405b;
-                        </div>
-                       <figcaption>Fig. 3 - The booking flow, designed for clarity and user control from start to finish.</figcaption>
+                   <h3>4.1 Flow: Booking a Vaccination Slot</h3>
+                   <p>The slot booking process was the epicenter of user anxiety. My goal was to create a flow that was not only functional but actively worked to calm the user. I designed it to provide maximum information and control, ensuring users felt guided and empowered, not lost in a chaotic race for slots.</p>
+                   
+                   <figure class="case-study__visual-artifact">
+                       <img src="assets/cowin/book-flow-1.png" alt="The complete user flow for booking a vaccination slot, from the beneficiary list to the final confirmation screen.">
+                       <figcaption>Fig. 2 - The final booking flow, designed for clarity, transparency, and anxiety reduction at every step.</figcaption>
+                   </figure>
+
+                   <h4>Highlights & Design Rationale:</h4>
+                   <div class="highlight-list">
+                       <div class="highlight-item">
+                           <h5>1. Proactive Filtering & Absolute Transparency (Search Results)</h5>
+                           <p>Instead of hiding "bad news," we embraced it. The search results page showed <strong>all</strong> vaccination centers, clearly marking those with no available slots. This upheld our "Radical Transparency" principle, proving to the user that our data was comprehensive and trustworthy. For booked-out centers, we added a "Notify me" button—a small feature that provided immense hope and turned a dead end into a future opportunity.</p>
+                       </div>
+                       <div class="highlight-item">
+                           <h5>2. Automated Slot Reservation (Auto Vaccine slot booking)</h5>
+                           <p>One of the biggest user frustrations was "ghost slots"—slots that vanished the instant they were selected. To combat this, I designed an intermediate "booking in progress" screen. When a user selected a center, our system would attempt to hold a slot for a short period (e.g., 60 seconds). This small buffer transformed the experience from a frantic race into a more controlled process, assuring the user that the app was actively working on their behalf.</p>
+                       </div>
+                       <div class="highlight-item">
+                           <h5>3. The Anxiety-Proof Confirmation (Appointment Confirmed)</h5>
+                           <p>The final confirmation screen was designed as an "anxiety-proof contract." It contained every critical piece of information: Hospital Name, Address, Date, Time, Beneficiary Name, Reference ID, and Vaccine Type. By over-communicating at this final step, we left no room for doubt or last-minute questions, ensuring the user could confidently proceed to their appointment.</p>
+                       </div>
                    </div>
 
-                   <div class="intervention-container">
-                       <div class="intervention-tabs">
-                           <button class="intervention-tab is-active" data-tab="1">Search & Filtering</button>
-                           <button class="intervention-tab" data-tab="2">The Results Page</button>
-                           <button class="intervention-tab" data-tab="3">The Information Card</button>
+                   <!-- 4.2 DOWNLOAD FLOWS -->
+                   <h3>4.2 Flows: Downloading the Vaccine Certificate</h3>
+                   <p>The certificate download was our single biggest user acquisition channel. Recognizing that users would arrive with different contexts and levels of urgency, I designed two distinct "smart" flows to get them their certificate as frictionlessly as possible.</p>
+
+                   <h4>Path 1: The Direct Download Flow</h4>
+                   <p>This path was for the user who arrives with a clear, singular goal: "I need my certificate now." The entire flow was optimized for speed and clarity.</p>
+                   <figure class="case-study__visual-artifact">
+                       <img src="assets/cowin/download-flow-1.png" alt="The user flow for directly downloading a Co-WIN certificate, from the homepage to the file being saved in the app.">
+                       <figcaption>Fig. 3 - The explicit download flow, initiated by the user from a clear call-to-action on the homepage.</figcaption>
+                   </figure>
+                   
+                   <h4>Highlights & Design Rationale:</h4>
+                   <div class="highlight-list">
+                       <div class="highlight-item">
+                           <h5>1. A Clear, Task-Based Entry Point (Homepage Trigger)</h5>
+                           <p>We placed a prominent "Download Vaccination Certificate" card on the homepage. This clear, task-oriented entry point eliminated ambiguity and allowed users to immediately self-identify their goal and begin the process without navigating complex menus.</p>
                        </div>
-
-                       <div class="intervention-content is-active" data-tab="1">
-                           <h4>Reducing Initial Friction</h4>
-                           <div class="iteration-explorer">
-                               <div class="explorer-visuals">
-                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/cowin/search-v1.png" alt="Initial concept with a single search bar."></div>
-                                   <div class="iteration-image" data-iteration="2"><img src="assets/cowin/search-v2.png" alt="Final design with explicit toggles for Pincode and District search."></div>
-                               </div>
-                               <div class="explorer-content">
-                                   <div class="explorer-controls">
-                                       <button class="is-active" data-iteration="1">Concept A: Single Search</button>
-                                       <button data-iteration="2">Final: Explicit Toggles</button>
-                                   </div>
-                                   <div class="explorer-rationale">
-                                       <div class="rationale-text is-active" data-iteration="1">
-                                           <p><strong>Approach:</strong> A single, simple search bar for location.</p>
-                                           <p><strong>Problem:</strong> Users think about location differently (PIN vs. District). A single bar created ambiguity and was too restrictive, forcing users into a single mode of thinking.</p>
-                                       </div>
-                                       <div class="rationale-text" data-iteration="2">
-                                           <p><strong>Decision:</strong> We implemented explicit toggles for "Search by Pincode" and "Search by District." This empowered users to search in the way that felt most natural to them, directly reducing initial friction and perceived complexity.</p>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
+                       <div class="highlight-item">
+                           <h5>2. Seamless Integration into the "Files" Vault (Landing on "File")</h5>
+                           <p>After a successful download, we didn't just save the PDF to the device's downloads folder and abandon the user. We automatically imported it into the app's "My Files" section. This was a key strategic decision to increase retention. It transformed a one-time utility into a permanent health record vault, giving users a compelling reason to return to Eka.Care.</p>
                        </div>
-
-                       <div class="intervention-content" data-tab="2">
-                           <h4>Applying Radical Transparency</h4>
-                           <div class="iteration-explorer">
-                               <div class="explorer-visuals">
-                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/cowin/results-v1.png" alt="Concept showing only centers with available slots."></div>
-                                   <div class="iteration-image" data-iteration="2"><img src="assets/cowin/results-v2.png" alt="Final design showing all centers, clearly marking those with no slots."></div>
-                               </div>
-                               <div class="explorer-content">
-                                   <div class="explorer-controls">
-                                       <button class="is-active" data-iteration="1">Concept A: Available Only</button>
-                                       <button data-iteration="2">Final: Show All Centers</button>
-                                   </div>
-                                   <div class="explorer-rationale">
-                                       <div class="rationale-text is-active" data-iteration="1">
-                                           <p><strong>Approach:</strong> Only show centers with available vaccine slots to simplify the view.</p>
-                                           <p><strong>Problem:</strong> This created intense anxiety. Users would ask, "Is my local hospital not a center, or is the app just not showing it?" It broke their trust in our system's comprehensiveness.</p>
-                                       </div>
-                                       <div class="rationale-text" data-iteration="2">
-                                           <p><strong>Decision:</strong> We showed all centers, but clearly marked those with "No Slots Available." This was our "Radical Transparency" pillar in action. It proved our system was working and complete, which paradoxically built more trust than hiding negative information.</p>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       
-                        <div class="intervention-content" data-tab="3">
-                            <h4>Pre-empting User Doubt</h4>
-                            <div class="iteration-explorer">
-                                <div class="explorer-visuals">
-                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/cowin/card-v1.png" alt="Minimal info card with just hospital name and time."></div>
-                                    <div class="iteration-image" data-iteration="2"><img src="assets/cowin/card-v2.png" alt="Final, information-dense card with all critical details."></div>
-                                </div>
-                                <div class="explorer-content">
-                                   <div class="explorer-controls">
-                                       <button class="is-active" data-iteration="1">Concept A: Minimal Card</button>
-                                       <button data-iteration="2">Final: Information-Dense Card</button>
-                                   </div>
-                                    <div class="explorer-rationale">
-                                        <div class="rationale-text is-active" data-iteration="1">
-                                            <p><strong>Approach:</strong> A minimal card with just the hospital name and time for a clean UI.</p>
-                                            <p><strong>Problem:</strong> This left too many critical questions unanswered (Cost? Vaccine type? Age group?), forcing users to click through and potentially waste time on an incompatible slot.</p>
-                                        </div>
-                                        <div class="rationale-text" data-iteration="2">
-                                            <p><strong>Decision:</strong> We chose to over-communicate. The final card showed Vaccine Type, Cost, Age Group, and Slot Count upfront. Every piece of data we added was one less reason for a user to feel anxious or uncertain.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
-
-                    <h3>4.2 Flow 2: Downloading the Certificate</h3>
-                    <p>This flow was not just a utility; it was our single biggest opportunity for user acquisition and retention. We had to make it foolproof and use the moment of success to build a lasting relationship.</p>
-
-                    <div class="flowchart-container journey-flowchart">
-                        <div class="mermaid">
-                            graph TD
-                            A[Start] --> B(Login with Mobile Number);
-                            B --> C(Enter & Verify OTP);
-                            C --> D[View Beneficiary Dashboard];
-                            D --> E{"Select Beneficiary's Certificate"};
-                            E -- "Dose 1 / Dose 2 Certificate" --> F(Click 'Download Certificate');
-                            E -- "International Travel Certificate" --> G(Click 'Intl. Certificate');
-                            
-                            subgraph "Download & Engagement"
-                              F --> H[Certificate Downloaded to Device];
-                              G --> H;
-                              H --> I(Confirmation Screen);
-                              I --> J[<strong>Engagement Opportunity</strong>];
-                              J --> J1("Store in Eka.Care Health Vault");
-                              J --> J2("Link to ABHA Account");
-                              J --> J3("Book a Health Check-up");
-                            end
-                        
-                            classDef default fill:#eef2f7,stroke:#3d5a80,stroke-width:2px,color:#3d405b;
-                        </div>
-                       <figcaption>Fig. 4 - The certificate download flow, designed to be a clear, task-based funnel that culminates in an engagement opportunity.</figcaption>
                    </div>
 
-                    <div class="intervention-container">
-                        <div class="intervention-tabs">
-                             <button class="intervention-tab is-active" data-tab="1">The Entry Point</button>
-                             <button class="intervention-tab" data-tab="2">The Success Screen</button>
-                        </div>
+                   <h4>Path 2: The Proactive "Smart Download" Flow</h4>
+                   <p>This was our "magic moment" flow. It was designed for existing users who might not even be thinking about their certificate. The app would proactively work for them in the background, creating a delightful and surprising experience.</p>
+                   <figure class="case-study__visual-artifact">
+                       <img src="assets/cowin/download-flow-2.png" alt="The automated flow where the app proactively downloads certificates for vaccinated beneficiaries and notifies the user.">
+                       <figcaption>Fig. 4 - The proactive, automated flow that fetches certificates in the background, turning a chore into a delightful surprise.</figcaption>
+                   </figure>
 
-                        <div class="intervention-content is-active" data-tab="1">
-                            <h4>Designing a Clear Task-Based Architecture</h4>
-                            <div class="iteration-explorer">
-                                <div class="explorer-visuals">
-                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/cowin/entry-v1.png" alt="Initial concept with a simple download button."></div>
-                                   <div class="iteration-image" data-iteration="2"><img src="assets/cowin/entry-v2.png" alt="Final design with a dedicated COVID-19 section and clear, task-based options."></div>
-                                </div>
-                                <div class="explorer-content">
-                                    <div class="explorer-controls">
-                                       <button class="is-active" data-iteration="1">Concept A: Simple Button</button>
-                                       <button data-iteration="2">Final: Task-Oriented Section</button>
-                                    </div>
-                                    <div class="explorer-rationale">
-                                        <div class="rationale-text is-active" data-iteration="1">
-                                            <p><strong>Approach:</strong> A simple "Download Certificate" button on the homepage.</p>
-                                            <p><strong>Problem:</strong> Users who needed to book a first dose or link their passport had no clear path. It served only one user segment, ignoring others.</p>
-                                        </div>
-                                        <div class="rationale-text" data-iteration="2">
-                                            <p><strong>Decision:</strong> I designed a dedicated "COVID-19" section with clear, task-based options: "Book Vaccination Slot," "Download Certificate," "Link Passport." This architecture made it immediately obvious where any user should go, regardless of their specific need.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="intervention-content" data-tab="2">
-                            <h4>From Transaction to Engagement</h4>
-                            <div class="iteration-explorer">
-                                <div class="explorer-visuals">
-                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/cowin/success-v1.png" alt="Simple success message with a download link."></div>
-                                   <div class="iteration-image" data-iteration="2"><img src="assets/cowin/success-v2.png" alt="Rich success page with clear next steps and cross-sell opportunities."></div>
-                                </div>
-                                <div class="explorer-content">
-                                    <div class="explorer-controls">
-                                       <button class="is-active" data-iteration="1">Concept A: Dead End</button>
-                                       <button data-iteration="2">Final: Rich Engagement Page</button>
-                                    </div>
-                                    <div class="explorer-rationale">
-                                        <div class="rationale-text is-active" data-iteration="1">
-                                            <p><strong>Approach:</strong> A simple "Download Successful" message with a link to the file.</p>
-                                            <p><strong>Problem:</strong> This was a dead end. We were wasting a high-intent moment where the user felt successful and trusted us completely.</p>
-                                        </div>
-                                        <div class="rationale-text" data-iteration="2">
-                                            <p><strong>Decision:</strong> I designed a rich success page that not only confirms the download but offers clear next steps: "Store in Eka.Care Vault," "Book Your Next Dose," "Connect with a Doctor." This transformed a transactional endpoint into a powerful cross-sell and engagement opportunity, using the trust we'd just earned to introduce users to our wider ecosystem.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   <h4>Highlights & Design Rationale:</h4>
+                   <div class="highlight-list">
+                       <div class="highlight-item">
+                           <h5>1. Context-Aware Automation (Auto download of certificate)</h5>
+                           <p>When a user logged in to check their family's vaccination status, our system would intelligently identify beneficiaries who were fully vaccinated but whose certificates weren't yet in the Eka Vault. It would then automatically fetch the certificates in the background, indicated by a subtle "Downloading..." status. This proactive assistance saved the user a step they didn't even know they needed to take.</p>
+                       </div>
+                       <div class="highlight-item">
+                           <h5>2. Turning Success into Engagement (Notifying the download complete)</h5>
+                           <p>The confirmation wasn't a simple "Done." It was a rich, contextual pop-up that celebrated the success ("We found vaccine certificates for...") and immediately demonstrated the value of our platform ("Store & share your medical records in a secure vault."). This transformed a background task into a powerful cross-sell moment, using the trust and delight we'd just earned to deepen engagement with our core Eka Vault feature.</p>
+                       </div>
+                   </div>
                 </section>
+                
 
 
                 <!-- =================================================================== -->
@@ -835,6 +693,46 @@ document.addEventListener('DOMContentLoaded', () => {
     margin-top: var(--spacing-xl);
 }
 
+
+/* --- [NEW] Highlight List Component CSS --- */
+.highlight-list {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+.highlight-item {
+    padding-left: var(--spacing-lg);
+    border-left: 3px solid var(--color-primary);
+}
+.highlight-item h5 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-strong);
+}
+.highlight-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+.case-study__visual-artifact {
+    margin: var(--spacing-xl) 0;
+}
+.case-study__visual-artifact img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border: 1px solid #e5e7eb;
+}
+.case-study__visual-artifact figcaption {
+    margin-top: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    text-align: center;
+}
 </style>
 
 </body>
