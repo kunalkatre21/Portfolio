@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div class="hero__visual-content">
-                <div class="device-mockup">
+                <div class="device-mockup zoomable">
                     <!-- 
                     NOTE: I'm using the onboarding video you provided. 
                     For maximum impact, replace 'instruction video-1.mp4' with a screen recording
@@ -114,7 +114,7 @@
                     <h3>2.1 Guerilla Research: Hearing the User's Voice</h3>
                     <p>The data showed *what* was happening, but not *why*. I initiated a quick guerilla research sprint, conducting informal usability tests with a diverse user group. The unfiltered feedback was raw and illuminating. Instead of abstract personas, we were hit with direct, powerful quotes.</p>
                     
-                    <figure class="case-study__image">
+                    <figure class="case-study__image zoomable">
                         <img src="assets/hr/research.png" alt="Guerilla Research inprogress.">
                         <figcaption>Fig. 1 - Conducting informal usability tests to quickly gather qualitative insights.</figcaption>
                     </figure>
@@ -142,11 +142,11 @@
                     
                     <div class="iteration-explorer guided-audit-explorer">
                         <div class="explorer-visuals">
-                            <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/v1-step-1.png" alt="V1 screen showing static onboarding instructions."></div>
+                            <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/v1-step-1.png" alt="V1 screen showing static onboarding instructions."></div>
                             <!-- <div class="iteration-image" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing the measurement in progress."></div> -->
-                            <div class="iteration-image" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing a passive countdown timer."></div>
-                            <div class="iteration-image" data-iteration="3"><img src="assets/hr/v1-error-screen.png" alt="V1 screen showing a vague 'Unable to detect' error message."></div>
-                            <div class="iteration-image" data-iteration="4"><img src="assets/hr/v1-result-screen.png" alt="V1 screen showing the final heart rate result without context."></div>
+                            <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/v1-measurement-screen.png" alt="V1 screen showing a passive countdown timer."></div>
+                            <div class="iteration-image zoomable" data-iteration="3"><img src="assets/hr/v1-error-screen.png" alt="V1 screen showing a vague 'Unable to detect' error message."></div>
+                            <div class="iteration-image zoomable" data-iteration="4"><img src="assets/hr/v1-result-screen.png" alt="V1 screen showing the final heart rate result without context."></div>
                         </div>
                         <div class="explorer-content">
                             <div class="explorer-controls">
@@ -182,12 +182,12 @@
                         <figcaption>Fig. 2 - The final User Journey Map, synthesizing all research into a single source of truth for the team.</figcaption>
                     </figure> -->
                     <p>I consolidated all these findings into an Emotional Journey Map. This artifact was crucial for stakeholder alignment, as it translated abstract data and user quotes into a clear narrative of declining trust. It pinpointed the exact moments where our experience was failing and where we had the biggest opportunities for intervention.</p>
-                    <figure class="case-study__image">
+                    <figure class="case-study__image zoomable">
                         <img src="assets/hr/FTUX-journey-map.webp" alt="An emotional journey map diagnosing the V1 experience, showing the user's emotional state from Happy to Unhappy, and highlighting pain points and opportunities for intervention at each stage.">
                         <figcaption>Fig. 2 - This map diagnosed the V1 experience, becoming our shared source of truth.</figcaption>
                     </figure>
                     <p>But the problem ran deeper than just first-time users. To understand our retention failure, I also mapped the journey for a returning user. This revealed a completely broken loop that provided no value over time, dooming the feature to be a one-time-use gimmick.</p>
-                    <figure class="case-study__image">
+                    <figure class="case-study__image zoomable">
                         <img src="assets/hr/RTUX-journey-map.webp" alt="An emotional journey map diagnosing the V1 experience, showing the user's emotional state from Happy to Unhappy, and highlighting pain points and opportunities for intervention at each stage.">
                         <figcaption>Fig. 3 - Diagnosing the V1 Returning User Experience revealed a broken loop with no long-term value.</figcaption>
                     </figure>
@@ -273,9 +273,9 @@
                            <p>Our research showed users were both curious and skeptical. I chose a video intervention not just to instruct, but to build excitement and establish credibility from the very first second.</p>
                            <div class="iteration-explorer">
                                <div class="explorer-visuals">
-                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/storyboard-1.webp" alt="Storyboard concept 1: a technical, focused animation of the heart rate process."></div>
-                                   <div class="iteration-image" data-iteration="2"><img src="assets/hr/storyboard-2.webp" alt="Storyboard concept 2: a human-centric, emotional video showing a person using the app."></div>
-                                   <div class="iteration-image" data-iteration="3"><video src="assets/hr/instruction video-1.mp4" autoplay loop muted playsinline></video></div>
+                                   <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/storyboard-1.webp" alt="Storyboard concept 1: a technical, focused animation of the heart rate process."></div>
+                                   <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/storyboard-2.webp" alt="Storyboard concept 2: a human-centric, emotional video showing a person using the app."></div>
+                                   <div class="iteration-image zoomable" data-iteration="3"><video src="assets/hr/instruction video-1.mp4" autoplay loop muted playsinline></video></div>
                                </div>
                                <div class="explorer-content">
                                    <h4>Video Storyboard Explorations</h4>
@@ -307,9 +307,9 @@
                            <p>There is a critical moment between the video and the user placing their finger. The design of this screen needed to guide them seamlessly into the measurement.</p>
                             <div class="iteration-explorer">
                                <div class="explorer-visuals">
-                                   <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/pre-measure-concept-1.webp" alt="Concept 1: A full-screen camera view with instructions accessible by scrolling up."></div>
-                                   <div class="iteration-image" data-iteration="2"><img src="assets/hr/pre-measure-concept-2.webp" alt="Concept 2: A circular camera view with a persistent video guide."></div>
-                                   <div class="iteration-image" data-iteration="3"><img src="assets/hr/pre-measure-final.webp" alt="The final pre-measurement screen design."></div>
+                                   <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/pre-measure-concept-1.webp" alt="Concept 1: A full-screen camera view with instructions accessible by scrolling up."></div>
+                                   <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/pre-measure-concept-2.webp" alt="Concept 2: A circular camera view with a persistent video guide."></div>
+                                   <div class="iteration-image zoomable" data-iteration="3"><img src="assets/hr/pre-measure-final.webp" alt="The final pre-measurement screen design."></div>
                                 </div>
                                <div class="explorer-content">
                                    <h4>Pre-Measurement Screen Concepts</h4>
@@ -371,8 +371,8 @@
                             <p>My analysis showed that V1 handled errors passively—it only told the user *after* they had already failed. I explored a more proactive approach to prevent failure before it happens.</p>
                             <div class="iteration-explorer">
                                 <div class="explorer-visuals">
-                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/error-handling-passive.webp" alt="Passive error handling: A list of possible reasons shown after failure."></div>
-                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/error-handling-active.webp" alt="Active error handling: A real-time 'Motion Detected' warning appears during measurement."></div>
+                                    <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/error-handling-passive.webp" alt="Passive error handling: A list of possible reasons shown after failure."></div>
+                                    <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/error-handling-active.webp" alt="Active error handling: A real-time 'Motion Detected' warning appears during measurement."></div>
                                 </div>
                                 <div class="explorer-content">
                                     <h4>Error Handling Approaches</h4>
@@ -409,9 +409,9 @@
                             <p>One of the primary sources of distrust was that users couldn't see anything happening. My first exploration focused on providing clear visual proof that the system was working.</p>
                             <div class="iteration-explorer">
                                 <div class="explorer-visuals">
-                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/measuring-1.png" alt="Concept A for the measurement screen, with a large, central heart rate number and a small progress indicator."></div>
-                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/measuring-2.png" alt="Concept B for the measurement screen, focusing on a large progress circle and smaller heart rate number."></div>
-                                    <div class="iteration-image" data-iteration="3"><img src="assets/hr/measuring-final.png" alt="The final shipped measurement screen design."></div>
+                                    <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/measuring-1.png" alt="Concept A for the measurement screen, with a large, central heart rate number and a small progress indicator."></div>
+                                    <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/measuring-2.png" alt="Concept B for the measurement screen, focusing on a large progress circle and smaller heart rate number."></div>
+                                    <div class="iteration-image zoomable" data-iteration="3"><img src="assets/hr/measuring-final.png" alt="The final shipped measurement screen design."></div>
                                 </div>
                                 <div class="explorer-content">
                                     <h4>Visual Feedback Concepts</h4>
@@ -501,9 +501,9 @@
                             <p>Our guerilla research showed that skepticism and confusion were major barriers. Building trust required proactive transparency.</pp>
                             <div class="iteration-explorer">
                                 <div class="explorer-visuals">
-                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/user-state-input.png" alt="The original V1 result screen showing only a number."></div>
-                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/heart-rate-state.png" alt="A redesigned result screen showing clear ranges and contextual tagging."></div>
-                                    <div class="iteration-image" data-iteration="3"><img src="assets/hr/reading-confidence.png" alt="A redesigned result screen showing clear ranges and contextual tagging."></div>
+                                    <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/user-state-input.png" alt="The original V1 result screen showing only a number."></div>
+                                    <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/heart-rate-state.png" alt="A redesigned result screen showing clear ranges and contextual tagging."></div>
+                                    <div class="iteration-image zoomable" data-iteration="3"><img src="assets/hr/reading-confidence.png" alt="A redesigned result screen showing clear ranges and contextual tagging."></div>
                                 </div>
                                 <div class="explorer-content">
                                     <h4>Contextual Result Concepts</h4>
@@ -532,8 +532,8 @@
                             <p>To drive retention, we needed to give users compelling reasons to come back. This meant designing a system of triggers that integrated the feature into their daily lives.</p>
                             <div class="iteration-explorer">
                                 <div class="explorer-visuals">
-                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/actionable-trends.png" alt="Concept showing a very detailed breakdown of HRV metrics like RMSSD, SDRR, and PNN20."></div>
-                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/pro-active-triggers.png" alt="A simplified concept for HRV, focusing on scannable labels instead of complex data."></div>
+                                    <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/actionable-trends.png" alt="Concept showing a very detailed breakdown of HRV metrics like RMSSD, SDRR, and PNN20."></div>
+                                    <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/pro-active-triggers.png" alt="A simplified concept for HRV, focusing on scannable labels instead of complex data."></div>
                                 </div>
                                 <div class="explorer-content">
                                     <h4>Driving Retention</h4>
@@ -558,9 +558,9 @@
                             <p>Recognizing that "data is the new oil," the final strategic pillar was to use this high-engagement feature as a gateway to our wider platform ecosystem, turning user data into value for both the user and the business.</p>
                             <div class="iteration-explorer">
                                 <div class="explorer-visuals">
-                                    <div class="iteration-image is-active" data-iteration="1"><img src="assets/hr/platform-integration.png" alt="Concept showing a very detailed breakdown of HRV metrics like RMSSD, SDRR, and PNN20."></div>
-                                    <div class="iteration-image" data-iteration="2"><img src="assets/hr/monetization-pathways.png" alt="A simplified concept for HRV, focusing on scannable labels instead of complex data."></div>
-                                    <div class="iteration-image" data-iteration="3"><img src="assets/hr/ecosystem-growth.png" alt="The final result screen acting as a full dashboard with trends, CTAs, and cross-platform integrations.s"></div>
+                                    <div class="iteration-image zoomable is-active" data-iteration="1"><img src="assets/hr/platform-integration.png" alt="Concept showing a very detailed breakdown of HRV metrics like RMSSD, SDRR, and PNN20."></div>
+                                    <div class="iteration-image zoomable" data-iteration="2"><img src="assets/hr/monetization-pathways.png" alt="A simplified concept for HRV, focusing on scannable labels instead of complex data."></div>
+                                    <div class="iteration-image zoomable" data-iteration="3"><img src="assets/hr/ecosystem-growth.png" alt="The final result screen acting as a full dashboard with trends, CTAs, and cross-platform integrations.s"></div>
                                 </div>
                                 <div class="explorer-content">
                                     <h4>Engagement Engine</h4>
