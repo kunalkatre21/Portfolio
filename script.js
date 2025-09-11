@@ -1,6 +1,25 @@
 /* FINAL PORTFOLIO SCRIPT - Kaito Tanaka */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+
+        // Optional: Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+            });
+        });
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
 
     // --- Preloader Logic ---
     const preloader = document.querySelector('.preloader');
