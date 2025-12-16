@@ -215,7 +215,7 @@ Result: Auto-PR created in Android (XML), iOS (Swift), Web (CSS)`;
                          </p>
                      </div>
                      <div>
-                         <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Proof of Concept > Pitch</h4>
+                         <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Proof of Concept to Pitch</h4>
                          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                              Building the PoC myself using AI tools proved the value faster than any slide deck could.
                          </p>
