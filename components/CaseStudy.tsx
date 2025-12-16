@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ChevronDown, Menu } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
 import { CowinCaseStudy } from './case-studies/Cowin';
 import { DesignSystemCaseStudy } from './case-studies/DesignSystem';
 import { WebInfraCaseStudy } from './case-studies/WebInfra';
@@ -15,9 +15,14 @@ interface CaseStudyProps {
 
 export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProject }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to top when case study opens
+  // Scroll to top when case study opens or id changes
   useEffect(() => {
+    if (containerRef.current) {
+        containerRef.current.scrollTop = 0;
+    }
+    // Keep window scroll reset as fallback/precaution
     window.scrollTo(0, 0);
   }, [id]);
 
@@ -36,13 +41,15 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 50 }}
-      className="bg-white dark:bg-[#050505] min-h-screen pt-20 pb-0 text-neutral-900 dark:text-white z-50 relative transition-colors duration-300"
+      ref={containerRef}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="fixed inset-0 z-[100] overflow-y-auto bg-white dark:bg-[#050505] text-neutral-900 dark:text-white transition-colors duration-300 scroll-smooth"
     >
       {/* Navigation */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-[#050505]/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 p-4">
+      <div className="sticky top-0 left-0 right-0 z-50 bg-white/90 dark:bg-[#050505]/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center relative">
              <button 
                 onClick={onBack}
@@ -69,7 +76,7 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                             initial={{ opacity: 0, y: 10, scale: 0.95 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                            className="absolute top-full right-0 mt-2 w-64 bg-white dark:bg-[#111] rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden"
+                            className="absolute top-full right-0 mt-2 w-64 bg-white dark:bg-[#111] rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden z-[110]"
                         >
                             <div className="py-2">
                                 {works.map((work) => (

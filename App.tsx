@@ -35,7 +35,7 @@ function AppContent() {
   return (
     <div className="min-h-screen selection:bg-purple-500/30 selection:text-purple-900 dark:selection:text-purple-200 font-sans transition-colors duration-300">
       <Cursor />
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {view === 'home' ? (
            <React.Fragment key="home">
               <Navbar />
