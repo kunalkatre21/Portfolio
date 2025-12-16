@@ -22,7 +22,7 @@ export const Education: React.FC = () => {
     <section id="education" className="py-24 px-4 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row gap-12 items-start">
           <div className="md:w-1/3">
-            <h2 className="text-5xl font-bold text-white">Education</h2>
+            <h2 className="text-5xl font-bold text-neutral-900 dark:text-white">Education</h2>
           </div>
           
           <div className="md:w-2/3 w-full grid gap-6">
@@ -33,11 +33,11 @@ export const Education: React.FC = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1 }}
-                    className="p-8 rounded-3xl bg-gradient-to-br from-[#111] to-black border border-neutral-800 hover:border-purple-500/50 transition-colors duration-300"
+                    className="p-8 rounded-3xl bg-gradient-to-br from-white to-neutral-50 dark:from-[#111] dark:to-black border border-neutral-200 dark:border-neutral-800 hover:border-purple-300 dark:hover:border-purple-500/50 transition-colors duration-300 shadow-sm dark:shadow-none"
                 >
                     <span className="text-neutral-500 text-sm mb-2 block">{edu.period}</span>
-                    <h3 className="text-2xl font-bold text-white mb-1">{edu.degree}</h3>
-                    <p className="text-neutral-400">{edu.school}</p>
+                    <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-1">{edu.degree}</h3>
+                    <p className="text-neutral-600 dark:text-neutral-400">{edu.school}</p>
                 </motion.div>
             ))}
           </div>

@@ -15,8 +15,13 @@ export interface WorkItem {
   id: number;
   title: string;
   category: string;
+  description: string;
   image: string;
   tags: string[];
+  liveUrl?: string;
+  caseStudyUrl?: string;
+  award?: string;
+  color?: string; // For custom card background/accent
 }
 
 export interface AwardItem {
@@ -41,5 +46,5 @@ export interface SkillCategory {
 }
 
 export interface WorkProps {
-  onProjectClick: () => void;
+  onProjectClick: (id: number) => void;
 }
