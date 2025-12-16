@@ -14,12 +14,12 @@ export const HeartRateCaseStudy: React.FC = () => {
             </div>
 
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[0.9] text-neutral-900 dark:text-white tracking-tight">
-                Architecting an <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-600">Engagement Engine.</span>
+                Heart Rate: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-600">Fixing the Funnel.</span>
             </h1>
             
             <div className="flex flex-col md:flex-col gap-8 md:gap-16 mb-16 items-start">
                 <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl">
-                    I transformed a failing feature with <TextHighlight>38% user drop-off</TextHighlight> into a core driver of engagement and retention for the Eka.Care platform.
+                    I fixed a feature with <TextHighlight>38% drop-off</TextHighlight>. It became the primary driver for daily active users.
                 </p>
                 <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-4">
                     <StatCard value="+21%" label="Conversion" subLabel="Lift" />
@@ -43,10 +43,10 @@ export const HeartRateCaseStudy: React.FC = () => {
 
         {/* Section 1: The Setup */}
         <section className="max-w-4xl mx-auto">
-            <SectionTitle number="01" title="The Setup: A Leaky Funnel" />
+            <SectionTitle number="01" title="The Problem" />
             <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed">
-                In late 2022, the Heart Rate Monitor was a strategic bet on organic growth. But analytics painted a grim picture. 
-                A catastrophic <span className="text-red-500 font-bold">~38% of users</span> were dropping off before completing their first measurement. The feature wasn't "sticking".
+                The Heart Rate Monitor was our bet for organic growth. It failed. 
+                <span className="text-red-500 font-bold"> 38% of users</span> dropped off before completing a measurement. 
             </p>
         </section>
 
@@ -54,49 +54,44 @@ export const HeartRateCaseStudy: React.FC = () => {
 
         {/* Section 2: Discovery */}
         <section className="max-w-6xl mx-auto">
-            <SectionTitle number="02" title="Discovery: Uncovering the 'Why'" />
+            <SectionTitle number="02" title="Discovery" />
             <div className="grid md:grid-cols-12 gap-12">
                 <div className="md:col-span-5">
                     <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                        I initiated a quick guerilla research sprint. The unfiltered feedback was raw and illuminating.
+                        I watched 5 users try the feature. They all failed to get a reading.
                     </p>
                     <div className="space-y-4">
                         <InsightCard 
                             icon={<Smartphone />}
-                            title="Instruction Mismatch"
-                            quote="I see the instructions, but I don't understand them. Which camera do I use?"
+                            title="Camera Confusion"
+                            quote="Which lens do I cover? The flash is burning my finger."
                             color="orange"
                         />
                         <InsightCard 
                             icon={<AlertTriangle />}
-                            title="Trust Deficit"
-                            quote="I just ran, but it says 58 BPM. I don't trust this reading."
+                            title="Lack of Feedback"
+                            quote="Is it working? The screen is frozen."
                             color="red"
                         />
                     </div>
                 </div>
                 <div className="md:col-span-7">
-                    <h3 className="font-bold text-neutral-900 dark:text-white mb-6">The 4-Step Failure Analysis</h3>
+                    <h3 className="font-bold text-neutral-900 dark:text-white mb-6">Failure Points</h3>
                     <div className="grid gap-4">
                         <DesignHighlight 
-                            title="1. Instruction Barrier" 
-                            desc="Complex medical terms without visual guidance. Users couldn't distinguish front vs back cameras." 
+                            title="1. Hardware Blindness" 
+                            desc="Users couldn't distinguish the main camera from the wide-angle lens." 
                             icon={<Users className="text-red-500"/>} 
                         />
                          <DesignHighlight 
-                            title="2. Measurement Anxiety" 
-                            desc="No visual feedback during the 15s scan. Users didn't know if it was working, leading to premature movement." 
+                            title="2. The 'Frozen' State" 
+                            desc="The 15-second scan had no animation. Users thought the app crashed and moved their finger." 
                             icon={<Activity className="text-red-500"/>} 
                         />
                          <DesignHighlight 
-                            title="3. Trust Deficit" 
-                            desc="Results appeared without context. Is 72 good? Bad? Users had no baseline for validity." 
+                            title="3. No Baseline" 
+                            desc="Raw BPM numbers meant nothing to users. 'Is 72 good?'" 
                             icon={<Shield className="text-red-500"/>} 
-                        />
-                        <DesignHighlight 
-                            title="4. The Dead End" 
-                            desc="Results screen offered no next steps or trend analysis. Zero reason to return." 
-                            icon={<Clock className="text-red-500"/>} 
                         />
                     </div>
                 </div>
@@ -107,22 +102,22 @@ export const HeartRateCaseStudy: React.FC = () => {
 
         {/* Section 3: Goals */}
         <section className="max-w-6xl mx-auto">
-             <SectionTitle number="03" title="Design Goals" />
+             <SectionTitle number="03" title="The Fix" />
              <div className="grid md:grid-cols-3 gap-6">
                  <GoalCard 
                     number="1" 
-                    title="First-Try Success" 
-                    desc="Overhaul onboarding to be intuitive and foolproof." 
+                    title="Instruction" 
+                    desc="Show, don't tell. Use video loops to show exactly how to hold the phone." 
                 />
                  <GoalCard 
                     number="2" 
-                    title="Unshakeable Trust" 
-                    desc="Provide real-time feedback and transparency to build confidence." 
+                    title="Feedback" 
+                    desc="If the app is working, show it. Use haptics and visuals to confirm signal lock." 
                 />
                  <GoalCard 
                     number="3" 
-                    title="Habit Loop" 
-                    desc="Transform results from a dead-end into an actionable health dashboard." 
+                    title="Context" 
+                    desc="Don't just show the number. Show what it means (Low, Normal, High)." 
                 />
              </div>
         </section>
@@ -131,21 +126,21 @@ export const HeartRateCaseStudy: React.FC = () => {
 
         {/* Section 4: Design Execution */}
         <section className="max-w-6xl mx-auto">
-            <SectionTitle number="04" title="Iteration & Design" />
+            <SectionTitle number="04" title="Execution" />
             
             <div className="mt-16 space-y-32">
                 
                 {/* 4.1 Onboarding */}
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                      <div className="order-2 md:order-1">
-                         <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Goal 1: Success</div>
-                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Solving the "Phone Flip"</h3>
+                         <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Fix 01</div>
+                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Visual Instructions</h3>
                          <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                             We combined technical clarity with human warmth. The new "Wow" moment video includes social proof ("5M+ Readings") to instantly build trust.
+                             Text instructions failed. I replaced them with a looping video showing the physical action: "Cover the Camera + Flash".
                          </p>
                          <DesignHighlight 
-                            title="Proactive Safety Net" 
-                            desc="Instead of passive error messages, we added active real-time feedback to prevent failure before it happens."
+                            title="Error Prevention" 
+                            desc="If we detect low light, we auto-trigger the flash. If we detect shake, we pause the timer."
                             icon={<Zap size={20} />}
                          />
                      </div>
@@ -173,20 +168,20 @@ export const HeartRateCaseStudy: React.FC = () => {
                         </MobileShell>
                      </div>
                      <div>
-                         <div className="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Goal 2: Trust</div>
-                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Sensory Feedback</h3>
+                         <div className="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Fix 02</div>
+                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Signal Lock</h3>
                          <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                             During the 15-second scan, users need reassurance. I designed a multi-sensory feedback system.
+                             The scan takes 15 seconds. To prevent movement, I added a "heartbeat" animation that syncs with the user's actual pulse.
                          </p>
                          <div className="space-y-6">
                             <DesignHighlight 
-                                title="Visual Synced Pulse" 
-                                desc="A pulsing circle synchronized with heartbeat detection provides immediate visual confirmation." 
+                                title="Haptic Feedback" 
+                                desc="A gentle vibration on every beat confirms the phone is reading data." 
                                 icon={<Activity size={20}/>} 
                             />
                             <DesignHighlight 
-                                title="Progressive Guidance" 
-                                desc="Text changes from 'Place Finger' -> 'Keep Steady' -> 'Analyzing', eliminating uncertainty." 
+                                title="Status Text" 
+                                desc="Changed generic 'Scanning' to 'Detecting Pulse' -> 'Reading...'." 
                                 icon={<CheckCircle size={20}/>} 
                             />
                          </div>
@@ -196,23 +191,19 @@ export const HeartRateCaseStudy: React.FC = () => {
                  {/* 4.3 Results */}
                  <div className="grid md:grid-cols-2 gap-12 items-center">
                      <div className="order-2 md:order-1">
-                         <div className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Goal 3: Retention</div>
-                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">The Habit Loop Engine</h3>
+                         <div className="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Fix 03</div>
+                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Retention</h3>
                          <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                             I transformed the result screen from a dead-end into a unified health dashboard.
+                             I added relative context. "72 BPM" is boring. "72 BPM is Excellent for a 30-year-old" is actionable.
                          </p>
                          <ul className="space-y-4 text-neutral-600 dark:text-neutral-400">
                              <li className="flex gap-3">
                                  <div className="mt-1 text-green-500"><CheckCircle size={18}/></div>
-                                 <span><strong>Contextual Ranges:</strong> "Excellent for your age group" builds confidence in validity.</span>
+                                 <span><strong>Benchmarks:</strong> Compared results to population averages.</span>
                              </li>
                              <li className="flex gap-3">
                                  <div className="mt-1 text-green-500"><TrendingUp size={18}/></div>
-                                 <span><strong>Trend Analysis:</strong> Historical data gives users a reason to return.</span>
-                             </li>
-                             <li className="flex gap-3">
-                                 <div className="mt-1 text-green-500"><Zap size={18}/></div>
-                                 <span><strong>Smart Triggers:</strong> "Your resting heart rate improved by 8%" notifications.</span>
+                                 <span><strong>History:</strong> Showing the last 5 readings incentivized daily checks.</span>
                              </li>
                          </ul>
                      </div>
@@ -260,7 +251,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                  </div>
             </div>
 
-            <QuoteBlock quote="A 'wow' feature that fails is worse than no feature at all. Trust is the ultimate metric." />
+            <QuoteBlock quote="Trust is the ultimate metric. If users don't believe the data, the UI doesn't matter." />
         </section>
     </div>
   );

@@ -41,7 +41,7 @@ export const works: WorkItem[] = [
     id: 1,
     title: "Co-WIN Vaccine Flows",
     category: "Health Tech",
-    description: "Architected Co-WIN vaccine flows driving 20M+ downloads & #1 Play Store rank. Designed for extreme public anxiety and technical chaos.",
+    description: "Designed the vaccine booking flow for 1.4 billion people. 20M+ downloads. #1 Play Store rank.",
     image: ASSETS.projects.cowin.cover,
     tags: ["Public Health", "High Scale", "Crisis Design"],
     award: "#1 Health App",
@@ -51,7 +51,7 @@ export const works: WorkItem[] = [
     id: 2,
     title: "Design System Architecture",
     category: "Infrastructure",
-    description: "Built a token-based Design System with automated pipelines (Figma to Swift/Kotlin/CSS) for a Server-Driven UI framework.",
+    description: "Automated design tokens from Figma to Production. Zero handoff errors across Android, iOS, and Web.",
     image: ASSETS.projects.designSystem.cover,
     tags: ["Design Ops", "Automation", "Design Tokens"],
     liveUrl: "#"
@@ -60,7 +60,7 @@ export const works: WorkItem[] = [
     id: 3,
     title: "Web Publishing Engine",
     category: "No-Code & AI",
-    description: "Architected a Decentralized Publishing Engine reducing campaign launch TAT from 1 week to <2 days via AI-assisted workflows.",
+    description: "Built a self-serve web engine. Reduced marketing campaign launch time by 80% using AI workflows.",
     image: ASSETS.projects.webInfra.cover,
     tags: ["Webflow", "AI Ops", "Speed"],
     liveUrl: "#"
@@ -69,7 +69,7 @@ export const works: WorkItem[] = [
     id: 4,
     title: "Heart Rate Monitor",
     category: "Health Tech",
-    description: "Designed the camera-based Heart Rate Monitor, improving conversion to 75% via research-led redesign and proactive guidance.",
+    description: "Redesigned the heart-rate monitor. Doubled user retention and improved conversion by 21%.",
     image: ASSETS.projects.heartRate.cover,
     tags: ["Computer Vision", "Retention", "UX Research"],
     liveUrl: "#"

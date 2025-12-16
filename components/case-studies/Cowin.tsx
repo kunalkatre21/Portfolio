@@ -30,12 +30,12 @@ export const CowinCaseStudy: React.FC = () => {
             </div>
             
             <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[0.9] text-neutral-900 dark:text-white tracking-tight">
-                Designing for a <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Nation in Crisis.</span>
+                Co-WIN: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Scaling Trust.</span>
             </h1>
             
             <div className="flex flex-col md:flex-col gap-8 md:gap-16 mb-16">
                 <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl">
-                     I led the design for a platform that navigated extreme public anxiety and technical chaos to facilitate over <TextHighlight>20 million</TextHighlight> vaccine certificate downloads.
+                     I designed the booking flow for <TextHighlight>20 million users</TextHighlight>. I replaced anxiety with trust during a national crisis.
                 </p>
                 <div className="flex-1 grid grid-cols-2 gap-4">
                     <StatCard value="2Cr+" label="Certificates" />
@@ -55,45 +55,45 @@ export const CowinCaseStudy: React.FC = () => {
 
         {/* Section 1: The Setup */}
         <section className="max-w-4xl mx-auto">
-            <SectionTitle number="01" title="The Setup: A High-Stakes Mandate" />
+            <SectionTitle number="01" title="The Challenge" />
             
             <div className="grid md:grid-cols-1 gap-12 mb-12">
                 <div>
                     <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 text-lg">
-                        In 2021, India faced a monumental challenge: vaccinating its population amidst a devastating pandemic wave. The government released the Co-WIN APIs, creating a sudden, urgent opportunity.
+                        In 2021, India needed to vaccinate 1.4 billion people. The government released the Co-WIN APIs, but no consumer app existed.
                     </p>
                      <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                        The business goal for Eka.Care was clear: leverage these APIs to build a superior, trustworthy public utility that could capture a massive, anxious user base.
+                        Eka.Care's goal: Build a consumer app on top of the APIs to capture the market.
                     </p>
                 </div>
             </div>
 
-            <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">The User's Reality: A State of Panic</h3>
+            <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">User Anxiety</h3>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
                  <InsightCard 
                     icon={<AlertCircle />}
-                    title="Availability Anxiety"
+                    title="Availability"
                     quote="Will I ever find a slot for my elderly parents? I've been trying for days."
                     color="red"
                 />
                  <InsightCard 
                     icon={<Shield />}
-                    title="Trust & Legitimacy"
-                    quote="Is this third-party app even legitimate? How do I know it's safe to give them my Aadhar number?"
+                    title="Legitimacy"
+                    quote="Is this third-party app even legitimate? Is it safe to give my Aadhar number?"
                     color="blue"
                 />
                  <InsightCard 
                     icon={<Activity />}
-                    title="Information Gaps"
-                    quote="How do I know this information is real and not a waste of my time?"
+                    title="Information"
+                    quote="How do I know this data is real and not a waste of my time?"
                     color="orange"
                 />
             </div>
             
              <div className="bg-neutral-50 dark:bg-neutral-900/50 p-8 rounded-2xl border-l-4 border-purple-500">
-                <h4 className="font-bold text-neutral-900 dark:text-white mb-2 text-lg">My Role: Designer as a De-risking Agent</h4>
+                <h4 className="font-bold text-neutral-900 dark:text-white mb-2 text-lg">My Role</h4>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                     As the <TextHighlight>Sole Designer</TextHighlight> on this initiative, I was tasked with creating a functional UX under an extreme "one-day delivery mode" timeline. With no PM, my role expanded to defining requirements, analyzing technical constraints, and creating a clear plan of action.
+                     <TextHighlight>Sole Designer.</TextHighlight> Timeline: 24 hours. No PM. I defined the requirements, analyzed the APIs, and shipped the UX.
                 </p>
             </div>
         </section>
@@ -106,23 +106,23 @@ export const CowinCaseStudy: React.FC = () => {
                 <div className="md:col-span-5">
                     <SectionTitle number="02" title="Discovery" />
                     <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                        My discovery process started with the technology itself. I deconstructed the Co-WIN APIs to understand our exact capabilities.
+                        I started by reading the API documentation. I deconstructed the Co-WIN APIs to find opportunities.
                     </p>
                     
                     <div className="bg-blue-50 dark:bg-blue-900/10 p-6 rounded-2xl border border-blue-100 dark:border-blue-800 mb-6">
                         <div className="flex items-center gap-3 mb-4">
                             <MapPin className="text-blue-600" />
-                            <h4 className="font-bold text-neutral-900 dark:text-white">The "Search Near Me" Insight</h4>
+                            <h4 className="font-bold text-neutral-900 dark:text-white">The "Search Near Me" Hack</h4>
                         </div>
                         <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                            While APIs provided search by PIN and District, I identified a critical gap: no single API for "search near me". 
+                            The APIs only supported search by PIN or District. They lacked "Search Near Me". 
                             <br/><br/>
-                            <strong>Solution:</strong> Request device location - Programmatically determine Pincode - Feed into API. This created a "one-tap" search experience competitors lacked.
+                            <strong>Solution:</strong> I used the device location to fetch the PIN code, then queried the API. This created a one-tap experience competitors lacked.
                         </p>
                     </div>
                 </div>
                 <div className="md:col-span-7">
-                    <h3 className="font-bold text-neutral-900 dark:text-white mb-4">Deconstructing Technical Constraints</h3>
+                    <h3 className="font-bold text-neutral-900 dark:text-white mb-4">API Constraints</h3>
                     <div className="space-y-4">
                         <div className="p-4 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 font-mono text-xs">
                              <div className="text-neutral-500 mb-2 uppercase font-bold tracking-widest">Metadata APIs</div>
@@ -154,22 +154,22 @@ export const CowinCaseStudy: React.FC = () => {
 
         {/* Section 3: Pillars */}
         <section className="max-w-6xl mx-auto">
-             <SectionTitle number="03" title="The Three Pillars of Trust" />
+             <SectionTitle number="03" title="Design Principles" />
              <div className="grid md:grid-cols-3 gap-6">
                  <GoalCard 
                     number="1" 
-                    title="Radical Transparency" 
-                    desc="Show everything. To build trust, we had to be more comprehensive than official sources, even if it meant showing 'bad news' like no slots." 
+                    title="Transparency" 
+                    desc="Show everything. Trust requires bad news too. We showed 'No Slots' clearly instead of hiding it." 
                 />
                  <GoalCard 
                     number="2" 
-                    title="Honest Expectations" 
+                    title="Expectations" 
                     desc="Never overpromise. Be explicit about data freshness to prevent frustration from chasing 'ghost' slots." 
                 />
                  <GoalCard 
                     number="3" 
-                    title="Anxiety-Proof Confirmation" 
-                    desc="The end of the flow must be a definitive 'contract' containing every detail, leaving no room for doubt." 
+                    title="Confirmation" 
+                    desc="The end of the flow must be a definitive 'contract'. Users should be able to screenshot it as proof." 
                 />
              </div>
         </section>
@@ -178,12 +178,12 @@ export const CowinCaseStudy: React.FC = () => {
 
         {/* Section 4: Design Execution */}
         <section className="max-w-6xl mx-auto">
-            <SectionTitle number="04" title="Design & Execution" />
+            <SectionTitle number="04" title="Execution" />
             
             <div className="mb-16">
                 <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Flow Architecture</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-                    I mapped all primary journeys to ensure technical feasibility while maintaining our trust principles.
+                    I mapped the primary journeys to ensure feasibility while maintaining trust.
                 </p>
                 <CodeBlock code={mermaidCode} language="mermaid" />
             </div>
@@ -198,25 +198,25 @@ export const CowinCaseStudy: React.FC = () => {
                     </div>
                     <div className="order-1 md:order-2">
                         <div className="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Flow 01</div>
-                        <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Booking a Vaccination Slot</h3>
+                        <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Booking a Slot</h3>
                         <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                            The slot booking process was the epicenter of user anxiety. My goal was to create a flow that was not only functional but actively worked to calm the user.
+                            Slot booking caused the most anxiety. I designed the flow to calm the user.
                         </p>
                         
                         <div className="space-y-6">
                              <DesignHighlight 
-                                title="Proactive Filtering" 
-                                desc="We embraced 'bad news'. Clearly marking centers with no slots upheld our transparency principle." 
+                                title="No Dead Ends" 
+                                desc="We embraced 'bad news'. Clearly marking centers with 'No Slots' built trust." 
                                 icon={<CheckCircle size={20}/>} 
                             />
                              <DesignHighlight 
-                                title="Automated Slot Reservation" 
-                                desc="We created an intermediate 'booking in progress' buffer to hold slots, reducing booking failures by 87%." 
+                                title="Booking Buffer" 
+                                desc="Added a 'booking in progress' state to hold slots, reducing failures by 87%." 
                                 icon={<Clock size={20}/>} 
                             />
                              <DesignHighlight 
-                                title="Anxiety-Proof Contract" 
-                                desc="The final screen contained every critical detail: Hospital, Time, Beneficiary. Users could screenshot this for their records." 
+                                title="Definitive Contract" 
+                                desc="The confirmation screen listed every detail: Hospital, Time, Name. Users could screenshot it as proof." 
                                 icon={<Shield size={20}/>} 
                             />
                         </div>
@@ -229,17 +229,17 @@ export const CowinCaseStudy: React.FC = () => {
                         <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Flow 02</div>
                         <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Downloading Certificates</h3>
                         <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                            I designed two distinct "smart" flows to get users their certificate as frictionlessly as possible.
+                            I designed two flows to get certificates with zero friction.
                         </p>
                         
                         <div className="grid gap-4">
                              <div className="bg-white dark:bg-neutral-900/30 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800">
                                  <h5 className="font-bold text-neutral-900 dark:text-white mb-1">Explicit Path</h5>
-                                 <p className="text-sm text-neutral-600 dark:text-neutral-400">For users who know what they need. Minimal form fields with clear progress indicators.</p>
+                                 <p className="text-sm text-neutral-600 dark:text-neutral-400">For users who know what they need. Minimal form fields.</p>
                              </div>
                              <div className="bg-white dark:bg-neutral-900/30 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800">
                                  <h5 className="font-bold text-neutral-900 dark:text-white mb-1">Automated Path</h5>
-                                 <p className="text-sm text-neutral-600 dark:text-neutral-400">System proactively detects eligible users and fetches certificates in the background, sending a notification when ready.</p>
+                                 <p className="text-sm text-neutral-600 dark:text-neutral-400">System detects eligible users, fetches certificates, and notifies them.</p>
                              </div>
                         </div>
                     </div>
@@ -256,9 +256,9 @@ export const CowinCaseStudy: React.FC = () => {
 
         {/* Section 5: Impact */}
         <section className="max-w-5xl mx-auto">
-            <SectionTitle number="05" title="Impact: Dominating the Market" />
+            <SectionTitle number="05" title="Impact" />
             <p className="text-neutral-600 dark:text-neutral-400 mb-12 text-center max-w-2xl mx-auto">
-                Our principle-led approach was a monumental success. By focusing relentlessly on user anxiety, we built one of the most trusted vaccination tools in the country.
+                The approach worked. By solving for anxiety, we became the most trusted vaccination tool in the country.
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
@@ -286,25 +286,25 @@ export const CowinCaseStudy: React.FC = () => {
                      <div>
                          <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Clarity &gt; Minimalism</h4>
                          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                             In a crisis, the "best" design isn't the cleanest. Showing "bad news" with timestamps increased trust more than hiding information.
+                             In a crisis, the "best" design isn't the cleanest. Timestamps and detailed error messages built trust.
                          </p>
                      </div>
                      <div>
                          <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Artifacts Lead Alignment</h4>
                          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                             The anxiety journey map became the single source of truth that guided every design decision across the cross-functional team.
+                             The anxiety journey map aligned the cross-functional team.
                          </p>
                      </div>
                      <div>
                          <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">System Over Interface</h4>
                          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                             Our biggest wins (automated detection) came from designing the backend system capabilities, not just the UI.
+                             The biggest win was the backend automation (auto-fetch), not the UI.
                          </p>
                      </div>
                      <div>
                          <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Constraints are Opportunities</h4>
                          <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                             The API limitations birthed the "Search Near Me" feature—our key differentiator.
+                             API limits forced us to build "Search Near Me"—our key differentiator.
                          </p>
                      </div>
                 </div>
