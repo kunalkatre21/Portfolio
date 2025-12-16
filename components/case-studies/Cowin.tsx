@@ -117,7 +117,7 @@ export const CowinCaseStudy: React.FC = () => {
                         <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                             While APIs provided search by PIN and District, I identified a critical gap: no single API for "search near me". 
                             <br/><br/>
-                            <strong>Solution:</strong> Request device location -> Programmatically determine Pincode -> Feed into API. This created a "one-tap" search experience competitors lacked.
+                            <strong>Solution:</strong> Request device location - Programmatically determine Pincode - Feed into API. This created a "one-tap" search experience competitors lacked.
                         </p>
                     </div>
                 </div>
