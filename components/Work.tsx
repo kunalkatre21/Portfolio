@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { WorkItem, WorkProps } from '../types';
-import { ArrowUpRight, Trophy, ExternalLink, ArrowRight } from 'lucide-react';
 import { works } from '../data';
+import { useCursor } from './CursorContext';
 
 export const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
   return (
@@ -13,7 +13,7 @@ export const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
         <div className="lg:hidden sticky top-24 z-10 mb-8 mix-blend-difference text-white">
             <h2 className="text-6xl font-bold">Works</h2>
             <p className="text-sm mt-2 opacity-80">
-                <span className="font-bold underline decoration-purple-500 underline-offset-4 decoration-2">Exclusively</span> designed by me.
+                Selected case studies defining <span className="font-bold underline decoration-purple-500 underline-offset-4 decoration-2">impact</span> at scale.
             </p>
         </div>
 
@@ -29,7 +29,7 @@ export const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
                 >
                     <h2 className="text-8xl font-bold text-neutral-900 dark:text-white mb-6">Works</h2>
                     <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-sm">
-                        <span className="text-neutral-900 dark:text-white font-bold underline decoration-purple-500 underline-offset-4 decoration-2">Exclusively</span> designed by me.
+                        Selected case studies defining <span className="text-neutral-900 dark:text-white font-bold underline decoration-purple-500 underline-offset-4 decoration-2">impact</span> at scale.
                     </p>
                     
                     <div className="mt-20">
@@ -59,12 +59,14 @@ export const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
 };
 
 const ProjectCard: React.FC<{ work: WorkItem; index: number; total: number; onClick: () => void }> = ({ work, index, total, onClick }) => {
+    const { setCursorType } = useCursor();
+
     return (
         <div 
-            className="sticky transition-all duration-500"
+            className="sticky transition-all duration-500 [--base-top:220px] lg:[--base-top:15vh]"
             style={{ 
-                // Adjusted top offset for mobile to create the stacked look
-                top: `calc(15vh + ${index * 15}px)`,
+                // Adjusted top offset for mobile to create the stacked look and clear the header
+                top: `calc(var(--base-top) + ${index * 15}px)`,
                 // Add margin bottom to allow scrolling through
                 marginBottom: index === total - 1 ? 0 : '5vh'
             }}
@@ -74,48 +76,37 @@ const ProjectCard: React.FC<{ work: WorkItem; index: number; total: number; onCl
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-10%" }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="group relative bg-[#111] dark:bg-[#111] rounded-[2rem] overflow-hidden border border-neutral-800 shadow-2xl cursor-default"
+                onClick={() => {
+                    setCursorType('default');
+                    onClick();
+                }}
+                onMouseEnter={() => setCursorType('project')}
+                onMouseLeave={() => setCursorType('default')}
+                className="group relative bg-[#111] dark:bg-[#111] rounded-[2rem] overflow-hidden border border-neutral-800 shadow-2xl cursor-none"
             >
                 <div className="flex flex-col md:flex-row h-[70vh] md:h-[550px]">
                     
                     {/* Content Side */}
                     <div className="p-8 md:p-10 flex flex-col justify-start md:justify-between md:w-1/2 relative z-10 order-1 md:order-1 h-1/2 md:h-full">
-                        <div>
+                        <div className="flex flex-col h-full">
                             {/* Header */}
                             <div className="flex justify-between items-start mb-4 md:mb-6">
                                 <h3 className="text-3xl md:text-4xl font-bold text-white">{work.title}</h3>
                             </div>
                             
-                            {/* Buttons Row */}
-                            <div className="flex flex-wrap gap-2 mb-6">
-                                {work.award && (
-                                    <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#FF6B6B] text-white text-xs font-bold uppercase tracking-wider">
-                                        Awards <span className="text-[10px]">▼</span>
-                                    </div>
-                                )}
-                                {work.liveUrl && (
-                                    <a 
-                                        href={work.liveUrl}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black font-bold text-xs hover:bg-neutral-200 transition-colors"
-                                    >
-                                        Visit Live <ArrowUpRight size={12} />
-                                    </a>
-                                )}
-                                <button 
-                                    onClick={onClick}
-                                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 text-white font-bold text-xs hover:bg-white/10 transition-colors"
-                                >
-                                    Learn More <ArrowUpRight size={12} />
-                                </button>
+                            {/* Categories */}
+                            <div className="mb-6">
+                                <span className="text-sm font-mono text-purple-400 uppercase tracking-widest">{work.category}</span>
                             </div>
                             
                             {/* Description */}
-                            <p className="text-sm md:text-lg text-neutral-400 leading-relaxed mb-6 line-clamp-3 md:line-clamp-none">
-                                {work.description}
-                                <span className="text-white underline ml-1 cursor-pointer">Read More</span>
+                            <p className="text-sm md:text-lg text-neutral-400 leading-relaxed line-clamp-3">
+                                {work.description}...
                             </p>
+
+                            <div className="mt-auto hidden md:block">
+                                {/* Spacer to push content up if needed, or keep clean */}
+                            </div>
                         </div>
                     </div>
 

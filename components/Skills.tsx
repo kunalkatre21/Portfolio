@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const skillCategories = [
-    { id: '3d', label: '3D Design', skills: ['Spline', '3Ds Max', 'Cinema 4D', 'V-Ray', 'Blender', 'Lumion'] },
-    { id: 'ui', label: 'UI/UX', skills: ['Figma', 'Adobe XD', 'Sketch', 'Framer', 'Protopie'] },
-    { id: 'graphic', label: 'Graphic', skills: ['Photoshop', 'Illustrator', 'InDesign', 'Lightroom'] },
+    { id: 'core', label: 'Core & Research', skills: ['Product Strategy', 'End-to-End UX', '0-to-1 Launch', 'Data-Driven Design', 'Usability Testing', 'A/B Experimentation', 'Accessibility (WCAG)'] },
+    { id: 'systems', label: 'Systems & AI', skills: ['Design Systems', 'Server-Driven UI', 'LLM Context Mgmt', 'Prompt Engineering', 'Model Fine-tuning', 'Local LLM Deployment'] },
+    { id: 'tools', label: 'Tools', skills: ['Figma', 'Token Studio', 'Style Dictionary', 'Webflow', 'Framer', 'GitHub', 'Cursor', 'Napkin.ai'] },
 ];
 
 export const Skills: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('3d');
+  const [activeTab, setActiveTab] = useState('core');
 
   const activeSkills = skillCategories.find(c => c.id === activeTab)?.skills || [];
 
   return (
     <section id="skill" className="py-24 px-4 max-w-7xl mx-auto">
       <div className="flex flex-col items-center">
-        <h2 className="text-5xl font-bold text-neutral-900 dark:text-white mb-12">Hard Skills</h2>
+        <h2 className="text-5xl font-bold text-neutral-900 dark:text-white mb-12">Skills</h2>
 
         <div className="flex flex-wrap justify-center gap-2 mb-12 p-1 bg-neutral-100 dark:bg-neutral-900 rounded-full border border-neutral-200 dark:border-neutral-800">
             {skillCategories.map(cat => (
@@ -45,9 +45,9 @@ export const Skills: React.FC = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.9 }}
                         transition={{ duration: 0.2, delay: index * 0.05 }}
-                        className="p-6 bg-white dark:bg-[#0a0a0a] border border-neutral-200 dark:border-neutral-800 rounded-2xl flex items-center justify-center hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors shadow-sm dark:shadow-none"
+                        className="p-6 bg-white dark:bg-[#0a0a0a] border border-neutral-200 dark:border-neutral-800 rounded-2xl flex items-center justify-center hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors shadow-sm dark:shadow-none text-center"
                     >
-                        <span className="text-xl font-medium text-neutral-900 dark:text-white">{skill}</span>
+                        <span className="text-lg font-medium text-neutral-900 dark:text-white">{skill}</span>
                     </motion.div>
                 ))}
              </AnimatePresence>

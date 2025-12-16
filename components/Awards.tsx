@@ -1,31 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AwardItem } from '../types';
-import { ExternalLink } from 'lucide-react';
+import { Trophy } from 'lucide-react';
 
 const awards: AwardItem[] = [
   {
     id: 1,
-    title: "Site of the Day",
-    organization: "Awwwards",
-    date: "Jan 12, 2023",
-    description: "Awarded for Dopegood website design and innovation.",
+    title: "#1 Play Store Rank",
+    organization: "Health Category",
+    date: "Eka.Care",
+    description: "Achieved top ranking for the Co-WIN vaccine flows.",
     link: "#"
   },
   {
     id: 2,
-    title: "Innovation Award",
-    organization: "CSS Design Awards",
-    date: "Dec 15, 2022",
-    description: "Recognized for creative excellence in UI/UX.",
+    title: "20M+ Downloads",
+    organization: "Eka.Care",
+    date: "2021-2022",
+    description: "Architected flows facilitating massive scale adoption.",
     link: "#"
   },
   {
     id: 3,
-    title: "Honorable Mention",
-    organization: "The FWA",
-    date: "Nov 02, 2022",
-    description: "Selected for high quality design standards.",
+    title: "4.7★ Rating",
+    organization: "70k+ Reviews",
+    date: "Patient App",
+    description: "Founding designer for the highly rated patient application.",
     link: "#"
   }
 ];
@@ -35,9 +35,9 @@ export const Awards: React.FC = () => {
     <section id="award" className="py-24 px-4 max-w-7xl mx-auto">
       <div className="flex flex-col md:flex-row gap-16">
         <div className="md:w-1/3">
-            <span className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-2 block">World's Most Prestigious</span>
+            <span className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-2 block">Key Metrics</span>
             <h2 className="text-5xl md:text-6xl font-bold text-neutral-900 dark:text-white leading-tight">
-                Awards <span className="text-neutral-400 dark:text-neutral-600">&</span> Honors
+                Impact <span className="text-neutral-400 dark:text-neutral-600">&</span> Achievements
             </h2>
         </div>
 
@@ -61,12 +61,11 @@ export const Awards: React.FC = () => {
                             <p className="text-neutral-600 dark:text-neutral-400 text-sm">{award.description}</p>
                         </div>
                         <div className="flex-shrink-0">
-                            <a 
-                                href={award.link} 
+                            <div 
                                 className="w-14 h-14 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-center justify-center text-neutral-900 dark:text-white group-hover:bg-neutral-900 dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-all duration-300"
                             >
-                                <ExternalLink size={24} />
-                            </a>
+                                <Trophy size={24} />
+                            </div>
                         </div>
                     </div>
                 </motion.div>

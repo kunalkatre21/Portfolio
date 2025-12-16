@@ -7,10 +7,10 @@ import { Sun, Moon, Menu, X } from 'lucide-react';
 const navItems: NavItem[] = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
-  { id: 'work', label: 'Work' },
-  { id: 'award', label: 'Award' },
   { id: 'education', label: 'Education' },
-  { id: 'skill', label: 'Skill' },
+  { id: 'work', label: 'Work' },
+  { id: 'award', label: 'Impact' },
+  { id: 'skill', label: 'Skills' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -130,7 +130,7 @@ export const Navbar: React.FC = () => {
                 className="fixed inset-0 z-[60] bg-white dark:bg-neutral-950 flex flex-col p-6 md:hidden"
             >
                 <div className="flex justify-between items-center mb-8">
-                    <span className="text-xl font-bold text-neutral-900 dark:text-white">Amir Mohseni</span>
+                    <span className="text-xl font-bold text-neutral-900 dark:text-white">Kunal Katre</span>
                     <div className="flex gap-4">
                          <button
                             onClick={toggleTheme}
@@ -167,7 +167,7 @@ export const Navbar: React.FC = () => {
                 </nav>
 
                 <div className="text-center text-neutral-500 text-sm mt-8">
-                    &copy; {new Date().getFullYear()} Amir Mohseni.
+                    &copy; {new Date().getFullYear()} Kunal Katre.
                 </div>
             </motion.div>
         )}

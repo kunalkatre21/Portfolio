@@ -9,6 +9,7 @@ export interface ExperienceItem {
   company: string;
   period: string;
   description: string;
+  image?: string;
 }
 
 export interface WorkItem {
@@ -38,6 +39,7 @@ export interface EducationItem {
   degree: string;
   school: string;
   period: string;
+  image?: string;
 }
 
 export interface SkillCategory {

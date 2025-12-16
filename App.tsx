@@ -8,8 +8,10 @@ import { Education } from './components/Education';
 import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { CaseStudy } from './components/CaseStudy';
+import { Cursor } from './components/Cursor';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeContext';
+import { CursorProvider } from './components/CursorContext';
 
 function AppContent() {
   const [view, setView] = useState<'home' | 'case-study'>('home');
@@ -32,6 +34,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen selection:bg-purple-500/30 selection:text-purple-900 dark:selection:text-purple-200 font-sans transition-colors duration-300">
+      <Cursor />
       <AnimatePresence mode="wait">
         {view === 'home' ? (
            <React.Fragment key="home">
@@ -39,9 +42,9 @@ function AppContent() {
               <main>
                 <Hero />
                 <Experience />
+                <Education />
                 <Work onProjectClick={handleProjectClick} />
                 <Awards />
-                <Education />
                 <Skills />
                 <Contact />
               </main>
@@ -56,7 +59,7 @@ function AppContent() {
         )}
       </AnimatePresence>
       
-      {/* Custom Cursor Effect (Optional, simulated with fixed element) */}
+      {/* Scroll indicator decoration */}
       {view === 'home' && (
         <div className="fixed bottom-8 left-8 z-40 animate-spin-slow hidden md:block pointer-events-none text-neutral-400 dark:text-neutral-700">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
@@ -71,7 +74,9 @@ function AppContent() {
 export default function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <CursorProvider>
+        <AppContent />
+      </CursorProvider>
     </ThemeProvider>
   );
 }
