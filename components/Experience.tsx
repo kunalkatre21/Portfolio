@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExperienceItem } from '../types';
+import { ASSETS } from '../data';
 
 const experiences: ExperienceItem[] = [
   {
@@ -9,7 +10,7 @@ const experiences: ExperienceItem[] = [
     company: "Eka.Care (Orbi.health)",
     period: "Jan 2021 - Nov 2025",
     description: "Architected Co-WIN vaccine flows driving 20M+ downloads & #1 Play Store rank. Founding designer for the patient app (10M+ installs). Built a token-based Design System connecting Figma to code.",
-    image: "https://picsum.photos/seed/eka/600/800"
+    image: ASSETS.companies.eka
   },
   {
     id: 2,
@@ -17,7 +18,7 @@ const experiences: ExperienceItem[] = [
     company: "Crio.Do",
     period: "Nov 2019 - Jan 2021",
     description: "Established initial UX for the 'Learn by Doing' platform, supporting 1,000+ early developers. Shipped core MVP environments validating the business model for Pre-Series A funding.",
-    image: "https://picsum.photos/seed/crio/600/800"
+    image: ASSETS.companies.crio
   },
   {
     id: 3,
@@ -25,7 +26,7 @@ const experiences: ExperienceItem[] = [
     company: "Flipkart",
     period: "Aug 2017 - Nov 2019",
     description: "Redesigned seller listing platform for 100k+ SKUs. Delivered data-driven promotions tool with predictive analytics. Contributed to early Marketplace Design System.",
-    image: "https://picsum.photos/seed/flipkart/600/800"
+    image: ASSETS.companies.flipkart
   }
 ];
 
@@ -66,10 +67,8 @@ export const Experience: React.FC = () => {
                  <img 
                     src={exp.image} 
                     alt="" 
-                    className="w-full h-full object-cover opacity-20 dark:opacity-40 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-contain p-4 md:p-12 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                  />
-                 {/* Secondary overlay for smooth blending if mask isn't enough */}
-                 <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent dark:from-[#111] dark:via-[#111]/80 dark:to-transparent" />
               </div>
             )}
 

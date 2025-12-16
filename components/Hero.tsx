@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Linkedin, Mail, FileText, ArrowRight } from 'lucide-react';
+import { ASSETS } from '../data';
 
 const roles = ["Lead Product Designer", "Design Systems Architect", "AI Design Engineer"];
 
@@ -81,7 +82,7 @@ export const Hero: React.FC = () => {
               <div className="w-[300px] h-[400px] md:w-[400px] md:h-[500px] bg-neutral-100 dark:bg-neutral-800 rounded-t-[12rem] rounded-b-[2rem] overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl relative transition-colors duration-300">
                   {/* Placeholder for the person image */}
                   <img 
-                    src="https://picsum.photos/id/48/800/1000" 
+                    src={ASSETS.profile} 
                     alt="Kunal Katre" 
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
                   />
@@ -113,7 +114,7 @@ export const Hero: React.FC = () => {
           Lead Product Designer with 8.5 years of experience delivering scalable products in fast-paced environments. I am a hands-on builder focused on speed and rapid iteration, utilizing data-driven insights to validate design decisions and minimize bias.
         </p>
         <div className="mt-8">
-            <a href="#" className="inline-flex items-center gap-2 text-neutral-900 dark:text-white border-b border-neutral-900 dark:border-white pb-1 hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-600 dark:hover:border-purple-400 transition-colors">
+            <a href={ASSETS.resume} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-neutral-900 dark:text-white border-b border-neutral-900 dark:border-white pb-1 hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-600 dark:hover:border-purple-400 transition-colors">
                 View CV <ArrowRight size={16} />
             </a>
         </div>

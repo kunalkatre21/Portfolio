@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { EducationItem } from '../types';
+import { ASSETS } from '../data';
 
 const education: EducationItem[] = [
   {
@@ -8,7 +9,7 @@ const education: EducationItem[] = [
     degree: "Bachelor of Design (B.Des)",
     school: "Indian Institute of Technology (IIT), Guwahati",
     period: "Jun 2013 - Jun 2017",
-    image: "https://picsum.photos/seed/iitg/800/600"
+    image: ASSETS.companies.iitg
   }
 ];
 
@@ -49,10 +50,8 @@ export const Education: React.FC = () => {
                      <img 
                         src={edu.image} 
                         alt="" 
-                        className="w-full h-full object-cover opacity-20 dark:opacity-40 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                        className="w-full h-full object-contain p-4 md:p-12 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
                      />
-                     {/* Secondary overlay for smooth blending to card background */}
-                     <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent dark:from-[#111] dark:via-[#111]/80 dark:to-transparent" />
                   </div>
                 )}
 

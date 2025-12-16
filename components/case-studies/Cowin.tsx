@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertCircle, Lock, Search, CheckCircle } from 'lucide-react';
 import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle } from './Shared';
+import { ASSETS } from '../../data';
 
 export const CowinCaseStudy: React.FC = () => {
   return (
@@ -27,9 +28,9 @@ export const CowinCaseStudy: React.FC = () => {
             </div>
 
             <div className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl bg-neutral-100 dark:bg-neutral-900">
-                 {/* Placeholder for Cowin Hero Visual */}
+                 {/* Co-WIN Hero Visual */}
                  <div className="aspect-video w-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center text-neutral-400">
-                    <img src="https://picsum.photos/seed/cowin/1200/800" alt="Co-WIN Hero" className="w-full h-full object-cover" />
+                    <img src={ASSETS.projects.cowin.hero} alt="Co-WIN Hero" className="w-full h-full object-cover" />
                  </div>
             </div>
         </div>
@@ -127,13 +128,13 @@ export const CowinCaseStudy: React.FC = () => {
              </p>
 
              <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-lg mb-8">
-                <img src="https://picsum.photos/seed/cowinflow1/1000/600" alt="Booking Flow" className="w-full h-auto" />
+                <img src={ASSETS.projects.cowin.bookingFlow} alt="Booking Flow" className="w-full h-auto" />
              </div>
 
              <div className="space-y-4 mb-16">
                 <DesignHighlight title="1. Proactive Filtering & Absolute Transparency" desc="Instead of hiding 'bad news,' we embraced it. The search results page showed all vaccination centers, clearly marking those with no available slots. This upheld our 'Radical Transparency' principle." />
                 <DesignHighlight title="2. Automated Slot Reservation" desc="To combat 'ghost slots,' I designed an intermediate 'booking in progress' screen. When a user selected a center, our system would attempt to hold a slot for a short period, creating a buffer that transformed the experience from frantic to controlled." />
-                <DesignHighlight title="3. The Anxiety-Proof Confirmation" desc="The final confirmation screen was designed as an 'anxiety-proof contract.' It contained every critical piece of information: Hospital Name, Address, Date, Time, Beneficiary Name, leaving no room for doubt." />
+                <DesignHighlight title="3. The Anxiety-Proof Confirmation" desc="The final confirmation screen was designed as an 'anxiety-proof contract.' It contained every piece of information: Hospital Name, Address, Date, Time, Beneficiary Name, leaving no room for doubt." />
              </div>
 
              <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">4.2 Flows: Downloading the Vaccine Certificate</h3>
@@ -141,7 +142,7 @@ export const CowinCaseStudy: React.FC = () => {
                  The certificate download was our single biggest user acquisition channel. I designed two distinct "smart" flows to get users their certificate as frictionlessly as possible.
              </p>
              
-             <div className="grid md:grid-cols-2 gap-8">
+             <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="bg-white dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800">
                     <h4 className="font-bold text-lg mb-2 text-neutral-900 dark:text-white">Explicit Path: User-Initiated</h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-400">This flow serves users who know exactly what they need. With minimal form fields and clear progress indicators, it reduces cognitive load while maintaining data security.</p>
@@ -150,6 +151,10 @@ export const CowinCaseStudy: React.FC = () => {
                     <h4 className="font-bold text-lg mb-2 text-neutral-900 dark:text-white">Automated Path: Proactive Detection</h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-400">Leveraging our user database, the system automatically detects when users become eligible for certificates based on their vaccination records. This transforms a reactive task into an delightful surprise.</p>
                 </div>
+             </div>
+
+             <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-lg mb-8">
+                <img src={ASSETS.projects.cowin.downloadFlow} alt="Certificate Download Flow" className="w-full h-auto" />
              </div>
         </section>
 

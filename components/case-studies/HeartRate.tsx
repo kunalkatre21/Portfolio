@@ -1,6 +1,7 @@
 import React from 'react';
 import { Activity, Camera, TrendingUp } from 'lucide-react';
 import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle } from './Shared';
+import { ASSETS } from '../../data';
 
 export const HeartRateCaseStudy: React.FC = () => {
   return (
@@ -28,7 +29,7 @@ export const HeartRateCaseStudy: React.FC = () => {
 
             <div className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl bg-neutral-100 dark:bg-neutral-900">
                  <div className="aspect-video w-full bg-neutral-200 dark:bg-neutral-800 flex items-center justify-center text-neutral-400">
-                     <img src="https://picsum.photos/seed/heartrate/1200/800" alt="Heart Rate App Interface" className="w-full h-full object-cover" />
+                     <img src={ASSETS.projects.heartRate.hero} alt="Heart Rate App Interface" className="w-full h-full object-cover" />
                  </div>
             </div>
         </div>
@@ -112,6 +113,10 @@ export const HeartRateCaseStudy: React.FC = () => {
             <p className="text-neutral-600 dark:text-neutral-400 mb-6">
                 Fixing the 38% drop-off required a multi-point attack on the onboarding journey. We implemented a "Wow" moment video combining technical clarity with human warmth.
             </p>
+            
+            <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-lg mb-12 bg-neutral-100 dark:bg-neutral-900">
+                <img src={ASSETS.projects.heartRate.onboarding} alt="Heart Rate Onboarding Flow" className="w-full h-auto" />
+             </div>
 
             <h3 className="text-xl font-bold mb-4 text-neutral-900 dark:text-white">4.2 Building Trust During Measurement</h3>
             <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -133,6 +138,10 @@ export const HeartRateCaseStudy: React.FC = () => {
             <p className="text-neutral-600 dark:text-neutral-400 mb-6">
                  I redesigned the result screen to transform it from a dead-end data point into a rich, contextual health dashboard. We added contextual ranges (e.g., "Excellent for your age group!") and proactive engagement triggers.
             </p>
+
+            <div className="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-lg mb-8 bg-neutral-100 dark:bg-neutral-900">
+                <img src={ASSETS.projects.heartRate.interface} alt="Heart Rate Result Interface" className="w-full h-auto" />
+             </div>
         </section>
 
         {/* Section 5 */}
