@@ -32,7 +32,7 @@ const awards: AwardItem[] = [
 
 export const Awards: React.FC = () => {
   return (
-    <section id="award" className="py-24 px-4 max-w-7xl mx-auto">
+    <section id="award" className="relative z-20 bg-neutral-50 dark:bg-[#050505] py-24 px-4 max-w-7xl mx-auto overflow-hidden">
       <div className="flex flex-col md:flex-row gap-16">
         <div className="md:w-1/3">
             <span className="text-sm font-medium text-neutral-500 uppercase tracking-widest mb-2 block">Key Metrics</span>

@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ChevronDown, Mail, Sun, Moon } from 'lucide-react';
 import { CowinCaseStudy } from './case-studies/Cowin';
 import { DesignSystemCaseStudy } from './case-studies/DesignSystem';
 import { WebInfraCaseStudy } from './case-studies/WebInfra';
 import { HeartRateCaseStudy } from './case-studies/HeartRate';
 import { works } from '../data';
+import { useTheme } from './ThemeContext';
 
 interface CaseStudyProps {
   id: number;
@@ -16,6 +17,7 @@ interface CaseStudyProps {
 export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProject }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { theme, toggleTheme } = useTheme();
 
   // Scroll to top when case study opens or id changes
   useEffect(() => {
@@ -58,51 +60,76 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                 <div className="p-2 rounded-full bg-neutral-100 dark:bg-neutral-800 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-colors">
                     <ArrowLeft size={20} />
                 </div>
-                <span className="font-medium">Back</span>
+                <span className="font-medium hidden md:inline">Back</span>
             </button>
 
-            {/* Project Switcher */}
-            <div className="relative">
-                <button 
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-sm font-medium"
+            <div className="flex items-center gap-2 md:gap-3">
+                {/* Theme Toggle */}
+                <button
+                    onClick={toggleTheme}
+                    className="p-2 rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                    aria-label="Toggle theme"
                 >
-                    All Projects <ChevronDown size={16} />
+                    {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                 </button>
 
-                <AnimatePresence>
-                    {isMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                            className="absolute top-full right-0 mt-2 w-64 bg-white dark:bg-[#111] rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden z-[110]"
-                        >
-                            <div className="py-2">
-                                {works.map((work) => (
-                                    <button
-                                        key={work.id}
-                                        onClick={() => {
-                                            onChangeProject(work.id);
-                                            setIsMenuOpen(false);
-                                        }}
-                                        className={`w-full text-left px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex items-center justify-between group ${id === work.id ? 'bg-neutral-50 dark:bg-neutral-800/50' : ''}`}
-                                    >
-                                        <span className={`text-sm font-medium ${id === work.id ? 'text-purple-600 dark:text-purple-400' : 'text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white'}`}>
-                                            {work.title}
-                                        </span>
-                                        {id === work.id && <div className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400" />}
-                                    </button>
-                                ))}
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                {/* Email Contact */}
+                <a 
+                    href="mailto:kunalkatre.designs@gmail.com"
+                    className="p-2 rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                    aria-label="Contact via Email"
+                >
+                    <Mail size={20} />
+                </a>
+
+                <div className="h-5 w-[1px] bg-neutral-200 dark:bg-neutral-800 mx-1 hidden md:block"></div>
+
+                {/* Project Switcher */}
+                <div className="relative">
+                    <button 
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-sm font-medium"
+                    >
+                        <span className="hidden md:inline">All Projects</span>
+                        <span className="md:hidden">Work</span>
+                        <ChevronDown size={16} />
+                    </button>
+
+                    <AnimatePresence>
+                        {isMenuOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                className="absolute top-full right-0 mt-2 w-64 bg-white dark:bg-[#111] rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 overflow-hidden z-[110]"
+                            >
+                                <div className="py-2">
+                                    {works.map((work) => (
+                                        <button
+                                            key={work.id}
+                                            onClick={() => {
+                                                onChangeProject(work.id);
+                                                setIsMenuOpen(false);
+                                            }}
+                                            className={`w-full text-left px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors flex items-center justify-between group ${id === work.id ? 'bg-neutral-50 dark:bg-neutral-800/50' : ''}`}
+                                        >
+                                            <span className={`text-sm font-medium ${id === work.id ? 'text-purple-600 dark:text-purple-400' : 'text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white'}`}>
+                                                {work.title}
+                                            </span>
+                                            {id === work.id && <div className="w-1.5 h-1.5 rounded-full bg-purple-600 dark:bg-purple-400" />}
+                                        </button>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
             </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 mt-12">
+      {/* Content Wrapper - Full Width */}
+      <div className="w-full">
         {renderContent()}
       </div>
 

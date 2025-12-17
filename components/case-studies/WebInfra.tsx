@@ -1,79 +1,89 @@
 import React from 'react';
 import { Zap, Clock, Rocket, Bot, Layout, Database, Terminal, XCircle, CheckCircle, ArrowRight, Code } from 'lucide-react';
-import { StatCard, SectionTitle, QuoteBlock, Divider, TextHighlight, InsightCard, GoalCard, BrowserWindow, CodeBlock } from './Shared';
+import { StatCard, SectionTitle, QuoteBlock, Divider, TextHighlight, InsightCard, GoalCard, BrowserWindow, CodeBlock, CaseMeta } from './Shared';
 import { ASSETS } from '../../data';
 import { motion } from 'framer-motion';
 
 export const WebInfraCaseStudy: React.FC = () => {
-    return (
-        <div className="animate-fade-in pb-20">
-            {/* Hero Section */}
-            <div className="mb-20">
-                <div className="flex items-center gap-3 mb-8">
+  return (
+    <div className="animate-fade-in pb-20 relative bg-white dark:bg-[#050505]">
+        {/* Full Width Background Hero */}
+         <div className="absolute top-0 left-0 w-full h-[600px] z-0 overflow-hidden pointer-events-none">
+             <img 
+                src={ASSETS.projects.webInfra.hero} 
+                alt="Background" 
+                className="w-full h-full object-cover opacity-30 dark:opacity-20 blur-[2px]" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#050505] via-transparent to-transparent" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 pt-24 px-4 md:px-8 max-w-7xl mx-auto">
+            <div className="mb-12">
+                 <div className="flex items-center gap-3 mb-8">
                     <span className="text-neutral-500 uppercase tracking-widest text-xs font-bold">Web Ops</span>
                     <span className="bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-white px-2 py-0.5 rounded text-xs font-bold">2023</span>
                 </div>
 
-                <h1 className="text-5xl md:text-8xl font-bold mb-8 leading-[0.9] text-neutral-900 dark:text-white tracking-tight">
-                    Web Ops: <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700">Removing Engineering.</span>
+                <h1 className="text-5xl md:text-8xl font-bold mb-12 leading-[0.9] text-neutral-900 dark:text-white tracking-tight">
+                    Web Ops: <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-700">Removing Engineering.</span>
                 </h1>
+            </div>
 
-                <div className="flex flex-col md:flex-col gap-8 md:gap-16 mb-16 items-start">
-                    <p className="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-2xl">
-                        I moved the website from engineering sprints to a <TextHighlight>design-led operation</TextHighlight>. Marketing now ships without tickets.
-                    </p>
-                    <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <StatCard value="24h" label="Launch Time" subLabel="Down from 2 Weeks" />
-                        <StatCard value="100%" label="Autonomy" subLabel="For Marketing" />
-                        <StatCard value="200+" label="Eng Hours" subLabel="Saved/Year" />
-                    </div>
-                </div>
+            <CaseMeta 
+                role="Design Engineer"
+                team="Marketing Team"
+                timeline="2 Weeks -> 1 Day"
+                overview="I moved the website from engineering sprints to a design-led operation. Marketing now ships without tickets."
+            />
 
-                <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="w-full rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
-                >
-                    <img src={ASSETS.projects.webInfra.hero} alt="Web Infrastructure" className="w-full object-cover" />
-                </motion.div>
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
+                <StatCard value="24h" label="Launch Time" subLabel="Down from 2 Weeks" />
+                <StatCard value="100%" label="Autonomy" subLabel="For Marketing" />
+                <StatCard value="200+" label="Eng Hours" subLabel="Saved/Year" />
+                <StatCard value="5/Day" label="Updates" />
             </div>
 
             {/* Section 1: The Problem */}
-            <section className="max-w-4xl mx-auto">
+            <section className="mb-24">
                 <SectionTitle number="01" title="The Problem" />
-                <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed">
-                    Marketing couldn't fix a typo without an engineering ticket.
-                    <span className="text-red-500 font-bold"> A simple landing page took 2 weeks</span> because it had to fit into the product sprint.
-                </p>
+                <div className="max-w-4xl">
+                    <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed">
+                        Marketing couldn't fix a typo without an engineering ticket. 
+                        <span className="text-red-500 font-bold"> A simple landing page took 2 weeks</span> because it had to fit into the product sprint.
+                    </p>
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-12">
-                    <InsightCard
+                     <InsightCard 
                         icon={<XCircle />}
                         title="The Dependency"
                         quote="Engineers hated building landing pages. Designers hated waiting for them."
                         color="red"
                     />
-                    <InsightCard
+                     <InsightCard 
                         icon={<Clock />}
                         title="The Cost"
                         quote="We missed campaign deadlines because the backend team was busy shipping product features."
                         color="orange"
                     />
                 </div>
-
+                
                 <QuoteBlock quote="The website is a marketing channel, not a software product. It shouldn't require a software engineer." />
             </section>
 
             <Divider />
 
             {/* Section 2: Strategy */}
-            <section className="max-w-6xl mx-auto">
+            <section className="mb-24">
                 <SectionTitle number="02" title="The Fix" />
-                <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 max-w-2xl">
-                    I migrated the entire stack to Webflow. I built a system where Design builds the components, and Marketing builds the pages.
-                </p>
-
+                <div className="max-w-4xl">
+                    <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12">
+                        I migrated the entire stack to Webflow. I built a system where Design builds the components, and Marketing builds the pages.
+                    </p>
+                </div>
+                
                 <div className="grid md:grid-cols-3 gap-6 mb-16">
                     {/* Pillar A */}
                     <div className="p-6 bg-white dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 rounded-2xl flex flex-col">
@@ -107,19 +117,19 @@ export const WebInfraCaseStudy: React.FC = () => {
             <Divider />
 
             {/* Section 3: Highlight */}
-            <section className="max-w-6xl mx-auto">
+            <section className="mb-24">
                 <SectionTitle number="03" title="Execution: The Hackathon Page" />
-
-                <div className="mb-12">
-                    <p className="text-neutral-600 dark:text-neutral-400 max-w-3xl">
-                        We needed a dark-mode, interactive landing page for a developer hackathon.
+                
+                 <div className="mb-12 max-w-4xl">
+                    <p className="text-neutral-600 dark:text-neutral-400">
+                        We needed a dark-mode, interactive landing page for a developer hackathon. 
                         Previously, this would have been rejected by engineering.
                     </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8 mb-12">
                     <div className="p-8 rounded-2xl bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30">
-                        <h4 className="text-xl font-bold text-red-600 dark:text-red-400 mb-6 flex items-center gap-2"><XCircle size={20} /> Old Way (2 Weeks)</h4>
+                        <h4 className="text-xl font-bold text-red-600 dark:text-red-400 mb-6 flex items-center gap-2"><XCircle size={20}/> Old Way (2 Weeks)</h4>
                         <ul className="space-y-4 text-sm text-neutral-600 dark:text-neutral-400">
                             <li className="flex gap-2"><span className="text-red-500 font-bold">Day 1-3:</span> Design in Figma.</li>
                             <li className="flex gap-2"><span className="text-red-500 font-bold">Day 4:</span> Handover meeting.</li>
@@ -129,8 +139,8 @@ export const WebInfraCaseStudy: React.FC = () => {
                     </div>
 
                     <div className="p-8 rounded-2xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/30">
-                        <h4 className="text-xl font-bold text-green-600 dark:text-green-400 mb-6 flex items-center gap-2"><CheckCircle size={20} /> New Way (1 Day)</h4>
-                        <ul className="space-y-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        <h4 className="text-xl font-bold text-green-600 dark:text-green-400 mb-6 flex items-center gap-2"><CheckCircle size={20}/> New Way (1 Day)</h4>
+                         <ul className="space-y-4 text-sm text-neutral-600 dark:text-neutral-400">
                             <li className="flex gap-2"><span className="text-green-500 font-bold">09:00 AM:</span> Design in Figma.</li>
                             <li className="flex gap-2"><span className="text-green-500 font-bold">01:00 PM:</span> Build in Webflow.</li>
                             <li className="flex gap-2"><span className="text-green-500 font-bold">04:00 PM:</span> Generate Custom JS with AI.</li>
@@ -138,7 +148,7 @@ export const WebInfraCaseStudy: React.FC = () => {
                         </ul>
                     </div>
                 </div>
-
+                
                 <div className="bg-neutral-900 rounded-xl p-6 border border-neutral-800 font-mono text-sm text-green-400 overflow-x-auto">
                     <div className="text-neutral-500 mb-2">// Generated by AI, deployed to Webflow Embed</div>
                     <pre>{`document.addEventListener('mousemove', (e) => {
@@ -157,23 +167,23 @@ export const WebInfraCaseStudy: React.FC = () => {
             <Divider />
 
             {/* Section 4: Results */}
-            <section className="max-w-6xl mx-auto">
+            <section className="mb-24">
                 <SectionTitle number="04" title="Impact" />
-
+                
                 <div className="grid md:grid-cols-3 gap-6 mb-16">
-                    <InsightCard
+                     <InsightCard 
                         icon={<Zap />}
                         title="Velocity"
                         quote="We went from 1 update/week to 5 updates/day. The website is now a living document."
                         color="yellow"
                     />
-                    <InsightCard
+                     <InsightCard 
                         icon={<Bot />}
                         title="Resource"
                         quote="I freed up 2 full-time engineers. They moved back to the core product team."
                         color="blue"
                     />
-                    <InsightCard
+                     <InsightCard 
                         icon={<Layout />}
                         title="Consistency"
                         quote="The Client-First system enforces the brand. No more rogue hex codes."
@@ -184,21 +194,22 @@ export const WebInfraCaseStudy: React.FC = () => {
                 <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-3xl mt-12">
                     <h3 className="font-bold text-xl mb-6 text-neutral-900 dark:text-white">Key Learnings</h3>
                     <div className="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Operations - Pixels</h4>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                Designing the workflow was more valuable than designing the page.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">AI is a Force Multiplier</h4>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                I don't know JavaScript, but I shipped production code. AI bridged the skill gap.
-                            </p>
-                        </div>
+                         <div>
+                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Operations - Pixels</h4>
+                             <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                 Designing the workflow was more valuable than designing the page.
+                             </p>
+                         </div>
+                         <div>
+                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">AI is a Force Multiplier</h4>
+                             <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                                 I don't know JavaScript, but I shipped production code. AI bridged the skill gap.
+                             </p>
+                         </div>
                     </div>
                 </div>
             </section>
         </div>
-    );
+    </div>
+  );
 };

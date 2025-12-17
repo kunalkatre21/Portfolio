@@ -55,10 +55,21 @@ export const Experience: React.FC = () => {
              {/* Gradient Hover Effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-purple-100/50 to-blue-100/50 dark:from-purple-900/20 dark:to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
             
-            {/* Background Image with Gradient Mask - Right Bleed */}
+            {/* Mobile: Background Image - Bottom Right Bleed */}
+            {exp.image && (
+                <div className="md:hidden absolute -bottom-6 -right-6 w-40 h-40 z-0 pointer-events-none opacity-5 dark:opacity-[0.08] grayscale rotate-[-12deg]">
+                    <img 
+                        src={exp.image} 
+                        alt="" 
+                        className="w-full h-full object-contain"
+                    />
+                </div>
+            )}
+
+            {/* Desktop: Background Image with Gradient Mask */}
             {exp.image && (
               <div 
-                className="absolute right-0 top-0 bottom-0 w-1/4 md:w-1/3 z-0 pointer-events-none"
+                className="hidden md:block absolute right-0 top-0 bottom-0 w-1/3 z-0 pointer-events-none"
                 style={{
                   maskImage: 'linear-gradient(to right, transparent, black 100%)',
                   WebkitMaskImage: 'linear-gradient(to right, transparent, black 100%)'
@@ -67,7 +78,7 @@ export const Experience: React.FC = () => {
                  <img 
                     src={exp.image} 
                     alt="" 
-                    className="w-full h-full object-contain p-4 md:p-12 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-contain p-12 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
                  />
               </div>
             )}

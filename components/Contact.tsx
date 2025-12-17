@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Copy, Check, Linkedin, Mail } from 'lucide-react';
 
+const socialLinks = [
+  { name: 'Linkedin', url: 'https://www.linkedin.com/in/kunal-katre-98a945a2/' },
+  { name: 'Behance', url: 'https://www.behance.net/Kunal' },
+  { name: 'Twitter', url: 'https://x.com/kunalkatre1995' },
+  { name: 'Dribbble', url: 'https://dribbble.com/kunalkatre1995' }
+];
+
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const email = "kunalkatre.designs@gmail.com";
@@ -17,34 +24,36 @@ export const Contact: React.FC = () => {
       <div>
         <h2 className="text-6xl md:text-8xl font-bold text-neutral-900 dark:text-white mb-16">Contacts</h2>
 
-        <div className="flex flex-col md:flex-row gap-8 items-start md:items-center mb-16">
-            <div className="relative group">
+        <div className="flex flex-col md:flex-row gap-8 items-start md:items-center mb-16 w-full max-w-full">
+            <div className="relative group max-w-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-full p-2 pl-8 pr-2 flex items-center gap-4">
-                    <span className="text-neutral-900 dark:text-white md:text-xl font-medium truncate max-w-[250px] md:max-w-none">{email}</span>
+                <div className="relative bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-full p-1.5 pl-4 pr-1.5 md:p-2 md:pl-8 md:pr-2 flex items-center gap-2 md:gap-4 max-w-full">
+                    <span className="text-neutral-900 dark:text-white text-sm md:text-xl font-medium truncate flex-1 min-w-0">{email}</span>
                     <button 
                         onClick={handleCopy}
-                        className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
+                        className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 md:px-6 md:py-3 rounded-full font-medium transition-colors flex items-center gap-2 text-xs md:text-base shrink-0"
                     >
-                        {copied ? <Check size={18} /> : <Copy size={18} />}
+                        {copied ? <Check className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" /> : <Copy className="w-3.5 h-3.5 md:w-[18px] md:h-[18px]" />}
                         {copied ? 'Copied' : 'Copy'}
                     </button>
                 </div>
             </div>
             
-            <div className="text-2xl text-neutral-600 dark:text-neutral-400">
+            <div className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-400">
                 +91 8011021483
             </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
-             {['Linkedin', 'Behance', 'Twitter', 'Awwwards', 'Dribbble'].map((social) => (
+             {socialLinks.map((social) => (
                  <a 
-                    key={social} 
-                    href="#" 
+                    key={social.name} 
+                    href={social.url}
+                    target="_blank"
+                    rel="noreferrer"
                     className="text-2xl text-neutral-500 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors py-4 border-t border-neutral-200 dark:border-neutral-800"
                 >
-                    {social}
+                    {social.name}
                  </a>
              ))}
         </div>
@@ -56,7 +65,7 @@ export const Contact: React.FC = () => {
             <p className="text-neutral-500">Based in Bangalore</p>
          </div>
          <div className="flex gap-4">
-            <SocialIcon icon={<Linkedin size={20}/>} href="https://linkedin.com/in/kunal-katre-98a945a2" />
+            <SocialIcon icon={<Linkedin size={20}/>} href="https://www.linkedin.com/in/kunal-katre-98a945a2/" />
             <SocialIcon icon={<Mail size={20}/>} href="mailto:kunalkatre.designs@gmail.com" />
          </div>
       </div>
