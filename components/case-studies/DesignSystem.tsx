@@ -224,13 +224,13 @@ Result: Auto-PR created in Android (XML), iOS (Swift), Web (CSS)`;
                     <h3 className="font-bold text-xl mb-6 text-neutral-900 dark:text-white">Key Learnings</h3>
                     <div className="grid md:grid-cols-2 gap-8">
                          <div>
-                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Code > Docs</h4>
+                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Code - Docs</h4>
                              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                  Documentation gets outdated the day you write it. Code is the only truth.
                              </p>
                          </div>
                          <div>
-                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Proof > Pitch</h4>
+                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Proof - Pitch</h4>
                              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                  Building the PoC myself (even with messy scripts) moved the project faster than any slide deck.
                              </p>
