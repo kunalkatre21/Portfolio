@@ -9,14 +9,6 @@ export const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
     <section id="work" className="relative py-20 bg-white dark:bg-black transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         
-        {/* Title for Mobile - Sticky */}
-        <div className="lg:hidden sticky top-24 z-10 mb-8 mix-blend-difference text-white">
-            <h2 className="text-6xl font-bold">Works</h2>
-            <p className="text-sm mt-2 opacity-80">
-                Selected case studies defining <span className="font-bold underline decoration-purple-500 underline-offset-4 decoration-2">impact</span> at scale.
-            </p>
-        </div>
-
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-20">
             
             {/* Desktop Sticky Title Section */}
@@ -41,6 +33,14 @@ export const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
 
             {/* Cards Section */}
             <div className="lg:w-2/3 flex flex-col pb-24">
+                {/* Title for Mobile - Sticky (Moved here to allow cards to scroll over it) */}
+                <div className="lg:hidden sticky top-24 z-0 mb-8 mix-blend-difference text-white">
+                    <h2 className="text-6xl font-bold">Works</h2>
+                    <p className="text-sm mt-2 opacity-80">
+                        Selected case studies defining <span className="font-bold underline decoration-purple-500 underline-offset-4 decoration-2">impact</span> at scale.
+                    </p>
+                </div>
+
                 {works.map((work, index) => (
                     <ProjectCard 
                         key={work.id} 

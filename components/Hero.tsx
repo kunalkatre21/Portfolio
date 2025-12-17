@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
               transition={{ delay: 0.8 }}
               className="absolute right-0 bottom-20 hidden md:flex gap-4"
             >
-               <SocialLink icon={<Linkedin size={20} />} href="https://linkedin.com/in/kunal-katre-98a945a2" />
+               <SocialLink icon={<Linkedin size={20} />} href="https://www.linkedin.com/in/kunal-katre-98a945a2/" />
                <SocialLink icon={<Mail size={20} />} href="mailto:kunalkatre.designs@gmail.com" />
             </motion.div>
         </div>

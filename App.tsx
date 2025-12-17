@@ -9,18 +9,33 @@ import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
 import { CaseStudy } from './components/CaseStudy';
 import { Cursor } from './components/Cursor';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeContext';
 import { CursorProvider } from './components/CursorContext';
+import { ArrowDown } from 'lucide-react';
 
 function AppContent() {
   const [view, setView] = useState<'home' | 'case-study'>('home');
   const [activeProjectId, setActiveProjectId] = useState<number | null>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   // Scroll to top when view changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [view]);
+
+  // Hide scroll indicator on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+        if (window.scrollY > 100) {
+            setShowScrollIndicator(false);
+        } else {
+            setShowScrollIndicator(true);
+        }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleProjectClick = (id: number) => {
     setActiveProjectId(id);
@@ -59,14 +74,47 @@ function AppContent() {
         )}
       </AnimatePresence>
       
-      {/* Scroll indicator decoration */}
-      {view === 'home' && (
-        <div className="fixed bottom-8 left-8 z-40 animate-spin-slow hidden md:block pointer-events-none text-neutral-400 dark:text-neutral-700">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v20M2 12h20m-7.071-7.071l10 10m-10-10l10 10" />
-            </svg>
-        </div>
-      )}
+      {/* Scroll indicator decoration - Circular Text Badge */}
+      <AnimatePresence>
+        {view === 'home' && showScrollIndicator && (
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="fixed bottom-12 left-8 z-40 hidden md:flex items-center justify-center pointer-events-none"
+            >
+                <div className="relative w-28 h-28">
+                    {/* Text Ring - Static */}
+                    <div className="absolute inset-0">
+                        <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+                            <defs>
+                                <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                            </defs>
+                            <text className="text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-600" fill="currentColor">
+                                <textPath href="#circlePath" startOffset="0%">
+                                    Scroll to explore • Scroll to explore •
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    
+                    {/* Center Arrow - Bouncing via Framer Motion */}
+                    <motion.div 
+                        className="absolute inset-0 flex items-center justify-center"
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ 
+                            duration: 2, 
+                            repeat: Infinity, 
+                            ease: "easeInOut" 
+                        }}
+                    >
+                        <ArrowDown size={20} className="text-neutral-900 dark:text-white" />
+                    </motion.div>
+                </div>
+            </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
