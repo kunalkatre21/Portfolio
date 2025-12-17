@@ -195,7 +195,7 @@ export const WebInfraCaseStudy: React.FC = () => {
                     <h3 className="font-bold text-xl mb-6 text-neutral-900 dark:text-white">Key Learnings</h3>
                     <div className="grid md:grid-cols-2 gap-8">
                          <div>
-                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Operations > Pixels</h4>
+                             <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Operations - Pixels</h4>
                              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                                  Designing the workflow was more valuable than designing the page.
                              </p>
