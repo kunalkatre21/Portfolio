@@ -111,7 +111,7 @@ export const Hero: React.FC = () => {
         className="max-w-4xl mx-auto text-center mt-32"
       >
         <p className="text-2xl md:text-3xl leading-relaxed font-medium text-neutral-800 dark:text-neutral-200">
-          Lead Product Designer with 8.5 years of experience delivering scalable products in fast-paced environments. I am a hands-on builder focused on speed and rapid iteration, utilizing data-driven insights to validate design decisions and minimize bias.
+          Lead Product Designer focused on speed. I build systems that ship, using data to kill bias.
         </p>
         <div className="mt-8">
             <a href={ASSETS.resume} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-neutral-900 dark:text-white border-b border-neutral-900 dark:border-white pb-1 hover:text-purple-600 dark:hover:text-purple-400 hover:border-purple-600 dark:hover:border-purple-400 transition-colors">

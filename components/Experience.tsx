@@ -9,7 +9,7 @@ const experiences: ExperienceItem[] = [
     role: "Lead Product Designer",
     company: "Eka.Care (Orbi.health)",
     period: "Jan 2021 - Nov 2025",
-    description: "Architected Co-WIN vaccine flows driving 20M+ downloads & #1 Play Store rank. Founding designer for the patient app (10M+ installs). Built a token-based Design System connecting Figma to code.",
+    description: "Designed Co-WIN vaccine flows (20M+ downloads, #1 Play Store rank). Built the Design System token pipeline. Shipped the Patient App to 10M+ users.",
     image: ASSETS.companies.eka
   },
   {
@@ -17,7 +17,7 @@ const experiences: ExperienceItem[] = [
     role: "Founding Designer",
     company: "Crio.Do",
     period: "Nov 2019 - Jan 2021",
-    description: "Established initial UX for the 'Learn by Doing' platform, supporting 1,000+ early developers. Shipped core MVP environments validating the business model for Pre-Series A funding.",
+    description: "Built the 'Learn by Doing' platform from scratch. Shipped core MVP environments that secured Pre-Series A funding.",
     image: ASSETS.companies.crio
   },
   {
@@ -25,7 +25,7 @@ const experiences: ExperienceItem[] = [
     role: "Product Designer 2",
     company: "Flipkart",
     period: "Aug 2017 - Nov 2019",
-    description: "Redesigned seller listing platform for 100k+ SKUs. Delivered data-driven promotions tool with predictive analytics. Contributed to early Marketplace Design System.",
+    description: "Redesigned the seller platform for 100k+ users. Shipped data-driven promotions tools and predictive analytics features.",
     image: ASSETS.companies.flipkart
   }
 ];

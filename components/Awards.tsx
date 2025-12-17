@@ -17,7 +17,7 @@ const awards: AwardItem[] = [
     title: "20M+ Downloads",
     organization: "Eka.Care",
     date: "2021-2022",
-    description: "Architected flows facilitating massive scale adoption.",
+    description: "Built flows that scaled to 20M+ users.",
     link: "#"
   },
   {
