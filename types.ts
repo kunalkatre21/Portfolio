@@ -23,6 +23,7 @@ export interface WorkItem {
   caseStudyUrl?: string;
   award?: string;
   color?: string; // For custom card background/accent
+  gallery?: string[]; // Multiple images for automatic rotation
 }
 
 export interface AwardItem {

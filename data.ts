@@ -43,6 +43,12 @@ export const works: WorkItem[] = [
     category: "Health Tech",
     description: "Designed the vaccine booking flow for 1.4 billion people. 20M+ downloads. #1 Play Store rank.",
     image: ASSETS.projects.cowin.cover,
+    gallery: [
+      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form4.png",
+      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form3.png",
+      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form2.png",
+      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form1.png"
+    ],
     tags: ["Public Health", "High Scale", "Crisis Design"],
     award: "#1 Health App",
     liveUrl: "#"
@@ -71,6 +77,12 @@ export const works: WorkItem[] = [
     category: "Health Tech",
     description: "Redesigned the heart-rate monitor. Doubled user retention and improved conversion by 21%.",
     image: ASSETS.projects.heartRate.cover,
+    gallery: [
+      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form4.png",
+      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form3.png",
+      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form2.png",
+      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form1.png"
+    ],
     tags: ["Computer Vision", "Retention", "UX Research"],
     liveUrl: "#"
   }
