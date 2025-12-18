@@ -1,24 +1,11 @@
 import React from 'react';
 import { AlertCircle, Lock, Search, CheckCircle, Smartphone, Globe, Shield, Activity, Database, MapPin, Zap, TrendingUp, Users, Clock } from 'lucide-react';
-import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, CodeBlock, CaseMeta, HeroCarousel } from './Shared';
+import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, CodeBlock, CaseMeta, HeroCarousel, ZoomableImage, FlowBrowser } from './Shared';
 import { ASSETS } from '../../data';
 import { motion } from 'framer-motion';
 
 export const CowinCaseStudy: React.FC = () => {
 
-    const mermaidCode = `flowchart TD
-    A[User Opens App] --> B[Primary Goal?]
-    B -->|Find Slot| C[Search Flow]
-    B -->|Get Certificate| D[Download Flow]
-    
-    %% Search Flow
-    C --> E[Location Input]
-    E --> F[Search Method?]
-    F -->|By PIN| G[Enter PIN Code]
-    F -->|Near Me| H[Get Device Location -> Auto-fill PIN]
-    G --> I[Search API Call]
-    H --> I
-    I --> J[Display Results with Availability Status]`;
 
     return (
         <div className="animate-fade-in pb-20 relative bg-white dark:bg-[#050505]">
@@ -48,17 +35,17 @@ export const CowinCaseStudy: React.FC = () => {
 
                 <CaseMeta
                     role="Sole Product Designer"
-                    team="4 Engineers, 0 PMs"
-                    timeline="24 Hours (MVP)"
-                    overview="I designed the booking flow for 20 million users. I replaced anxiety with trust during a national crisis."
+                    team="4 Engineers, 1 PM"
+                    timeline="Launched in 24 Hours, Iterated over 2 Months"
+                    overview="I designed the booking flow for 20 million users. I replaced anxiety with trust during a national crisis, transforming a complex government API into a seamless consumer experience."
                 />
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
-                    <StatCard value="2Cr+" label="Certificates" />
-                    <StatCard value="#1" label="Search Rank" subLabel="Google" />
-                    <StatCard value="20M+" label="Downloads" />
-                    <StatCard value="4.8" label="Rating" />
+                    <StatCard value="2Cr+" label="Certificates" subLabel="Served to citizens" />
+                    <StatCard value="#1" label="Health App" subLabel="Play Store / Google Distinction" />
+                    <StatCard value="20M+" label="Downloads" subLabel="Across 1.4B Population" />
+                    <StatCard value="4.8" label="Rating" subLabel="User Trust Score" />
                 </div>
 
                 {/* Section 1: The Setup */}
@@ -68,7 +55,7 @@ export const CowinCaseStudy: React.FC = () => {
                     <div className="grid md:grid-cols-1 gap-12 mb-12 max-w-4xl">
                         <div>
                             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 text-lg">
-                                In 2021, India needed to vaccinate 1.4 billion people. The government released the Co-WIN APIs, but no consumer app existed.
+                                In 2021, India needed to vaccinate 1.4 billion people. The government released the Co-WIN APIs and few trusted consumer app existed.
                             </p>
                             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
                                 Eka.Care's goal: Build a consumer app on top of the APIs to capture the market.
@@ -80,7 +67,7 @@ export const CowinCaseStudy: React.FC = () => {
                     <div className="grid md:grid-cols-3 gap-6 mb-12">
                         <InsightCard
                             icon={<AlertCircle />}
-                            title="Availability"
+                            title="Scarcity"
                             quote="Will I ever find a slot for my elderly parents? I've been trying for days."
                             color="red"
                         />
@@ -103,51 +90,109 @@ export const CowinCaseStudy: React.FC = () => {
 
                 {/* Section 2: Discovery */}
                 <section className="mb-24">
-                    <div className="grid md:grid-cols-12 gap-12">
-                        <div className="md:col-span-5">
-                            <SectionTitle number="02" title="Discovery" />
-                            <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                                I started by reading the API documentation. I deconstructed the Co-WIN APIs to find opportunities.
-                            </p>
+                    <SectionTitle number="02" title="Research" />
+                    <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+                        I started by reading the API documentation. I deconstructed the Co-WIN APIs to find opportunities.
+                    </p>
 
-                            <div className="bg-blue-50 dark:bg-blue-900/10 p-6 rounded-2xl border border-blue-100 dark:border-blue-800 mb-6">
-                                <div className="flex items-center gap-3 mb-4">
-                                    <MapPin className="text-blue-600" />
-                                    <h4 className="font-bold text-neutral-900 dark:text-white">The "Search Near Me" Hack</h4>
+                    <div className="grid md:grid-cols-12 gap-12 items-start mb-20">
+                        {/* Left Card: The Hack */}
+                        <div className="md:col-span-6 h-full">
+                            <div className="bg-blue-50/50 dark:bg-blue-900/10 p-10 rounded-[2.5rem] border border-blue-100 dark:border-blue-800/50 h-full flex flex-col justify-center relative overflow-hidden group">
+                                <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-3xl group-hover:bg-blue-500/10 transition-colors" />
+                                <div className="flex items-center gap-4 mb-8">
+                                    <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
+                                        <MapPin className="text-white" size={28} />
+                                    </div>
+                                    <h4 className="text-2xl font-bold text-neutral-900 dark:text-white">The "Search Near Me" Hack</h4>
                                 </div>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    The APIs only supported search by PIN or District. They lacked "Search Near Me".
-                                    <br /><br />
-                                    <strong>Solution:</strong> I used the device location to fetch the PIN code, then queried the API. This created a one-tap experience competitors lacked.
-                                </p>
+                                <div className="space-y-6">
+                                    <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed italic">
+                                        "The APIs only supported search by PIN or District. They lacked 'Search Near Me'."
+                                    </p>
+                                    <div className="p-5 bg-white dark:bg-black/40 rounded-2xl border border-blue-100 dark:border-blue-900/30">
+                                        <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200 leading-relaxed">
+                                            <strong>Solution:</strong> I used the device location to fetch the PIN code, then queried the API. This created a one-tap experience competitors lacked.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="md:col-span-7">
-                            <h3 className="font-bold text-neutral-900 dark:text-white mb-4">API Constraints</h3>
+
+                        {/* Right Column: API Constraints */}
+                        <div className="md:col-span-6">
+                            <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-[0.3em] mb-8">API Constraints</h3>
                             <div className="space-y-4">
-                                <div className="p-4 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 font-mono text-xs">
-                                    <div className="text-neutral-500 mb-2 uppercase font-bold tracking-widest">Metadata APIs</div>
-                                    <div className="space-y-2">
-                                        <div className="flex gap-2"><span className="text-blue-500 font-bold">GET</span> /v2/admin/location/states</div>
-                                        <div className="flex gap-2"><span className="text-blue-500 font-bold">GET</span> /v2/admin/location/districts/&#123;id&#125;</div>
+                                <div className="p-6 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-neutral-200 dark:border-neutral-800 shadow-xl group hover:border-blue-500/30 transition-colors">
+                                    <div className="text-[10px] font-bold text-neutral-500 mb-3 uppercase tracking-widest flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        Metadata APIs
+                                    </div>
+                                    <div className="space-y-2 font-mono text-xs">
+                                        <div className="flex justify-between items-center gap-3">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/admin/location/states</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600 text-[10px]">Get states</span>
+                                        </div>
+                                        <div className="flex justify-between items-center gap-3">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/admin/location/districts/&#123;id&#125;</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600 text-[10px]">Get list of districts</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="p-4 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 font-mono text-xs">
-                                    <div className="text-neutral-500 mb-2 uppercase font-bold tracking-widest">Appointment APIs</div>
-                                    <div className="space-y-2">
-                                        <div className="flex gap-2"><span className="text-blue-500 font-bold">GET</span> /v2/appointment/sessions/findByPin</div>
-                                        <div className="flex gap-2"><span className="text-blue-500 font-bold">GET</span> /v2/appointment/sessions/calendarByPin</div>
+                                <div className="p-6 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-neutral-200 dark:border-neutral-800 shadow-xl group hover:border-blue-500/30 transition-colors">
+                                    <div className="text-[10px] font-bold text-neutral-500 mb-3 uppercase tracking-widest flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                        Appointment Availability APIs
+                                    </div>
+                                    <div className="space-y-3 font-mono text-[10px]">
+                                        <div className="flex justify-between items-center border-b border-neutral-100 dark:border-neutral-800/50 pb-2">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/sessions/public/findByPin</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600">By PIN</span>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-neutral-100 dark:border-neutral-800/50 pb-2">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/centers/public/findByLatLong</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600">[Draft]</span>
+                                        </div>
+                                        <div className="flex justify-between items-center border-b border-neutral-100 dark:border-neutral-800/50 pb-2">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/sessions/public/calendarByPin</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600">7 Days</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/sessions/public/calendarByDistrict</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600">7 Days</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="p-4 rounded-xl bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 font-mono text-xs">
-                                    <div className="text-neutral-500 mb-2 uppercase font-bold tracking-widest">Certificate APIs</div>
-                                    <div className="space-y-2">
-                                        <div className="flex gap-2"><span className="text-green-500 font-bold">POST</span> /v2/certificate/generate</div>
-                                        <div className="flex gap-2"><span className="text-blue-500 font-bold">GET</span> /v2/certificate/status</div>
+                                <div className="p-6 rounded-2xl bg-white dark:bg-[#0d0d0d] border border-neutral-200 dark:border-neutral-800 shadow-xl group hover:border-blue-500/30 transition-colors">
+                                    <div className="text-[10px] font-bold text-neutral-500 mb-3 uppercase tracking-widest flex items-center gap-2">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                                        Certificate APIs
+                                    </div>
+                                    <div className="space-y-2 font-mono text-xs">
+                                        <div className="flex justify-between items-center gap-3">
+                                            <div><span className="text-blue-500 font-bold">GET</span> <span className="text-neutral-700 dark:text-neutral-300">/certificate/public/download</span></div>
+                                            <span className="text-neutral-400 dark:text-neutral-600 text-[10px]">PDF Download</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    {/* Journey Map Section */}
+                    <div className="mb-20">
+                        <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-12 max-w-3xl">
+                            I mapped the booking experience to identify high-anxiety failure points. This "Anxiety Map" became our north star for simplifying the product flow.
+                        </p>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl bg-white dark:bg-[#080808]"
+                        >
+                            <ZoomableImage src="https://ik.imagekit.io/vtitfjbr6/cowin/fig2-failure-map.png" alt="The Anxiety Map" className="w-full" />
+                        </motion.div>
+                        <p className="text-[10px] text-neutral-500 mt-6 text-center uppercase tracking-[0.3em] font-bold">Fig 2: The Failure Map & Guiding Star</p>
                     </div>
                 </section>
 
@@ -183,74 +228,137 @@ export const CowinCaseStudy: React.FC = () => {
 
                     <div className="mb-16">
                         <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Flow Architecture</h3>
-                        <p className="text-neutral-600 dark:text-neutral-400 mb-6">
+                        <p className="text-neutral-600 dark:text-neutral-400 mb-8 max-w-2xl">
                             I mapped the primary journeys to ensure feasibility while maintaining trust.
                         </p>
-                        <CodeBlock code={mermaidCode} language="mermaid" />
+                        <div className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl bg-white dark:bg-[#080808]">
+                            <ZoomableImage src="https://ik.imagekit.io/vtitfjbr6/cowin/flow-diagram.png" alt="Flow Diagram" className="w-full" />
+                        </div>
                     </div>
 
-                    <div className="mt-24 space-y-24">
-                        {/* Flow 1 */}
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div className="order-2 md:order-1">
-                                <MobileShell>
-                                    <img src={ASSETS.projects.cowin.bookingFlow} className="w-full h-full object-cover" alt="Booking Flow" />
-                                </MobileShell>
-                            </div>
-                            <div className="order-1 md:order-2">
-                                <div className="bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Flow 01</div>
-                                <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Booking a Slot</h3>
-                                <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                                    Slot booking caused the most anxiety. I designed the flow to calm the user.
-                                </p>
-
-                                <div className="space-y-6">
-                                    <DesignHighlight
-                                        title="No Dead Ends"
-                                        desc="We embraced 'bad news'. Clearly marking centers with 'No Slots' built trust."
-                                        icon={<CheckCircle size={20} />}
-                                    />
-                                    <DesignHighlight
-                                        title="Booking Buffer"
-                                        desc="Added a 'booking in progress' state to hold slots, reducing failures by 87%."
-                                        icon={<Clock size={20} />}
-                                    />
-                                    <DesignHighlight
-                                        title="Definitive Contract"
-                                        desc="The confirmation screen listed every detail: Hospital, Time, Name. Users could screenshot it as proof."
-                                        icon={<Shield size={20} />}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Flow 2 */}
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-xs font-bold inline-block mb-4">Flow 02</div>
-                                <h3 className="text-3xl font-bold mb-4 text-neutral-900 dark:text-white">Downloading Certificates</h3>
-                                <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                                    I designed two flows to get certificates with zero friction.
-                                </p>
-
-                                <div className="grid gap-4">
-                                    <div className="bg-white dark:bg-neutral-900/30 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800">
-                                        <h5 className="font-bold text-neutral-900 dark:text-white mb-1">Explicit Path</h5>
-                                        <p className="text-sm text-neutral-600 dark:text-neutral-400">For users who know what they need. Minimal form fields.</p>
-                                    </div>
-                                    <div className="bg-white dark:bg-neutral-900/30 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800">
-                                        <h5 className="font-bold text-neutral-900 dark:text-white mb-1">Automated Path</h5>
-                                        <p className="text-sm text-neutral-600 dark:text-neutral-400">System detects eligible users, fetches certificates, and notifies them.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex justify-center">
-                                <MobileShell>
-                                    {/* Cropped top part of image using negative margin */}
-                                    <img src={ASSETS.projects.cowin.downloadFlow} className="w-full h-full object-cover object-top" alt="Download Flow" />
-                                </MobileShell>
-                            </div>
-                        </div>
+                    <div className="mt-24">
+                        <FlowBrowser
+                            flows={[
+                                {
+                                    id: 'booking',
+                                    label: 'Book Slot',
+                                    description: 'The most high-anxiety flow. Optimized for speed and clarity under slot scarcity.',
+                                    steps: [
+                                        {
+                                            title: 'Step 01: Beneficiary Overview',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen01.png",
+                                                    rationale: 'We centered the "Book" button so users can start their 15-minute session the moment they are ready.'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            title: 'Step 02: Proximity Search',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen02.png",
+                                                    rationale: 'Location data auto-fills the nearest centers, saving users from manual Pincode searches during a rush.'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            title: 'Step 03: Advanced Filtering',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen03.png",
+                                                    rationale: 'One-tap filters for age and dose help users find the right center instantly without scanning through noise.'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            title: 'Step 04: Smart Suggestion',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen04.png",
+                                                    rationale: 'Auto-selecting the earliest slot saves precious seconds. Rescheduling stays at the bottom to avoid header bugs in the app\'s WebView container.'
+                                                    // Technical Constraint: The Reschedule CTA was kept in the stable bottom footer to avoid 
+                                                    // safe-area collision issues in the hybrid ios/android WebView wrapper.
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            title: 'Step 05: Slot Rescheduling',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen05.png",
+                                                    rationale: 'A fast calendar grid and urgency alerts help users pick a new slot quickly as availability changes.'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            title: 'Step 06: Success State',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen06.png",
+                                                    rationale: 'The "View Slip" button works offline so users always have proof of booking, even if the network fails at the clinic.'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 'download',
+                                    label: 'Download Certificate',
+                                    description: 'A zero-friction utility flow for travel and proof-of-vaccination.',
+                                    steps: [
+                                        {
+                                            title: 'Step 01: Certificate Discovery',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/download-certificate/form2.png",
+                                                    rationale: 'We automatically detected available certificates for all family members and prompted the user via a quick-action bottom sheet.'
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            title: 'Step 02: Medical Vault',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/download-certificate/form1.png",
+                                                    rationale: 'Instead of manual PDF management, certificates were saved directly into the user\'s secure medical vault for long-term access.'
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: 'passport',
+                                    label: 'Link Passport',
+                                    description: 'Crucial for international travel. Focused on data precision and validation.',
+                                    steps: [
+                                        {
+                                            title: 'Travel Certificate Integration',
+                                            versions: [
+                                                {
+                                                    label: 'Final Design',
+                                                    image: "https://ik.imagekit.io/vtitfjbr6/cowin/travel-certificate/form1.png?updatedAt=1766091622576",
+                                                    rationale: 'To facilitate international travel, we integrated a direct passport-linking feature that allows users to authenticate and generate a globally verifiable travel certificate in one tap.'
+                                                }
+                                            ],
+                                            /* iterations: [
+                                                { label: 'Live Validation', desc: 'Real-time check for passport format before submission.' },
+                                                { label: 'Beneficiary Selection', desc: 'Clear mapping of passport to the correct family member.' }
+                                            ] */
+                                        }
+                                    ]
+                                }
+                            ]
+                            }
+                        />
                     </div>
                 </section>
 

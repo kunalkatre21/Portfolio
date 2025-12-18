@@ -1,7 +1,257 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Lightbox from "yet-another-react-lightbox";
+import ZoomPlugin from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/styles.css";
+import { ChevronRight, ChevronLeft, Info, Eye, AlertCircle, ArrowRight, ChevronDown } from 'lucide-react';
 
 // --- WRAPPERS ---
+
+export const ZoomableImage = ({ src, alt, className = "" }: { src: string, alt: string, className?: string }) => {
+    const [open, setOpen] = useState(false);
+
+    return (
+        <>
+            <div className="cursor-zoom-in group relative overflow-hidden rounded-xl h-full w-full" onClick={() => setOpen(true)}>
+                <img src={src} alt={alt} className={`${className} h-full w-full object-cover`} />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-white/5 transition-colors duration-300 pointer-events-none" />
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 border border-white/10">
+                    <Eye size={12} /> Deep Dive
+                </div>
+            </div>
+
+            <Lightbox
+                open={open}
+                close={() => setOpen(false)}
+                plugins={[ZoomPlugin]}
+                slides={[{ src }]}
+                render={{
+                    buttonPrev: () => null,
+                    buttonNext: () => null,
+                }}
+                styles={{
+                    container: { backgroundColor: "rgba(0, 0, 0, .9)" },
+                }}
+                animation={{ fade: 300, zoom: 500 }}
+                zoom={{
+                    maxZoomPixelRatio: 3,
+                    zoomInMultiplier: 2,
+                    doubleTapDelay: 300,
+                    doubleClickDelay: 300,
+                    doubleClickMaxStops: 2,
+                }}
+            />
+        </>
+    );
+};
+
+export const IterationCard = ({
+    versions,
+    title,
+    iterations
+}: {
+    versions: { label: string, image: string, rationale: string }[],
+    title: string,
+    iterations?: { label: string, desc: string }[]
+}) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const currentVersion = versions[activeIndex];
+
+    return (
+        <div className="bg-white dark:bg-[#080808] rounded-[1.5rem] md:rounded-[2.5rem] border border-neutral-200 dark:border-neutral-800 overflow-hidden mb-8 md:mb-12 shadow-sm hover:shadow-xl transition-shadow duration-500">
+            <div className="grid md:grid-cols-2 gap-0">
+                {/* Visual Section */}
+                <div className="p-6 md:p-10 border-b md:border-b-0 md:border-r border-neutral-200 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-900/20 relative">
+                    <div className="flex items-center justify-between mb-6 md:mb-12 relative z-20">
+                        <div className="flex items-center gap-3">
+                            <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                            <h4 className="font-bold text-neutral-900 dark:text-white uppercase tracking-[0.2em] text-[10px]">{title}</h4>
+                        </div>
+
+                        {versions.length > 1 && (
+                            <div className="relative">
+                                <button
+                                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                                    className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white rounded-xl text-[10px] font-bold shadow-md hover:shadow-lg transition-all border border-neutral-200 dark:border-neutral-700"
+                                >
+                                    {currentVersion.label}
+                                    <ChevronDown size={14} className={`transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                                </button>
+
+                                <AnimatePresence>
+                                    {dropdownOpen && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                            className="absolute right-0 mt-2 w-48 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl z-50 overflow-hidden"
+                                        >
+                                            {versions.map((v, idx) => (
+                                                <button
+                                                    key={idx}
+                                                    onClick={() => {
+                                                        setActiveIndex(idx);
+                                                        setDropdownOpen(false);
+                                                    }}
+                                                    className={`w-full text-left px-5 py-3 text-[10px] font-bold transition-colors border-b last:border-0 border-neutral-100 dark:border-neutral-800 ${activeIndex === idx ? 'text-blue-500 bg-blue-50/50 dark:bg-blue-500/10' : 'text-neutral-500 hover:bg-neutral-50 dark:hover:bg-neutral-800/50'}`}
+                                                >
+                                                    {v.label}
+                                                </button>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="relative mx-auto max-w-[260px] md:max-w-[300px] py-8">
+                        {/* Stack Effect */}
+                        {versions.length > 1 && (
+                            <div className="absolute inset-0 -z-10 pointer-events-none">
+                                {/* Layer 2 */}
+                                <div className="absolute inset-x-8 top-12 bottom-0 bg-neutral-200 dark:bg-neutral-800 rounded-[1.5rem] md:rounded-[2rem] opacity-40 border border-neutral-300 dark:border-neutral-700 shadow-sm transition-transform duration-700"
+                                    style={{ transform: 'rotate(4deg) translateY(12px) scale(0.96)' }} />
+                                {/* Layer 1 */}
+                                <div className="absolute inset-x-4 top-6 bottom-4 bg-neutral-100 dark:bg-neutral-900 rounded-[1.5rem] md:rounded-[2rem] opacity-70 border border-neutral-200 dark:border-neutral-800 shadow-md transition-transform duration-500"
+                                    style={{ transform: 'rotate(-2deg) translateY(6px) scale(0.98)' }} />
+                            </div>
+                        )}
+
+                        <div className="relative aspect-[375/812] overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] ring-1 ring-black/5 dark:ring-white/5 bg-white dark:bg-neutral-900 z-10">
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={activeIndex}
+                                    initial={{ opacity: 0, scale: 0.95, filter: 'blur(10px)' }}
+                                    animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                                    exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
+                                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                                    className="w-full h-full"
+                                >
+                                    <ZoomableImage src={currentVersion.image} alt={title} className="w-full h-full object-cover" />
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6 md:p-10 flex flex-col justify-center bg-white dark:bg-[#080808]">
+                    <div className="mb-8 md:mb-10">
+                        <div className="flex items-center gap-2 text-blue-500 mb-4 md:mb-6 group">
+                            <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 group-hover:scale-110 transition-transform">
+                                <Info size={18} />
+                            </div>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Design Rationale</span>
+                        </div>
+                        <AnimatePresence mode="wait">
+                            <motion.p
+                                key={activeIndex}
+                                initial={{ opacity: 0, x: 10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -10 }}
+                                transition={{ duration: 0.3 }}
+                                className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm md:text-lg font-medium"
+                            >
+                                {currentVersion.rationale}
+                            </motion.p>
+                        </AnimatePresence>
+                    </div>
+
+                    {iterations && iterations.length > 0 && (
+                        <div className="space-y-5 md:space-y-6 pt-6 md:pt-8 border-t border-neutral-100 dark:border-neutral-800">
+                            {iterations.map((item, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 * idx }}
+                                    className="flex gap-4 md:gap-5 group/item"
+                                >
+                                    <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg md:rounded-xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center shrink-0 text-[10px] font-bold text-neutral-500 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all duration-300">
+                                        {idx + 1}
+                                    </div>
+                                    <div>
+                                        <h5 className="text-[10px] font-bold text-neutral-900 dark:text-white mb-1 uppercase tracking-widest">{item.label}</h5>
+                                        <p className="text-[11px] md:text-xs text-neutral-500 dark:text-neutral-500 leading-relaxed">{item.desc}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export const FlowBrowser = ({
+    flows
+}: {
+    flows: {
+        id: string,
+        label: string,
+        description: string,
+        steps: {
+            title: string,
+            versions: { label: string, image: string, rationale: string }[],
+            iterations?: { label: string, desc: string }[]
+        }[]
+    }[]
+}) => {
+    const [activeFlowId, setActiveFlowId] = useState(flows[0].id);
+    const activeFlow = flows.find(f => f.id === activeFlowId) || flows[0];
+
+    return (
+        <div className="w-full">
+            {/* Nav */}
+            <div className="flex md:justify-center mb-8 md:mb-16 overflow-x-auto no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+                <div className="inline-flex p-1 bg-neutral-100 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-800 shrink-0">
+                    {flows.map(flow => (
+                        <button
+                            key={flow.id}
+                            onClick={() => setActiveFlowId(flow.id)}
+                            className={`px-4 md:px-6 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 ${activeFlowId === flow.id
+                                ? 'bg-white dark:bg-neutral-800 text-neutral-900 dark:text-white shadow-sm'
+                                : 'text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300'
+                                }`}
+                        >
+                            {flow.label}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <div className="mb-12 max-w-2xl mx-auto text-center">
+                <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-4 tracking-tight">{activeFlow.label}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm">{activeFlow.description}</p>
+            </div>
+
+            {/* Flows */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={activeFlowId}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="space-y-4"
+                >
+                    {activeFlow.steps.map((step, idx) => (
+                        <IterationCard
+                            key={idx}
+                            title={step.title}
+                            versions={step.versions}
+                            iterations={step.iterations}
+                        />
+                    ))}
+                </motion.div>
+            </AnimatePresence>
+        </div>
+    );
+};
 
 export const BrowserWindow = ({ children, url = "eka.care", className = "" }: { children?: React.ReactNode, url?: string, className?: string }) => (
     <div className={`rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#0a0a0a] shadow-2xl my-12 w-full ${className}`}>
@@ -330,7 +580,7 @@ export const ScreenFlow = ({ steps }: {
                             <div className="absolute -inset-4 bg-purple-500/10 dark:bg-purple-500/5 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                             <MobileShell className="shadow-2xl ring-1 ring-neutral-200 dark:ring-neutral-800 group-hover:ring-purple-500/30 transition-all duration-500">
-                                {step.image ? <img src={step.image} className="w-full h-full object-cover" /> : step.content}
+                                {step.image ? <ZoomableImage src={step.image} className="w-full h-full object-cover" alt={step.title} /> : step.content}
                             </MobileShell>
 
                             {/* Info Badge */}
@@ -389,3 +639,46 @@ export const HeroCarousel = ({ images }: { images: string[] }) => {
         </div>
     );
 };
+export const JourneyPath = ({ steps }: {
+    steps: {
+        title: string,
+        desc: string,
+        icon: React.ReactNode,
+        status: 'Anxiety' | 'Action' | 'Trust'
+    }[]
+}) => (
+    <div className="relative py-12">
+        <div className="absolute left-[39px] top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800" />
+        <div className="space-y-12">
+            {steps.map((step, idx) => (
+                <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.2 }}
+                    className="flex gap-8 relative"
+                >
+                    <div className={`w-20 h-20 rounded-2xl flex items-center justify-center shrink-0 z-10 border shadow-sm transition-all duration-500 ${step.status === 'Anxiety' ? 'bg-red-50 dark:bg-red-900/10 border-red-100 dark:border-red-900/30 text-red-500' :
+                        step.status === 'Action' ? 'bg-blue-50 dark:bg-blue-900/10 border-blue-100 dark:border-blue-900/30 text-blue-500' :
+                            'bg-green-50 dark:bg-green-900/10 border-green-100 dark:border-green-900/30 text-green-500'
+                        }`}>
+                        {step.icon}
+                    </div>
+                    <div className="pt-2">
+                        <div className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-2 ${step.status === 'Anxiety' ? 'text-red-500/60' :
+                            step.status === 'Action' ? 'text-blue-500/60' :
+                                'text-green-500/60'
+                            }`}>
+                            {step.status}
+                        </div>
+                        <h4 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">{step.title}</h4>
+                        <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-xl">
+                            {step.desc}
+                        </p>
+                    </div>
+                </motion.div>
+            ))}
+        </div>
+    </div>
+);
