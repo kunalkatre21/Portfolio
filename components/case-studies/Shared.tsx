@@ -308,8 +308,8 @@ export const CaseMeta = ({ role, team, timeline, overview }: { role: string, tea
     </div>
 );
 
-export const SectionTitle = ({ title, subtitle, number }: { title: string, subtitle?: string, number?: string }) => (
-    <div className="mb-10 mt-24">
+export const SectionTitle = ({ title, subtitle, number, id }: { title: string, subtitle?: string, number?: string, id?: string }) => (
+    <div className="mb-10 mt-24 scroll-mt-24" id={id}>
         {number && (
             <div className="text-sm font-bold text-purple-600 dark:text-purple-400 uppercase tracking-widest mb-3">
                 {number}
@@ -541,6 +541,28 @@ export const PersonaSwitcher = ({ personas }: { personas: Persona[] }) => {
 
 export const Divider = () => <div className="h-px bg-gradient-to-r from-transparent via-neutral-200 dark:via-neutral-800 to-transparent w-full my-20" />;
 
+export const FunnelItem = ({ label, value, prevValue, color, highlight = false }: { label: string, value: string, prevValue?: string, color: string, highlight?: boolean }) => (
+    <div className="flex items-center gap-4">
+        <div className="w-32 text-sm font-medium text-neutral-600 dark:text-neutral-400 shrink-0">{label}</div>
+        <div className="flex-1 h-8 bg-neutral-200 dark:bg-neutral-800 rounded-r-lg relative overflow-visible">
+            <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: value }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className={`h-full rounded-r-lg flex items-center px-3 text-xs font-bold text-white relative z-10 ${color} ${highlight ? 'shadow-[0_0_15px_rgba(59,130,246,0.5)]' : ''}`}
+            >
+                {value}
+            </motion.div>
+            {prevValue && (
+                <div className="absolute top-0 left-0 h-full flex items-center border-r-2 border-red-500/50 z-20" style={{ width: prevValue }}>
+                    <span className="absolute -top-6 right-0 text-[10px] text-red-500 font-mono">Old: {prevValue}</span>
+                </div>
+            )}
+        </div>
+    </div>
+);
+
 export const ScreenFlow = ({ steps }: {
     steps: {
         label: string,
@@ -682,3 +704,56 @@ export const JourneyPath = ({ steps }: {
         </div>
     </div>
 );
+
+export const TableOfContents = ({ items }: { items: { id: string, label: string, number: string }[] }) => {
+    const [activeId, setActiveId] = useState('');
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveId(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: '-10% 0% -80% 0%' }
+        );
+
+        items.forEach((item) => {
+            const element = document.getElementById(item.id);
+            if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+    }, [items]);
+
+    return (
+        <div className="fixed right-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-end gap-6 z-50">
+            {items.map((item) => (
+                <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="group flex items-center gap-4 transition-all"
+                >
+                    <div className="flex flex-col items-end">
+                        <span className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${activeId === item.id ? 'text-purple-600 dark:text-purple-400' : 'text-neutral-400 group-hover:text-neutral-600'
+                            }`}>
+                            {item.number}
+                        </span>
+                        <span className={`text-xs font-bold transition-all ${activeId === item.id
+                            ? 'text-neutral-900 dark:text-white translate-x-0 opacity-100'
+                            : 'text-neutral-400 -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'
+                            }`}>
+                            {item.label}
+                        </span>
+                    </div>
+                    <div className={`w-1 h-8 rounded-full transition-all ${activeId === item.id
+                        ? 'bg-purple-600 dark:bg-purple-400 scale-y-100'
+                        : 'bg-neutral-200 dark:bg-neutral-800 scale-y-50 group-hover:scale-y-75'
+                        }`} />
+                </a>
+            ))}
+        </div>
+    );
+};

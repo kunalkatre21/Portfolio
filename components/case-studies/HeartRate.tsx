@@ -1,12 +1,21 @@
 import React from 'react';
 import { Activity, Heart, ArrowUp, Users, Play, AlertTriangle, Smartphone, Zap, TrendingUp, CheckCircle, Clock, Shield, Search, Eye, Cpu, Accessibility, Repeat, Target } from 'lucide-react';
-import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, List, CaseMeta, ScreenFlow, PersonaSwitcher, HeroCarousel } from './Shared';
+import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, List, CaseMeta, ScreenFlow, PersonaSwitcher, HeroCarousel, FunnelItem, TableOfContents } from './Shared';
 import { ASSETS } from '../../data';
 import { motion } from 'framer-motion';
 
 export const HeartRateCaseStudy: React.FC = () => {
     return (
         <div className="animate-fade-in pb-20 relative bg-white dark:bg-[#050505]">
+            <TableOfContents
+                items={[
+                    { id: 'setup', label: 'The Setup', number: '01' },
+                    { id: 'research', label: 'Research', number: '02' },
+                    { id: 'discovery', label: 'Discovery', number: '03' },
+                    { id: 'execution', label: 'Execution', number: '04' },
+                    { id: 'impact', label: 'Impact', number: '05' }
+                ]}
+            />
             {/* Full Width Background Hero */}
             <HeroCarousel
                 images={[
@@ -48,129 +57,98 @@ export const HeartRateCaseStudy: React.FC = () => {
 
                 {/* Section 1: The Setup */}
                 <section className="mb-24">
-                    <SectionTitle number="01" title="The Problem" />
+                    <SectionTitle number="01" title="The Problem" id="setup" />
                     <div className="max-w-4xl">
                         <p className="text-2xl md:text-3xl text-neutral-800 dark:text-neutral-200 mb-12 leading-tight font-medium">
-                            The Heart Rate Monitor was our bet for organic growth. It failed.
-                            <span className="text-red-500 font-bold block mt-4"> 38% of users dropped off before completing a measurement.</span>
+                            The Heart Rate Monitor was a core growth bet, but it had a <span className="text-red-500 font-bold">~38% drop-off rate</span>. Even successful users weren't sticking around.
                         </p>
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                            In a health-tech ecosystem, trust is the primary currency. When a core feature like heart rate monitoring fails to work on the first try, it doesn't just lose a user—it erodes the credibility of the entire platform. We were seeing a massive influx of users interested in heart health, but a "leaky bucket" in the most critical part of the funnel.
+                            A promising feature was failing to become a habit. Users didn't trust the data enough to integrate it into their daily health routines.
                         </p>
                     </div>
                 </section>
 
                 <Divider />
 
-                {/* Section 1b: User Research & Personas - NEW */}
-                <section className="mb-32">
-                    <SectionTitle number="02" title="User Research" />
-
-                    <div className="max-w-4xl mb-16">
-                        <p className="text-2xl text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed font-medium">
-                            We identified two distinct archetypes with very different mental models and physical constraints.
-                        </p>
-                        <p className="text-neutral-500 text-lg leading-relaxed">
-                            Understanding these personas helped us realize that "One Size Fits All" onboarding was the primary cause of of our 38% drop-off.
-                        </p>
-                    </div>
-
-                    <div className="w-full">
-                        <PersonaSwitcher
-                            personas={[
-                                {
-                                    name: "Martha",
-                                    initials: "MS",
-                                    role: "The Health-Conscious Senior",
-                                    bio: "Martha tracks her vitals daily to manage her chronic health conditions. She is wary of technology that feels 'black box'.",
-                                    quote: "I need to be sure the app is actually reading my pulse correctly, not just guessing.",
-                                    goals: [
-                                        "Monitor daily resting heart rate",
-                                        "Understand health trends over time",
-                                        "Technology that assists, doesn't hinder"
-                                    ],
-                                    painPoints: [
-                                        "Small button targets",
-                                        "Lack of clear success/failure feedback",
-                                        "Physical discomfort from the camera flash"
-                                    ]
-                                },
-                                {
-                                    name: "Vikram",
-                                    initials: "VA",
-                                    role: "The Data-Driven Athlete",
-                                    bio: "Vikram uses heart rate data to optimize his recovery and training intensity. He is highly sensitive to data accuracy.",
-                                    quote: "Accuracy is everything. If the number looks weird or delayed, the tool is useless to me.",
-                                    goals: [
-                                        "Track heart rate variability & recovery",
-                                        "Export data for personal analysis",
-                                        "Instant, reliable measurements"
-                                    ],
-                                    painPoints: [
-                                        "Delayed signal lock",
-                                        "Unexplained fluctuations in BPM",
-                                        "Opaque measurement methodology"
-                                    ]
-                                }
-                            ]}
-                        />
-                    </div>
-                </section>
-
-                <Divider />
-
-                {/* Section 2: Discovery */}
+                {/* Section 2: Discovery & Research */}
                 <section className="mb-24">
-                    <SectionTitle number="03" title="Discovery" />
-                    <div className="grid md:grid-cols-12 gap-12">
+                    <SectionTitle number="02" title="Discovery & Research" id="research" />
+
+                    <div className="grid md:grid-cols-12 gap-12 mb-24">
                         <div className="md:col-span-5">
+                            <h3 className="text-xl font-bold mb-6 text-neutral-900 dark:text-white uppercase tracking-tight">01. Field Research</h3>
                             <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                                I watched 5 users try the feature. They all failed to get a reading.
+                                We conducted 10 on-ground interviews with a horizontal mix of age and tech-proficiency. We found that the biggest barrier wasn't the tech, but the user's anxiety during the scan.
                             </p>
                             <div className="space-y-4">
                                 <InsightCard
-                                    icon={<Smartphone />}
-                                    title="Camera Confusion"
-                                    quote="Which lens do I cover? The flash is burning my finger."
-                                    color="orange"
+                                    icon={<Search />}
+                                    title="User Interviews"
+                                    quote="10 Ground sessions covering first-time vs regular users across all age groups."
+                                    color="blue"
                                 />
                                 <InsightCard
-                                    icon={<AlertTriangle />}
-                                    title="Lack of Feedback"
-                                    quote="Is it working? The screen is frozen."
-                                    color="red"
+                                    icon={<Smartphone />}
+                                    title="Primary Quotes"
+                                    quote="Which lens do I cover? The flash is burning my finger."
+                                    color="orange"
                                 />
                             </div>
                         </div>
                         <div className="md:col-span-7">
-                            <h3 className="font-bold text-neutral-900 dark:text-white mb-6">Failure Points</h3>
+                            <img
+                                src="https://ik.imagekit.io/vtitfjbr6/hr/research.png?updatedAt=1765891831951"
+                                alt="On-ground user research sessions"
+                                className="w-full rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-xl mb-6"
+                            />
+                            <p className="text-xs text-neutral-400 uppercase tracking-widest text-center">Fig. 1 - Conducting informal usability tests to gather qualitative insights.</p>
+                        </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-12 gap-12 mb-24">
+                        <div className="md:col-span-7 order-2 md:order-1">
                             <div className="grid gap-4 mb-12">
                                 <DesignHighlight
-                                    title="1. Hardware Blindness"
-                                    desc="Users couldn't distinguish the main camera from the wide-angle lens."
-                                    icon={<Users className="text-red-500" />}
+                                    title="Ambiguous Onboarding"
+                                    desc="Static instructions failed to guide finger placement, causing failure before the scan even began."
+                                    icon={<AlertTriangle className="text-red-500" />}
                                 />
                                 <DesignHighlight
-                                    title="2. The 'Frozen' State"
+                                    title="Weak Feedback"
                                     desc="The 15-second scan had no animation. Users thought the app crashed and moved their finger."
                                     icon={<Activity className="text-red-500" />}
                                 />
                                 <DesignHighlight
-                                    title="3. No Baseline"
-                                    desc="Raw BPM numbers meant nothing to users. 'Is 72 good?'"
+                                    title="The 'So What?' Result"
+                                    desc="Raw BPM numbers meant nothing to users. There was no medical context or baseline."
                                     icon={<Shield className="text-red-500" />}
                                 />
                             </div>
-
-                            {/* The Eureka Moment - NEW */}
+                        </div>
+                        <div className="md:col-span-5 order-1 md:order-2">
+                            <h3 className="text-xl font-bold mb-6 text-neutral-900 dark:text-white uppercase tracking-tight">02. Heuristic Audit</h3>
+                            <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+                                I audited the V1 flow and identified systemic flaws that eroded trust. We weren't just fixing bugs; we were designing against 'Hardware Blindness'.
+                            </p>
                             <div className="p-6 bg-red-50 dark:bg-red-900/10 border-l-4 border-red-500 rounded-r-2xl">
                                 <h4 className="font-bold text-red-600 dark:text-red-400 flex items-center gap-2 mb-2">
-                                    <Eye size={18} /> The "Eureka" Moment
+                                    <Eye size={18} /> The Eureka Moment
                                 </h4>
-                                <p className="text-neutral-700 dark:text-neutral-300 italic">
-                                    "During one session, a user covered the entire camera module with their palm. The flash was on, they were burning their hand, but because their palm was over the *wrong* lens, the app just stayed on 'Initializing'. That's when I realized: we are asking for precision without giving guidance."
+                                <p className="text-neutral-700 dark:text-neutral-300 italic text-sm">
+                                    "One user covered the wrong lens entirely. The app stayed on 'Initializing' while they waited. We were asking for precision without giving any guidance."
                                 </p>
                             </div>
+                        </div>
+                    </div>
+
+                    <div className="max-w-4xl mx-auto">
+                        <h3 className="text-xl font-bold mb-6 text-neutral-900 dark:text-white uppercase tracking-tight text-center">03. The Broken Loop</h3>
+                        <p className="text-neutral-600 dark:text-neutral-400 mb-12 text-center leading-relaxed">
+                            Mapping the emotional journey revealed that our 'leaky bucket' wasn't just in the onboarding, but in the lack of long-term value for returning users.
+                        </p>
+                        <div className="p-8 bg-neutral-100 dark:bg-neutral-900 rounded-[2rem] border border-neutral-200 dark:border-neutral-800 text-center">
+                            <Users className="mx-auto mb-4 text-neutral-400" size={48} />
+                            <p className="text-neutral-500 italic">"I completed the scan. Now what? Is 72 good? Do I come back tomorrow?"</p>
                         </div>
                     </div>
                 </section>
@@ -179,22 +157,22 @@ export const HeartRateCaseStudy: React.FC = () => {
 
                 {/* Section 3: Goals */}
                 <section className="mb-24">
-                    <SectionTitle number="04" title="The Fix" />
+                    <SectionTitle number="04" title="The Strategic Pivot" />
                     <div className="grid md:grid-cols-3 gap-6">
                         <GoalCard
                             number="1"
-                            title="Instruction"
-                            desc="Show, don't tell. Use video loops to show exactly how to hold the phone."
+                            title="Visual Guidance"
+                            desc="Show, don't tell. We used video loops to show exactly where to place the finger."
                         />
                         <GoalCard
                             number="2"
-                            title="Feedback"
-                            desc="If the app is working, show it. Use haptics and visuals to confirm signal lock."
+                            title="Real-time Trust"
+                            desc="Sync detection with haptic pulses. If the app is working, the user must feel it."
                         />
                         <GoalCard
                             number="3"
-                            title="Context"
-                            desc="Don't just show the number. Show what it means (Low, Normal, High)."
+                            title="Instant Meaning"
+                            desc="Raw data is not insight. We added medical benchmarks to make results actionable."
                         />
                     </div>
                 </section>
@@ -203,21 +181,24 @@ export const HeartRateCaseStudy: React.FC = () => {
 
                 {/* Section 4: Design Execution */}
                 <section className="mb-24">
-                    <SectionTitle number="05" title="Execution" />
+                    <SectionTitle number="05" title="Execution" id="execution" />
 
                     <div className="mt-16">
+                        <p className="text-neutral-600 dark:text-neutral-400 mb-12 max-w-2xl leading-relaxed">
+                            We redesigned the feedback loop so users could feel the heart rate detection in real-time.
+                        </p>
                         <ScreenFlow
                             steps={[
                                 {
                                     label: "Step 01",
                                     title: "Visual Onboarding",
-                                    desc: "Text instructions were replaced with a looping high-fidelity animation demonstrating the physical finger placement. This reduced 'False Starts' by 40%.",
+                                    desc: "Animations replaced text to show finger placement, reducing 'False Starts' by 40%.",
                                     image: ASSETS.projects.heartRate.onboarding
                                 },
                                 {
                                     label: "Step 02",
                                     title: "Signal Lock & Feedback",
-                                    desc: "Real-time haptic feedback and a synchronized heart animation build user trust during the 15-second scanning window.",
+                                    desc: "Syncing heart pulses and haptics build trust during the 15-second scan.",
                                     content: (
                                         <div className="relative w-full h-full bg-black flex flex-col items-center justify-center p-6 text-center">
                                             <div className="w-40 h-40 rounded-full border-4 border-red-500/30 flex items-center justify-center relative mb-8">
@@ -233,7 +214,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 {
                                     label: "Step 03",
                                     title: "Actionable Results",
-                                    desc: "Contextual population benchmarks (e.g., 'Normal for your age') transformed a raw data point into a meaningful health insight.",
+                                    desc: "Benchmarks like 'Normal for your age' turned numbers into insights.",
                                     image: ASSETS.projects.heartRate.interface
                                 }
                             ]}
@@ -249,13 +230,13 @@ export const HeartRateCaseStudy: React.FC = () => {
                             <div className="p-8 bg-neutral-100 dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800">
                                 <h4 className="font-bold text-neutral-900 dark:text-white mb-4">Lens Detection Logic</h4>
                                 <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    We analyzed the luminosity profiles of different lenses. If the main sensor didn't detect a specific "red-shift" (blood flow), we programmatically switched lenses or showed a "Wrong Lens" warning.
+                                    We analyzed lens luminosity. If the sensor missed the "red-shift" of blood flow, we switched lenses or showed a warning.
                                 </p>
                             </div>
                             <div className="p-8 bg-neutral-100 dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800">
                                 <h4 className="font-bold text-neutral-900 dark:text-white mb-4">The Haptic Strategy</h4>
                                 <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    Not all vibrations are equal. We used a "Soft-Taptic" engine pattern (Android & iOS) that mimicked a natural systolic heartbeat. This felt "medical grade" rather than just a notification buzz.
+                                    We used haptic patterns that mimicked a natural heartbeat, making the tool feel medical-grade.
                                 </p>
                             </div>
                             <div className="p-8 bg-neutral-100 dark:bg-neutral-900 rounded-3xl border border-neutral-200 dark:border-neutral-800">
@@ -275,7 +256,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     <Accessibility className="text-green-500" /> Accessible Design
                                 </h3>
                                 <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                                    Health tech must work for everyone. We optimized for different skin tones (which affect light absorption) and added non-visual cues.
+                                    Health tech must work for everyone. We optimized for different skin tones and added non-visual cues.
                                 </p>
                                 <div className="space-y-4">
                                     <DesignHighlight
@@ -291,7 +272,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 </div>
                             </div>
                             <div className="p-8 bg-blue-50 dark:bg-blue-900/10 rounded-3xl border border-blue-200 dark:border-blue-800/20">
-                                <QuoteBlock quote="The goal wasn't just to make it pretty, but to make it reliable for any person, on any phone, anywhere." />
+                                <QuoteBlock quote="The goal was to make it reliable for any person, on any phone, anywhere." />
                             </div>
                         </div>
                     </div>
@@ -301,7 +282,7 @@ export const HeartRateCaseStudy: React.FC = () => {
 
                 {/* Section 5: Impact */}
                 <section className="mb-24">
-                    <SectionTitle number="06" title="Impact & Learnings" />
+                    <SectionTitle number="06" title="Impact & Learnings" id="impact" />
 
                     <div className="mb-12">
                         <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Conversion Funnel Lift</h3>
@@ -341,7 +322,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 <Repeat className="text-purple-400" /> What's Next?
                             </h3>
                             <p className="text-xl text-neutral-400 mb-12">
-                                The success of the Heart Rate Monitor validated our vision for "Invisible Health Tracking".
+                                Validating "Invisible Health Tracking" as a core product vision.
                             </p>
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div>
@@ -360,25 +341,3 @@ export const HeartRateCaseStudy: React.FC = () => {
         </div>
     );
 };
-
-const FunnelItem = ({ label, value, prevValue, color, highlight = false }: { label: string, value: string, prevValue?: string, color: string, highlight?: boolean }) => (
-    <div className="flex items-center gap-4">
-        <div className="w-32 text-sm font-medium text-neutral-600 dark:text-neutral-400 shrink-0">{label}</div>
-        <div className="flex-1 h-8 bg-neutral-200 dark:bg-neutral-800 rounded-r-lg relative overflow-visible">
-            <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: value }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className={`h-full rounded-r-lg flex items-center px-3 text-xs font-bold text-white relative z-10 ${color} ${highlight ? 'shadow-[0_0_15px_rgba(59,130,246,0.5)]' : ''}`}
-            >
-                {value}
-            </motion.div>
-            {prevValue && (
-                <div className="absolute top-0 left-0 h-full flex items-center border-r-2 border-red-500/50 z-20" style={{ width: prevValue }}>
-                    <span className="absolute -top-6 right-0 text-[10px] text-red-500 font-mono">Old: {prevValue}</span>
-                </div>
-            )}
-        </div>
-    </div>
-);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertCircle, Lock, Search, CheckCircle, Smartphone, Globe, Shield, Activity, Database, MapPin, Zap, TrendingUp, Users, Clock } from 'lucide-react';
-import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, CodeBlock, CaseMeta, HeroCarousel, ZoomableImage, FlowBrowser } from './Shared';
+import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, CodeBlock, CaseMeta, HeroCarousel, ZoomableImage, FlowBrowser, FunnelItem, TableOfContents } from './Shared';
 import { ASSETS } from '../../data';
 import { motion } from 'framer-motion';
 
@@ -9,6 +9,15 @@ export const CowinCaseStudy: React.FC = () => {
 
     return (
         <div className="animate-fade-in pb-20 relative bg-white dark:bg-[#050505]">
+            <TableOfContents
+                items={[
+                    { id: 'challenge', label: 'Challenge', number: '01' },
+                    { id: 'discovery', label: 'Discovery', number: '02' },
+                    { id: 'principles', label: 'Principles', number: '03' },
+                    { id: 'execution', label: 'Execution', number: '04' },
+                    { id: 'impact', label: 'Impact', number: '05' }
+                ]}
+            />
             {/* Full Width Background Hero */}
             <HeroCarousel
                 images={[
@@ -50,7 +59,7 @@ export const CowinCaseStudy: React.FC = () => {
 
                 {/* Section 1: The Setup */}
                 <section className="mb-24">
-                    <SectionTitle number="01" title="The Challenge" />
+                    <SectionTitle number="01" title="The Challenge" id="challenge" />
 
                     <div className="grid md:grid-cols-1 gap-12 mb-12 max-w-4xl">
                         <div>
@@ -90,7 +99,7 @@ export const CowinCaseStudy: React.FC = () => {
 
                 {/* Section 2: Discovery */}
                 <section className="mb-24">
-                    <SectionTitle number="02" title="Research" />
+                    <SectionTitle number="02" title="Research" id="discovery" />
                     <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
                         I started by reading the API documentation. I deconstructed the Co-WIN APIs to find opportunities.
                     </p>
@@ -200,7 +209,7 @@ export const CowinCaseStudy: React.FC = () => {
 
                 {/* Section 3: Pillars */}
                 <section className="mb-24">
-                    <SectionTitle number="03" title="Design Principles" />
+                    <SectionTitle number="03" title="Design Principles" id="principles" />
                     <div className="grid md:grid-cols-3 gap-6">
                         <GoalCard
                             number="1"
@@ -224,7 +233,7 @@ export const CowinCaseStudy: React.FC = () => {
 
                 {/* Section 4: Design Execution */}
                 <section className="mb-24">
-                    <SectionTitle number="04" title="Execution" />
+                    <SectionTitle number="04" title="Execution" id="execution" />
 
                     <div className="mb-16">
                         <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Flow Architecture</h3>
@@ -366,56 +375,64 @@ export const CowinCaseStudy: React.FC = () => {
 
                 {/* Section 5: Impact */}
                 <section className="mb-24">
-                    <SectionTitle number="05" title="Impact" />
-                    <p className="text-neutral-600 dark:text-neutral-400 mb-12 text-center max-w-2xl mx-auto">
-                        The approach worked. By solving for anxiety, we became the most trusted vaccination tool in the country.
-                    </p>
+                    <SectionTitle number="05" title="Impact & Scaling" id="impact" />
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                        <div className="p-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-center">
-                            <div className="text-3xl font-bold text-primary mb-1">#1</div>
-                            <div className="text-xs font-bold uppercase text-neutral-500">App Rank</div>
+                    <div className="grid md:grid-cols-2 gap-12 mb-16">
+                        <div>
+                            <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
+                                We didn't just build a wrapper for government APIs. We built a bridge for millions of people to cross over from pandemic anxiety to the relief of a confirmed appointment.
+                            </p>
+                            <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
+                                The impact was measured not just in uptime, but in the trust of families who relied on us for their most critical health documents during the peak of the crisis.
+                            </p>
                         </div>
-                        <div className="p-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-center">
-                            <div className="text-3xl font-bold text-primary mb-1">34%</div>
-                            <div className="text-xs font-bold uppercase text-neutral-500">Market Share</div>
-                        </div>
-                        <div className="p-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-center">
-                            <div className="text-3xl font-bold text-primary mb-1">2.8L+</div>
-                            <div className="text-xs font-bold uppercase text-neutral-500">Daily Active</div>
-                        </div>
-                        <div className="p-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-center">
-                            <div className="text-3xl font-bold text-primary mb-1">4.8</div>
-                            <div className="text-xs font-bold uppercase text-neutral-500">Trust Score</div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <StatCard value="#1" label="App Store Rank" subLabel="in Health & Fitness" />
+                            <StatCard value="1.4L+" label="Peak Throughput" subLabel="Certificates / Day" />
+                            <StatCard value="~8K" label="Organic Installs" subLabel="Daily at peak" />
+                            <StatCard value="2 Cr+" label="Total Downloads" subLabel="Vaccine Certificates" />
                         </div>
                     </div>
 
-                    <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-3xl">
-                        <h3 className="font-bold text-xl mb-6 text-neutral-900 dark:text-white">Key Learnings</h3>
+                    <QuoteBlock quote="In a crisis, clarity is more important than minimalism. We didn't build a booking tool; we built a peace-of-mind engine." />
+
+                    <div className="mb-24">
+                        <SectionTitle title="Strategic Learnings" subtitle="Reflections on building high-stakes health infrastructure during a pandemic." />
                         <div className="grid md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Clarity &gt; Minimalism</h4>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    In a crisis, the "best" design isn't the cleanest. Timestamps and detailed error messages built trust.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Artifacts Lead Alignment</h4>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    The anxiety journey map aligned the cross-functional team.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">System Over Interface</h4>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    The biggest win was the backend automation (auto-fetch), not the UI.
-                                </p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold mb-2 text-neutral-900 dark:text-white">Constraints are Opportunities</h4>
-                                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                                    API limits forced us to build "Search Near Me"—our key differentiator.
-                                </p>
+                            <InsightCard
+                                icon={<CheckCircle className="text-green-500" />}
+                                title="Systems Over UI"
+                                quote="The biggest win wasn't the pretty buttons, but the 'Search Near Me' logic we built to bypass API limitations. Engineering around constraints creates the best UX."
+                                color="green"
+                            />
+                            <InsightCard
+                                icon={<CheckCircle className="text-green-500" />}
+                                title="Transparency Builds LTV"
+                                quote="Showing 'No Slots' clearly instead of hiding it built long-term trust. Users knew they could rely on us for the truth, which converted them into long-term health vault users."
+                                color="green"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Future Vision - Scaling Legacy */}
+                    <div className="p-12 bg-blue-600 rounded-[3rem] text-white overflow-hidden relative">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32" />
+                        <div className="relative z-10 max-w-3xl">
+                            <h3 className="text-4xl font-bold mb-6 flex items-center gap-4">
+                                <Globe className="text-blue-200" /> Global Scaling
+                            </h3>
+                            <p className="text-xl text-blue-100 mb-12 leading-relaxed">
+                                The Co-WIN integration wasn't just a 24-hour sprint; it was the foundation for Eka.care's growth into India's leading unified health interface (UHI) platform.
+                            </p>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div>
+                                    <h4 className="font-bold text-lg mb-2 text-white">Universal Health Interface</h4>
+                                    <p className="text-blue-100/70 text-sm">Applying the same "Slot Search" architecture to help users find lab tests and doctor consultations nationwide.</p>
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-lg mb-2 text-white">Smart Medical Vault</h4>
+                                    <p className="text-blue-100/70 text-sm">Expanding the certificate download into a full-fledged ABDM-compliant health locker for 30M+ users.</p>
+                                </div>
                             </div>
                         </div>
                     </div>

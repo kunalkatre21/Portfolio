@@ -14,8 +14,8 @@ export const ASSETS = {
   },
   projects: {
     cowin: {
-      cover: `${IK_BASE}/cowin/cowin-hero-visual.png`,
-      hero: `${IK_BASE}/cowin/cowin-hero-visual.png`,
+      cover: `${IK_BASE}/cowin/homepage-card-images/form4.png`,
+      hero: `${IK_BASE}/cowin/homepage-card-images/form4.png`,
       bookingFlow: `${IK_BASE}/cowin/book-flow-1.png`,
       downloadFlow: `${IK_BASE}/cowin/download-flow-1.png`
     },
@@ -44,10 +44,10 @@ export const works: WorkItem[] = [
     description: "Designed the vaccine booking flow for 1.4 billion people. 20M+ downloads. #1 Play Store rank.",
     image: ASSETS.projects.cowin.cover,
     gallery: [
-      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form4.png",
-      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form3.png",
-      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form2.png",
-      "https://ik.imagekit.io/vtitfjbr6/cowin/homepage-card-images/form1.png"
+      `${IK_BASE}/cowin/homepage-card-images/form4.png`,
+      `${IK_BASE}/cowin/homepage-card-images/form3.png`,
+      `${IK_BASE}/cowin/homepage-card-images/form2.png`,
+      `${IK_BASE}/cowin/homepage-card-images/form1.png`
     ],
     tags: ["Public Health", "High Scale", "Crisis Design"],
     award: "#1 Health App",
@@ -78,10 +78,10 @@ export const works: WorkItem[] = [
     description: "Redesigned the heart-rate monitor. Doubled user retention and improved conversion by 21%.",
     image: ASSETS.projects.heartRate.cover,
     gallery: [
-      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form4.png",
-      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form3.png",
-      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form2.png",
-      "https://ik.imagekit.io/vtitfjbr6/hr/homepage-card-images/form1.png"
+      `${IK_BASE}/hr/homepage-card-images/form4.png`,
+      `${IK_BASE}/hr/homepage-card-images/form3.png`,
+      `${IK_BASE}/hr/homepage-card-images/form2.png`,
+      `${IK_BASE}/hr/homepage-card-images/form1.png`
     ],
     tags: ["Computer Vision", "Retention", "UX Research"],
     liveUrl: "#"
