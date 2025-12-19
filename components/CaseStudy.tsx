@@ -33,10 +33,10 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
 
     const renderContent = () => {
         switch (id) {
-            case 1: return <CowinCaseStudy />;
-            case 2: return <DesignSystemCaseStudy />;
-            case 3: return <WebInfraCaseStudy />;
-            case 4: return <HeartRateCaseStudy />;
+            case 1: return <HeartRateCaseStudy />;
+            case 2: return <CowinCaseStudy />;
+            // case 3: return <DesignSystemCaseStudy />;
+            // case 4: return <WebInfraCaseStudy />;
             default: return <div className="text-center py-20 text-neutral-500">Case study not found.</div>;
         }
     };

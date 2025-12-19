@@ -39,6 +39,21 @@ export const ASSETS = {
 export const works: WorkItem[] = [
   {
     id: 1,
+    title: "Heart Rate Monitor",
+    category: "Health Tech",
+    description: "Redesigned the heart-rate monitor. Doubled user retention and improved conversion by 21%.",
+    image: ASSETS.projects.heartRate.cover,
+    gallery: [
+      `${IK_BASE}/hr/homepage-card-images/form4.png`,
+      `${IK_BASE}/hr/homepage-card-images/form3.png`,
+      `${IK_BASE}/hr/homepage-card-images/form2.png`,
+      `${IK_BASE}/hr/homepage-card-images/form1.png`
+    ],
+    tags: ["Computer Vision", "Retention", "UX Research"],
+    liveUrl: "#"
+  },
+  {
+    id: 2,
     title: "Co-WIN Vaccine Flows",
     category: "Health Tech",
     description: "Designed the vaccine booking flow for 1.4 billion people. 20M+ downloads. #1 Play Store rank.",
@@ -52,38 +67,24 @@ export const works: WorkItem[] = [
     tags: ["Public Health", "High Scale", "Crisis Design"],
     award: "#1 Health App",
     liveUrl: "#"
-  },
-  {
-    id: 2,
-    title: "Design System Architecture",
-    category: "Infrastructure",
-    description: "Automated design tokens from Figma to Production. Zero handoff errors across Android, iOS, and Web.",
-    image: ASSETS.projects.designSystem.cover,
-    tags: ["Design Ops", "Automation", "Design Tokens"],
-    liveUrl: "#"
-  },
-  {
-    id: 3,
-    title: "Web Publishing Engine",
-    category: "No-Code & AI",
-    description: "Built a self-serve web engine. Reduced marketing campaign launch time by 80% using AI workflows.",
-    image: ASSETS.projects.webInfra.cover,
-    tags: ["Webflow", "AI Ops", "Speed"],
-    liveUrl: "#"
-  },
-  {
-    id: 4,
-    title: "Heart Rate Monitor",
-    category: "Health Tech",
-    description: "Redesigned the heart-rate monitor. Doubled user retention and improved conversion by 21%.",
-    image: ASSETS.projects.heartRate.cover,
-    gallery: [
-      `${IK_BASE}/hr/homepage-card-images/form4.png`,
-      `${IK_BASE}/hr/homepage-card-images/form3.png`,
-      `${IK_BASE}/hr/homepage-card-images/form2.png`,
-      `${IK_BASE}/hr/homepage-card-images/form1.png`
-    ],
-    tags: ["Computer Vision", "Retention", "UX Research"],
-    liveUrl: "#"
   }
+  // Commented out for now - Design System and Web Infra stories
+  // {
+  //   id: 3,
+  //   title: "Design System Architecture",
+  //   category: "Infrastructure",
+  //   description: "Automated design tokens from Figma to Production. Zero handoff errors across Android, iOS, and Web.",
+  //   image: ASSETS.projects.designSystem.cover,
+  //   tags: ["Design Ops", "Automation", "Design Tokens"],
+  //   liveUrl: "#"
+  // },
+  // {
+  //   id: 4,
+  //   title: "Web Publishing Engine",
+  //   category: "No-Code & AI",
+  //   description: "Built a self-serve web engine. Reduced marketing campaign launch time by 80% using AI workflows.",
+  //   image: ASSETS.projects.webInfra.cover,
+  //   tags: ["Webflow", "AI Ops", "Speed"],
+  //   liveUrl: "#"
+  // }
 ];
