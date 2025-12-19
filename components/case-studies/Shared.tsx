@@ -187,6 +187,99 @@ export const IterationCard = ({
     );
 };
 
+const InteractiveScreenViewer = ({
+    steps,
+    color,
+    activeStepIdx,
+    setActiveStepIdx
+}: {
+    steps: {
+        title: string,
+        versions: { label: string, image: string, rationale: string }[]
+    }[],
+    color: string,
+    activeStepIdx: number,
+    setActiveStepIdx: (idx: number) => void
+}) => {
+    const activeStep = steps[activeStepIdx];
+
+    const colorClasses = {
+        blue: {
+            glow: 'bg-blue-500/10',
+            border: 'border-blue-500/30',
+            bg: 'bg-blue-500/50',
+            line: 'bg-blue-500/50',
+            text: 'text-blue-500',
+            bgActive: 'bg-blue-500'
+        },
+        green: {
+            glow: 'bg-green-500/10',
+            border: 'border-green-500/30',
+            bg: 'bg-green-500/50',
+            line: 'bg-green-500/50',
+            text: 'text-green-500',
+            bgActive: 'bg-green-500'
+        },
+        orange: {
+            glow: 'bg-orange-500/10',
+            border: 'border-orange-500/30',
+            bg: 'bg-orange-500/50',
+            line: 'bg-orange-500/50',
+            text: 'text-orange-500',
+            bgActive: 'bg-orange-500'
+        }
+    };
+
+    const classes = colorClasses[color as keyof typeof colorClasses] || colorClasses.blue;
+
+    return (
+        <div className="relative group">
+            <div className={`absolute -inset-10 ${classes.glow} rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+
+            <div className="relative z-10 flex flex-col items-center">
+                <MobileShell className="shadow-2xl ring-1 ring-neutral-200 dark:ring-neutral-800 relative">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeStepIdx}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.05 }}
+                            className="w-full h-full relative"
+                        >
+                            <img
+                                src={activeStep.versions[0].image}
+                                alt={activeStep.title}
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 p-8 pointer-events-none z-20">
+                                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 ${classes.border} flex items-center justify-center animate-pulse`}>
+                                    <div className={`w-4 h-4 rounded-full ${classes.bg}`} />
+                                </div>
+                                <div className={`absolute top-1/3 right-4 w-12 h-px ${classes.line}`} />
+                                <div className={`absolute top-1/3 right-16 text-[8px] font-black font-mono ${classes.text} uppercase tracking-widest bg-white dark:bg-neutral-900 px-2 py-0.5 rounded shadow-sm`}>
+                                    STEP {activeStepIdx + 1}
+                                </div>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </MobileShell>
+                <div className="mt-8 text-center flex flex-col items-center gap-2">
+                    <div className="flex gap-1">
+                        {steps.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setActiveStepIdx(i)}
+                                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeStepIdx === i ? `${classes.bgActive} w-4` : 'bg-neutral-300 dark:bg-neutral-800 hover:bg-neutral-400 dark:hover:bg-neutral-600'}`}
+                            />
+                        ))}
+                    </div>
+                    <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${classes.text}`}>{activeStep.title}</p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export const FlowBrowser = ({
     flows
 }: {
@@ -202,7 +295,22 @@ export const FlowBrowser = ({
     }[]
 }) => {
     const [activeFlowId, setActiveFlowId] = useState(flows[0].id);
+    const [activeStepIdx, setActiveStepIdx] = useState(0);
     const activeFlow = flows.find(f => f.id === activeFlowId) || flows[0];
+
+    const getColor = (id: string) => {
+        switch (id) {
+            case 'booking': return 'blue';
+            case 'download': return 'green';
+            case 'passport': return 'orange';
+            default: return 'blue';
+        }
+    };
+
+    // Reset active step when flow changes
+    useEffect(() => {
+        setActiveStepIdx(0);
+    }, [activeFlowId]);
 
     return (
         <div className="w-full">
@@ -229,26 +337,81 @@ export const FlowBrowser = ({
                 <p className="text-neutral-600 dark:text-neutral-400 text-sm">{activeFlow.description}</p>
             </div>
 
-            {/* Flows */}
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={activeFlowId}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    className="space-y-4"
-                >
+            {/* Interactive Viewer */}
+            <div className="hidden md:grid md:grid-cols-12 gap-12 lg:gap-24 items-start mb-16">
+                <div className="md:col-span-6 lg:col-span-5">
+                    <div className="space-y-4">
+                        {activeFlow.steps.map((step, idx) => {
+                            const color = getColor(activeFlowId);
+                            const colorClasses = {
+                                blue: {
+                                    border: 'border-blue-500',
+                                    bg: 'bg-blue-500/[0.03]',
+                                    hoverBorder: 'hover:border-blue-500/50',
+                                    text: 'text-blue-500',
+                                    hoverText: 'group-hover:text-blue-500/80',
+                                    bgBar: 'bg-blue-500'
+                                },
+                                green: {
+                                    border: 'border-green-500',
+                                    bg: 'bg-green-500/[0.03]',
+                                    hoverBorder: 'hover:border-green-500/50',
+                                    text: 'text-green-500',
+                                    hoverText: 'group-hover:text-green-500/80',
+                                    bgBar: 'bg-green-500'
+                                },
+                                orange: {
+                                    border: 'border-orange-500',
+                                    bg: 'bg-orange-500/[0.03]',
+                                    hoverBorder: 'hover:border-orange-500/50',
+                                    text: 'text-orange-500',
+                                    hoverText: 'group-hover:text-orange-500/80',
+                                    bgBar: 'bg-orange-500'
+                                }
+                            };
+                            const classes = colorClasses[color as keyof typeof colorClasses] || colorClasses.blue;
+
+                            return (
+                                <button
+                                    key={idx}
+                                    onMouseEnter={() => setActiveStepIdx(idx)}
+                                    onClick={() => setActiveStepIdx(idx)}
+                                    className={`w-full text-left group relative pl-6 border-l transition-all duration-500 py-3 ${activeStepIdx === idx ? `${classes.border} ${classes.bg}` : `border-neutral-200 dark:border-neutral-800 ${classes.hoverBorder}`}`}
+                                >
+                                    <div className={`absolute left-0 top-0 bottom-0 ${classes.bgBar} transition-all duration-500 ${activeStepIdx === idx ? 'w-1' : 'w-0 group-hover:w-0.5'}`} />
+                                    <h5 className={`font-bold uppercase tracking-widest text-[10px] mb-1 transition-colors ${activeStepIdx === idx ? classes.text : 'text-neutral-900 dark:text-white ' + classes.hoverText}`}>{idx + 1}. {step.title}</h5>
+                                    <p className={`text-xs leading-relaxed transition-colors ${activeStepIdx === idx ? 'text-neutral-700 dark:text-neutral-300' : 'text-neutral-500'}`}>{step.versions[0].rationale}</p>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                <div className="md:col-span-6 lg:col-span-7 flex justify-center">
+                    <InteractiveScreenViewer steps={activeFlow.steps} color={getColor(activeFlowId)} activeStepIdx={activeStepIdx} setActiveStepIdx={setActiveStepIdx} />
+                </div>
+            </div>
+
+            {/* Mobile View: Horizontal Scroll */}
+            <div className="md:hidden">
+                <div className="flex overflow-x-auto no-scrollbar gap-8 pb-12 -mx-4 px-4 snap-x snap-mandatory">
                     {activeFlow.steps.map((step, idx) => (
-                        <IterationCard
-                            key={idx}
-                            title={step.title}
-                            versions={step.versions}
-                            iterations={step.iterations}
-                        />
+                        <div key={idx} className="min-w-[280px] snap-center">
+                            <MobileShell className="mb-8 shadow-xl ring-1 ring-neutral-200 dark:ring-neutral-800">
+                                <img
+                                    src={step.versions[0].image}
+                                    alt={step.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </MobileShell>
+                            <div className="px-2">
+                                <h5 className="font-bold uppercase tracking-widest text-[10px] text-blue-500 mb-2">{idx + 1}. {step.title}</h5>
+                                <p className="text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed font-medium">{step.versions[0].rationale}</p>
+                            </div>
+                        </div>
                     ))}
-                </motion.div>
-            </AnimatePresence>
+                </div>
+            </div>
         </div>
     );
 };

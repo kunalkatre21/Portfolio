@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AlertCircle, Lock, Search, CheckCircle, Smartphone, Globe, Shield, Activity, Database, MapPin, Zap, TrendingUp, Users, Clock } from 'lucide-react';
 import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, CodeBlock, CaseMeta, HeroCarousel, ZoomableImage, FlowBrowser, FunnelItem, TableOfContents } from './Shared';
 import { ASSETS } from '../../data';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const CowinCaseStudy: React.FC = () => {
 
@@ -46,7 +46,7 @@ export const CowinCaseStudy: React.FC = () => {
                     role="Sole Product Designer"
                     team="4 Engineers, 1 PM"
                     timeline="Launched in 24 Hours, Iterated over 2 Months"
-                    overview="I designed the booking flow for 20 million users. I replaced anxiety with trust during a national crisis, transforming a complex government API into a seamless consumer experience."
+                    overview="Built booking flow for 20M users. Replaced anxiety with trust during crisis. Turned complex government API into simple consumer experience."
                 />
 
                 {/* Stats */}
@@ -64,10 +64,10 @@ export const CowinCaseStudy: React.FC = () => {
                     <div className="grid md:grid-cols-1 gap-12 mb-12 max-w-4xl">
                         <div>
                             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6 text-lg">
-                                In 2021, India needed to vaccinate 1.4 billion people. The government released the Co-WIN APIs and few trusted consumer app existed.
+                                India needed to vaccinate 1.4B people. Government released Co-WIN APIs. Few trusted apps existed.
                             </p>
                             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
-                                Eka.Care's goal: Build a consumer app on top of the APIs to capture the market.
+                                Eka.Care's goal: Build consumer app on APIs to capture market.
                             </p>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ export const CowinCaseStudy: React.FC = () => {
                 <section className="mb-24">
                     <SectionTitle number="02" title="Research" id="discovery" />
                     <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                        I started by reading the API documentation. I deconstructed the Co-WIN APIs to find opportunities.
+                        I read API docs. Deconstructed Co-WIN APIs to find opportunities.
                     </p>
 
                     <div className="grid md:grid-cols-12 gap-12 items-start mb-20">
@@ -117,11 +117,11 @@ export const CowinCaseStudy: React.FC = () => {
                                 </div>
                                 <div className="space-y-6">
                                     <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed italic">
-                                        "The APIs only supported search by PIN or District. They lacked 'Search Near Me'."
+                                        "APIs only supported search by PIN or District. No 'Search Near Me'."
                                     </p>
                                     <div className="p-5 bg-white dark:bg-black/40 rounded-2xl border border-blue-100 dark:border-blue-900/30">
                                         <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200 leading-relaxed">
-                                            <strong>Solution:</strong> I used the device location to fetch the PIN code, then queried the API. This created a one-tap experience competitors lacked.
+                                            <strong>Solution:</strong> Used device location to get PIN code, then queried API. Created one-tap experience competitors lacked.
                                         </p>
                                     </div>
                                 </div>
@@ -191,7 +191,7 @@ export const CowinCaseStudy: React.FC = () => {
                     {/* Journey Map Section */}
                     <div className="mb-20">
                         <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-12 max-w-3xl">
-                            I mapped the booking experience to identify high-anxiety failure points. This "Anxiety Map" became our north star for simplifying the product flow.
+                            Mapped booking experience to find anxiety points. This "Anxiety Map" guided our product flow simplification.
                         </p>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -214,17 +214,17 @@ export const CowinCaseStudy: React.FC = () => {
                         <GoalCard
                             number="1"
                             title="Transparency"
-                            desc="Show everything. Trust requires bad news too. We showed 'No Slots' clearly instead of hiding it."
+                            desc="Show everything. Trust needs bad news too. Showed 'No Slots' clearly instead of hiding."
                         />
                         <GoalCard
                             number="2"
                             title="Expectations"
-                            desc="Never overpromise. Be explicit about data freshness to prevent frustration from chasing 'ghost' slots."
+                            desc="Never overpromise. Be explicit about data freshness. Stop users chasing 'ghost' slots."
                         />
                         <GoalCard
                             number="3"
                             title="Confirmation"
-                            desc="The end of the flow must be a definitive 'contract'. Users should be able to screenshot it as proof."
+                            desc="Flow end must be definitive 'contract'. Users should screenshot it as proof."
                         />
                     </div>
                 </section>
@@ -238,7 +238,7 @@ export const CowinCaseStudy: React.FC = () => {
                     <div className="mb-16">
                         <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Flow Architecture</h3>
                         <p className="text-neutral-600 dark:text-neutral-400 mb-8 max-w-2xl">
-                            I mapped the primary journeys to ensure feasibility while maintaining trust.
+                            Mapped primary journeys to ensure feasibility while building trust.
                         </p>
                         <div className="rounded-3xl overflow-hidden border border-neutral-200 dark:border-neutral-800 shadow-2xl bg-white dark:bg-[#080808]">
                             <ZoomableImage src="https://ik.imagekit.io/vtitfjbr6/cowin/flow-diagram.png" alt="Flow Diagram" className="w-full" />
@@ -251,7 +251,7 @@ export const CowinCaseStudy: React.FC = () => {
                                 {
                                     id: 'booking',
                                     label: 'Book Slot',
-                                    description: 'The most high-anxiety flow. Optimized for speed and clarity under slot scarcity.',
+                                    description: 'High-anxiety flow. Optimized for speed and clarity when slots were scarce.',
                                     steps: [
                                         {
                                             title: 'Step 01: Beneficiary Overview',
@@ -259,7 +259,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen01.png",
-                                                    rationale: 'We centered the "Book" button so users can start their 15-minute session the moment they are ready.'
+                                                    rationale: 'Centered "Book" button so users can start 15-minute session when ready.'
                                                 }
                                             ]
                                         },
@@ -269,7 +269,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen02.png",
-                                                    rationale: 'Location data auto-fills the nearest centers, saving users from manual Pincode searches during a rush.'
+                                                    rationale: 'Location auto-fills nearest centers. Saves users from manual PIN searches during rush.'
                                                 }
                                             ]
                                         },
@@ -279,7 +279,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen03.png",
-                                                    rationale: 'One-tap filters for age and dose help users find the right center instantly without scanning through noise.'
+                                                    rationale: 'One-tap age and dose filters help users find right center instantly. No scanning through noise.'
                                                 }
                                             ]
                                         },
@@ -289,7 +289,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen04.png",
-                                                    rationale: 'Auto-selecting the earliest slot saves precious seconds. Rescheduling stays at the bottom to avoid header bugs in the app\'s WebView container.'
+                                                    rationale: 'Auto-selecting earliest slot saves seconds. Rescheduling stays at bottom to avoid WebView header bugs.'
                                                     // Technical Constraint: The Reschedule CTA was kept in the stable bottom footer to avoid 
                                                     // safe-area collision issues in the hybrid ios/android WebView wrapper.
                                                 }
@@ -301,7 +301,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen05.png",
-                                                    rationale: 'A fast calendar grid and urgency alerts help users pick a new slot quickly as availability changes.'
+                                                    rationale: 'Fast calendar grid and urgency alerts help users pick new slot quickly as availability changes.'
                                                 }
                                             ]
                                         },
@@ -311,7 +311,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/booking-flow/screen06.png",
-                                                    rationale: 'The "View Slip" button works offline so users always have proof of booking, even if the network fails at the clinic.'
+                                                    rationale: '"View Slip" button works offline. Users always have booking proof, even if network fails at clinic.'
                                                 }
                                             ]
                                         }
@@ -320,7 +320,7 @@ export const CowinCaseStudy: React.FC = () => {
                                 {
                                     id: 'download',
                                     label: 'Download Certificate',
-                                    description: 'A zero-friction utility flow for travel and proof-of-vaccination.',
+                                    description: 'Zero-friction flow for travel and vaccination proof.',
                                     steps: [
                                         {
                                             title: 'Step 01: Certificate Discovery',
@@ -328,7 +328,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/download-certificate/form2.png",
-                                                    rationale: 'We automatically detected available certificates for all family members and prompted the user via a quick-action bottom sheet.'
+                                                    rationale: 'Auto-detected certificates for all family members. Prompted users via quick-action bottom sheet.'
                                                 }
                                             ]
                                         },
@@ -338,7 +338,7 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/download-certificate/form1.png",
-                                                    rationale: 'Instead of manual PDF management, certificates were saved directly into the user\'s secure medical vault for long-term access.'
+                                                    rationale: 'Certificates saved directly to user\'s secure medical vault. No manual PDF management. Long-term access.'
                                                 }
                                             ]
                                         }
@@ -347,7 +347,7 @@ export const CowinCaseStudy: React.FC = () => {
                                 {
                                     id: 'passport',
                                     label: 'Link Passport',
-                                    description: 'Crucial for international travel. Focused on data precision and validation.',
+                                    description: 'Crucial for international travel. Focused on data precision.',
                                     steps: [
                                         {
                                             title: 'Travel Certificate Integration',
@@ -355,12 +355,12 @@ export const CowinCaseStudy: React.FC = () => {
                                                 {
                                                     label: 'Final Design',
                                                     image: "https://ik.imagekit.io/vtitfjbr6/cowin/travel-certificate/form1.png?updatedAt=1766091622576",
-                                                    rationale: 'To facilitate international travel, we integrated a direct passport-linking feature that allows users to authenticate and generate a globally verifiable travel certificate in one tap.'
+                                                    rationale: 'Integrated passport-linking for international travel. Users authenticate and generate verifiable travel certificate in one tap.'
                                                 }
                                             ],
                                             /* iterations: [
                                                 { label: 'Live Validation', desc: 'Real-time check for passport format before submission.' },
-                                                { label: 'Beneficiary Selection', desc: 'Clear mapping of passport to the correct family member.' }
+                                                { label: 'Beneficiary Selection', desc: 'Clear mapping of passport to correct family member.' }
                                             ] */
                                         }
                                     ]
@@ -380,10 +380,10 @@ export const CowinCaseStudy: React.FC = () => {
                     <div className="grid md:grid-cols-2 gap-12 mb-16">
                         <div>
                             <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
-                                We didn't just build a wrapper for government APIs. We built a bridge for millions of people to cross over from pandemic anxiety to the relief of a confirmed appointment.
+                                We didn't just wrap government APIs. We built a bridge for millions to move from pandemic anxiety to confirmed appointment relief.
                             </p>
                             <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
-                                The impact was measured not just in uptime, but in the trust of families who relied on us for their most critical health documents during the peak of the crisis.
+                                Impact measured in trust, not uptime. Families relied on us for critical health documents during crisis peak.
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -402,13 +402,13 @@ export const CowinCaseStudy: React.FC = () => {
                             <InsightCard
                                 icon={<CheckCircle className="text-green-500" />}
                                 title="Systems Over UI"
-                                quote="The biggest win wasn't the pretty buttons, but the 'Search Near Me' logic we built to bypass API limitations. Engineering around constraints creates the best UX."
+                                quote="Biggest win wasn't pretty buttons, but 'Search Near Me' logic to bypass API limits. Engineering around constraints creates best UX."
                                 color="green"
                             />
                             <InsightCard
                                 icon={<CheckCircle className="text-green-500" />}
                                 title="Transparency Builds LTV"
-                                quote="Showing 'No Slots' clearly instead of hiding it built long-term trust. Users knew they could rely on us for the truth, which converted them into long-term health vault users."
+                                quote="Showing 'No Slots' clearly built long-term trust. Users knew we gave truth. Converted them to long-term health vault users."
                                 color="green"
                             />
                         </div>
@@ -422,16 +422,16 @@ export const CowinCaseStudy: React.FC = () => {
                                 <Globe className="text-blue-200" /> Global Scaling
                             </h3>
                             <p className="text-xl text-blue-100 mb-12 leading-relaxed">
-                                The Co-WIN integration wasn't just a 24-hour sprint; it was the foundation for Eka.care's growth into India's leading unified health interface (UHI) platform.
+                                Co-WIN integration wasn't just 24-hour sprint. It was foundation for Eka.care's growth into India's leading UHI platform.
                             </p>
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div>
                                     <h4 className="font-bold text-lg mb-2 text-white">Universal Health Interface</h4>
-                                    <p className="text-blue-100/70 text-sm">Applying the same "Slot Search" architecture to help users find lab tests and doctor consultations nationwide.</p>
+                                    <p className="text-blue-100/70 text-sm">Using same "Slot Search" architecture to help users find lab tests and doctor consultations nationwide.</p>
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-lg mb-2 text-white">Smart Medical Vault</h4>
-                                    <p className="text-blue-100/70 text-sm">Expanding the certificate download into a full-fledged ABDM-compliant health locker for 30M+ users.</p>
+                                    <p className="text-blue-100/70 text-sm">Expanding certificate download into ABDM-compliant health locker for 30M+ users.</p>
                                 </div>
                             </div>
                         </div>
