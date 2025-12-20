@@ -67,24 +67,23 @@ export const works: WorkItem[] = [
     tags: ["Public Health", "High Scale", "Crisis Design"],
     award: "#1 Health App",
     liveUrl: "#"
+  },
+  {
+    id: 3,
+    title: "Design System Architecture",
+    category: "Infrastructure",
+    description: "Automated design tokens from Figma to Production. Zero handoff errors across Android, iOS, and Web.",
+    image: ASSETS.projects.designSystem.cover,
+    tags: ["Design Ops", "Automation", "Design Tokens"],
+    liveUrl: "#"
+  },
+  {
+    id: 4,
+    title: "Web Publishing Engine",
+    category: "No-Code & AI",
+    description: "Built a self-serve web engine. Reduced marketing campaign launch time by 80% using AI workflows.",
+    image: ASSETS.projects.webInfra.cover,
+    tags: ["Webflow", "AI Ops", "Speed"],
+    liveUrl: "#"
   }
-  // Commented out for now - Design System and Web Infra stories
-  // {
-  //   id: 3,
-  //   title: "Design System Architecture",
-  //   category: "Infrastructure",
-  //   description: "Automated design tokens from Figma to Production. Zero handoff errors across Android, iOS, and Web.",
-  //   image: ASSETS.projects.designSystem.cover,
-  //   tags: ["Design Ops", "Automation", "Design Tokens"],
-  //   liveUrl: "#"
-  // },
-  // {
-  //   id: 4,
-  //   title: "Web Publishing Engine",
-  //   category: "No-Code & AI",
-  //   description: "Built a self-serve web engine. Reduced marketing campaign launch time by 80% using AI workflows.",
-  //   image: ASSETS.projects.webInfra.cover,
-  //   tags: ["Webflow", "AI Ops", "Speed"],
-  //   liveUrl: "#"
-  // }
 ];

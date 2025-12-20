@@ -32,6 +32,25 @@ Result: Auto-PR created in Android (XML), iOS (Swift), Web (CSS)`;
                     className="w-full h-full object-cover opacity-30 dark:opacity-20 blur-[2px]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#050505] via-transparent to-transparent" />
+                {/* Animated Particles */}
+                <div className="absolute inset-0">
+                    {[...Array(20)].map((_, i) => (
+                        <div
+                            key={i}
+                            className="absolute w-1 h-1 bg-purple-400/20 rounded-full animate-pulse"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animationDelay: `${Math.random() * 3}s`,
+                                animationDuration: `${2 + Math.random() * 2}s`
+                            }}
+                        />
+                    ))}
+                    {/* Flowing Lines */}
+                    <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent animate-pulse" style={{ animationDuration: '4s' }} />
+                    <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500/30 to-transparent animate-pulse" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+                    <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent animate-pulse" style={{ animationDelay: '2s', animationDuration: '4s' }} />
+                </div>
             </div>
 
             {/* Content */}
@@ -43,7 +62,7 @@ Result: Auto-PR created in Android (XML), iOS (Swift), Web (CSS)`;
                     </div>
 
                     <h1 className="text-5xl md:text-8xl font-bold mb-12 leading-[0.9] text-neutral-900 dark:text-white tracking-tight">
-                        Design System: <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">Killing the Handoff.</span>
+                        Design System: <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500" style={{ backgroundSize: '200% 200%', animation: 'gradient 3s ease infinite' }}>Killing the Handoff.</span>
                     </h1>
                 </div>
 

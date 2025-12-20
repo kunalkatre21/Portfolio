@@ -1,19 +1,76 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Component, ErrorInfo, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lightbox from "yet-another-react-lightbox";
 import ZoomPlugin from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/styles.css";
 import { ChevronRight, ChevronLeft, Info, Eye, AlertCircle, ArrowRight, ChevronDown } from 'lucide-react';
 
+// Error Boundary Component
+export class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+    constructor(props: { children: ReactNode }) {
+        super(props);
+        this.state = { hasError: false };
+    }
+
+    static getDerivedStateFromError(_: Error) {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        console.error('Error caught by boundary:', error, errorInfo);
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return (
+                <div className="p-8 bg-red-50 dark:bg-red-900/10 border border-red-200 dark:border-red-800 rounded-xl text-center">
+                    <AlertCircle className="mx-auto mb-4 text-red-500" size={48} />
+                    <h3 className="text-lg font-bold text-red-900 dark:text-red-200 mb-2">Something went wrong</h3>
+                    <p className="text-red-700 dark:text-red-300">Please refresh the page or try again later.</p>
+                </div>
+            );
+        }
+
+        return this.props.children;
+    }
+}
+
+// Reduced Motion Hook
+export const useReducedMotion = () => {
+    const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        setPrefersReducedMotion(mediaQuery.matches);
+
+        const handleChange = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
+
+    return prefersReducedMotion;
+};
+
 // --- WRAPPERS ---
 
 export const ZoomableImage = ({ src, alt, className = "" }: { src: string, alt: string, className?: string }) => {
     const [open, setOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     return (
         <>
             <div className="cursor-zoom-in group relative overflow-hidden rounded-xl h-full w-full" onClick={() => setOpen(true)}>
-                <img src={src} alt={alt} className={`${className} h-full w-full object-cover`} />
+                {isLoading && (
+                    <div className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-xl" />
+                )}
+                <img
+                    src={src}
+                    alt={alt}
+                    className={`${className} h-full w-full object-cover transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                    onLoad={() => setIsLoading(false)}
+                    onError={() => setIsLoading(false)}
+                />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-white/5 transition-colors duration-300 pointer-events-none" />
                 <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 bg-black/60 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 border border-white/10">
                     <Eye size={12} /> Deep Dive
