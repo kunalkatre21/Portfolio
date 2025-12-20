@@ -59,12 +59,18 @@ components/
 ## Analytics Events
 
 ### Navigation Events
-- **Navigation Click**: `analytics.trackNavigation(section, source)`
+- **nav_click**: `analytics.trackNavigation(section, source)`
   - Tracks: section name, source (desktop/mobile), page URL
 
 ### Project Interactions
-- **Project Card Click**: `analytics.trackProjectClick(projectId, title, position)`
+- **project_click**: `analytics.trackProjectClick(projectId, title, position)`
   - Tracks: project ID, title, card position, source page
+
+### Case Study Events
+- **case_study_view**: `analytics.trackCaseStudyView(projectId, projectTitle)`
+  - Tracks: project ID, title, page URL, timestamp
+- **case_study_navigation**: `analytics.trackCaseStudyNavigation(action, from, to)`
+  - Tracks: navigation action, from/to project, page URL
 
 ### Social & Contact
 - **Social Link Click**: `analytics.trackSocialClick(platform, location)`

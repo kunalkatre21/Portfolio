@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Test</title>
+    <!-- Plausible Analytics with CORS fix -->
+    <script async defer data-domain="kunalkatre21.github.io" src="https://plausible.io/js/script.js"></script>
+    <script>
+        window.plausible = window.plausible || function () { (plausible.q = plausible.q || []).push(arguments) }
+    </script>
+</head>
+
+<body>
+    <h1>Analytics Test Page</h1>
+    <button onclick="testAnalytics()">Test Analytics</button>
+    <div id="status"></div>
+
+    <script>
+        function testAnalytics() {
+            console.log('Testing analytics...');
+
+            // Test basic tracking
+            if (typeof window.plausible === 'function') {
+                window.plausible('Test Event', {
+                    props: {
+                        test: true,
+                        timestamp: new Date().toISOString()
+                    }
+                });
+                document.getElementById('status').innerHTML = '✅ Analytics working! Check Plausible dashboard.';
+            } else {
+                document.getElementById('status').innerHTML = '❌ Plausible not loaded';
+            }
+        }
+
+        // Auto-test on page load
+        setTimeout(testAnalytics, 1000);
+    </script>
+</body>
+
+</html>

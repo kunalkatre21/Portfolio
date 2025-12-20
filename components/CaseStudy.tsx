@@ -27,6 +27,12 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
         }
         // Keep window scroll reset as fallback/precaution
         window.scrollTo(0, 0);
+
+        // Track case study view
+        const currentWork = works.find(w => w.id === id);
+        if (currentWork) {
+            analytics.trackCaseStudyView(id, currentWork.title);
+        }
     }, [id]);
 
     const currentIndex = works.findIndex(w => w.id === id);

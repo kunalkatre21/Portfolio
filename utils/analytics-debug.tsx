@@ -45,11 +45,17 @@ export const AnalyticsDebug: React.FC = () => {
 
     const testEvent = (eventName: string) => {
         switch (eventName) {
-            case 'navigation':
+            case 'nav_click':
                 analytics.trackNavigation('test-section', 'debug');
                 break;
-            case 'project-click':
+            case 'project_click':
                 analytics.trackProjectClick(1, 'Test Project', 0);
+                break;
+            case 'case_study_view':
+                analytics.trackCaseStudyView(1, 'Test Case Study');
+                break;
+            case 'case_study_navigation':
+                analytics.trackCaseStudyNavigation('project_switch', 'Test Project', 'Another Project');
                 break;
             case 'social-click':
                 analytics.trackSocialClick('linkedin', 'debug');
@@ -113,21 +119,21 @@ export const AnalyticsDebug: React.FC = () => {
             {/* Test Buttons */}
             <div className="grid grid-cols-2 gap-1 mb-3">
                 {[
-                    'navigation',
-                    'project-click',
+                    'nav_click',
+                    'project_click',
+                    'case_study_view',
+                    'case_study_navigation',
                     'social-click',
                     'contact-action',
                     'theme-toggle',
-                    'resume-download',
-                    'scroll-depth',
-                    'time-on-section'
+                    'resume-download'
                 ].map((test) => (
                     <button
                         key={test}
                         onClick={() => testEvent(test)}
                         className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
                     >
-                        {test.replace('-', ' ')}
+                        {test.replace(/_/g, ' ')}
                     </button>
                 ))}
             </div>

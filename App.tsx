@@ -14,6 +14,7 @@ import { ThemeProvider } from './components/ThemeContext';
 import { CursorProvider } from './components/CursorContext';
 import { ArrowDown } from 'lucide-react';
 import { initializeAnalytics } from './utils/analytics';
+import { AnalyticsDebug } from './utils/analytics-debug';
 
 function AppContent() {
   const [view, setView] = useState<'home' | 'case-study'>('home');
@@ -121,6 +122,9 @@ function AppContent() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Analytics Debug Component - Remove in production */}
+      <AnalyticsDebug />
     </div>
   );
 }

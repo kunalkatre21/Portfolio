@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Linkedin, Mail, FileText, ArrowRight } from 'lucide-react';
+import { Linkedin, Mail, FileText, ArrowRight, Github } from 'lucide-react';
 import { ASSETS } from '../data';
 import { analytics } from '../utils/analytics';
 
@@ -103,6 +103,7 @@ export const Hero: React.FC = () => {
             className="absolute right-0 bottom-20 hidden md:flex gap-4"
           >
             <SocialLink icon={<Linkedin size={20} />} href="https://www.linkedin.com/in/kunal-katre-98a945a2/" />
+            <SocialLink icon={<Github size={20} />} href="https://github.com/kunalkatre21" />
             <SocialLink icon={<Mail size={20} />} href="mailto:kunalkatre.designs@gmail.com" />
           </motion.div>
         </div>
@@ -137,6 +138,7 @@ export const Hero: React.FC = () => {
 const SocialLink = ({ icon, href }: { icon: React.ReactNode, href: string }) => {
   const getPlatform = (url: string) => {
     if (url.includes('linkedin')) return 'linkedin';
+    if (url.includes('github')) return 'github';
     if (url.includes('mailto')) return 'email';
     return 'unknown';
   };
@@ -147,7 +149,7 @@ const SocialLink = ({ icon, href }: { icon: React.ReactNode, href: string }) => 
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       onClick={() => analytics.trackSocialClick(platform, 'hero-section')}
       className="w-10 h-10 bg-white dark:bg-neutral-900 rounded-full flex items-center justify-center text-neutral-900 dark:text-white border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-900 dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-300 shadow-sm"
     >

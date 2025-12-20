@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Copy, Check, Linkedin, Mail } from 'lucide-react';
+import { Copy, Check, Linkedin, Mail, Github } from 'lucide-react';
 import { analytics } from '../utils/analytics';
 
 const socialLinks = [
   { name: 'Linkedin', url: 'https://www.linkedin.com/in/kunal-katre-98a945a2/' },
   { name: 'Behance', url: 'https://www.behance.net/Kunal' },
   { name: 'Twitter', url: 'https://x.com/kunalkatre1995' },
-  { name: 'Dribbble', url: 'https://dribbble.com/kunalkatre1995' }
+  { name: 'Dribbble', url: 'https://dribbble.com/kunalkatre1995' },
+  { name: 'GitHub', url: 'https://github.com/kunalkatre21' }
 ];
 
 export const Contact: React.FC = () => {
@@ -52,7 +53,7 @@ export const Contact: React.FC = () => {
               key={social.name}
               href={social.url}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               onClick={() => analytics.trackSocialClick(social.name.toLowerCase(), 'contact-section')}
               className="text-2xl text-neutral-500 dark:text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors py-4 border-t border-neutral-200 dark:border-neutral-800"
             >
@@ -69,6 +70,7 @@ export const Contact: React.FC = () => {
         </div>
         <div className="flex gap-4">
           <SocialIcon icon={<Linkedin size={20} />} href="https://www.linkedin.com/in/kunal-katre-98a945a2/" />
+          <SocialIcon icon={<Github size={20} />} href="https://github.com/kunalkatre21" />
           <SocialIcon icon={<Mail size={20} />} href="mailto:kunalkatre.designs@gmail.com" />
         </div>
       </div>
@@ -79,6 +81,7 @@ export const Contact: React.FC = () => {
 const SocialIcon = ({ icon, href }: { icon: React.ReactNode, href: string }) => {
   const getPlatform = (url: string) => {
     if (url.includes('linkedin')) return 'linkedin';
+    if (url.includes('github')) return 'github';
     if (url.includes('mailto')) return 'email';
     return 'unknown';
   };
@@ -89,7 +92,7 @@ const SocialIcon = ({ icon, href }: { icon: React.ReactNode, href: string }) => 
     <a
       href={href}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       onClick={() => analytics.trackSocialClick(platform, 'contact-footer')}
       className="w-10 h-10 bg-neutral-900 dark:bg-white text-white dark:text-black rounded-full flex items-center justify-center hover:scale-110 transition-transform"
     >
