@@ -102,7 +102,7 @@ class EventBatcher {
                     });
                     rateLimiter.recordEvent(event.eventName);
                 } catch (error) {
-                    console.warn('Batch event tracking error:', error);
+                    // console.warn('Batch event tracking error:', error);
                 }
             }
         }
@@ -144,7 +144,7 @@ export const analytics = {
 
             rateLimiter.recordEvent(eventName);
         } catch (error) {
-            console.warn('Analytics tracking error:', error);
+            // console.warn('Analytics tracking error:', error);
         }
     },
 
@@ -422,7 +422,7 @@ export const initializeAnalytics = () => {
                 user_agent: navigator.userAgent.substring(0, 100)
             });
         } catch (error) {
-            console.warn('Page load tracking error:', error);
+            // console.warn('Page load tracking error:', error);
         }
 
         // Track page unload with batch flushing
@@ -434,7 +434,7 @@ export const initializeAnalytics = () => {
                 // Flush any remaining events
                 eventBatcher.flush();
             } catch (error) {
-                console.warn('Page unload tracking error:', error);
+                // console.warn('Page unload tracking error:', error);
             }
         };
 
@@ -455,77 +455,77 @@ export const initializeAnalytics = () => {
 };
 
 // Console testing functions for debugging
-export const testAnalytics = {
-    // Test all custom events with rate limiting awareness
-    testAll: () => {
-        console.log('🧪 Testing all custom events with rate limiting...');
+// export const testAnalytics = {
+//     // Test all custom events with rate limiting awareness
+//     testAll: () => {
+//         console.log('🧪 Testing all custom events with rate limiting...');
 
-        // Test nav_click
-        analytics.trackNavigation('test-section', 'console');
-        setTimeout(() => console.log('✅ nav_click sent'), 100);
+//         // Test nav_click
+//         analytics.trackNavigation('test-section', 'console');
+//         setTimeout(() => console.log('✅ nav_click sent'), 100);
 
-        // Test project_click
-        setTimeout(() => {
-            analytics.trackProjectClick(999, 'Test Project', 0);
-            console.log('✅ project_click sent');
-        }, 200);
+//         // Test project_click
+//         setTimeout(() => {
+//             analytics.trackProjectClick(999, 'Test Project', 0);
+//             console.log('✅ project_click sent');
+//         }, 200);
 
-        // Test case_study_view
-        setTimeout(() => {
-            analytics.trackCaseStudyView(999, 'Test Case Study');
-            console.log('✅ case_study_view sent');
-        }, 300);
+//         // Test case_study_view
+//         setTimeout(() => {
+//             analytics.trackCaseStudyView(999, 'Test Case Study');
+//             console.log('✅ case_study_view sent');
+//         }, 300);
 
-        // Test case_study_navigation
-        setTimeout(() => {
-            analytics.trackCaseStudyNavigation('test_action', 'from', 'to');
-            console.log('✅ case_study_navigation sent');
-        }, 400);
+//         // Test case_study_navigation
+//         setTimeout(() => {
+//             analytics.trackCaseStudyNavigation('test_action', 'from', 'to');
+//             console.log('✅ case_study_navigation sent');
+//         }, 400);
 
-        setTimeout(() => {
-            // Flush any batched events
-            eventBatcher.flush();
-            console.log('🎯 All test events sent! Check Plausible dashboard.');
-        }, 500);
-    },
+//         setTimeout(() => {
+//             // Flush any batched events
+//             eventBatcher.flush();
+//             console.log('🎯 All test events sent! Check Plausible dashboard.');
+//         }, 500);
+//     },
 
-    // Check Plausible status with rate limiting info
-    status: () => {
-        console.log('📊 Analytics Status:');
-        console.log('- Plausible loaded:', typeof window.plausible !== 'undefined');
-        console.log('- Plausible function:', typeof window.plausible === 'function');
-        console.log('- Rate limiting: ✅ Enabled (30 events/minute per type)');
-        console.log('- Event batching: ✅ Enabled (batch size: 5, interval: 2s)');
-        console.log('- Scroll debouncing: ✅ Enabled (200ms)');
-        console.log('- CORS fix: ✅ Using standard Plausible script');
+//     // Check Plausible status with rate limiting info
+//     status: () => {
+//         console.log('📊 Analytics Status:');
+//         console.log('- Plausible loaded:', typeof window.plausible !== 'undefined');
+//         console.log('- Plausible function:', typeof window.plausible === 'function');
+//         console.log('- Rate limiting: ✅ Enabled (30 events/minute per type)');
+//         console.log('- Event batching: ✅ Enabled (batch size: 5, interval: 2s)');
+//         console.log('- Scroll debouncing: ✅ Enabled (200ms)');
+//         console.log('- CORS fix: ✅ Using standard Plausible script');
 
-        if (typeof window.plausible === 'function') {
-            console.log('✅ Plausible is ready for optimized event tracking');
-        } else {
-            console.log('❌ Plausible not loaded or not working');
-        }
+//         if (typeof window.plausible === 'function') {
+//             console.log('✅ Plausible is ready for optimized event tracking');
+//         } else {
+//             console.log('❌ Plausible not loaded or not working');
+//         }
 
-        return {
-            loaded: typeof window.plausible !== 'undefined',
-            functional: typeof window.plausible === 'function',
-            rateLimiting: true,
-            batching: true,
-            debouncing: true
-        };
-    },
+//         return {
+//             loaded: typeof window.plausible !== 'undefined',
+//             functional: typeof window.plausible === 'function',
+//             rateLimiting: true,
+//             batching: true,
+//             debouncing: true
+//         };
+//     },
 
-    // Test individual events
-    testNavClick: () => analytics.trackNavigation('console-test', 'browser-console'),
-    testProjectClick: () => analytics.trackProjectClick(998, 'Console Test Project', 0),
-    testCaseStudyView: () => analytics.trackCaseStudyView(998, 'Console Test Case Study'),
-    testCaseStudyNav: () => analytics.trackCaseStudyNavigation('console_test', 'from', 'to')
-};
+//     // Test individual events
+//     testNavClick: () => analytics.trackNavigation('console-test', 'browser-console'),
+//     testProjectClick: () => analytics.trackProjectClick(998, 'Console Test Project', 0),
+//     testCaseStudyView: () => analytics.trackCaseStudyView(998, 'Console Test Case Study'),
+//     testCaseStudyNav: () => analytics.trackCaseStudyNavigation('console_test', 'from', 'to')
+// };
 
 // Make testing functions available globally for console access
-if (typeof window !== 'undefined') {
-    (window as any).testAnalytics = testAnalytics;
-    console.log('🔧 Analytics testing functions available: window.testAnalytics');
-    console.log('💡 Try: testAnalytics.testAll() or testAnalytics.status()');
-}
+// if (typeof window !== 'undefined') {
+//     (window as any).testAnalytics = testAnalytics;
+//     console.log('🔧 Analytics testing functions available: window.testAnalytics');
+//     console.log('💡 Try: testAnalytics.testAll() or testAnalytics.status()');
+// }
 
 export default analytics;
