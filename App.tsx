@@ -13,11 +13,17 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ThemeProvider } from './components/ThemeContext';
 import { CursorProvider } from './components/CursorContext';
 import { ArrowDown } from 'lucide-react';
+import { initializeAnalytics } from './utils/analytics';
 
 function AppContent() {
   const [view, setView] = useState<'home' | 'case-study'>('home');
   const [activeProjectId, setActiveProjectId] = useState<number | null>(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  // Initialize analytics tracking
+  useEffect(() => {
+    initializeAnalytics();
+  }, []);
 
   // Scroll to top when view changes
   useEffect(() => {

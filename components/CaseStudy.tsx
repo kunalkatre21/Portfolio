@@ -7,6 +7,7 @@ import { WebInfraCaseStudy } from './case-studies/WebInfra';
 import { HeartRateCaseStudy } from './case-studies/HeartRate';
 import { works } from '../data';
 import { useTheme } from './ThemeContext';
+import { analytics } from '../utils/analytics';
 
 interface CaseStudyProps {
     id: number;
@@ -57,7 +58,10 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
             <div className="sticky top-0 left-0 right-0 z-50 bg-white/90 dark:bg-[#050505]/90 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800 p-4">
                 <div className="max-w-7xl mx-auto flex justify-between items-center relative">
                     <button
-                        onClick={onBack}
+                        onClick={() => {
+                            analytics.trackCaseStudyNavigation('back_to_portfolio');
+                            onBack();
+                        }}
                         className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors group"
                     >
                         <div className="p-2 rounded-full bg-neutral-100 dark:bg-neutral-800 group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-colors">
@@ -69,7 +73,11 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                     <div className="flex items-center gap-2 md:gap-3">
                         {/* Theme Toggle */}
                         <button
-                            onClick={toggleTheme}
+                            onClick={() => {
+                                toggleTheme();
+                                const newTheme = theme === 'dark' ? 'light' : 'dark';
+                                analytics.trackThemeToggle(newTheme);
+                            }}
                             className="p-2 rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white transition-colors"
                             aria-label="Toggle theme"
                         >
@@ -79,6 +87,7 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                         {/* Email Contact */}
                         <a
                             href="mailto:kunalkatre.designs@gmail.com"
+                            onClick={() => analytics.trackContactAction('email_click', 'kunalkatre.designs@gmail.com')}
                             className="p-2 rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white transition-colors"
                             aria-label="Contact via Email"
                         >
@@ -90,7 +99,10 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                         {/* Project Switcher */}
                         <div className="relative">
                             <button
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                onClick={() => {
+                                    setIsMenuOpen(!isMenuOpen);
+                                    analytics.trackCaseStudyNavigation('project_menu_toggle', isMenuOpen ? 'close' : 'open');
+                                }}
                                 className="flex items-center gap-2 px-4 py-2 rounded-full border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors text-sm font-medium"
                             >
                                 <span className="hidden md:inline">All Projects</span>
@@ -111,6 +123,7 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                                                 <button
                                                     key={work.id}
                                                     onClick={() => {
+                                                        analytics.trackCaseStudyNavigation('project_switch', works.find(w => w.id === id)?.title || 'unknown', work.title);
                                                         onChangeProject(work.id);
                                                         setIsMenuOpen(false);
                                                     }}
@@ -141,7 +154,10 @@ export const CaseStudy: React.FC<CaseStudyProps> = ({ id, onBack, onChangeProjec
                 <div className="max-w-7xl mx-auto px-4 py-20">
                     <p className="text-neutral-500 mb-8 text-center uppercase tracking-widest text-sm font-semibold">Next Case Study</p>
                     <div
-                        onClick={() => onChangeProject(nextProject.id)}
+                        onClick={() => {
+                            analytics.trackCaseStudyNavigation('next_project', works.find(w => w.id === id)?.title || 'unknown', nextProject.title);
+                            onChangeProject(nextProject.id);
+                        }}
                         className="cursor-pointer group relative rounded-[2.5rem] overflow-hidden h-[400px] w-full max-w-5xl mx-auto"
                     >
                         <img

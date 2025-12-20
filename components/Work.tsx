@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { WorkItem, WorkProps } from '../types';
 import { works } from '../data';
 import { useCursor } from './CursorContext';
+import { analytics } from '../utils/analytics';
 
 const ImageCarousel: React.FC<{ images: string[]; title: string }> = ({ images, title }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -122,6 +123,7 @@ const ProjectCard: React.FC<{ work: WorkItem; index: number; total: number; onCl
                 transition={{ duration: 0.5, delay: 0.1 }}
                 onClick={() => {
                     setCursorType('default');
+                    analytics.trackProjectClick(work.id, work.title, index);
                     onClick();
                 }}
                 onMouseEnter={() => setCursorType('project')}
