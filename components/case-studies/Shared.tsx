@@ -503,7 +503,7 @@ export const MobileShell = ({ children, className = "" }: { children?: React.Rea
 
 // --- TYPOGRAPHY & TEXT ---
 
-export const CaseMeta = ({ role, team, timeline, overview }: { role: string, team: string, timeline: string, overview: string }) => (
+export const CaseMeta = ({ role, team, timeline, overview, stack }: { role: string, team: string, timeline: string, overview: string, stack?: string[] }) => (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 border-t border-b border-neutral-800/20 dark:border-neutral-800 py-10 my-16">
         <div className="md:col-span-4 flex flex-col gap-8">
             <div>
@@ -518,6 +518,18 @@ export const CaseMeta = ({ role, team, timeline, overview }: { role: string, tea
                 <h4 className="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-widest mb-2">Duration</h4>
                 <p className="text-neutral-600 dark:text-neutral-400 font-medium">{timeline}</p>
             </div>
+            {stack && (
+                <div>
+                    <h4 className="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-widest mb-2">Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                        {stack.map((item, i) => (
+                            <span key={i} className="text-[10px] font-bold px-2 py-1 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 uppercase tracking-wider">
+                                {item}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
         <div className="md:col-span-8">
             <h4 className="text-xs font-bold text-neutral-900 dark:text-white uppercase tracking-widest mb-4">Overview</h4>

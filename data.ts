@@ -28,8 +28,8 @@ export const ASSETS = {
       hero: "https://picsum.photos/seed/webinfra/1200/800"
     },
     heartRate: {
-      cover: `${IK_BASE}/hr/measuring-final.png`,
-      hero: `${IK_BASE}/hr/measuring-final.png`,
+      cover: `${IK_BASE}/hr/homepage-card-images/form4.png`,
+      hero: `${IK_BASE}/hr/homepage-card-images/form4.png`,
       interface: `${IK_BASE}/hr/result-final.png`,
       onboarding: `${IK_BASE}/hr/pre-measure-final.webp`
     }
