@@ -1,0 +1,159 @@
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
+
+# can you create a md file with all the content as draft
+
+Here is the complete, portfolio-ready markdown file. It integrates the structure, the polished narrative, the "Two-Act Play" concept, and the technical deep dives into a cohesive story.
+
+You can copy-paste this directly into your portfolio editor.
+
+```markdown
+# Scaling Consistency: Automating the Design-to-Code Pipeline
+
+**Role:** Design Systems Architect  
+**Timeline:** 4 Weeks  
+**Tools:** Figma Token Studio, GitHub Actions, Style Dictionary, Node.js
+
+---
+
+## 1. Executive Summary
+
+**The Challenge:**  
+Our mobile product was suffering from "Design Drift." While our design system (v1) was visually polished in Figma, the translation to code was manual and error-prone. Developers were guessing which hex codes to use, leading to inconsistencies between iOS and Android.
+
+**The Solution:**  
+I architected and built an automated **DesignOps pipeline** that treats design tokens as production code. By connecting Figma directly to our codebases via GitHub Actions, we eliminated manual handoff entirely.
+
+**The Impact:**
+*   **95% Reduction** in token update time (2 days → ~5 minutes).
+*   **100% Consistency** across Light/Dark modes on iOS/Android.
+*   **Zero Handoff:** Developers no longer copy-paste values; they simply merge Pull Requests.
+
+---
+
+## 2. The Problem: "The Library of Pictures"
+
+Before this automation, our design system was essentially a "library of pictures." It looked great, but it wasn't connected to reality.
+
+**The Friction Points:**
+1.  **Manual Translation:** Developers had to manually inspect Figma files and type hex codes into `colors.xml` or `Colors.xcassets`.
+2.  **The "Silent Failure":** If a designer updated a color from `#6B5CE0` to `#6B5CE1`, no one knew until a QA engineer spotted it weeks later.
+3.  **Fear of Change:** Because updating tokens required manual refactoring across three repositories (Web, iOS, Android), designers were afraid to iterate on the visual language.
+
+![Diagram: The Chaos of Manual Handoff](https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/75bc4da4b4021280997562df3c4d9db2/e5e0bd12-f273-4051-bc48-3dbc7991f485/2f5efabc.png)
+*Figure 1: The manual workflow led to multiple sources of truth and constant communication breakdowns.*
+
+---
+
+## 3. The Architecture: Treating Design as Code
+
+I hypothesized that if we treated design tokens as **data** rather than **specs**, we could automate the entire delivery process.
+
+**The Pipeline Workflow:**
+1.  **Input:** Designer pushes updates from **Figma Token Studio** to a GitHub repository.
+2.  **Middleware:** A **GitHub Action** triggers a build script using **Style Dictionary**.
+3.  **Output:** The system automatically generates native code (`.kt`, `.swift`, `.css`) and opens Pull Requests in the respective product repos.
+
+![Diagram: The Automated Pipeline](https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/75bc4da4b4021280997562df3c4d9db2/b9c06a97-b842-4f71-9a77-528a0756a508/1507fbb4.png)
+*Figure 2: The new linear pipeline ensures a single source of truth flows directly to all platforms.*
+
+---
+
+## 4. The Engineering: How It Actually Works
+
+The core innovation wasn't just "using Style Dictionary"; it was engineering a custom middleware to handle the messy reality of design data. I utilized AI agents as technical co-pilots to accelerate the development of these complex scripts.
+
+### Challenge 1: The "Dirty Data" Problem
+**The Friction:** Figma Token Studio exports JSON full of metadata (`$themes`, `$metadata`) that causes standard build tools to choke or generate bloated code.
+**The Fix:** We built a custom "Sanitization Stage" (`parser.js`) that runs before the build to surgically remove non-token data.
+
+```
+
+// parser.js: The "Janitor" Script
+// We explicitly strip metadata to ensure only pure token data enters the build.
+delete obj['$themes'];
+delete obj['$metadata'];
+// Result: 100% clean input for Style Dictionary, preventing build collisions.
+
+```
+
+### Challenge 2: The "Broken Link" Crisis
+**The Friction:** Our design system uses deep aliasing (e.g., `button.bg` references `semantic.primary`). Often, these links would break during export, resulting in relative paths like `{color.purple.500}` being treated as plain text strings.
+**The Fix:** I engineered a custom transformer, `resolve-relative-references.js`, that acts as a "detective" to hunt down missing parent paths and auto-correct references on the fly.
+
+```
+
+// resolve-relative-references.js: The "Detective" Script
+const KNOWN_TOKEN_SETS = ["primitive/patient-light", "semantic/doctor-dark", ...];
+
+// If a reference is broken (e.g., "{color.primary}"), we try prefixing it with known sets
+for (const set of KNOWN_TOKEN_SETS) {
+const newRef = `${set}.${ref}`; // e.g., "primitive/patient-light.color.primary"
+if (dictionary.get(newRef)) {
+return `{${newRef}}`; // Auto-fix the link!
+}
+}
+
+```
+
+### Challenge 3: True Native Output
+**The Friction:** Developers hate generic JSON files. They want code that fits their platform's paradigms.
+**The Fix:** We wrote custom formatters to generate "Native-First" code.
+
+**For iOS (SwiftUI):**
+Instead of a simple list, we generate a `TypographyStyle` struct that automatically handles **Dynamic Type** scaling—a critical accessibility feature often missed in automated pipelines.
+
+```
+
+// swift-uifont-formatter.js
+// We map our tokens to Apple's native text styles
+const uiFontTextStyle = mapToUIFontTextStyle(styleGroup); // e.g., "body", "headline"
+return `metrics.scaledFont(for: font)`; // Supports Dynamic Type out of the box
+
+```
+
+**For Android (Jetpack Compose):**
+We generate a fully compliant `MaterialTheme` object. The developer doesn't need to know our token names; they just use the standard Material 3 API.
+
+```
+
+// compose-material-scheme.js
+// Mapping our tokens to strict Material 3 slots
+const materialSlots = {
+"primary": "{color.primary.500}",
+"onPrimary": "{color.neutral.100}",
+"error": "{color.danger.500}"
+};
+// Devs write "MaterialTheme.colorScheme.primary" and get our brand purple automatically.
+
+```
+
+---
+
+## 5. The User Experience: Invisible Handoff
+
+For the developer, this complex pipeline is invisible. Their experience has shifted from manual data entry to simple code review.
+
+**The "Magic Moment":**
+1.  Designer updates a color in Figma.
+2.  **5 minutes later...**
+3.  A Pull Request appears in the Android Repo: **"🎨 Auto-update: Style Dictionary changes"**
+4.  Developer clicks "Merge."
+
+> "It is mathematically impossible for the iOS app to have a different Primary Blue than the Android app, as they are now sourced from the same JSON."
+
+---
+
+## 6. Results & Retrospective
+
+**Key Outcomes:**
+*   **Scalability:** The system now supports multi-brand theming (e.g., "Patient App" vs. "Doctor App") using the same underlying logic.
+*   **Speed:** Brand-wide color updates that took days now take minutes.
+*   **Trust:** Developers now trust the design system because it delivers *working code*, not just pictures.
+
+**Lessons Learned:**
+We initially attempted to automate **Component Styling** (e.g., generating Button code). However, we found that the maintenance cost was too high for our team size. We pivoted to focusing solely on **Tokens (Colors, Typography)**, which provided 80% of the value with 20% of the effort.
+
+**Conclusion:**
+This project proved that designers can—and should—own the "logic" of the design system. By automating the mundane parts of handoff, we freed up both design and engineering time to focus on building great product experiences.
+```
+
