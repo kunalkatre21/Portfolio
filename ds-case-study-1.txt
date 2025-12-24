@@ -156,4 +156,4 @@ We initially attempted to automate **Component Styling** (e.g., generating Butto
 **Conclusion:**
 This project proved that designers can—and should—own the "logic" of the design system. By automating the mundane parts of handoff, we freed up both design and engineering time to focus on building great product experiences.
 ```
-
+domain.intent.variant.state

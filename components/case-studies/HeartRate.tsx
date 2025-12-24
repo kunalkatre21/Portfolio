@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Activity, Heart, ArrowUp, Users, Play, AlertTriangle, Smartphone, Zap, TrendingUp, CheckCircle, Clock, Shield, Search, Eye, Cpu, Accessibility, Repeat, Target } from 'lucide-react';
-import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, List, CaseMeta, ScreenFlow, PersonaSwitcher, HeroCarousel, FunnelItem, TableOfContents } from './Shared';
+import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, List, CaseMeta, ScreenFlow, PersonaSwitcher, HeroCarousel, FunnelItem, TableOfContents, ZoomableImage } from './Shared';
 import { ASSETS } from '../../data';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -14,22 +14,22 @@ export const HeartRateCaseStudy: React.FC = () => {
         {
             title: "Ambiguous Onboarding",
             desc: "Static images didn't show finger placement. Users failed before scanning started.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-step-1.png?updatedAt=1765891830352"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-step-1.png"
         },
         {
             title: "Weak Feedback",
             desc: "UI showed countdown only. No confirmation pulse was detected.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-measurement-screen.png?updatedAt=1765891830179"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-measurement-screen.png"
         },
         {
             title: "Destructive Error State",
             desc: "Error screens blamed users. No advice on how to fix the problem.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-error-screen.png?updatedAt=1765891830041"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-error-screen.png"
         },
         {
             title: "'So What?' Result",
             desc: "Result screen was a dead end. No context. Tool felt like a one-time gimmick.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-result-screen.png?updatedAt=1765891830307"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-result-screen.png"
         }
     ];
 
@@ -64,7 +64,7 @@ export const HeartRateCaseStudy: React.FC = () => {
         {
             title: "Live Visual Feedback",
             desc: "Made the invisible visible. Added progress circle, live BPM, and PPG graph. Users saw what was happening.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png?updatedAt=1765891830726",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png",
             isAudio: false
         },
         {
@@ -76,13 +76,13 @@ export const HeartRateCaseStudy: React.FC = () => {
         {
             title: "Haptic Pulse Approach",
             desc: "Users felt measurement without looking. Eliminated the need to check the screen constantly.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png?updatedAt=1765891830726",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png",
             isAudio: false
         },
         {
             title: "Final Sensory Solution",
             desc: "Combined haptic pulse with visual feedback. Multi-sensory approach eliminated 'phone flip' completely.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png?updatedAt=1765891830726",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png",
             isAudio: false
         }
     ];
@@ -91,32 +91,32 @@ export const HeartRateCaseStudy: React.FC = () => {
         {
             title: "User State Input",
             desc: "Added physical state input (Resting, Walking). Data Science team used this to calibrate results. Generic number became personalized insight.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/user-state-input.png?updatedAt=1765891830352"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/user-state-input.png"
         },
         {
             title: "Heart Rate Status",
             desc: "Showed interpreted status like 'Normal for resting'. Changed 'BPM' to 'beats/min' to avoid confusion with BP monitors.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/heart-rate-state.png?updatedAt=1765891830307"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/heart-rate-state.png"
         },
         {
             title: "Reading Confidence",
             desc: "Added confidence score showing signal quality. Turned user doubt ('Is this right?') into education.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/reading-confidence.png?updatedAt=1765891830041"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/reading-confidence.png"
         },
         {
             title: "Actionable Trends",
             desc: "Created insight cards summarizing trends. 'Your average heart rate increased by 5 bpm.' Data became story.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/actionable-trends.png?updatedAt=1765891830503"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/actionable-trends.png"
         },
         {
             title: "Proactive Triggers",
             desc: "Built Reminders, Widgets, and Siri Shortcuts. Moved interaction outside the app. Created low-friction pathways back.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/pro-active-triggers.png?updatedAt=1765891830503"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/pro-active-triggers.png"
         },
         {
             title: "Ecosystem Integration",
             desc: "Made result screen a gateway to ecosystem. Added links to Heart Health Assessments, Lab Packages, and ABHA health ID.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/ecosystem-growth.png?updatedAt=1765891830307"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/ecosystem-growth.png"
         }
     ];
 
@@ -211,7 +211,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     <div className="relative group">
                                         <div className="absolute -inset-4 bg-blue-500/10 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                         <img
-                                            src="https://ik.imagekit.io/vtitfjbr6/hr/research.png?updatedAt=1765891831951"
+                                            src="https://ik.imagekit.io/vtitfjbr6/hr/research.png"
                                             alt="On-ground user research sessions"
                                             className="w-full rounded-[2.5rem] border border-neutral-200 dark:border-neutral-800 shadow-2xl relative z-10"
                                         />
@@ -396,10 +396,11 @@ export const HeartRateCaseStudy: React.FC = () => {
                             <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
                                 Mapped first-time user journey. Found trust eroded during 15-second scan. That was our biggest opportunity.
                             </p>
-                            <img
+                            <ZoomableImage
                                 src="https://ik.imagekit.io/vtitfjbr6/hr/FTUX-journey-map.webp"
                                 alt="FTUX Journey Map"
                                 className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg"
+                                fill={false}
                             />
                         </div>
                         <div>
@@ -407,10 +408,11 @@ export const HeartRateCaseStudy: React.FC = () => {
                             <p className="text-neutral-600 dark:text-neutral-400 mb-8 leading-relaxed">
                                 Returning users hit a dead end. No historical context. That's why they churned.
                             </p>
-                            <img
-                                src="https://ik.imagekit.io/vtitfjbr6/hr/RTUX-journey-map.webp?updatedAt=1765891830503"
+                            <ZoomableImage
+                                src="https://ik.imagekit.io/vtitfjbr6/hr/RTUX-journey-map.webp"
                                 alt="RTUX Journey Map"
                                 className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg"
+                                fill={false}
                             />
                         </div>
                     </div>
