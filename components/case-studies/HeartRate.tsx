@@ -301,17 +301,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                                         alt={heuristicItems[activeAuditIdx].title}
                                                         className="w-full h-full object-cover"
                                                     />
-                                                    <div className="absolute inset-0 p-8 pointer-events-none z-20">
-                                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-red-500/30 flex items-center justify-center animate-pulse">
-                                                            <div className="w-4 h-4 rounded-full bg-red-500/50" />
-                                                        </div>
-                                                        <div className="absolute top-1/3 right-4 w-12 h-px bg-red-500/50" />
-                                                        <div className="absolute top-1/3 right-16 text-[8px] font-black font-mono text-red-500 uppercase tracking-widest bg-white dark:bg-neutral-900 px-2 py-0.5 rounded shadow-sm">
-                                                            {activeAuditIdx === 0 ? 'ONBOARDING_GAP' :
-                                                                activeAuditIdx === 1 ? 'FEEDBACK_MISSING' :
-                                                                    activeAuditIdx === 2 ? 'USER_ERROR' : 'VALUE_VOID'}
-                                                        </div>
-                                                    </div>
+
                                                 </motion.div>
                                             </AnimatePresence>
                                         </MobileShell>
@@ -525,17 +515,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                                             className="w-full h-full object-cover"
                                                         />
                                                     )}
-                                                    <div className="absolute inset-0 p-8 pointer-events-none z-20">
-                                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-orange-500/30 flex items-center justify-center animate-pulse">
-                                                            <div className="w-4 h-4 rounded-full bg-orange-500/50" />
-                                                        </div>
-                                                        <div className="absolute top-1/3 right-4 w-12 h-px bg-orange-500/50" />
-                                                        <div className="absolute top-1/3 right-16 text-[8px] font-black font-mono text-orange-500 uppercase tracking-widest bg-white dark:bg-neutral-900 px-2 py-0.5 rounded shadow-sm">
-                                                            {activeOnboardingIdx === 0 ? 'VIDEO_GUIDE' :
-                                                                activeOnboardingIdx === 1 ? 'HYBRID_SETUP' :
-                                                                    activeOnboardingIdx === 2 ? 'ACTIVE_FEEDBACK' : 'PASSIVE_HANDLING'}
-                                                        </div>
-                                                    </div>
+
                                                 </motion.div>
                                             </AnimatePresence>
                                         </MobileShell>
@@ -655,17 +635,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                                             className="w-full h-full object-cover"
                                                         />
                                                     )}
-                                                    <div className="absolute inset-0 p-8 pointer-events-none z-20">
-                                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-green-500/30 flex items-center justify-center animate-pulse">
-                                                            <div className="w-4 h-4 rounded-full bg-green-500/50" />
-                                                        </div>
-                                                        <div className="absolute top-1/3 right-4 w-12 h-px bg-green-500/50" />
-                                                        <div className="absolute top-1/3 right-16 text-[8px] font-black font-mono text-green-500 uppercase tracking-widest bg-white dark:bg-neutral-900 px-2 py-0.5 rounded shadow-sm">
-                                                            {activeMeasurementIdx === 0 ? 'VISUAL_FEEDBACK' :
-                                                                activeMeasurementIdx === 1 ? 'HAPTIC_PULSE' :
-                                                                    activeMeasurementIdx === 2 ? 'HAPTIC_APPROACH' : 'SENSORY_SOLUTION'}
-                                                        </div>
-                                                    </div>
+
                                                 </motion.div>
                                             </AnimatePresence>
                                         </MobileShell>
@@ -776,19 +746,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                                         alt={resultItems[activeResultIdx].title}
                                                         className="w-full h-full object-cover"
                                                     />
-                                                    <div className="absolute inset-0 p-8 pointer-events-none z-20">
-                                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-blue-500/30 flex items-center justify-center animate-pulse">
-                                                            <div className="w-4 h-4 rounded-full bg-blue-500/50" />
-                                                        </div>
-                                                        <div className="absolute top-1/3 right-4 w-12 h-px bg-blue-500/50" />
-                                                        <div className="absolute top-1/3 right-16 text-[8px] font-black font-mono text-blue-500 uppercase tracking-widest bg-white dark:bg-neutral-900 px-2 py-0.5 rounded shadow-sm">
-                                                            {activeResultIdx === 0 ? 'USER_STATE' :
-                                                                activeResultIdx === 1 ? 'HEART_STATUS' :
-                                                                    activeResultIdx === 2 ? 'READING_CONF' :
-                                                                        activeResultIdx === 3 ? 'ACTIONABLE_TRENDS' :
-                                                                            activeResultIdx === 4 ? 'PROACTIVE_TRIGGERS' : 'ECOSYSTEM_INT'}
-                                                        </div>
-                                                    </div>
+
                                                 </motion.div>
                                             </AnimatePresence>
                                         </MobileShell>
