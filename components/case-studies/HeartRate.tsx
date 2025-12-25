@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Activity, Heart, ArrowUp, Users, Play, AlertTriangle, Smartphone, Zap, TrendingUp, CheckCircle, Clock, Shield, Search, Eye, Cpu, Accessibility, Repeat, Target } from 'lucide-react';
+import { Activity, Heart, ArrowUp, Users, Play, AlertTriangle, Smartphone, Zap, TrendingUp, CheckCircle, Clock, Shield, Search, Eye, Cpu, Accessibility, Repeat, Target, Volume2 } from 'lucide-react';
 import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, List, CaseMeta, ScreenFlow, PersonaSwitcher, HeroCarousel, FunnelItem, TableOfContents, ZoomableImage } from './Shared';
 import { ASSETS } from '../../data';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -68,21 +68,21 @@ export const HeartRateCaseStudy: React.FC = () => {
             isAudio: false
         },
         {
-            title: "Simulated 'Lub-Dub' Haptic Pulse",
-            desc: "Solved the 'phone flip' problem. Used vibration motor to create heartbeat pulse users could feel.",
+            title: "Haptic Pulse Feedback",
+            desc: "Solved the 'phone flip' problem. Users felt the heartbeat through vibration without needing to look at the screen.",
             media: "https://ik.imagekit.io/vtitfjbr6/hr/60bpm.mp3",
             isAudio: true
         },
         {
-            title: "Haptic Pulse Approach",
-            desc: "Users felt measurement without looking. Eliminated the need to check the screen constantly.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png",
-            isAudio: false
+            title: "Auditory Reinforcement",
+            desc: "Added subtle sound feedback to confirm measurement progress, creating a multi-sensory confidence loop.",
+            media: "https://ik.imagekit.io/vtitfjbr6/hr/60bpm.mp3",
+            isAudio: true
         },
         {
-            title: "Final Sensory Solution",
-            desc: "Combined haptic pulse with visual feedback. Multi-sensory approach eliminated 'phone flip' completely.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png",
+            title: "Reading Confidence",
+            desc: "Added confidence score showing signal quality. Turned user doubt ('Is this right?') into education.",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/reading-confidence.png",
             isAudio: false
         }
     ];
@@ -97,11 +97,6 @@ export const HeartRateCaseStudy: React.FC = () => {
             title: "Heart Rate Status",
             desc: "Showed interpreted status like 'Normal for resting'. Changed 'BPM' to 'beats/min' to avoid confusion with BP monitors.",
             image: "https://ik.imagekit.io/vtitfjbr6/hr/heart-rate-state.png"
-        },
-        {
-            title: "Reading Confidence",
-            desc: "Added confidence score showing signal quality. Turned user doubt ('Is this right?') into education.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/reading-confidence.png"
         },
         {
             title: "Actionable Trends",
@@ -399,7 +394,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 Returning users hit a dead end. No historical context. That's why they churned.
                             </p>
                             <ZoomableImage
-                                src="https://ik.imagekit.io/vtitfjbr6/hr/RTUX-journey-map.webp"
+                                src="https://ik.imagekit.io/vtitfjbr6/hr/RTUX-journey-map.webp?updatedAt=1766662512117"
                                 alt="RTUX Journey Map"
                                 className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg"
                                 fill={false}
@@ -621,12 +616,41 @@ export const HeartRateCaseStudy: React.FC = () => {
                                                     className="w-full h-full relative"
                                                 >
                                                     {measurementItems[activeMeasurementIdx].isAudio ? (
-                                                        <div className="w-full h-full flex items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-                                                            <audio
-                                                                src={measurementItems[activeMeasurementIdx].media}
-                                                                controls
-                                                                className="w-3/4"
-                                                            />
+                                                        <div className="w-full h-full flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 relative overflow-hidden">
+                                                            {/* Background accent */}
+                                                            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-500 via-transparent to-transparent" />
+
+                                                            <div className="relative z-10 flex flex-col items-center gap-6 p-8 w-full max-w-[240px]">
+                                                                <div className="w-24 h-24 rounded-full bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center border border-neutral-100 dark:border-neutral-700 relative group cursor-pointer">
+                                                                    <div className="absolute inset-0 rounded-full border-2 border-green-500/20 animate-ping opacity-20" />
+                                                                    <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-105">
+                                                                        <Play fill="white" className="text-white ml-1" size={24} />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div className="text-center space-y-2">
+                                                                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider">
+                                                                        {activeMeasurementIdx === 1 ? 'Haptic Feedback' : 'Audio Feedback'}
+                                                                    </h4>
+                                                                    <div className="flex items-center justify-center gap-1 h-8">
+                                                                        {[...Array(5)].map((_, i) => (
+                                                                            <div
+                                                                                key={i}
+                                                                                className="w-1 bg-green-500/50 rounded-full animate-pulse"
+                                                                                style={{
+                                                                                    height: `${Math.random() * 100}%`,
+                                                                                    animationDelay: `${i * 0.1}s`
+                                                                                }}
+                                                                            />
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+
+                                                                <audio
+                                                                    src={measurementItems[activeMeasurementIdx].media}
+                                                                    className="hidden"
+                                                                />
+                                                            </div>
                                                         </div>
                                                     ) : (
                                                         <img
@@ -669,14 +693,27 @@ export const HeartRateCaseStudy: React.FC = () => {
                             <div className="flex overflow-x-auto no-scrollbar gap-8 pb-12 -mx-4 px-4 snap-x snap-mandatory">
                                 {measurementItems.map((item, idx) => (
                                     <div key={idx} className="min-w-[280px] snap-center">
-                                        <MobileShell className="mb-8 shadow-xl ring-1 ring-neutral-200 dark:ring-neutral-800">
+                                        <MobileShell className="w-full mb-8 shadow-xl ring-1 ring-neutral-200 dark:ring-neutral-800">
                                             {item.isAudio ? (
-                                                <div className="w-full h-full flex items-center justify-center bg-neutral-100 dark:bg-neutral-800">
-                                                    <audio
-                                                        src={item.media}
-                                                        controls
-                                                        className="w-3/4"
-                                                    />
+                                                <div className="w-full h-full flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 relative overflow-hidden w-[280px]">
+                                                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-500 via-transparent to-transparent" />
+
+                                                    <div className="relative z-10 flex flex-col items-center gap-6 p-8 w-full max-w-[240px]">
+                                                        <div className="w-24 h-24 rounded-full bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center border border-neutral-100 dark:border-neutral-700 relative group cursor-pointer">
+                                                            <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                                                                <Play fill="white" className="text-white ml-1" size={24} />
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="text-center space-y-2">
+                                                            <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider">
+                                                                {idx === 1 ? 'Haptic Feedback' : 'Audio Feedback'}
+                                                            </h4>
+                                                            <div className="flex items-center justify-center gap-1 h-8">
+                                                                <Volume2 className="text-green-500 animate-pulse" size={20} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             ) : (
                                                 <img
