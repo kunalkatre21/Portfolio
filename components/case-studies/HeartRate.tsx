@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Activity, Heart, ArrowUp, Users, Play, AlertTriangle, Smartphone, Zap, TrendingUp, CheckCircle, Clock, Shield, Search, Eye, Cpu, Accessibility, Repeat, Target, Volume2 } from 'lucide-react';
+import { Activity, Heart, ArrowUp, Layers, ArrowUpRight, Users, Play, AlertTriangle, Smartphone, Zap, TrendingUp, CheckCircle, Clock, Shield, Search, Eye, Cpu, Accessibility, Repeat, Target, Volume2 } from 'lucide-react';
 import { InsightCard, GoalCard, StatCard, DesignHighlight, SectionTitle, QuoteBlock, BrowserWindow, MobileShell, Divider, TextHighlight, List, CaseMeta, ScreenFlow, PersonaSwitcher, HeroCarousel, FunnelItem, TableOfContents, ZoomableImage } from './Shared';
 import { ASSETS } from '../../data';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,41 +14,48 @@ export const HeartRateCaseStudy: React.FC = () => {
         {
             title: "Ambiguous Onboarding",
             desc: "Static images didn't show finger placement. Users failed before scanning started.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-step-1.png"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-step-1.png?updatedAt=1766684486968"
         },
         {
             title: "Weak Feedback",
-            desc: "UI showed countdown only. No confirmation pulse was detected.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-measurement-screen.png"
+            desc: "The timer goes back to 0 sec at a very small movement hand movement.",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-measurement-screen.png?updatedAt=1766684486884"
         },
         {
             title: "Destructive Error State",
             desc: "Error screens blamed users. No advice on how to fix the problem.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-error-screen.png"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-error-screen.png?updatedAt=1766684486770"
         },
         {
             title: "'So What?' Result",
             desc: "Result screen was a dead end. No context. Tool felt like a one-time gimmick.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-result-screen.png"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/v1-result-screen.png?updatedAt=1766684486990"
         }
     ];
 
     const onboardingItems = [
         {
             title: "Video-Guided Introduction",
-            desc: "Built 15-second video showing finger placement. Added '5M+ Readings' trust signal. First-try success up 21%.",
+            desc: "Built 15-second video showing finger placement showcasing user correcting wrong finger placement and successfully measuring their heart rate.",
             media: "https://ik.imagekit.io/vtitfjbr6/hr/instruction%20video-1.mp4",
             isVideo: true
         },
         {
             title: "Pre-Measure Setup",
-            desc: "Combined video with camera view. Users saw exactly where to place fingers. Drop-off cut by 40%.",
-            media: "https://ik.imagekit.io/vtitfjbr6/hr/pre-measure-final.webp",
+            desc: "Combined instruction video with camera view. Users saw exactly where to place fingers.",
+            media: "https://ik.imagekit.io/vtitfjbr6/hr/pre-measure-final.webp?updatedAt=1766685082782",
+            isVideo: false
+        },
+        {
+            title: "Flash Blinking, Haptic and Audio Interventions",
+            desc: "Improved user experience through flash blinking, haptic vibration and audio feedback, creating a multi-sensory confidence loop.",
+            media: "https://ik.imagekit.io/vtitfjbr6/hr/haptic-audio-feedback.mp3",
+            isAudio: true,
             isVideo: false
         },
         {
             title: "Active Error Prevention",
-            desc: "Added real-time 'Motion Detected!' alerts. Stopped 30-second failures before they happened.",
+            desc: "Added real-time 'Motion Detected!' alerts. Stopped progress reset after tiny motion detection.",
             media: "https://ik.imagekit.io/vtitfjbr6/hr/error-handling-active.webp",
             isVideo: false
         },
@@ -62,41 +69,40 @@ export const HeartRateCaseStudy: React.FC = () => {
 
     const measurementItems = [
         {
+            title: "Adding social proof",
+            desc: "Embedded social proof directly into the first video. This established immediate credibility before the measurement even started.",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/social-proof.png",
+            isAudio: false,
+            media: ""
+        },
+        {
             title: "Live Visual Feedback",
             desc: "Made the invisible visible. Added progress circle, live BPM, and PPG graph. Users saw what was happening.",
             image: "https://ik.imagekit.io/vtitfjbr6/hr/measuring-final.png",
-            isAudio: false
+            isAudio: false,
+            media: ""
         },
         {
-            title: "Haptic Pulse Feedback",
-            desc: "Solved the 'phone flip' problem. Users felt the heartbeat through vibration without needing to look at the screen.",
-            media: "https://ik.imagekit.io/vtitfjbr6/hr/60bpm.mp3",
-            isAudio: true
-        },
-        {
-            title: "Auditory Reinforcement",
-            desc: "Added subtle sound feedback to confirm measurement progress, creating a multi-sensory confidence loop.",
-            media: "https://ik.imagekit.io/vtitfjbr6/hr/60bpm.mp3",
-            isAudio: true
+            title: "User State Input",
+            desc: "Added physical state input (Resting, Walking). Data Science team used this to calibrate results. Generic number became personalized insight.",
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/user-state-input.png",
+            isAudio: false,
+            media: ""
         },
         {
             title: "Reading Confidence",
             desc: "Added confidence score showing signal quality. Turned user doubt ('Is this right?') into education.",
             image: "https://ik.imagekit.io/vtitfjbr6/hr/reading-confidence.png",
-            isAudio: false
+            isAudio: false,
+            media: ""
         }
     ];
 
     const resultItems = [
         {
-            title: "User State Input",
-            desc: "Added physical state input (Resting, Walking). Data Science team used this to calibrate results. Generic number became personalized insight.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/user-state-input.png"
-        },
-        {
             title: "Heart Rate Status",
             desc: "Showed interpreted status like 'Normal for resting'. Changed 'BPM' to 'beats/min' to avoid confusion with BP monitors.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/heart-rate-state.png"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/heart-rate-state.png?updatedAt=1766600836833"
         },
         {
             title: "Actionable Trends",
@@ -159,10 +165,10 @@ export const HeartRateCaseStudy: React.FC = () => {
 
                 {/* Stats */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-24">
-                    <StatCard value="+21%" label="Conversion" subLabel="Lift" />
-                    <StatCard value="2x" label="Retention" subLabel="Week 4" />
-                    <StatCard value="4 Mo" label="Timeline" subLabel="Oct-Jan" />
-                    <StatCard value="+46%" label="Trend" />
+                    <StatCard value="75%" label="Completion" subLabel="First-Time Success" />
+                    <StatCard value="+21%" label="Lift" subLabel="Funnel Conversion" />
+                    <StatCard value="9.8%" label="Retention" subLabel="Week 4 Cohort" />
+                    <StatCard value="2.3x" label="Growth" subLabel="Engagement Lift" />
                 </div>
 
                 {/* Section 1: The Setup */}
@@ -442,10 +448,11 @@ export const HeartRateCaseStudy: React.FC = () => {
                         <div className="bg-neutral-50 dark:bg-neutral-900/40 rounded-[2.5rem] p-6 md:p-12 border border-neutral-200 dark:border-neutral-800 shadow-inner group">
                             <div className="relative overflow-hidden rounded-3xl">
                                 <div className="absolute -inset-10 bg-blue-500/5 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                                <img
+                                <ZoomableImage
                                     src="https://ik.imagekit.io/vtitfjbr6/hr/flowchart.png"
                                     alt="Strategic Design Interventions Flowchart"
-                                    className="w-full relative z-10"
+                                    className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg"
+                                    fill={false}
                                 />
                             </div>
                         </div>
@@ -496,7 +503,44 @@ export const HeartRateCaseStudy: React.FC = () => {
                                                     exit={{ opacity: 0, scale: 1.05 }}
                                                     className="w-full h-full relative"
                                                 >
-                                                    {onboardingItems[activeOnboardingIdx].isVideo ? (
+                                                    {onboardingItems[activeOnboardingIdx].isAudio ? (
+                                                        <div className="w-full h-full flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 relative overflow-hidden">
+                                                            {/* Background accent */}
+                                                            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-orange-500 via-transparent to-transparent" />
+
+                                                            <div className="relative z-10 flex flex-col items-center gap-6 p-8 w-full w-[280px]">
+                                                                <div className="w-24 h-24 rounded-full bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center border border-neutral-100 dark:border-neutral-700 relative group cursor-pointer">
+                                                                    <div className="absolute inset-0 rounded-full border-2 border-orange-500/20 animate-ping opacity-20" />
+                                                                    <div className="w-16 h-16 rounded-full bg-orange-500 flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-105">
+                                                                        <Play fill="white" className="text-white ml-1" size={24} />
+                                                                    </div>
+                                                                </div>
+
+                                                                <div className="text-center space-y-2">
+                                                                    <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider">
+                                                                        Haptic and Audio Feedback
+                                                                    </h4>
+                                                                    <div className="flex items-center justify-center gap-1 h-8">
+                                                                        {[...Array(5)].map((_, i) => (
+                                                                            <div
+                                                                                key={i}
+                                                                                className="w-1 bg-orange-500/50 rounded-full animate-pulse"
+                                                                                style={{
+                                                                                    height: `${Math.random() * 100}%`,
+                                                                                    animationDelay: `${i * 0.1}s`
+                                                                                }}
+                                                                            />
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+
+                                                                <audio
+                                                                    src={onboardingItems[activeOnboardingIdx].media}
+                                                                    className="hidden"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    ) : onboardingItems[activeOnboardingIdx].isVideo ? (
                                                         <video
                                                             src={onboardingItems[activeOnboardingIdx].media}
                                                             controls
@@ -545,7 +589,28 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 {onboardingItems.map((item, idx) => (
                                     <div key={idx} className="min-w-[280px] snap-center">
                                         <MobileShell className="mb-8 shadow-xl ring-1 ring-neutral-200 dark:ring-neutral-800">
-                                            {item.isVideo ? (
+                                            {item.isAudio ? (
+                                                <div className="w-full h-full flex items-center justify-center bg-neutral-50 dark:bg-neutral-900 relative overflow-hidden w-[280px]">
+                                                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-500 via-transparent to-transparent" />
+
+                                                    <div className="relative z-10 flex flex-col items-center gap-6 p-8 w-full max-w-[240px]">
+                                                        <div className="w-24 h-24 rounded-full bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center border border-neutral-100 dark:border-neutral-700 relative group cursor-pointer">
+                                                            <div className="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                                                                <Play fill="white" className="text-white ml-1" size={24} />
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="text-center space-y-2">
+                                                            <h4 className="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-wider">
+                                                                Haptic and Audio Feedback
+                                                            </h4>
+                                                            <div className="flex items-center justify-center gap-1 h-8">
+                                                                <Volume2 className="text-green-500 animate-pulse" size={20} />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : item.isVideo ? (
                                                 <video
                                                     src={item.media}
                                                     controls
@@ -835,7 +900,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                     </div>
 
                     {/* Technical Deep Dive - NEW */}
-                    <div className="mt-32">
+                    {/* <div className="mt-32">
                         <h3 className="text-3xl font-bold mb-12 text-neutral-900 dark:text-white flex items-center gap-4">
                             <Cpu className="text-blue-500" /> Technical Deep Dive
                         </h3>
@@ -859,10 +924,10 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Accessibility & Inclusivity - NEW */}
-                    <div className="mt-32">
+                    {/* <div className="mt-32">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div>
                                 <h3 className="text-3xl font-bold mb-6 text-neutral-900 dark:text-white flex items-center gap-4">
@@ -888,7 +953,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                 <QuoteBlock quote="The goal was to make it reliable for any person, on any phone, anywhere." />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </section>
 
                 <Divider />
@@ -897,55 +962,155 @@ export const HeartRateCaseStudy: React.FC = () => {
                 <section className="mb-24">
                     <SectionTitle number="05" title="Impact & Learnings" id="impact" />
 
-                    <div className="mb-12">
-                        <h3 className="text-2xl font-bold mb-6 text-neutral-900 dark:text-white">Conversion Funnel Lift</h3>
-                        <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-3xl space-y-4">
-                            <FunnelItem label="Start Measurement" value="100%" color="bg-neutral-300 dark:bg-neutral-700" />
-                            <FunnelItem label="Complete Measurement" value="62%" prevValue="38%" color="bg-blue-500" highlight />
-                            <FunnelItem label="View Results" value="58%" color="bg-blue-400" />
-                            <FunnelItem label="Return (7 Days)" value="35%" color="bg-purple-500" />
+                    {/* Fig 5: Funnel Analysis */}
+                    <div className="mb-20">
+                        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                            <div>
+                                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">First-Time Success</h3>
+                                <p className="text-neutral-500 text-sm">Measurement Completion Rate (Funnel)</p>
+                            </div>
+                            <div className="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full">
+                                <ArrowUpRight size={14} className="text-green-500" />
+                                <span className="text-xs font-bold text-green-500 uppercase tracking-wider">+21% Lift</span>
+                            </div>
                         </div>
+
+                        <div className="space-y-6">
+                            {/* V1 Bar */}
+                            <div className="group">
+                                <div className="flex justify-between text-xs font-medium text-neutral-500 mb-2 font-mono uppercase tracking-wider">
+                                    <span>Version 1.0</span>
+                                    <span>62.0%</span>
+                                </div>
+                                <div className="h-14 w-full bg-[#1A1A1A] rounded-xl overflow-hidden relative border border-white/5">
+                                    <div className="absolute inset-0 flex items-center px-4 z-10">
+                                        <span className="text-neutral-600 font-mono text-xs">Baseline</span>
+                                    </div>
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        whileInView={{ width: '62%' }}
+                                        transition={{ duration: 1.2, ease: "circOut" }}
+                                        className="h-full bg-neutral-700 opacity-40"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Redesign Bar */}
+                            <div className="group">
+                                <div className="flex justify-between text-xs font-bold text-white mb-2 font-mono uppercase tracking-wider">
+                                    <span>Redesign</span>
+                                    <span className="text-orange-500">75.0%</span>
+                                </div>
+                                <div className="h-14 w-full bg-[#1A1A1A] rounded-xl overflow-hidden relative border border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.1)]">
+                                    <div className="absolute inset-0 flex items-center px-4 z-10">
+                                        <span className="text-white font-mono text-xs font-bold">Current</span>
+                                    </div>
+                                    <motion.div
+                                        initial={{ width: 0 }}
+                                        whileInView={{ width: '75%' }}
+                                        transition={{ duration: 1.2, ease: "circOut", delay: 0.2 }}
+                                        className="h-full bg-gradient-to-r from-red-600 to-orange-500 relative"
+                                    >
+                                        <div className="absolute right-0 top-0 bottom-0 w-[1px] bg-white/50" />
+                                    </motion.div>
+                                </div>
+                            </div>
+                        </div>
+                        <p className="text-center text-neutral-600 mt-8 text-xs font-mono">
+                            FIG 5. FUNNEL COMPLETION DELTA
+                        </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 mb-16">
-                        <div className="p-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl">
-                            <div className="flex items-center justify-between mb-4">
-                                <h4 className="font-bold text-neutral-900 dark:text-white">Week 4 Retention</h4>
-                                <span className="text-green-500 font-bold">+46% Trend</span>
-                            </div>
-                            <div className="text-4xl font-bold text-neutral-900 dark:text-white mb-2">35%</div>
-                            <p className="text-sm text-neutral-500">Beat industry benchmark.</p>
+                    <Divider />
+
+                    {/* Fig 6: Retention Matrix */}
+                    <div className="mt-20">
+                        <div className="mb-10 text-center md:text-left">
+                            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Long-Term Retention</h3>
+                            <p className="text-neutral-500 text-sm">Cohort Analysis (Week 4 Engagement)</p>
                         </div>
-                        <div className="p-6 bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl">
-                            <div className="flex items-center justify-between mb-4">
-                                <h4 className="font-bold text-neutral-900 dark:text-white">First-Time Success</h4>
-                                <span className="text-green-500 font-bold">+21% Lift</span>
+
+                        <div className="overflow-x-auto">
+                            <div className="min-w-[600px] bg-[#1A1A1A] rounded-2xl border border-white/5 p-1">
+                                {/* Header */}
+                                <div className="grid grid-cols-4 p-4 border-b border-white/5 bg-white/5 rounded-t-xl">
+                                    <div className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Cohort</div>
+                                    <div className="text-right text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Week 1</div>
+                                    <div className="text-right text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Week 2</div>
+                                    <div className="text-right text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Week 4</div>
+                                </div>
+
+                                {/* Row 1: V1 */}
+                                <div className="grid grid-cols-4 p-6 border-b border-white/5 items-center">
+                                    <div className="font-medium text-neutral-500 text-sm">Legacy (V1)</div>
+                                    <div className="text-right font-mono text-neutral-600">15.1%</div>
+                                    <div className="text-right font-mono text-neutral-600">8.7%</div>
+                                    <div className="text-right font-mono text-neutral-500 font-bold">4.3%</div>
+                                </div>
+
+                                {/* Row 2: Redesign - Highlighted */}
+                                <div className="grid grid-cols-4 p-6 items-center relative overflow-hidden group">
+                                    <div className="absolute inset-0 bg-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-orange-500" />
+
+                                    <div className="font-bold text-white text-sm relative z-10 flex items-center gap-2">
+                                        Redesign
+                                        <span className="px-1.5 py-0.5 rounded bg-orange-500 text-[10px] text-white uppercase font-bold">Active</span>
+                                    </div>
+                                    <div className="text-right font-mono text-orange-200 relative z-10">18.4%</div>
+                                    <div className="text-right font-mono text-orange-200 relative z-10">12.5%</div>
+                                    <div className="text-right font-mono text-3xl font-bold text-white relative z-10 tracking-tighter">
+                                        9.8<span className="text-lg text-orange-500">%</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="text-4xl font-bold text-neutral-900 dark:text-white mb-2">62%</div>
-                            <p className="text-sm text-neutral-500">Up from 38% baseline.</p>
                         </div>
+                        <p className="text-center text-neutral-600 mt-8 text-xs font-mono">
+                            FIG 6. RETENTION COHORT ANALYSIS
+                        </p>
                     </div>
 
-                    <QuoteBlock quote="Trust is the ultimate metric. If users don't believe the data, the UI doesn't matter." />
+                    <Divider />
 
-                    {/* Future Roadmap - NEW */}
-                    <div className="mt-24 p-12 bg-neutral-900 dark:bg-neutral-800 rounded-[3rem] text-white">
-                        <div className="max-w-3xl">
-                            <h3 className="text-4xl font-bold mb-6 flex items-center gap-4">
-                                <Repeat className="text-purple-400" /> What's Next?
-                            </h3>
-                            <p className="text-xl text-neutral-400 mb-12">
-                                Building "Invisible Health Tracking" as core product vision.
-                            </p>
-                            <div className="grid md:grid-cols-2 gap-8">
-                                <div>
-                                    <h4 className="font-bold text-lg mb-2">Expanding Metrics</h4>
-                                    <p className="text-neutral-400 text-sm">Using same PPG tech for Stress Levels (HRV) and Blood Oxygen (SpO2).</p>
+                    <div className="mt-20">
+                        <div className="mb-10 text-center md:text-left">
+                            <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Learnings</h3>
+                            {/* <p className="text-neutral-500 text-sm"></p> */}
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                            {/* Card 1 */}
+                            <div className="bg-neutral-50 dark:bg-neutral-900/50 p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 hover:border-red-500/30 transition-colors group">
+                                <div className="w-14 h-14 rounded-2xl bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Shield size={28} />
                                 </div>
-                                <div>
-                                    <h4 className="font-bold text-lg mb-2">Predictive Health</h4>
-                                    <p className="text-neutral-400 text-sm">Analyzing historical data to predict cardiovascular issues before they become critical.</p>
+                                <h4 className="font-bold text-xl text-neutral-900 dark:text-white mb-4 leading-tight">Trust is the Ultimate Metric</h4>
+                                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
+                                    A 'wow' feature that fails is worse than no feature. In health tech, flawless execution matters more than novelty.
+                                </p>
+                            </div>
+
+                            {/* Card 2 */}
+                            <div className="bg-neutral-50 dark:bg-neutral-900/50 p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 hover:border-purple-500/30 transition-colors group">
+                                <div className="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <Layers size={28} />
                                 </div>
+                                <h4 className="font-bold text-xl text-neutral-900 dark:text-white mb-4 leading-tight">Design is the Synthesizer</h4>
+                                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
+                                    I connected analytics, user feedback, and business strategy. Artifacts like the journey map aligned the team on the 'why'.
+                                </p>
+                            </div>
+
+                            {/* Card 3 */}
+                            <div className="bg-neutral-50 dark:bg-neutral-900/50 p-8 rounded-3xl border border-neutral-200 dark:border-neutral-800 hover:border-blue-500/30 transition-colors group">
+                                <div className="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                    <TrendingUp size={28} />
+                                </div>
+                                <h4 className="font-bold text-xl text-neutral-900 dark:text-white mb-4 leading-tight">Retention is a System</h4>
+                                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed text-sm">
+                                    UI fixes don't solve retention. Impact came from designing the <span className="italic font-medium text-neutral-900 dark:text-white">entire system</span>—contextual results, trends, and smart notifications.
+                                </p>
                             </div>
                         </div>
                     </div>
