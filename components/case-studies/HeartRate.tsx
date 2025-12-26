@@ -117,7 +117,7 @@ export const HeartRateCaseStudy: React.FC = () => {
         {
             title: "Ecosystem Integration",
             desc: "Made result screen a gateway to ecosystem. Added links to Heart Health Assessments, Lab Packages, and ABHA health ID.",
-            image: "https://ik.imagekit.io/vtitfjbr6/hr/ecosystem-growth.png"
+            image: "https://ik.imagekit.io/vtitfjbr6/hr/ecosystem-growth.png?updatedAt=1766602505622"
         }
     ];
 
@@ -158,8 +158,8 @@ export const HeartRateCaseStudy: React.FC = () => {
 
                 <CaseMeta
                     role="Lead Product Designer"
-                    team="1 PM, 2 Engineers"
-                    timeline="4 Months"
+                    team="1 PM, 6 Engineers"
+                    timeline="1 Month (Dec 2022 - Jan 2023)"
                     overview="I fixed a feature with 38% drop-off. It became the primary driver for daily active users."
                 />
 
@@ -449,7 +449,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                             <div className="relative overflow-hidden rounded-3xl">
                                 <div className="absolute -inset-10 bg-blue-500/5 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                                 <ZoomableImage
-                                    src="https://ik.imagekit.io/vtitfjbr6/hr/flowchart.png"
+                                    src="https://ik.imagekit.io/vtitfjbr6/hr/flowchart.png?updatedAt=1766686627224"
                                     alt="Strategic Design Interventions Flowchart"
                                     className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg"
                                     fill={false}
@@ -470,7 +470,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     Fixed <span className="text-orange-500">First-Try</span> Success
                                 </h3>
                                 <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed font-medium">
-                                    I built four onboarding fixes that cut the 38% drop-off to 17%. Each fix solved a specific failure point.
+                                    We built four onboarding fixes that cut the 38% drop-off to 17%. Each fix solved a specific failure point.
                                 </p>
 
                                 <div className="space-y-4">
@@ -581,7 +581,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     Fixed <span className="text-orange-500">First-Try</span> Success
                                 </h3>
                                 <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
-                                    I built four fixes that cut drop-off from 38% to 17%.
+                                    We built four fixes that cut drop-off from 38% to 17%.
                                 </p>
                             </div>
 
@@ -647,7 +647,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     Built <span className="text-green-500">Trust</span> in Measurement
                                 </h3>
                                 <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed font-medium">
-                                    I built four measurement fixes that eliminated user doubt. Each fix addressed a specific trust issue.
+                                    We built four measurement fixes that eliminated user doubt. Each fix addressed a specific trust issue.
                                 </p>
 
                                 <div className="space-y-4">
@@ -751,7 +751,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     Built <span className="text-green-500">Trust</span> in Measurement
                                 </h3>
                                 <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
-                                    I built four fixes that eliminated user doubt during measurement.
+                                    We built four fixes that eliminated user doubt during measurement.
                                 </p>
                             </div>
 
@@ -810,7 +810,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     Made <span className="text-blue-500">Results</span> Actionable
                                 </h3>
                                 <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12 leading-relaxed font-medium">
-                                    I rebuilt the result screen from a dead-end number to a health dashboard that drives repeat usage.
+                                    We rebuilt the result screen from a dead-end number to a health dashboard that drives repeat usage.
                                 </p>
 
                                 <div className="space-y-4">
@@ -875,7 +875,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     Made <span className="text-blue-500">Results</span> Actionable
                                 </h3>
                                 <p className="text-base text-neutral-600 dark:text-neutral-400 leading-relaxed font-medium">
-                                    I rebuilt the result screen from a dead-end number to a health dashboard that drives repeat usage.
+                                    We rebuilt the result screen from a dead-end number to a health dashboard that drives repeat usage.
                                 </p>
                             </div>
 
