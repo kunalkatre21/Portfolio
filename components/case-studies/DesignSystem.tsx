@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Layers, GitBranch, Terminal, FileCode, RefreshCw, FolderIcon, FileType, CheckCircle, AlertTriangle, ArrowRight, Smartphone, Zap, XCircle, Info, Database, LayoutTemplate, Monitor, Cpu, Table, Check, Loader2, Activity, Heart, Scale, Thermometer } from 'lucide-react';
+import { Layers, GitBranch, Terminal, FileCode, RefreshCw, FolderIcon, FileType, CheckCircle, AlertTriangle, ArrowRight, ChevronRight, Plus, Smartphone, Zap, XCircle, Info, Database, LayoutTemplate, Monitor, Cpu, Table, Check, Loader2, Activity, Heart, Scale, Thermometer } from 'lucide-react';
 import { InsightCard, CodeBlock, StatCard, SectionTitle, Divider, CaseMeta } from './Shared';
 import { ASSETS } from '../../data';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -919,7 +919,12 @@ const LiveSimulator = () => {
                         >
                             <div className="h-8 bg-black/5 dark:bg-white/5 w-1/2 mx-auto rounded-b-xl mb-4" />
                             <div className="px-4">
-                                <h3 className="text-3xl font-bold text-black dark:text-white mb-4 tracking-tight">Health</h3>
+                                <div className="flex justify-between items-center mb-4">
+                                    <h3 className="text-3xl font-bold text-black dark:text-white tracking-tight">Vitals</h3>
+                                    <button className={`${activeTheme.primaryText} font-semibold p-1`}>
+                                        <Plus size={24} />
+                                    </button>
+                                </div>
                                 <div className="bg-white dark:bg-[#1C1C1E] rounded-xl overflow-hidden mb-6">
                                     {vitals.map((v, i) => (
                                         <div key={i} className={`flex items-center justify-between p-4 border-b border-neutral-100 dark:border-neutral-800 last:border-0`}>
@@ -928,9 +933,9 @@ const LiveSimulator = () => {
                                                 <span className="font-medium text-black dark:text-white">{v.label}</span>
                                             </div>
                                             <div className="flex items-center gap-2">
-                                                <span className="text-neutral-500">{v.value}</span>
-                                                <span className="text-xs text-neutral-400">{v.unit}</span>
-                                                <ArrowRight size={14} className="text-neutral-300" />
+                                                <span className="text-lg font-semibold text-black dark:text-white">{v.value}</span>
+                                                <span className="text-[10px] font-medium text-neutral-500 uppercase">{v.unit}</span>
+                                                <ChevronRight size={14} className="text-neutral-300" />
                                             </div>
                                         </div>
                                     ))}
@@ -955,6 +960,13 @@ const LiveSimulator = () => {
                                 <div className="w-3 h-3 rounded-full bg-green-400" />
                             </div>
 
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="text-2xl font-bold text-neutral-900 dark:text-white">Vitals</h3>
+                                <button className={`px-4 py-2 rounded-lg text-white font-medium text-xs flex items-center gap-2 ${activeTheme.primary}`}>
+                                    <Plus size={14} /> Add Entry
+                                </button>
+                            </div>
+
                             <div className="grid grid-cols-3 gap-4">
                                 {vitals.map((v, i) => (
                                     <div key={i} className={`rounded-xl border p-4 flex flex-col justify-between h-32 ${activeTheme.surface} ${activeTheme.border}`}>
@@ -969,14 +981,12 @@ const LiveSimulator = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className={`mt-6 self-end px-4 py-2 rounded-lg text-white font-medium text-sm ${activeTheme.primary}`}>
-                                Download Report
-                            </div>
+
                         </motion.div>
                     )}
                 </AnimatePresence>
             </div>
-        </div>
+        </div >
     )
 }
 

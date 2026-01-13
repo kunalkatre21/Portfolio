@@ -20,12 +20,15 @@ export const ASSETS = {
       downloadFlow: `${IK_BASE}/cowin/download-flow-1.png`
     },
     designSystem: {
-      cover: "https://picsum.photos/seed/designsystem/800/800", // Update when links provided
-      hero: "https://picsum.photos/seed/designsystem/1200/800"
+      cover: `${IK_BASE}/ds/cover.png`,
+      hero: `${IK_BASE}/ds/cover.png`,
+      figmaGitRepos: `${IK_BASE}/ds/figma-git-repos.png`,
+      platformBindingLayer: `${IK_BASE}/ds/platform-binding-layer.png`,
+      tokenTaxonomy: `${IK_BASE}/ds/3-tier-token.png?updatedAt=1768301971227`
     },
     webInfra: {
-      cover: "https://picsum.photos/seed/webinfra/800/800", // Update when links provided
-      hero: "https://picsum.photos/seed/webinfra/1200/800"
+      cover: `${IK_BASE}/webflow/cover.png`,
+      hero: `${IK_BASE}/webflow/cover.png`
     },
     heartRate: {
       cover: `${IK_BASE}/hr/homepage-card-images/form4.png`,
@@ -74,6 +77,12 @@ export const works: WorkItem[] = [
     category: "Infrastructure",
     description: "Automated design tokens from Figma to Production. Zero handoff errors across Android, iOS, and Web.",
     image: ASSETS.projects.designSystem.cover,
+    gallery: [
+      "https://ik.imagekit.io/vtitfjbr6/ds/cover.png",
+      "https://ik.imagekit.io/vtitfjbr6/ds/figma-git-repos.png",
+      "https://ik.imagekit.io/vtitfjbr6/ds/platform-binding-layer.png",
+      "https://ik.imagekit.io/vtitfjbr6/ds/3-tier-token.png?updatedAt=1768301971227"
+    ],
     tags: ["Design Ops", "Automation", "Design Tokens"],
     liveUrl: "#"
   },
@@ -83,6 +92,9 @@ export const works: WorkItem[] = [
     category: "No-Code & AI",
     description: "Built a self-serve web engine. Reduced marketing campaign launch time by 80% using AI workflows.",
     image: ASSETS.projects.webInfra.cover,
+    gallery: [
+      `${IK_BASE}/webflow/cover.png`
+    ],
     tags: ["Webflow", "AI Ops", "Speed"],
     liveUrl: "#"
   }
