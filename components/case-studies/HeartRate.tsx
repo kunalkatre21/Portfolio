@@ -159,7 +159,7 @@ export const HeartRateCaseStudy: React.FC = () => {
                 <CaseMeta
                     role="Lead Product Designer"
                     team="1 PM, 6 Engineers"
-                    timeline="1 Month (Dec 2022 - Jan 2023)"
+                    timeline="1.5 Month (Dec 2022 - Jan 2023)"
                     overview="I fixed a feature with 38% drop-off. It became the primary driver for daily active users."
                 />
 
@@ -242,9 +242,9 @@ export const HeartRateCaseStudy: React.FC = () => {
                                     <p className="text-xs text-neutral-500 font-medium">Muscle memory was failing the technology.</p>
                                 </div>
                                 <div className="relative pl-8 border-l-2 border-red-500/30">
-                                    <h4 className="text-sm font-black uppercase tracking-widest text-red-500 mb-4">Trust & Accuracy</h4>
+                                    <h4 className="text-sm font-black uppercase tracking-widest text-red-500 mb-4">Dead-end Result</h4>
                                     <p className="text-neutral-700 dark:text-neutral-300 italic text-xl leading-snug font-medium mb-4">
-                                        "I just came from running, but my bpm is 58. I don't trust it."
+                                        "Alright! I got the result... What should I do next?"
                                     </p>
                                     <p className="text-xs text-neutral-500 font-medium">Opaque results led to immediate abandonment.</p>
                                 </div>
